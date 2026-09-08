@@ -1,0 +1,26 @@
+schema_version: 1
+source: simulation
+debug_native_viewer: false
+mujoco_render:
+  mode: mujoco
+  backend: egl
+  width: 640
+  height: 480
+  fps: 20
+  jpeg_quality: 85
+host: 127.0.0.1
+http_port: 8000
+websocket_port: 8765
+rates_hz:
+  physics: 500
+  visualization: 30
+  sensor_telemetry: 25
+  plots: 15
+history:
+  maximum_samples_per_sensor: 600
+  maximum_streamed_accumulated_points: 2500
+replay:
+  path: null
+recording:
+  enabled: false
+  path: experiments/common_state_stream.jsonl

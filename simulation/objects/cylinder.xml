@@ -1,0 +1,13 @@
+<mujoco model="tactile_test_cylinder">
+  <compiler angle="radian"/>
+  <asset>
+    <material name="cylinder_material" rgba="0.96 0.52 0.16 1" metallic="0.04" roughness="0.36"/>
+  </asset>
+  <worldbody>
+    <body name="cylinder_object" pos="0 -0.070 0.105" gravcomp="1">
+      <freejoint name="cylinder_object_free"/>
+      <geom name="cylinder_object_geom" type="cylinder" size="0.025 0.035" mass="0.500"
+            contype="1" conaffinity="1" material="cylinder_material"/>
+    </body>
+  </worldbody>
+</mujoco>

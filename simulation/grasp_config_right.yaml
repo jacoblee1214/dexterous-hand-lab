@@ -1,0 +1,213 @@
+schema_version: 1
+hand: right
+config_version: right-sphere-grasp-v4-teach-in
+opposition_joint: joint_00
+secondary_opposition_joint: joint_01
+stage_duration_seconds: 0.65
+reference_settling:
+  position_tolerance_rad: 0.02
+  velocity_threshold_rad_s: 0.03
+  maximum_duration_seconds: 5.0
+compliant_closure:
+  duration_seconds: 1.0
+  settling_dwell_seconds: 0.4
+  settling_velocity_threshold_rad_s: 0.03
+  preload_target_offset_rad: 0.02
+teach_in:
+  default_segment_duration_seconds: 1.0
+  default_pose_tolerance_rad: 0.03
+  maximum_target_velocity_rad_s: 0.8
+stages:
+- name: thumb_opposition
+  joints:
+  - joint_00
+  - joint_01
+- name: index_middle_approach
+  joints:
+  - joint_10
+  - joint_11
+  - joint_12
+  - joint_13
+  - joint_20
+  - joint_21
+  - joint_22
+  - joint_23
+- name: ring_little_approach
+  joints:
+  - joint_30
+  - joint_31
+  - joint_32
+  - joint_33
+  - joint_40
+  - joint_41
+  - joint_42
+  - joint_43
+- name: final_grasp
+  joints: []
+presets:
+  sphere_30mm:
+    radius_m: 0.03
+    sphere_center_xyz:
+    - -0.01
+    - -0.08
+    - 0.105
+    joint_targets:
+      joint_00: -0.0349066
+      joint_01: -1.05
+      joint_02: 1.2
+      joint_03: 1.05
+      joint_10: 0.0
+      joint_11: 0.75
+      joint_12: 0.7
+      joint_13: 0.7
+      joint_20: 0.0
+      joint_21: 0.75
+      joint_22: 0.72
+      joint_23: 0.87
+      joint_30: 0.0
+      joint_31: 0.1
+      joint_32: 1.16
+      joint_33: 0.87
+      joint_40: 0.0
+      joint_41: 1.14
+      joint_42: 0.14
+      joint_43: 0.0
+  sphere_40mm:
+    radius_m: 0.04
+    sphere_center_xyz:
+    - -0.015
+    - -0.07
+    - 0.115
+    joint_targets:
+      joint_00: -0.0349066
+      joint_01: -0.9
+      joint_02: 1.2
+      joint_03: 1.0
+      joint_10: 0.0
+      joint_11: 0.75
+      joint_12: 0.72
+      joint_13: 0.87
+      joint_20: 0.0
+      joint_21: 0.49
+      joint_22: 0.58
+      joint_23: 1.3
+      joint_30: 0.0
+      joint_31: 0.62
+      joint_32: 0.29
+      joint_33: 1.01
+      joint_40: 0.0
+      joint_41: 1.14
+      joint_42: 0.0
+      joint_43: 0.0
+  sphere_50mm:
+    radius_m: 0.05
+    sphere_center_xyz:
+    - 0.0
+    - -0.095
+    - 0.105
+    joint_targets:
+      joint_00: -0.0349066
+      joint_01: -1.35
+      joint_02: 1.05
+      joint_03: 0.9
+      joint_10: 0.0
+      joint_11: 0.75
+      joint_12: 0.43
+      joint_13: 0.72
+      joint_20: 0.0
+      joint_21: 0.75
+      joint_22: 0.72
+      joint_23: 0.0
+      joint_30: 0.0
+      joint_31: 0.88
+      joint_32: 0.0
+      joint_33: 0.58
+      joint_40: 0.0
+      joint_41: 0.75
+      joint_42: 0.29
+      joint_43: 0.87
+  sphere_60mm:
+    radius_m: 0.06
+    sphere_center_xyz:
+    - 0.0
+    - -0.1
+    - 0.105
+    joint_targets:
+      joint_00: -0.0349066
+      joint_01: -0.45
+      joint_02: 0.9
+      joint_03: 0.8
+      joint_10: 0.0
+      joint_11: 0.88
+      joint_12: 0.0
+      joint_13: 0.72
+      joint_20: 0.0
+      joint_21: 0.75
+      joint_22: 0.43
+      joint_23: 0.0
+      joint_30: 0.0
+      joint_31: 0.49
+      joint_32: 0.29
+      joint_33: 0.72
+      joint_40: 0.0
+      joint_41: 0.49
+      joint_42: 0.58
+      joint_43: 0.43
+  grasp:
+    radius_m: 0.03
+    sphere_center_xyz:
+    - -0.01
+    - -0.08
+    - 0.105
+    joint_targets: &id001
+      joint_00: 1.101934772900134
+      joint_01: -1.2507539658680342
+      joint_02: 0.4261722081829646
+      joint_03: 0.5819326055416422
+      joint_10: 0.2858162583261892
+      joint_11: 1.0791244192096558
+      joint_12: 0.30358888498317865
+      joint_13: 0.6296624878986621
+      joint_20: 0.0020213584335608656
+      joint_21: 0.9376595169367941
+      joint_22: 0.40230779506429
+      joint_23: 0.6279152192074249
+      joint_30: -0.0016470772010561833
+      joint_31: 0.7418488455876224
+      joint_32: 0.4970274700990432
+      joint_33: 0.5897098652501229
+      joint_40: -0.009793327784000697
+      joint_41: 0.688545243959507
+      joint_42: 0.6753514209076501
+      joint_43: 0.3341204651317613
+    taught:
+      target_source: actual_measured
+      waypoint_role: final_grasp
+      actuator_targets:
+        joint_00: 1.0814372094016471
+        joint_01: -1.2564155532987638
+        joint_02: 0.432349871265159
+        joint_03: 0.5827202514893015
+        joint_10: 0.2804504146290478
+        joint_11: 1.0575925079157154
+        joint_12: 0.29402615072235866
+        joint_13: 0.6275812660231432
+        joint_20: 0.0022822022667183
+        joint_21: 0.9163158653481986
+        joint_22: 0.3923709187315584
+        joint_23: 0.6257051071999977
+        joint_30: -0.0007063229048306282
+        joint_31: 0.7388862893944498
+        joint_32: 0.4993725133171079
+        joint_33: 0.5924637100861475
+        joint_40: -0.0048772450445737385
+        joint_41: 0.669751059632694
+        joint_42: 0.6653922024854073
+        joint_43: 0.33179808277647277
+      measured_joint_positions: *id001
+      metadata:
+        created_at_utc: '2026-09-08T02:38:05.547345+00:00'
+        hand: right
+        grasp_config_version: right-sphere-grasp-v4-teach-in
+        joint_mapping_version: 25d2d9ab668e17046236a1e73f02b2041e21ecb9606b1ab1de86be9236874970
+        urdf_version: b0fcc792f9905cf5c565a01eb867aded877a1c4e2616af344d2622f6646df292

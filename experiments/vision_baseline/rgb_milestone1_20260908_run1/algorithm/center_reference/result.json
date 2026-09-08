@@ -1,0 +1,47 @@
+{
+  "input_boundary": "clean_rgb_only",
+  "camera_timestamp": 0.4020000000000003,
+  "camera_id": "external_rgb_01",
+  "segmentation": {
+    "status": "SEGMENTATION_OK",
+    "confidence": 0.775,
+    "pixel_count": 6365,
+    "boundary_pixel_count": 422,
+    "angular_boundary_coverage": 1.0,
+    "processing_time_ms": 25.066588073968887,
+    "assumption": "controlled blue-sphere color threshold; not general object segmentation"
+  },
+  "sphere": {
+    "status": "KNOWN_RADIUS_CENTER_ESTIMATED",
+    "identifiability": "metric center identifiable from calibrated silhouette plus declared radius",
+    "radius_m": 0.04,
+    "radius_label": "provided_known_radius_prior",
+    "estimated_center_camera_cv_m": [
+      -0.053993874957181824,
+      -0.06634695140452254,
+      0.46275818688868486
+    ],
+    "estimated_center_world_m": [
+      -0.01683227517370539,
+      -0.068177372945597,
+      0.1155773504591607
+    ],
+    "silhouette_residual_pixels": 2.3701066890326716,
+    "normal_matrix_condition": 75.63988230952212,
+    "processing_time_ms": 2.1149301901459694
+  },
+  "unknown_radius_setting": {
+    "status": "SCALE_AMBIGUOUS",
+    "identifiability": "single calibrated RGB silhouette constrains viewing direction and angular size, but absolute center depth and radius share an unknown metric scale",
+    "radius_m": null,
+    "radius_label": "not_estimated",
+    "center_depth_m": null,
+    "approximate_viewing_direction_camera_cv": [
+      -0.1127284231238127,
+      -0.14234351733430586,
+      0.9833771533307639
+    ],
+    "approximate_angular_radius_rad": 0.08962065798001596
+  },
+  "projected_estimated_tactile_contacts": []
+}

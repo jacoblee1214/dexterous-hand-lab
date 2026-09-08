@@ -1,0 +1,13 @@
+<mujoco model="tactile_test_sphere">
+  <compiler angle="radian"/>
+  <asset>
+    <material name="sphere_material" rgba="0.22 0.56 0.96 1" metallic="0.05" roughness="0.32"/>
+  </asset>
+  <worldbody>
+    <body name="sphere_object" pos="0 -0.070 0.105" gravcomp="1">
+      <freejoint name="sphere_object_free"/>
+      <geom name="sphere_object_geom" type="sphere" size="0.030" mass="0.500"
+            contype="1" conaffinity="1" material="sphere_material"/>
+    </body>
+  </worldbody>
+</mujoco>

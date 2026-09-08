@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tactile Sphere Reconstruction</title>
+  <link rel="stylesheet" href="styles.css?v=rgb-baseline-20260908.1">
+  <script type="importmap">
+    {"imports": {"three": "./vendor/three/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Tactile Sphere Reconstruction</h1>
+      <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE ONLY</span>
+      <span id="build-id" class="build-id">UI rgb-baseline-20260908.1 · API —</span>
+    </div>
+    <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
+  </header>
+
+  <div id="stream-status" role="status">Waiting for provider state</div>
+  <main class="dashboard-grid">
+    <section class="quadrant simulation-panel">
+      <div class="panel-heading">
+        <div><span class="quadrant-label">TOP LEFT</span><h2>Robot Hand Digital Twin</h2></div>
+        <span id="simulation-time" class="mono">t = 0.000 s</span>
+      </div>
+      <div class="toolbar">
+        <button data-command="open_hand">Open Hand</button>
+        <button data-command="grasp" class="primary">Sphere Grasp</button>
+        <button data-command="reset">Reset</button>
+        <button id="simulation-toggle">Pause Simulation</button>
+      </div>
+      <div class="toolbar radius-group">
+        <span>Sphere radius</span>
+        <button data-radius="0.03">30 mm</button>
+        <button data-radius="0.04">40 mm</button>
+        <button data-radius="0.05">50 mm</button>
+        <button data-radius="0.06">60 mm</button>
+      </div>
+      <div class="toolbar render-controls">
+        <label>View <select id="render-mode"><option value="mujoco">MuJoCo Debug Render</option><option value="research">Research RGB Camera</option><option value="mesh">Mesh Digital Twin (debug)</option></select></label>
+        <button id="reset-render-camera">Reset Camera</button>
+        <label><input id="show-projected-contacts" type="checkbox"> Project tactile contacts</label>
+        <span id="render-frame-status" class="mono">Renderer starting…</span>
+      </div>
+      <details class="joint-controls">
+        <summary>Individual Joint Targets &amp; Grasp Presets</summary>
+        <div class="grasp-control-grid">
+          <label>Experiment mode
+            <select id="experiment-mode">
+              <option value="fixed_contact_diagnostic">Fixed-object contact diagnostic</option>
+              <option value="free_object_grasp">Free-object grasp (supported)</option>
+            </select>
+          </label>
+          <span id="mode-explanation" class="control-note"></span>
+          <label>Named preset <select id="grasp-preset"></select></label>
+          <button id="load-grasp-preset">Load Named Grasp Pose</button>
+          <label>New preset name <input id="new-grasp-preset-name" placeholder="required_unique_name" autocomplete="off"></label>
+          <button id="save-grasp-preset">Save Current Grasp Pose</button>
+        </div>
+        <div class="toolbar wrap stage-controls">
+          <span>Execute grasp in stages</span>
+          <button data-command="reset_reference_pose">0 Reference</button>
+          <button data-grasp-stage="1">1 Thumb</button>
+          <button data-grasp-stage="2">2 Index + Middle</button>
+          <button data-grasp-stage="3">3 Ring + Little</button>
+          <button data-grasp-stage="4">4 Compliant Closure</button>
+        </div>
+        <section class="teach-grasp-controls">
+          <div class="teach-heading">
+            <strong>Teach Grasp Pose</strong>
+            <button id="teach-mode-toggle">Enable Teach Grasp Pose</button>
+            <span id="teach-status" class="control-note">Teach mode is disabled</span>
+          </div>
+          <div class="teach-grid">
+            <label>Validation
+              <select id="pose-validation-mode">
+                <option value="pose_reproduction_no_object">Pose reproduction — no object</option>
+                <option value="physical_sphere_grasp">Physical sphere grasp — free supported sphere</option>
+              </select>
+            </label>
+            <label>Saved taught pose <select id="taught-pose"></select></label>
+            <button id="load-taught-pose">Load Selection (no motion)</button>
+            <label>New pose name <input id="new-taught-pose-name" placeholder="required_unique_name" autocomplete="off"></label>
+            <label>Save vector
+              <select id="taught-pose-source">
+                <option value="actual_measured">Actual measured joints (settled only)</option>
+                <option value="actuator_target">Current actuator targets</option>
+              </select>
+            </label>
+            <label>Waypoint role
+              <select id="taught-waypoint-role">
+                <option value="reference_open">Reference/open</option>
+                <option value="thumb_opposition">Thumb opposition</option>
+                <option value="finger_approach">Finger approach</option>
+                <option value="final_grasp" selected>Final grasp</option>
+              </select>
+            </label>
+            <button id="save-taught-pose" class="primary">Save Taught Pose</button>
+            <label class="teach-sequence">Waypoint names
+              <input id="taught-waypoint-sequence" placeholder="open,thumb,approach,final" autocomplete="off">
+            </label>
+            <label>Each duration (s) <input id="taught-duration" type="number" min="0.2" max="30" step="0.1" value="1.0"></label>
+            <label>Tolerance (rad) <input id="taught-tolerance" type="number" min="0.001" max="0.2" step="0.001" value="0.03"></label>
+            <button id="execute-taught-grasp" class="primary">Execute Taught Grasp</button>
+            <button id="stop-taught-grasp">Stop Taught Motion</button>
+          </div>
+          <p class="control-note">Waypoint names are executed exactly in the listed order with bounded actuator-target interpolation. Empty means the selected taught pose only.</p>
+        </section>
+        <div id="joint-target-grid"></div>
+        <div class="joint-diagnostics-shell">
+          <table id="joint-diagnostics"><thead><tr><th>Joint</th><th>Taught (rad)</th><th>Actuator target (rad)</th><th>Actual (rad)</th><th>Error (rad)</th><th>Velocity (rad/s)</th><th>Force (N·m)</th><th>Measured cause</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="named-experiment-controls">
+          <label>Experiment name <input id="experiment-name" placeholder="required_experiment_name" autocomplete="off"></label>
+          <button id="start-experiment" class="primary">Start Named Trial</button>
+          <button id="finish-experiment">Finish + Save Trial</button>
+          <button id="repeat-experiment">Repeat Initial Conditions</button>
+          <span id="experiment-status" class="control-note">No named trial active</span>
+        </div>
+        <div id="grasp-diagnostics" class="grasp-diagnostics mono"></div>
+      </details>
+      <div class="canvas-shell large">
+        <img id="mujoco-render" alt="Live MuJoCo rendering of the robotic hand and sphere" draggable="false">
+        <img id="research-rgb" class="view-hidden" alt="Clean calibrated research RGB camera observation" draggable="false">
+        <canvas id="research-contact-overlay" class="view-hidden"></canvas>
+        <canvas id="simulation-canvas" class="view-hidden"></canvas>
+        <div class="legend">
+          <span><i class="hand"></i>Hand</span><span><i class="sensor"></i>Sensor</span>
+          <span><i class="active"></i>Active</span><span><i class="contact"></i>Estimated contact</span>
+          <span><i class="points"></i>Accumulated</span><span><i class="estimate"></i>Estimated sphere</span>
+          <span><i class="truth"></i>GT (optional)</span>
+        </div>
+        <span class="canvas-help">Left drag: orbit · right drag: pan · wheel: zoom</span>
+        <span id="mesh-status" class="mesh-status view-hidden">Mesh viewer not loaded</span>
+        <span id="render-error" class="render-error view-hidden"></span>
+      </div>
+      <div id="simulation-summary" class="status-strip"></div>
+    </section>
+
+    <section class="quadrant telemetry-panel">
+      <div class="panel-heading">
+        <div><span class="quadrant-label">TOP RIGHT</span><h2>Live Sensor Telemetry</h2></div>
+        <span id="active-count" class="metric-pill">0 / 18 active</span>
+      </div>
+      <div class="table-shell">
+        <table id="sensor-table">
+          <thead><tr>
+            <th>Sensor ID</th><th>Finger</th><th>Active</th>
+            <th>Scalar Sensor Value (N)</th><th>Normal Contact Force (N)</th>
+            <th>Estimated Pressure (Pa)</th><th>Estimated Indentation Depth (m)</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="selected-sensor" class="detail-card">
+        <h3>Selected Sensor</h3><p>Waiting for state…</p>
+      </div>
+    </section>
+
+    <section class="quadrant plots-panel">
+      <div class="panel-heading">
+        <div><span class="quadrant-label">BOTTOM LEFT</span><h2>Sensor Time-Series</h2></div>
+        <select id="series-scope">
+          <option value="selected_sensor">Single sensor</option>
+          <option value="single_finger">Single finger</option>
+          <option value="active_sensors">Active sensors</option>
+        </select>
+      </div>
+      <div class="plot-grid">
+        <div class="plot"><h3>Scalar Sensor Value vs Time</h3><canvas data-field="scalar_sensor_value_n" data-unit="N"></canvas></div>
+        <div class="plot"><h3>Normal Contact Force vs Time</h3><canvas data-field="normal_contact_force_n" data-unit="N"></canvas></div>
+        <div class="plot"><h3>Estimated Pressure vs Time</h3><canvas data-field="estimated_pressure_pa" data-unit="Pa"></canvas></div>
+        <div class="plot"><h3>Estimated Indentation Depth vs Time</h3><canvas data-field="estimated_indentation_depth_m" data-unit="m"></canvas></div>
+      </div>
+      <div id="series-legend" class="series-legend"></div>
+    </section>
+
+    <section class="quadrant reconstruction-panel">
+      <div class="panel-heading">
+        <div><span class="quadrant-label">BOTTOM RIGHT</span><h2>Object Reconstruction</h2></div>
+        <span id="fit-status" class="status-badge">NOT_FITTED</span>
+      </div>
+      <div class="toolbar wrap">
+        <button data-command="start_accumulation" class="primary">Start Accumulation</button>
+        <button data-command="pause_accumulation">Pause Accumulation</button>
+        <button data-command="reset_points">Reset Points</button>
+        <button data-command="fit_sphere" class="primary">Fit Sphere</button>
+        <button data-command="reset_fit">Reset Fit</button>
+        <label><input id="show-estimated" type="checkbox" checked> Show Estimated Sphere</label>
+        <label class="evaluation-toggle"><input id="show-ground-truth" type="checkbox"> Show Ground Truth</label>
+      </div>
+      <div class="reconstruction-body">
+        <div class="canvas-shell"><canvas id="reconstruction-canvas"></canvas></div>
+        <div>
+          <dl id="reconstruction-metrics" class="metrics"></dl>
+      <div id="evaluation-metrics" class="evaluation-card hidden"></div>
+      <div id="vision-only-metrics" class="vision-card">
+        <h3>Vision-only RGB sphere baseline</h3>
+        <p>Waiting for calibrated RGB observation…</p>
+      </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="app.js?v=rgb-baseline-20260908.1"></script>
+</body>
+</html>

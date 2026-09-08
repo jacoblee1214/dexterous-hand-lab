@@ -1,0 +1,49 @@
+{
+  "input_boundary": "clean_rgb_only",
+  "camera_timestamp": 6.1339999999995465,
+  "camera_id": "external_rgb_01",
+  "segmentation": {
+    "status": "SEGMENTATION_OK",
+    "confidence": 0.5375,
+    "pixel_count": 7071,
+    "boundary_pixel_count": 1030,
+    "angular_boundary_coverage": 0.9166666666666666,
+    "processing_time_ms": 16.82809996418655,
+    "assumption": "controlled blue-sphere color threshold; not general object segmentation"
+  },
+  "sphere": {
+    "status": "FIT_UNRELIABLE",
+    "identifiability": "metric center identifiable from calibrated silhouette plus declared radius",
+    "radius_m": 0.04,
+    "radius_label": "provided_known_radius_prior",
+    "estimated_center_camera_cv_m": null,
+    "estimated_center_world_m": null,
+    "silhouette_residual_pixels": 89.05291305763484,
+    "normal_matrix_condition": 747.3100493864813,
+    "processing_time_ms": 7.979398127645254
+  },
+  "unknown_radius_setting": {
+    "status": "SCALE_AMBIGUOUS",
+    "identifiability": "single calibrated RGB silhouette constrains viewing direction and angular size, but absolute center depth and radius share an unknown metric scale",
+    "radius_m": null,
+    "radius_label": "not_estimated",
+    "center_depth_m": null,
+    "approximate_viewing_direction_camera_cv": [
+      -0.1034083530816816,
+      -0.18879139691059302,
+      0.9765574847214481
+    ],
+    "approximate_angular_radius_rad": 0.1179695460452842
+  },
+  "projected_estimated_tactile_contacts": [
+    {
+      "sensor_id": "Finger03_Tip_Sensor",
+      "pixel_uv": [
+        281.2934927037796,
+        143.0566622527984
+      ],
+      "depth_camera_cv_m": 0.42531375413869205,
+      "visible_in_image_bounds": true
+    }
+  ]
+}

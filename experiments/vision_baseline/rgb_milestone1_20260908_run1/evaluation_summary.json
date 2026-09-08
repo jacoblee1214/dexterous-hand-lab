@@ -1,0 +1,54 @@
+{
+  "boundary": "ground_truth_evaluation_only",
+  "known_radius_and_unknown_radius_metrics_are_not_mixed": true,
+  "conditions": [
+    {
+      "condition": "center_reference",
+      "segmentation_iou": 0.9418764302059497,
+      "sphere_center_error_m": 0.0026481191899746436,
+      "radius_error_m": null,
+      "visible_fraction": 0.9911228780563776,
+      "occlusion_condition": "clear"
+    },
+    {
+      "condition": "offset_reference",
+      "segmentation_iou": 0.9173261729790843,
+      "sphere_center_error_m": null,
+      "radius_error_m": null,
+      "visible_fraction": 0.9931435385303324,
+      "occlusion_condition": "clear"
+    },
+    {
+      "condition": "development_approach",
+      "segmentation_iou": 0.6489124372559956,
+      "sphere_center_error_m": null,
+      "radius_error_m": null,
+      "visible_fraction": 0.7405388568758761,
+      "occlusion_condition": "partially_occluded"
+    },
+    {
+      "condition": "development_settled_grasp",
+      "segmentation_iou": 0.631807973048849,
+      "sphere_center_error_m": null,
+      "radius_error_m": null,
+      "visible_fraction": 0.7216944401183616,
+      "occlusion_condition": "partially_occluded"
+    }
+  ],
+  "segmentation_iou": {
+    "minimum": 0.631807973048849,
+    "maximum": 0.9418764302059497,
+    "mean": 0.7849807533724695
+  },
+  "sphere_center_error_m": {
+    "values": [
+      0.0026481191899746436,
+      null,
+      null,
+      null
+    ],
+    "mean": 0.0026481191899746436
+  },
+  "radius_error_m": null,
+  "radius_error_reason": "known radius was supplied as a prior and was not estimated"
+}

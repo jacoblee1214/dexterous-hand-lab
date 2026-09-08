@@ -1,0 +1,18 @@
+schema_version: 1
+# Defaults apply to every physical channel. Add a sensor ID under `sensors` to
+# override any value for that channel without changing simulator code.
+defaults:
+  effective_sensor_area_m2: auto
+  virtual_stiffness_n_per_m: 1000.0
+  minimum_activation_force_n: 0.05
+  # Once active, use a lower release threshold and a short hold window so a
+  # persistent physical contact does not blink off for one solver timestep.
+  activation_release_force_n: 0.02
+  activation_hold_seconds: 0.05
+  saturation_force_n: 20.0
+  saturation_pressure_pa: 100000.0
+  noise_standard_deviation_n: 0.0
+  region_tolerance_m: 0.003
+  # +1 projects from the calibrated surface along its outward normal.
+  contact_projection_sign: 1.0
+sensors: {}

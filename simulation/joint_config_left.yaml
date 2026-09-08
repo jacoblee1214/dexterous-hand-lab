@@ -1,0 +1,24 @@
+# Reference/demo poses for the updated V6_Force_L URDF. The mirrored URDF
+# already carries the appropriate joint axes; coordinates flex positively.
+# Joint limits are read directly from the source URDF.
+joints:
+  joint_00: {reference: 0.0, demo_target: 0.50}
+  joint_01: {reference: 0.0, demo_target: 0.45}
+  joint_02: {reference: 0.0, demo_target: 0.70}
+  joint_03: {reference: 0.0, demo_target: 0.70}
+  joint_10: {reference: 0.0, demo_target: 0.0}
+  joint_11: {reference: 0.0, demo_target: 0.75}
+  joint_12: {reference: 0.0, demo_target: 0.70}
+  joint_13: {reference: 0.0, demo_target: 0.70}
+  joint_20: {reference: 0.0, demo_target: 0.0}
+  joint_21: {reference: 0.0, demo_target: 0.75}
+  joint_22: {reference: 0.0, demo_target: 0.70}
+  joint_23: {reference: 0.0, demo_target: 0.70}
+  joint_30: {reference: 0.0, demo_target: 0.0}
+  joint_31: {reference: 0.0, demo_target: 0.75}
+  joint_32: {reference: 0.0, demo_target: 0.70}
+  joint_33: {reference: 0.0, demo_target: 0.70}
+  joint_40: {reference: 0.0, demo_target: 0.0}
+  joint_41: {reference: 0.0, demo_target: 0.75}
+  joint_42: {reference: 0.0, demo_target: 0.70}
+  joint_43: {reference: 0.0, demo_target: 0.70}

@@ -1,0 +1,79 @@
+.venv/
+**/__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Python tooling and local coverage output
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Editors and machine-local files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Credentials and local overrides (templates such as .env.example remain trackable)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets*.yaml
+secrets*.json
+*.local.yaml
+*.local.json
+
+# Generated simulator/compiler output
+MJDATA.TXT
+mjmodel.xml
+simulation/hand.xml
+simulation/hand_left.xml
+
+# Runtime logs, caches, frame sequences, and video captures
+*.log
+*.pid
+*.sock
+**/render_cache/
+**/frame_cache/
+**/frames/
+*.mjpg
+*.mp4
+*.avi
+*.mkv
+*.webm
+
+# Raw experiment streams and screenshots stay local/artifact-managed. Small
+# configurations, summaries, per-condition metrics, and algorithm JSON remain
+# eligible for the reproducible research snapshot.
+experiments/**/*.jsonl
+experiments/**/*.png
+experiments/**/*.jpg
+experiments/**/*.jpeg
+experiments/grasp_trials/**/summary.json
+experiments/grasp_trials/**/trial_*.reconstruction.json
+experiments/grasp_trials/**/trial_*.evaluation.json
+
+# Locally retained configuration history. Never delete these as cleanup.
+backend/config_backups/
+simulation/grasp_backups/
+*.bak
+*.backup-*
+
+# First private snapshot policy: supplied V6 and legacy CAD/URDF/STL ownership
+# is unresolved. Preserve these directories locally but do not upload them.
+/assets/V6_Force_R/
+/assets/V6_Force_L/
+/assets/left_hand/
+/assets/meshes/
+/assets/urdf/

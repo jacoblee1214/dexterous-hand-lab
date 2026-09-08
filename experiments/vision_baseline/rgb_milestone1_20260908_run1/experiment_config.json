@@ -1,0 +1,23 @@
+{
+  "experiment": "calibrated_rgb_vision_only_sphere_baseline",
+  "created_at_utc": "2026-09-08T07:18:58.439182+00:00",
+  "sphere_radius_m": 0.04,
+  "radius_role": "declared_known_radius_prior_not_estimated",
+  "unknown_radius_setting": "reported_scale_ambiguous",
+  "camera_calibration_version": "research-rgb-camera-v1",
+  "camera_config_sha256": "aa7b7035696672bab51cfadf490ed8588fc0c3f264b3da6eff66cd6799dd50c7",
+  "grasp_config_sha256": "5cef97f918500167d3ebd51a06b3bd27d701588fca9572da197df474104ab188",
+  "grasp_configuration": "sphere_40mm existing automatic preset; development configuration only; no user-approved taught pose was present",
+  "algorithm_input": [
+    "clean RGB",
+    "camera calibration",
+    "declared radius prior"
+  ],
+  "excluded_algorithm_inputs": [
+    "MuJoCo segmentation IDs",
+    "depth",
+    "ground-truth object center",
+    "ground-truth object geometry",
+    "tactile measurements"
+  ]
+}

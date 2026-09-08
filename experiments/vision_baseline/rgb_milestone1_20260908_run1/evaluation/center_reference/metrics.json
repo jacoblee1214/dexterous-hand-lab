@@ -1,0 +1,15 @@
+{
+  "boundary": "evaluation_only_mujoco_segmentation_not_algorithm_input",
+  "segmentation_iou": 0.9418764302059497,
+  "segmentation_precision": 0.9699921445404556,
+  "segmentation_recall": 0.9701445631678189,
+  "ground_truth_visible_pixel_count": 6364,
+  "sphere_center_error_m": 0.0026481191899746436,
+  "radius_error_m": null,
+  "radius_error_reason": "radius is a declared prior, not an estimate",
+  "full_unoccluded_silhouette_pixel_count": 6421,
+  "visible_fraction": 0.9911228780563776,
+  "occlusion_condition": "clear",
+  "declared_condition": "centered sphere, reference hand",
+  "ground_truth_source": "MuJoCo evaluation-only segmentation and object pose"
+}

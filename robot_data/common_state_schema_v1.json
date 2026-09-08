@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common-robot-state-1.0.0",
+  "title": "Synchronized common robot state",
+  "type": "object",
+  "required": [
+    "schema_version", "timestamp", "source", "joint_positions",
+    "joint_velocities", "tactile_channels"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "timestamp": {"type": "number", "minimum": 0},
+    "source": {"type": "string"},
+    "joint_positions": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    },
+    "joint_velocities": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    },
+    "joint_targets": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    },
+    "tactile_channels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "sensor_id", "scalar_value", "pressure", "active"],
+        "properties": {
+          "timestamp": {"type": "number", "minimum": 0},
+          "sensor_id": {"type": "string", "minLength": 1},
+          "scalar_value": {"type": "number", "minimum": 0},
+          "pressure": {"type": "number", "minimum": 0},
+          "active": {"type": "boolean"},
+          "force": {"type": ["number", "null"], "minimum": 0},
+          "indentation": {"type": ["number", "null"], "minimum": 0}
+        }
+      }
+    },
+    "camera": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["timestamp", "frame_id", "rgb_available", "depth_available"],
+          "properties": {
+            "timestamp": {"type": "number", "minimum": 0},
+            "frame_id": {"type": "string", "minLength": 1},
+            "rgb_available": {"type": "boolean"},
+            "depth_available": {"type": "boolean"},
+            "camera_id": {"type": "string", "minLength": 1},
+            "image_width": {"type": "integer", "minimum": 1},
+            "image_height": {"type": "integer", "minimum": 1},
+            "source": {"type": "string", "minLength": 1},
+            "calibration_version": {"type": "string", "minLength": 1},
+            "intrinsic_calibration_reference": {"type": "string", "minLength": 1},
+            "rgb_reference": {"type": "string", "minLength": 1},
+            "depth_reference": {"type": "string", "minLength": 1},
+            "intrinsics": {
+              "type": "object",
+              "required": ["width", "height", "fx", "fy", "cx", "cy", "distortion_model"]
+            },
+            "extrinsics_reference": {"type": "string", "minLength": 1},
+            "time_base": {"type": "string", "minLength": 1}
+          },
+          "dependentRequired": {
+            "image_width": ["image_height"],
+            "image_height": ["image_width"],
+            "rgb_reference": ["intrinsics", "extrinsics_reference", "time_base"],
+            "depth_reference": ["intrinsics", "extrinsics_reference", "time_base"]
+          }
+        }
+      ]
+    },
+    "synchronization": {
+      "type": "object",
+      "properties": {
+        "joint_before_timestamp": {"type": "number", "minimum": 0},
+        "joint_after_timestamp": {"type": "number", "minimum": 0},
+        "tactile_timestamp": {"type": "number", "minimum": 0},
+        "time_base": {"type": ["string", "null"]}
+      }
+    },
+    "link_poses": {
+      "type": "array",
+      "description": "Display-only named poses, recorded by simulation; optional for older logs",
+      "items": {
+        "type": "object",
+        "required": ["name", "parent_link", "timestamp", "position_xyz", "quaternion_wxyz"],
+        "properties": {
+          "name": {"type": "string"},
+          "parent_link": {"type": ["string", "null"]},
+          "timestamp": {"type": "number", "minimum": 0},
+          "position_xyz": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+          "quaternion_wxyz": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}}
+        }
+      }
+    }
+  }
+}

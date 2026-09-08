@@ -1,0 +1,43 @@
+{
+  "number_of_conditions": 4,
+  "failure_count": 3,
+  "failure_rate": 0.75,
+  "conditions": [
+    {
+      "condition": "center_reference",
+      "segmentation_status": "SEGMENTATION_OK",
+      "sphere_status": "KNOWN_RADIUS_CENTER_ESTIMATED",
+      "radius_label": "provided_known_radius_prior",
+      "silhouette_residual_pixels": 2.3701066890326716,
+      "processing_time_ms": 27.181518264114857,
+      "unknown_radius_status": "SCALE_AMBIGUOUS"
+    },
+    {
+      "condition": "offset_reference",
+      "segmentation_status": "SEGMENTATION_OK",
+      "sphere_status": "FIT_UNRELIABLE",
+      "radius_label": "provided_known_radius_prior",
+      "silhouette_residual_pixels": 5.237021272345763,
+      "processing_time_ms": 20.09028079919517,
+      "unknown_radius_status": "SCALE_AMBIGUOUS"
+    },
+    {
+      "condition": "development_approach",
+      "segmentation_status": "SEGMENTATION_OK",
+      "sphere_status": "FIT_UNRELIABLE",
+      "radius_label": "provided_known_radius_prior",
+      "silhouette_residual_pixels": 89.05291305763484,
+      "processing_time_ms": 24.807498091831803,
+      "unknown_radius_status": "SCALE_AMBIGUOUS"
+    },
+    {
+      "condition": "development_settled_grasp",
+      "segmentation_status": "SEGMENTATION_OK",
+      "sphere_status": "FIT_UNRELIABLE",
+      "radius_label": "provided_known_radius_prior",
+      "silhouette_residual_pixels": 15.398830998131182,
+      "processing_time_ms": 16.95047807879746,
+      "unknown_radius_status": "SCALE_AMBIGUOUS"
+    }
+  ]
+}

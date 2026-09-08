@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tactile-dashboard-state-1.1.0",
+  "title": "Tactile dashboard state",
+  "type": "object",
+  "required": [
+    "schema_version", "message_type", "build", "source", "common_state_schema_version", "simulation", "joints", "hand",
+    "sensors", "current_estimated_contacts", "accumulation",
+    "accumulated_points", "time_series", "sphere_reconstruction", "evaluation", "render"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "message_type": {"const": "state"},
+    "build": {
+      "type": "object",
+      "required": ["backend"],
+      "properties": {"backend": {"type": "string", "minLength": 1}}
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "display_name"],
+      "properties": {
+        "kind": {"enum": ["simulation", "hardware", "replay"]},
+        "display_name": {"type": "string"}
+      }
+    },
+    "common_state_schema_version": {"const": "1.0.0"},
+    "simulation": {"type": "object"},
+    "joints": {"type": "array"},
+    "hand": {
+      "type": "object",
+      "required": ["links", "manifest_url", "pose_source"],
+      "properties": {
+        "manifest_url": {"type": "string", "const": "/robot-assets/manifest.json"},
+        "pose_source": {"enum": ["provider", "python_fk"]},
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "parent_link", "timestamp", "position_xyz", "quaternion_wxyz"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "parent_link": {"type": ["string", "null"]},
+              "timestamp": {"type": "number"},
+              "position_xyz": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+              "quaternion_wxyz": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}}
+            }
+          }
+        }
+      }
+    },
+    "sensors": {"type": "array", "maxItems": 18, "description": "18 channels after a synchronized sample; empty while no measurements exist"},
+    "connection": {
+      "type": "object",
+      "required": ["state", "detail", "read_only"],
+      "properties": {
+        "state": {"enum": ["DISCONNECTED", "CONNECTING", "STREAMING", "STALE", "ERROR"]},
+        "detail": {"type": "string"},
+        "read_only": {"type": "boolean"}
+      }
+    },
+    "snapshot": {"type": "object", "required": ["timestamp", "valid", "synchronization"]},
+    "available_commands": {"type": "array", "items": {"type": "string"}},
+    "render": {
+      "type": "object",
+      "required": ["mode", "status", "error", "frame_sequence", "simulation_timestamp", "rendering_timestamp", "source", "stream_url"],
+      "properties": {
+        "mode": {"enum": ["MuJoCo Render", "Mesh Digital Twin"]},
+        "status": {"enum": ["STARTING", "STREAMING", "ERROR", "AVAILABLE"]},
+        "error": {"type": ["string", "null"]},
+        "frame_sequence": {"type": ["integer", "null"], "minimum": 1},
+        "simulation_timestamp": {"type": ["number", "null"]},
+        "rendering_timestamp": {"type": ["number", "null"]},
+        "source": {"type": ["string", "null"]},
+        "stream_url": {"type": ["string", "null"]}
+      }
+    },
+    "current_estimated_contacts": {"type": "array"},
+    "accumulation": {"type": "object"},
+    "accumulated_points": {"type": "array"},
+    "time_series": {"type": "object"},
+    "sphere_reconstruction": {"type": "object"},
+    "evaluation": {
+      "type": "object",
+      "required": ["enabled"],
+      "description": "GT fields are omitted entirely when enabled is false"
+    }
+  }
+}

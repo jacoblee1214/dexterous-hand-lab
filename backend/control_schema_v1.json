@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tactile-dashboard-control-1.1.0",
+  "title": "Tactile dashboard control message",
+  "type": "object",
+  "required": ["schema_version", "command"],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "command": {
+      "enum": [
+        "open_hand", "grasp", "reset", "set_joint_target", "set_grasp_preset",
+        "start_simulation", "pause_simulation", "start_accumulation",
+        "pause_accumulation", "reset_points", "fit_sphere", "reset_fit",
+        "show_estimated_sphere", "show_ground_truth", "select_sensor",
+        "set_time_series_scope", "render_camera", "reset_reference_pose",
+        "execute_grasp_stage", "save_grasp_preset", "load_grasp_preset",
+        "set_experiment_mode", "start_experiment", "finish_experiment",
+        "repeat_experiment", "set_teach_grasp_mode", "set_pose_validation_mode",
+        "save_taught_pose", "load_taught_pose", "execute_taught_grasp",
+        "stop_taught_grasp"
+      ]
+    },
+    "parameters": {"type": "object"},
+    "request_id": {}
+  }
+}

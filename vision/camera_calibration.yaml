@@ -1,0 +1,23 @@
+schema_version: 1
+calibration_version: research-rgb-camera-v1
+camera_id: external_rgb_01
+camera_name: research_rgb_camera
+frame_id: research_rgb_camera_optical
+parent_frame: world
+time_base: simulation_seconds
+image:
+  width: 640
+  height: 480
+  fovy_degrees: 50.0
+distortion:
+  model: none
+  coefficients: [0.0, 0.0, 0.0, 0.0, 0.0]
+mujoco_pose:
+  position_world_m: [0.30, -0.38, 0.27]
+  xyaxes_world: [0.78, 0.62, 0.0, -0.29, 0.36, 0.89]
+rgb_segmentation:
+  # Controlled assumption: the sphere material is deliberately blue.
+  minimum_blue: 45
+  minimum_blue_minus_red: 35
+  minimum_blue_minus_green: 14
+  minimum_component_pixels: 80

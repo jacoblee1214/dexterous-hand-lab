@@ -1,0 +1,439 @@
+schema_version: 3
+hand: right
+sensing_axis_sign: 1
+visualization_axis_length_m: 0.02
+sensors:
+- sensor_id: Finger01_Link02_Sensor
+  finger_id: Finger01
+  parent_link: thumb_1
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0017
+  - -0.0148
+  - 0.0565
+  surface_u_axis:
+  - 0.070260462
+  - 0.0281
+  - 0.997132951
+  surface_v_axis:
+  - -0.997427071
+  - 0.016235
+  - 0.069823283
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - -0.014226459
+  - -0.999473
+  - 0.029168563
+  surface_thickness_m: 0.0008
+- sensor_id: Finger01_Link03_Sensor
+  finger_id: Finger01
+  parent_link: thumb_2
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0499
+  - -0.0165
+  - -0.0137
+  surface_u_axis:
+  - -0.999955786
+  - 0.009363
+  - -0.000379773
+  surface_v_axis:
+  - 0.000227563
+  - -0.016229
+  - -0.99986815
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - -0.0093685
+  - -0.999824
+  - 0.016226718
+  surface_thickness_m: 0.0008
+- sensor_id: Finger01_Tip_Sensor
+  finger_id: Finger01
+  parent_link: thumb_3
+  sensor_type: fingertip_surface
+  center_xyz:
+  - -0.047
+  - -0.0105
+  - -0.0122
+  surface_u_axis:
+  - -0.999390827
+  - -0.019515551
+  - -0.028932994
+  surface_v_axis:
+  - 0.027871977
+  - 0.052608008
+  - -0.998226202
+  width: 0.018
+  height: 0.022
+  outward_normal:
+  - 0.021003041
+  - -0.998424529
+  - -0.052032023
+  surface_thickness_m: 0.001
+  fingertip_radii_xyz:
+  - 0.01
+  - 0.008
+  - 0.004
+- sensor_id: Finger02_Link02_Sensor
+  finger_id: Finger02
+  parent_link: index_1
+  sensor_type: rectangular
+  center_xyz:
+  - 0.0148
+  - -0.0218
+  - 0.0128
+  surface_u_axis:
+  - -0.037474
+  - -0.999298
+  - 0.0
+  surface_v_axis:
+  - 0.0
+  - -0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.999298
+  - -0.037474
+  - 0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger02_Link03_Sensor
+  finger_id: Finger02
+  parent_link: index_2
+  sensor_type: rectangular
+  center_xyz:
+  - 0.0146
+  - -0.0214
+  - 0.0132
+  surface_u_axis:
+  - -0.037474
+  - -0.999298
+  - -0.0
+  surface_v_axis:
+  - 0.0
+  - -0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.999298
+  - -0.037474
+  - 0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger02_Tip_Sensor
+  finger_id: Finger02
+  parent_link: index_3
+  sensor_type: fingertip_surface
+  center_xyz:
+  - 0.009
+  - -0.0345
+  - 0.0125
+  surface_u_axis:
+  - -0.041140926
+  - 0.065577554
+  - 0.996999001
+  surface_v_axis:
+  - -0.042987247
+  - -0.997036044
+  - 0.063806132
+  width: 0.021
+  height: 0.034
+  outward_normal:
+  - 0.99822819
+  - -0.040233199
+  - 0.043837984
+  surface_thickness_m: 0.001
+  fingertip_radii_xyz:
+  - 0.008
+  - 0.01
+  - 0.004
+- sensor_id: Finger03_Link02_Sensor
+  finger_id: Finger03
+  parent_link: middle_1
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0218
+  - -0.0149
+  - 0.0134
+  surface_u_axis:
+  - -1.0
+  - -0.0
+  - -0.0
+  surface_v_axis:
+  - -0.0
+  - -0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.0
+  - -1.0
+  - -0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger03_Link03_Sensor
+  finger_id: Finger03
+  parent_link: middle_2
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0222
+  - -0.0145
+  - 0.0128
+  surface_u_axis:
+  - -1.0
+  - 0.0
+  - -0.0
+  surface_v_axis:
+  - -0.0
+  - 0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.0
+  - -1.0
+  - 0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger03_Tip_Sensor
+  finger_id: Finger03
+  parent_link: middle_3
+  sensor_type: fingertip_surface
+  center_xyz:
+  - -0.036
+  - -0.0085
+  - 0.0135
+  surface_u_axis:
+  - -0.969181738
+  - 0.216332607
+  - -0.117842954
+  surface_v_axis:
+  - 0.098092872
+  - -0.099903497
+  - -0.990150029
+  width: 0.018
+  height: 0.022
+  outward_normal:
+  - -0.22597466
+  - -0.971194879
+  - 0.075603959
+  surface_thickness_m: 0.001
+  fingertip_radii_xyz:
+  - 0.01
+  - 0.008
+  - 0.004
+- sensor_id: Finger04_Link02_Sensor
+  finger_id: Finger04
+  parent_link: ring_1
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0211
+  - -0.0146
+  - 0.0125
+  surface_u_axis:
+  - -0.999298
+  - -0.037474
+  - -0.0
+  surface_v_axis:
+  - -0.0
+  - 0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.037474
+  - -0.999298
+  - -0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger04_Link03_Sensor
+  finger_id: Finger04
+  parent_link: ring_2
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0212
+  - -0.0147
+  - 0.0124
+  surface_u_axis:
+  - -0.999298
+  - -0.037474
+  - -0.0
+  surface_v_axis:
+  - -0.0
+  - 0.0
+  - -1.0
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.037474
+  - -0.999298
+  - -0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Finger04_Tip_Sensor
+  finger_id: Finger04
+  parent_link: ring_3
+  sensor_type: fingertip_surface
+  center_xyz:
+  - -0.0355
+  - -0.009
+  - 0.0135
+  surface_u_axis:
+  - -0.978433194
+  - 0.202917189
+  - 0.038640637
+  surface_v_axis:
+  - -0.053219715
+  - -0.066887969
+  - -0.996340133
+  width: 0.018
+  height: 0.022
+  outward_normal:
+  - -0.199589946
+  - -0.976908703
+  - 0.076244604
+  surface_thickness_m: 0.001
+  fingertip_radii_xyz:
+  - 0.01
+  - 0.008
+  - 0.004
+- sensor_id: Finger05_Link02_Sensor
+  finger_id: Finger05
+  parent_link: pinky_1
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0217
+  - -0.0152
+  - 0.0132
+  surface_u_axis:
+  - -0.997366248
+  - -0.072529
+  - 0.000944518
+  surface_v_axis:
+  - -1.4369e-05
+  - -0.012825
+  - -0.999917489
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.07253503
+  - -0.997284
+  - 0.012789883
+  surface_thickness_m: 0.0008
+- sensor_id: Finger05_Link03_Sensor
+  finger_id: Finger05
+  parent_link: pinky_2
+  sensor_type: rectangular
+  center_xyz:
+  - -0.022
+  - -0.015
+  - 0.0133
+  surface_u_axis:
+  - -0.999992871
+  - -0.003847978
+  - 0.000481373
+  surface_v_axis:
+  - -0.000478832
+  - -0.000680687
+  - -0.999999386
+  width: 0.014
+  height: 0.022
+  outward_normal:
+  - 0.003848203
+  - -0.99999251
+  - 0.000678542
+  surface_thickness_m: 0.0008
+- sensor_id: Finger05_Tip_Sensor
+  finger_id: Finger05
+  parent_link: pinky_3
+  sensor_type: fingertip_surface
+  center_xyz:
+  - -0.0345
+  - -0.0095
+  - 0.0115
+  surface_u_axis:
+  - -0.989949772
+  - 0.077326513
+  - 0.118406329
+  surface_v_axis:
+  - -0.113335457
+  - 0.066980476
+  - -0.991296469
+  width: 0.018
+  height: 0.022
+  outward_normal:
+  - -0.084584411
+  - -0.994753349
+  - -0.057543472
+  surface_thickness_m: 0.001
+  fingertip_radii_xyz:
+  - 0.01
+  - 0.008
+  - 0.004
+- sensor_id: Palm01_Sensor
+  finger_id: Palm
+  parent_link: Palm
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0125
+  - -0.0295
+  - 0.027
+  surface_u_axis:
+  - 0.990268069
+  - 0.139173101
+  - 0.0
+  surface_v_axis:
+  - 0.0
+  - -0.0
+  - 1.0
+  width: 0.022
+  height: 0.028
+  outward_normal:
+  - 0.139173101
+  - -0.990268069
+  - 0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Palm02_Sensor
+  finger_id: Palm
+  parent_link: Palm
+  sensor_type: rectangular
+  center_xyz:
+  - -0.0165
+  - -0.03
+  - 0.057
+  surface_u_axis:
+  - 0.99756405
+  - 0.069756474
+  - 0.0
+  surface_v_axis:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 0.022
+  height: 0.028
+  outward_normal:
+  - 0.069756474
+  - -0.99756405
+  - 0.0
+  surface_thickness_m: 0.0008
+- sensor_id: Palm03_Sensor
+  finger_id: Palm
+  parent_link: Palm
+  sensor_type: rectangular
+  center_xyz:
+  - 0.0235
+  - -0.03
+  - 0.0715
+  surface_u_axis:
+  - 0.999390827
+  - 0.034899497
+  - 0.0
+  surface_v_axis:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 0.022
+  height: 0.028
+  outward_normal:
+  - 0.034899497
+  - -0.999390827
+  - 0.0
+  surface_thickness_m: 0.0008

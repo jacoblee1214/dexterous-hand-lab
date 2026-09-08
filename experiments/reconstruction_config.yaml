@@ -1,0 +1,20 @@
+schema_version: 1
+# Units: Pa, seconds, count, metres.
+point_buffer:
+  minimum_pressure_threshold: 50.0
+  minimum_time_between_points: 0.02
+  maximum_point_count: 10000
+  minimum_spatial_distance_between_points: 0.0005
+
+# Engineering observability thresholds, not scientific constants.
+sphere_reconstruction:
+  minimum_point_count: 8
+  minimum_unique_sensor_count: 3
+  minimum_unique_finger_count: 2
+  minimum_spatial_spread_m: 0.015
+  minimum_covariance_eigenvalue_m2: 1.0e-7
+  maximum_covariance_condition: 10000.0
+  robust_loss: soft_l1
+  robust_loss_scale_m: 0.002
+  maximum_iterations: 100
+  auto_fit_minimum_new_points: 5

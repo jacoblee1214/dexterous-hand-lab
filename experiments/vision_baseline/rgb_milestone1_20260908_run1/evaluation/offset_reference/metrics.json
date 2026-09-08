@@ -1,0 +1,15 @@
+{
+  "boundary": "evaluation_only_mujoco_segmentation_not_algorithm_input",
+  "segmentation_iou": 0.9173261729790843,
+  "segmentation_precision": 0.9401796060254924,
+  "segmentation_recall": 0.9741858021912052,
+  "ground_truth_visible_pixel_count": 6663,
+  "sphere_center_error_m": null,
+  "radius_error_m": null,
+  "radius_error_reason": "radius is a declared prior, not an estimate",
+  "full_unoccluded_silhouette_pixel_count": 6709,
+  "visible_fraction": 0.9931435385303324,
+  "occlusion_condition": "clear",
+  "declared_condition": "controlled +20 mm world-X object position",
+  "ground_truth_source": "MuJoCo evaluation-only segmentation and object pose"
+}
