@@ -1,0 +1,207 @@
+{
+  "boundary": "evaluation_only",
+  "attempt_count": 18,
+  "method_summary": {
+    "rgb_only": {
+      "all_attempts": {
+        "count": 18,
+        "success_count": 18,
+        "failure_count": 0,
+        "failure_rate": 0.0,
+        "center_error_aggregate": null,
+        "reason": "failed attempts have no center; see valid_only and failure_rate"
+      },
+      "valid_only": {
+        "center_error_m": {
+          "count": 18,
+          "mean": 0.03077764585172381,
+          "median": 0.00789040659014877,
+          "rmse": 0.06233427648071399,
+          "p95": 0.15245271201637173
+        },
+        "visible_silhouette_iou": {
+          "count": 18,
+          "mean": 0.7600882052238673,
+          "median": 0.7245385105028644,
+          "rmse": 0.7670155147198359,
+          "p95": 0.9792284866468842
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "rmse": null,
+          "p95": null
+        }
+      },
+      "runtime_ms_all_attempts": {
+        "count": 18,
+        "mean": 3.8436528735069766,
+        "median": 3.8201574934646487,
+        "rmse": 4.023244127361477,
+        "p95": 5.794858478475362
+      },
+      "failure_status_counts": {
+        "VALID_ESTIMATE": 18
+      }
+    },
+    "tactile_only_representative": {
+      "all_attempts": {
+        "count": 18,
+        "success_count": 6,
+        "failure_count": 12,
+        "failure_rate": 0.6666666666666666,
+        "center_error_aggregate": null,
+        "reason": "failed attempts have no center; see valid_only and failure_rate"
+      },
+      "valid_only": {
+        "center_error_m": {
+          "count": 6,
+          "mean": 0.01625098527111339,
+          "median": 0.01616742190155282,
+          "rmse": 0.01625249553355705,
+          "p95": 0.01655429334456607
+        },
+        "visible_silhouette_iou": {
+          "count": 6,
+          "mean": 0.5784284895650967,
+          "median": 0.5796071876305893,
+          "rmse": 0.578435132661713,
+          "p95": 0.5810773095171644
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 6,
+          "mean": 0.6774025999598936,
+          "median": 0.6751927106792233,
+          "rmse": 0.6774550402971125,
+          "p95": 0.6886520544126057
+        }
+      },
+      "runtime_ms_all_attempts": {
+        "count": 18,
+        "mean": 3.835680480632517,
+        "median": 0.052560935728251934,
+        "rmse": 6.650505525850584,
+        "p95": 12.611300288699567
+      },
+      "failure_status_counts": {
+        "INSUFFICIENT_TACTILE_COVERAGE": 12,
+        "VALID_ESTIMATE": 6
+      }
+    },
+    "fusion_representative": {
+      "all_attempts": {
+        "count": 18,
+        "success_count": 6,
+        "failure_count": 12,
+        "failure_rate": 0.6666666666666666,
+        "center_error_aggregate": null,
+        "reason": "failed attempts have no center; see valid_only and failure_rate"
+      },
+      "valid_only": {
+        "center_error_m": {
+          "count": 6,
+          "mean": 0.01483092544850354,
+          "median": 0.014707795500795696,
+          "rmse": 0.01515354916934635,
+          "p95": 0.01852935250975795
+        },
+        "visible_silhouette_iou": {
+          "count": 6,
+          "mean": 0.5885099859370501,
+          "median": 0.5907900994831341,
+          "rmse": 0.5895118633971405,
+          "p95": 0.625671791575631
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 6,
+          "mean": 0.7534344579432996,
+          "median": 0.7511015118435415,
+          "rmse": 0.7554385172981908,
+          "p95": 0.8148689795073073
+        }
+      },
+      "runtime_ms_all_attempts": {
+        "count": 18,
+        "mean": 14.77094248144163,
+        "median": 0.042844912968575954,
+        "rmse": 25.682615393777446,
+        "p95": 48.25065166223794
+      },
+      "failure_status_counts": {
+        "INSUFFICIENT_TACTILE_COVERAGE": 12,
+        "VALID_ESTIMATE": 6
+      }
+    },
+    "fusion_finite_patch": {
+      "all_attempts": {
+        "count": 18,
+        "success_count": 6,
+        "failure_count": 12,
+        "failure_rate": 0.6666666666666666,
+        "center_error_aggregate": null,
+        "reason": "failed attempts have no center; see valid_only and failure_rate"
+      },
+      "valid_only": {
+        "center_error_m": {
+          "count": 6,
+          "mean": 0.014325543682265482,
+          "median": 0.013718695955711579,
+          "rmse": 0.015112687353882086,
+          "p95": 0.02024949941310699
+        },
+        "visible_silhouette_iou": {
+          "count": 6,
+          "mean": 0.6019938420474716,
+          "median": 0.6091270446770392,
+          "rmse": 0.6063839996510286,
+          "p95": 0.6748649748446286
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 6,
+          "mean": 0.29687936425155365,
+          "median": 0.30088930110652673,
+          "rmse": 0.3202972872987561,
+          "p95": 0.4205616522109395
+        }
+      },
+      "runtime_ms_all_attempts": {
+        "count": 18,
+        "mean": 37.20935797577517,
+        "median": 0.038019497878849506,
+        "rmse": 65.04504063777622,
+        "p95": 125.70279767969622
+      },
+      "failure_status_counts": {
+        "INSUFFICIENT_TACTILE_COVERAGE": 12,
+        "VALID_ESTIMATE": 6
+      }
+    }
+  },
+  "paired_comparison_to_rgb": {
+    "fusion_representative": {
+      "paired_valid_count": 6,
+      "fusion_minus_rgb_center_error_m": {
+        "count": 6,
+        "mean": -0.06410356377769647,
+        "median": -0.05073508482325034,
+        "rmse": 0.09487654500504288,
+        "p95": 0.004235239307721611
+      },
+      "conclusion": "improved"
+    },
+    "fusion_finite_patch": {
+      "paired_valid_count": 6,
+      "fusion_minus_rgb_center_error_m": {
+        "count": 6,
+        "mean": -0.06460894554393452,
+        "median": -0.051356422211772244,
+        "rmse": 0.09396076327740935,
+        "p95": 0.0018012454268234506
+      },
+      "conclusion": "improved"
+    }
+  },
+  "radius_error_m": null,
+  "radius_error_reason": "known 40 mm radius was supplied, not estimated"
+}

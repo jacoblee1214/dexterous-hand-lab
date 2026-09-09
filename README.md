@@ -56,6 +56,10 @@ the reconstruction packages retain explicit algorithm/evaluation boundaries.
   blue-sphere segmentation, perspective known-radius center baseline, explicit
   unknown-radius scale ambiguity, archived replay frames, and optional projected
   tactile-contact diagnostics. See `docs/research_rgb_milestone1.md`.
+- A deterministic known-radius geometric RGB/tactile fusion baseline with strict
+  ground-truth isolation, visibility-aware silhouette residuals, representative
+  and finite-patch tactile variants, explicit failure states, and a four-method
+  dashboard comparison. See `docs/research_fusion_milestone2.md`.
 
 The invisible hand collision geometry uses provisional convex hulls generated
 from the supplied high-resolution visual meshes. It prevents obvious hand/object

@@ -1,0 +1,46 @@
+{
+  "camera_timestamp": 15.370000000001802,
+  "tactile_timestamps": [
+    3.7699999999998064,
+    7.255999999999423,
+    7.507999999999395
+  ],
+  "time_base": "simulation_seconds",
+  "object_motion_assumption": "fixed_pose",
+  "joint_names": [
+    "joint_00",
+    "joint_01",
+    "joint_02",
+    "joint_03",
+    "joint_10",
+    "joint_11",
+    "joint_12",
+    "joint_13",
+    "joint_20",
+    "joint_21",
+    "joint_22",
+    "joint_23",
+    "joint_30",
+    "joint_31",
+    "joint_32",
+    "joint_33",
+    "joint_40",
+    "joint_41",
+    "joint_42",
+    "joint_43"
+  ],
+  "tactile_contact_count": 3,
+  "unique_sensor_ids": [
+    "Finger03_Tip_Sensor",
+    "Finger04_Link02_Sensor",
+    "Finger05_Link03_Sensor"
+  ],
+  "unique_finger_ids": [
+    "Finger03",
+    "Finger04",
+    "Finger05"
+  ],
+  "predicted_mask_pixels": 7361,
+  "unknown_occluded_pixels": 29142,
+  "known_radius_m": 0.04
+}

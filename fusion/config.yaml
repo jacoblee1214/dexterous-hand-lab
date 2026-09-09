@@ -1,0 +1,48 @@
+schema_version: 1
+configuration_version: geometric-fusion-v1
+
+# A displayed 40 mm setting is radius, not diameter.
+sphere_experiment:
+  radius_m: 0.04
+  diameter_m: 0.08
+  radius_role: declared_known_radius_prior
+
+weights:
+  # These multiply already dimensionless residuals. They are global constants,
+  # not tuned per evaluation case.
+  vision: 1.0
+  tactile: 1.0
+
+uncertainty:
+  vision_boundary_sigma_px: 2.0
+  representative_position_sigma_m: 0.004
+  finite_patch_surface_sigma_m: 0.002
+  sensor_mount_sigma_m: 0.001
+  indentation_relative_sigma: 0.15
+
+rgb_visibility:
+  hand_minimum_intensity: 42
+  hand_maximum_channel_spread: 62
+  unknown_dilation_pixels: 2
+  background_sample_stride_pixels: 10
+  maximum_boundary_samples: 700
+  maximum_background_samples: 900
+  minimum_visible_boundary_samples: 20
+  minimum_visible_angular_coverage: 0.20
+
+tactile_observability:
+  minimum_contact_count: 4
+  minimum_unique_sensor_count: 3
+  minimum_unique_finger_count: 2
+  minimum_spatial_spread_m: 0.015
+  minimum_jacobian_singular_value: 0.08
+  maximum_jacobian_condition: 1000.0
+
+solver:
+  maximum_iterations: 80
+  finite_difference_step_m: 0.00001
+  maximum_center_step_m: 0.025
+  robust_huber_threshold: 2.5
+  convergence_step_m: 0.00000001
+  damping: 0.000001
+  finite_patch_grid_resolution: 5

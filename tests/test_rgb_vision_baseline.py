@@ -122,6 +122,13 @@ def test_capture_preserves_timestamp_and_ground_truth_is_evaluation_only(researc
     assert "ground_truth" not in json.dumps(capture.vision_result).lower()
     assert capture.evaluation["boundary"].startswith("evaluation_only")
     assert capture.evaluation["radius_error_m"] is None
+    engine.update_fusion(capture)
+    fusion = engine.state()["fusion"]
+    assert fusion["status"] == "VALID_ESTIMATE"
+    assert fusion["selected_method"] == "rgb_only"
+    assert set(fusion["methods"]) == {"rgb_only", "tactile_only_representative",
+                                      "fusion_representative", "fusion_finite_patch"}
+    assert "ground_truth" not in json.dumps(fusion).lower()
     provider.publish_camera_observation(capture.observation)
     state = provider.read_common_state()
     assert state.camera.timestamp == capture.observation.timestamp

@@ -1,7 +1,7 @@
 "use strict";
 
 const SCHEMA_VERSION = "1.1.0";
-const FRONTEND_BUILD_ID = "rgb-baseline-20260908.1";
+const FRONTEND_BUILD_ID = "geometric-fusion-v1-20260909.1";
 const colors = ["#35d7e5", "#ff8b5c", "#c478ff", "#55ec89", "#ffd84f", "#4d99ff"];
 let state = null;
 let socket = null;
@@ -23,6 +23,7 @@ const jointControls = new Map();
 let renderMode = null;
 let simulationView = null;
 let meshLoadPromise = null;
+let fusionMethod = "fusion_finite_patch";
 
 function streamValid() {
   return socket?.readyState === WebSocket.OPEN && performance.now() - lastStateReceived < 1500 && state?.snapshot.valid;
@@ -224,6 +225,10 @@ function selectRenderMode(mode) {
 }
 
 document.querySelector('#render-mode').addEventListener('change', event => selectRenderMode(event.target.value));
+document.querySelector('#fusion-method').addEventListener('change', event => {
+  fusionMethod = event.target.value;
+  if (state) { renderFusion(); reconstructionView.draw(state); }
+});
 document.querySelector('#reset-render-camera').addEventListener('click', () => command('render_camera', {action:'reset'}));
 const renderImage = document.querySelector('#mujoco-render');
 let renderDrag = null;
@@ -296,6 +301,14 @@ class ReconstructionProjectionView {
     for(const item of payload.accumulated_points) this.circle(item.position_xyz,.0014,center,scale,"#c478ff","#c478ff");
     const fit=payload.sphere_reconstruction;
     if(fit.show_estimated_sphere && fit.status==="VALID_RECONSTRUCTION" && fit.estimated_center_xyz) this.circle(fit.estimated_center_xyz,fit.estimated_radius_m,center,scale,"#35d7e5",null);
+    const methods=payload.fusion?.methods || {};
+    const estimates=[
+      [methods.rgb_only,"#4d99ff"],
+      [methods.tactile_only_representative,"#ff8b5c"],
+      [methods[fusionMethod] || methods.fusion_finite_patch,"#55ec89"],
+    ];
+    for(const [estimate,color] of estimates) if(estimate?.valid && estimate.estimated_center_world_m)
+      this.circle(estimate.estimated_center_world_m,estimate.radius_m,center,scale,color,null);
     if(payload.evaluation.enabled && payload.evaluation.ground_truth_sphere) {
       const gt=payload.evaluation.ground_truth_sphere; this.circle(gt.center_xyz,gt.radius_m,center,scale,"#55ec89",null,[7*this.ratio,5*this.ratio]);
     }
@@ -536,6 +549,27 @@ function renderVisionOnly() {
     `</p>`;
 }
 
+function renderFusion() {
+  const fusion=state.fusion || {}, methods=fusion.methods || {};
+  const selector=document.querySelector('#fusion-method');
+  if (!methods[fusionMethod] && fusion.selected_method) fusionMethod=fusion.selected_method;
+  selector.value=fusionMethod;
+  const selected=methods[fusionMethod] || {};
+  const labels={rgb_only:'A · RGB only', tactile_only_representative:'B · Tactile only / representative',
+    fusion_representative:'C · Fusion / representative', fusion_finite_patch:'D · Fusion / finite sensor patch'};
+  const validCount=Object.values(methods).filter(result=>result.valid).length;
+  const root=document.querySelector('#fusion-metrics');
+  root.querySelector('p').innerHTML=
+    `Pipeline: <span class="mono">${fusion.status || 'NOT_RUN'}</span> · valid methods <span class="mono">${validCount} / 4</span><br>`+
+    `Selected: <span class="mono">${labels[fusionMethod] || fusionMethod}</span> · status <span class="mono">${selected.status || 'NOT_RUN'}</span><br>`+
+    `Center: <span class="mono">${vector(selected.estimated_center_world_m)}</span><br>`+
+    `Known radius: <span class="mono">${fusion.known_radius_m == null ? '—' : format(fusion.known_radius_m,5)+' m'}</span> · `+
+    `diameter <span class="mono">${fusion.known_diameter_m == null ? '—' : format(fusion.known_diameter_m,5)+' m'}</span> · <span class="mono">${fusion.radius_label || '—'}</span><br>`+
+    `RGB residual: <span class="mono">${format(selected.vision_residual_rms_sigma,3)} σ</span> · tactile residual: <span class="mono">${format(selected.tactile_residual_rms_sigma,3)} σ</span> · `+
+    `condition: <span class="mono">${format(selected.condition_number,2)}</span> · runtime: <span class="mono">${format(selected.runtime_ms,2)} ms</span>`+
+    (fusion.error ? `<br><span class="error">${fusion.error}</span>` : '');
+}
+
 function render(){
   const backendBuild = state.build?.backend || 'LEGACY/RESTART REQUIRED';
   const buildLabel = document.querySelector('#build-id');
@@ -549,7 +583,7 @@ function render(){
   const graspLabel = grasp.preset_name ? `${grasp.preset_name} · ${grasp.phase_name} · grasp stage ${grasp.stage}/${grasp.stage_count || 4}` : "Read-only robot state";
   document.querySelector("#simulation-summary").textContent=`${graspLabel} · accumulation ${state.accumulation.running?"RUNNING":"PAUSED"} · ${state.accumulation.accepted_point_count} accepted · ${state.accumulation.rejected_duplicate_count} duplicates`;
   document.querySelector("#show-ground-truth").checked=state.evaluation.enabled;document.querySelector("#show-estimated").checked=state.sphere_reconstruction.show_estimated_sphere;
-  renderSensors();renderJointTargets();renderGraspDiagnostics();renderPlots();renderReconstruction();renderVisionOnly();renderPrimaryView();reconstructionView.draw(state);
+  renderSensors();renderJointTargets();renderGraspDiagnostics();renderPlots();renderReconstruction();renderVisionOnly();renderFusion();renderPrimaryView();reconstructionView.draw(state);
   document.querySelectorAll(".quadrant").forEach(panel => panel.dataset.snapshotTimestamp = String(state.snapshot.timestamp));
   renderStreamStatus();
 }

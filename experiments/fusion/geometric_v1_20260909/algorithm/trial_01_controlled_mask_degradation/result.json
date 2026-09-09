@@ -1,0 +1,180 @@
+{
+  "configuration_version": "geometric-fusion-v1",
+  "input_boundary": "FusionObservation: RGB mask/calibration + named synchronized scalar tactile estimates; no ground truth",
+  "known_radius_m": 0.04,
+  "known_diameter_m": 0.08,
+  "radius_label": "declared_known_radius_prior",
+  "object_motion_assumption": "fixed_pose",
+  "weights": {
+    "vision": 1.0,
+    "tactile": 1.0
+  },
+  "selected_method": "fusion_finite_patch",
+  "status": "VALID_ESTIMATE",
+  "methods": {
+    "rgb_only": {
+      "method": "rgb_only",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.1537364375031644,
+        0.031631632079573244,
+        0.06047919847054698
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "visibility_aware_rgb_boundary_cone",
+      "vision_residual_rms_sigma": 1.0222114691861477,
+      "tactile_residual_rms_sigma": null,
+      "joint_objective": 1.0449162877357028,
+      "iteration_count": 19,
+      "condition_number": 13.032020219762527,
+      "minimum_singular_value": 8.113371558170371,
+      "covariance_diagonal_m2": [
+        7.158791155989256e-06,
+        6.5683398780063564e-06,
+        1.9598345118015424e-06
+      ],
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 128,
+        "visible_angular_coverage": 0.6388888888888888,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 0.7098112774374321,
+        "jacobian_condition": 16.239321730143207,
+        "observable": true,
+        "solver_converged": true,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "none"
+      },
+      "runtime_ms": 4.427170846611261
+    },
+    "tactile_only_representative": {
+      "method": "tactile_only_representative",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.021337713037614708,
+        -0.08140595659152873,
+        0.12518735372032186
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "algebraic_fixed_radius_points_rank_3",
+      "vision_residual_rms_sigma": null,
+      "tactile_residual_rms_sigma": 0.668363034787852,
+      "joint_objective": 0.44670914627082736,
+      "iteration_count": 8,
+      "condition_number": 2.913013726086412,
+      "minimum_singular_value": 62.05588871667763,
+      "covariance_diagonal_m2": [
+        1.880059196871145e-07,
+        2.027769680145199e-07,
+        7.786429671333477e-07
+      ],
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 128,
+        "visible_angular_coverage": 0.6388888888888888,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.1797255664299544,
+        "jacobian_condition": 2.7943773174703437,
+        "observable": true,
+        "solver_converged": true,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "representative"
+      },
+      "runtime_ms": 11.824045097455382
+    },
+    "fusion_representative": {
+      "method": "fusion_representative",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.022766518964396888,
+        -0.08171303022872395,
+        0.12754594324790838
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "reliable_rgb_center",
+      "vision_residual_rms_sigma": 2.4745927141991735,
+      "tactile_residual_rms_sigma": 0.7031233598045292,
+      "joint_objective": 6.6179915602704416,
+      "iteration_count": 30,
+      "condition_number": 1.376208036904441,
+      "minimum_singular_value": 151.78077301418446,
+      "covariance_diagonal_m2": [
+        1.4797739335711504e-07,
+        2.2013785016824011e-07,
+        2.0039221130456405e-07
+      ],
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 128,
+        "visible_angular_coverage": 0.6388888888888888,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.1095251173778413,
+        "jacobian_condition": 2.8664247601160833,
+        "observable": true,
+        "solver_converged": true,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "representative"
+      },
+      "runtime_ms": 42.32535092160106
+    },
+    "fusion_finite_patch": {
+      "method": "fusion_finite_patch",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.026343254337893956,
+        -0.08044414022511603,
+        0.12893172194800803
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "reliable_rgb_center",
+      "vision_residual_rms_sigma": 2.4236281908857507,
+      "tactile_residual_rms_sigma": 0.1843929422911526,
+      "joint_objective": 5.907974364822925,
+      "iteration_count": 35,
+      "condition_number": 2.091126895043242,
+      "minimum_singular_value": 91.80984292009026,
+      "covariance_diagonal_m2": [
+        2.1210948484747139e-07,
+        5.193018767017262e-07,
+        2.048293858318051e-07
+      ],
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 128,
+        "visible_angular_coverage": 0.6388888888888888,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.1556090071413516,
+        "jacobian_condition": 2.8620595867294973,
+        "observable": true,
+        "solver_converged": true,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "finite_patch"
+      },
+      "runtime_ms": 119.65228291228414
+    }
+  }
+}

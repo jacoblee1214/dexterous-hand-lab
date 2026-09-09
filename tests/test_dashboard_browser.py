@@ -19,7 +19,7 @@ import pytest
 
 pytestmark = pytest.mark.skipif(os.environ.get("RUN_BROWSER_TESTS") != "1", reason="Opt-in Chromium validation")
 ROOT = Path(__file__).parents[1]
-BUILD_ID = "rgb-baseline-20260908.1"
+BUILD_ID = "geometric-fusion-v1-20260909.1"
 
 
 def free_port():
@@ -163,6 +163,11 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert page.locator("#research-rgb").is_visible()
         assert page.locator("#mujoco-render").is_hidden()
         assert "Vision-only RGB sphere baseline" in page.locator("#vision-only-metrics").inner_text()
+        page.wait_for_function("Object.keys(state?.fusion?.methods || {}).length === 4")
+        assert "Geometric RGB + tactile fusion v1" in page.locator("#fusion-metrics").inner_text()
+        assert page.locator("#fusion-method option").count() == 4
+        page.locator("#fusion-method").select_option("fusion_representative")
+        assert "C · Fusion / representative" in page.locator("#fusion-metrics").inner_text()
         assert page.evaluate("state.camera.depth_available") is False
         assert page.evaluate("state.camera.timestamp === state.research_rgb.simulation_timestamp")
         base = url.split('/?')[0]
@@ -177,6 +182,8 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         page.wait_for_function("dashboardDiagnostics.lastAcknowledgement?.command === 'pause_simulation'")
         page.wait_for_function("!state.simulation.running")
         capture(page, "sphere-dashboard.png", tmp_path)
+        page.locator("#fusion-metrics").scroll_into_view_if_needed()
+        capture(page, "fusion-dashboard.png", tmp_path)
         # Feed status-only hardware fixtures through the same browser schema.
         # These validate presentation, not a real hardware connection.
         for status in ("CONNECTING", "STALE", "ERROR"):

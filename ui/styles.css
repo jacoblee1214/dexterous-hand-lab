@@ -100,6 +100,11 @@ tr { cursor: pointer; } tr:hover { background:#15283a } tr.selected { outline: 1
 .detail-card, .evaluation-card, .vision-card { margin-top: 7px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel-2); }
 .vision-card { font-size:10px; color:#c4d8e5; }
 .vision-card p { margin:5px 0 0; }
+.fusion-card { margin-top:10px; border-color:rgba(85,236,137,.35); }
+.fusion-heading { display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+.fusion-heading h3 { margin:0; }
+.fusion-heading label { font-size:.75rem; color:var(--muted); }
+.fusion-card .error { color:#ff8b5c; }
 .detail-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:4px 14px; margin-top:5px; }
 .detail-grid b { color:var(--muted); font-weight:500; }.detail-grid span { font-family:ui-monospace,monospace; }
 .plot-grid { min-height: 0; flex: 1; display:grid; grid-template: 1fr 1fr / 1fr 1fr; gap:7px; }

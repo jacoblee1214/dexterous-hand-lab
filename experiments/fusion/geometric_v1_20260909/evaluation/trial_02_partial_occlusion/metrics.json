@@ -1,0 +1,40 @@
+{
+  "boundary": "evaluation_only; MuJoCo object pose and segmentation never enter fusion",
+  "methods": {
+    "rgb_only": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.005919689719402866,
+      "visible_silhouette_iou": 0.7441492726122707,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "tactile_only_representative": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_TACTILE_COVERAGE",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "fusion_representative": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_TACTILE_COVERAGE",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "fusion_finite_patch": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_TACTILE_COVERAGE",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    }
+  },
+  "radius_error_m": null,
+  "radius_error_reason": "radius is a declared prior, not an estimated parameter",
+  "trial": 2,
+  "condition": "partial_occlusion",
+  "ground_truth_source": "MuJoCo evaluation path only",
+  "segmentation_iou": 0.6485210387446187,
+  "measured_visible_fraction": 0.7414732907646784
+}

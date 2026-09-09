@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tactile Sphere Reconstruction</title>
-  <link rel="stylesheet" href="styles.css?v=rgb-baseline-20260908.1">
+  <link rel="stylesheet" href="styles.css?v=geometric-fusion-v1-20260909.1">
   <script type="importmap">
     {"imports": {"three": "./vendor/three/build/three.module.js"}}
   </script>
@@ -14,7 +14,7 @@
     <div>
       <h1>Tactile Sphere Reconstruction</h1>
       <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE ONLY</span>
-      <span id="build-id" class="build-id">UI rgb-baseline-20260908.1 · API —</span>
+      <span id="build-id" class="build-id">UI geometric-fusion-v1-20260909.1 · API —</span>
     </div>
     <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
   </header>
@@ -201,11 +201,22 @@
         <h3>Vision-only RGB sphere baseline</h3>
         <p>Waiting for calibrated RGB observation…</p>
       </div>
+      <div id="fusion-metrics" class="vision-card fusion-card">
+        <div class="fusion-heading"><h3>Geometric RGB + tactile fusion v1</h3>
+          <label>Inspect <select id="fusion-method">
+            <option value="fusion_finite_patch">D · Fusion — finite patch</option>
+            <option value="fusion_representative">C · Fusion — representative point</option>
+            <option value="tactile_only_representative">B · Tactile only — representative point</option>
+            <option value="rgb_only">A · RGB only</option>
+          </select></label>
+        </div>
+        <p>Waiting for synchronized RGB and tactile observations…</p>
+      </div>
         </div>
       </div>
     </section>
   </main>
   <div id="toast" role="status"></div>
-  <script src="app.js?v=rgb-baseline-20260908.1"></script>
+  <script src="app.js?v=geometric-fusion-v1-20260909.1"></script>
 </body>
 </html>

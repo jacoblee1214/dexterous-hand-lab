@@ -39,6 +39,9 @@ from backend.visual_assets import VisualAssets, link_transform
 from backend.mujoco_offscreen import LatestFrameBuffer, MuJoCoOffscreenRenderer
 from simulation.experiment_recording import RepeatableSphereExperiment
 from vision.research_camera import ResearchRGBCamera
+from fusion.config import load_fusion_config
+from fusion.observation import build_fusion_observation
+from fusion.sphere import run_fusion_methods
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -47,7 +50,7 @@ UI_DIRECTORY = PROJECT_ROOT / "ui"
 RECONSTRUCTION_CONFIG = PROJECT_ROOT / "experiments" / "reconstruction_config.yaml"
 STATE_SCHEMA_VERSION = "1.1.0"
 CONTROL_SCHEMA_VERSION = "1.1.0"
-DASHBOARD_BUILD_ID = "rgb-baseline-20260908.1"
+DASHBOARD_BUILD_ID = "geometric-fusion-v1-20260909.1"
 
 
 @dataclass(frozen=True)
@@ -207,6 +210,17 @@ class DashboardSimulation:
             "projected_estimated_tactile_contacts": [],
         }
         self.vision_evaluation: dict = {"available": False}
+        self.fusion_config = load_fusion_config()
+        self.fusion_result: dict = {
+            "configuration_version": self.fusion_config["configuration_version"],
+            "status": "NOT_RUN",
+            "selected_method": None,
+            "known_radius_m": None,
+            "known_diameter_m": None,
+            "radius_label": "declared_known_radius_prior",
+            "methods": {},
+        }
+        self._last_fusion_update_wall = -math.inf
         self._update_sensor_pipeline(force=True)
 
     @property
@@ -341,6 +355,53 @@ class DashboardSimulation:
         if self._recorder and common_state.timestamp > self._last_recorded_timestamp:
             self._recorder.record(common_state)
             self._last_recorded_timestamp = common_state.timestamp
+
+    def update_fusion(self, capture) -> None:
+        """Run fusion through the strict observation boundary, never evaluator truth."""
+        now = time.monotonic()
+        if now-self._last_fusion_update_wall < 0.2:
+            return
+        self._last_fusion_update_wall = now
+        common = self.current_common_state
+        if common is None:
+            return
+        object_state = dict(common.object_state or {})
+        fixed_pose = object_state.get("experiment_mode") == "fixed_contact_diagnostic"
+        tactile = self.point_buffer.points
+        if not tactile:
+            frame = reconstruction_input_from_common_state(common, self.description)
+            tactile = tuple(make_temporal_observations(self.current_estimates, frame.joint_state))
+        if not fixed_pose:
+            tactile = tuple(item for item in tactile if abs(item.timestamp-common.timestamp) <= 1e-9)
+        try:
+            observation = build_fusion_observation(
+                rgb=capture.rgb,
+                segmentation=capture.segmentation,
+                calibration=capture.calibration,
+                camera_observation=capture.observation,
+                common_state=common,
+                description=self.description,
+                tactile_observations=tactile,
+                known_radius_m=float(object_state["radius_m"]),
+                config=self.fusion_config,
+                fixed_object_pose=fixed_pose,
+            )
+            self.fusion_result = run_fusion_methods(
+                observation, capture.vision_result, self.fusion_config
+            )
+        except Exception as exc:
+            self.fusion_result = {
+                "configuration_version": self.fusion_config["configuration_version"],
+                "status": "ERROR",
+                "selected_method": None,
+                "known_radius_m": object_state.get("radius_m"),
+                "known_diameter_m": (
+                    2*float(object_state["radius_m"]) if object_state.get("radius_m") else None
+                ),
+                "radius_label": "declared_known_radius_prior",
+                "methods": {},
+                "error": f"{type(exc).__name__}: {exc}",
+            }
 
     def _guard_moving_object_accumulation(self, common_state) -> None:
         if not self.point_buffer.accumulating:
@@ -529,6 +590,7 @@ class DashboardSimulation:
             ),
             "vision_only": self.vision_result,
             "vision_evaluation": self.vision_evaluation,
+            "fusion": self.fusion_result,
             "recording": {"enabled": self._recorder is not None,
                           "path": str(self._recorder.path) if self._recorder else None,
                           "detail": self._recording_detail},
@@ -940,6 +1002,7 @@ async def run_servers(config: DashboardConfig) -> None:
                     research_stream.publish(capture.frame)
                     engine.vision_result = capture.vision_result
                     engine.vision_evaluation = {"available": True, **capture.evaluation}
+                    engine.update_fusion(capture)
                     if engine.description.source == "simulation" and hasattr(
                         engine.provider, "publish_camera_observation"
                     ):

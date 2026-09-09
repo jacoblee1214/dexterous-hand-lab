@@ -63,11 +63,13 @@ def test_versioned_state_has_four_panel_data_and_hides_gt_by_default(engine):
         "sphere_reconstruction",
         "evaluation",
         "render",
+        "fusion",
     ):
         assert group in state
     assert len(state["joints"]) == 20
     assert len(state["sensors"]) == 18
     assert state["evaluation"] == {"enabled": False}
+    assert state["fusion"]["configuration_version"] == "geometric-fusion-v1"
     assert "ground_truth" not in json.dumps(state).lower()
     json.dumps(state, allow_nan=False)
 

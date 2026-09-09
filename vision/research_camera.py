@@ -30,6 +30,9 @@ from vision.calibration import (
 class ResearchCapture:
     frame: RenderedFrame
     observation: CameraObservation
+    rgb: np.ndarray
+    segmentation: SegmentationResult
+    calibration: CalibratedCamera
     segmentation_mask: np.ndarray
     ground_truth_mask: np.ndarray
     vision_result: dict
@@ -255,7 +258,15 @@ class ResearchRGBCamera:
             time_base=self.config.time_base,
         )
         return ResearchCapture(
-            frame, observation, segmentation.mask, ground_truth, result, evaluation
+            frame=frame,
+            observation=observation,
+            rgb=rgb,
+            segmentation=segmentation,
+            calibration=calibration,
+            segmentation_mask=segmentation.mask,
+            ground_truth_mask=ground_truth,
+            vision_result=result,
+            evaluation=evaluation,
         )
 
     def close(self) -> None:
