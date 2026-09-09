@@ -59,7 +59,10 @@ the reconstruction packages retain explicit algorithm/evaluation boundaries.
 - A deterministic known-radius geometric RGB/tactile fusion baseline with strict
   ground-truth isolation, visibility-aware silhouette residuals, representative
   and finite-patch tactile variants, explicit failure states, and a four-method
-  dashboard comparison. See `docs/research_fusion_milestone2.md`.
+  dashboard comparison. The live UI now exposes exact camera calibration,
+  residuals, weights, coverage, conditioning, uncertainty, initialization, and
+  validity reasons. See `docs/research_fusion_milestone2.md` and
+  `docs/camera_fusion_explainability.md`.
 
 The invisible hand collision geometry uses provisional convex hulls generated
 from the supplied high-resolution visual meshes. It prevents obvious hand/object
@@ -270,7 +273,10 @@ point accumulation, fitting, or evaluation implementation.
 
 Left-drag, right-drag and the mouse wheel send explicit orbit, pan and zoom
 camera commands to the backend MuJoCo camera. `Reset Camera` restores its
-reference view. The collapsed joint section retains sliders for all 20 named
+reference view. This movable Debug Camera is distinct from the fixed Research
+RGB Camera. The optional research-camera frame/frustum is drawn only into the
+debug scene; exact compiled intrinsics/extrinsics and transform direction appear
+in the dashboard calibration panel. The collapsed joint section retains sliders for all 20 named
 actuator targets; these send normal `set_joint_target` commands and never write
 `qpos` from the browser.
 
@@ -608,15 +614,16 @@ penetration have not been scientifically validated.
 - The color-based RGB mask is a controlled experimental assumption. In the
   four-condition 40 mm run, three of four known-radius fits were unreliable under
   offset/occlusion effects.
-- There is no final RGB+tactile fusion, vision-based object tracker, general
-  learned reconstruction, or actual hardware transport/motor control.
+- The current RGB+tactile implementation is a geometric known-radius sphere
+  baseline, not a final/general fusion method. There is no vision-based object
+  tracker, learned reconstruction, or actual hardware transport/motor control.
 - CAD/URDF/STL ownership and redistribution terms must be confirmed before any
   remote repository includes `assets/`; see
   [docs/repository_snapshot_plan.md](docs/repository_snapshot_plan.md).
 
-The next research milestone is timestamp-aware RGB plus sparse tactile fusion
-with a measured object-frame history, explicit uncertainty and ground truth kept
-strictly in evaluation.
+The current milestone stops at explainability, paired evaluation, exploratory
+sim-to-real sensitivity, and a read-only real-hardware protocol. It does not
+start neural fusion or real motor control.
 
 ## Layout
 

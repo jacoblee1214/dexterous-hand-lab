@@ -1,0 +1,673 @@
+{
+  "analysis_version": "paired-explainability-v1",
+  "source_experiment": "/home/jake/tactile_shape_reconstruction/experiments/fusion/geometric_v1_20260909",
+  "matching_key": "trial_XX_condition directory/case ID",
+  "attempt_count": 18,
+  "success_over_all_attempts": {
+    "rgb_only": {
+      "attempt_count": 18,
+      "success_count": 18,
+      "failure_count": 0,
+      "success_rate": 1.0
+    },
+    "tactile_only_representative": {
+      "attempt_count": 18,
+      "success_count": 6,
+      "failure_count": 12,
+      "success_rate": 0.3333333333333333
+    },
+    "fusion_representative": {
+      "attempt_count": 18,
+      "success_count": 6,
+      "failure_count": 12,
+      "success_rate": 0.3333333333333333
+    },
+    "fusion_finite_patch": {
+      "attempt_count": 18,
+      "success_count": 6,
+      "failure_count": 12,
+      "success_rate": 0.3333333333333333
+    }
+  },
+  "common_valid_all_methods": {
+    "count": 6,
+    "case_ids": [
+      "trial_01_controlled_mask_degradation",
+      "trial_01_strong_occlusion",
+      "trial_02_controlled_mask_degradation",
+      "trial_02_strong_occlusion",
+      "trial_03_controlled_mask_degradation",
+      "trial_03_strong_occlusion"
+    ],
+    "center_error_m": {
+      "rgb_only": {
+        "count": 6,
+        "mean": 0.0789344892262,
+        "median": 0.06494677012736014,
+        "minimum": 0.00789040659014877,
+        "maximum": 0.18041426088211873
+      },
+      "tactile_only_representative": {
+        "count": 6,
+        "mean": 0.016250985271113395,
+        "median": 0.01616742190155282,
+        "minimum": 0.01603124056722129,
+        "maximum": 0.01655429334456607
+      },
+      "fusion_representative": {
+        "count": 6,
+        "mean": 0.014830925448503538,
+        "median": 0.014707795500795696,
+        "minimum": 0.011197508489147297,
+        "maximum": 0.018839176891336712
+      },
+      "fusion_finite_patch": {
+        "count": 6,
+        "mean": 0.014325543682265482,
+        "median": 0.013718695955711579,
+        "minimum": 0.009458506522019383,
+        "maximum": 0.02078081712668309
+      }
+    },
+    "rows": [
+      {
+        "case_id": "trial_01_controlled_mask_degradation",
+        "condition": "controlled_mask_degradation",
+        "center_error_m": {
+          "rgb_only": 0.18041426088211873,
+          "tactile_only_representative": 0.01655429334456607,
+          "fusion_representative": 0.018839176891336712,
+          "fusion_finite_patch": 0.02078081712668309
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": -0.16385996753755266,
+          "fusion_representative": -0.16157508399078202,
+          "fusion_finite_patch": -0.15963344375543564
+        }
+      },
+      {
+        "case_id": "trial_01_strong_occlusion",
+        "condition": "strong_occlusion",
+        "center_error_m": {
+          "rgb_only": 0.00789040659014877,
+          "tactile_only_representative": 0.01655429334456607,
+          "fusion_representative": 0.012189728882519119,
+          "fusion_finite_patch": 0.00971520260226677
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": 0.008663886754417302,
+          "fusion_representative": 0.00429932229237035,
+          "fusion_finite_patch": 0.001824796012118001
+        }
+      },
+      {
+        "case_id": "trial_02_controlled_mask_degradation",
+        "condition": "controlled_mask_degradation",
+        "center_error_m": {
+          "rgb_only": 0.1475183210400635,
+          "tactile_only_representative": 0.01616742190155282,
+          "fusion_representative": 0.017599879365021665,
+          "fusion_finite_patch": 0.01865554627237869
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": -0.13135089913851067,
+          "fusion_representative": -0.12991844167504182,
+          "fusion_finite_patch": -0.1288627747676848
+        }
+      },
+      {
+        "case_id": "trial_02_strong_occlusion",
+        "condition": "strong_occlusion",
+        "center_error_m": {
+          "rgb_only": 0.00789040659014877,
+          "tactile_only_representative": 0.01616742190155282,
+          "fusion_representative": 0.011933396943924165,
+          "fusion_finite_patch": 0.009621000261088569
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": 0.00827701531140405,
+          "fusion_representative": 0.004042990353775396,
+          "fusion_finite_patch": 0.0017305936709397993
+        }
+      },
+      {
+        "case_id": "trial_03_controlled_mask_degradation",
+        "condition": "controlled_mask_degradation",
+        "center_error_m": {
+          "rgb_only": 0.1220031336645715,
+          "tactile_only_representative": 0.01603124056722129,
+          "fusion_representative": 0.017225862119072274,
+          "fusion_finite_patch": 0.017722189309156387
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": -0.10597189309735021,
+          "fusion_representative": -0.10477727154549922,
+          "fusion_finite_patch": -0.1042809443554151
+        }
+      },
+      {
+        "case_id": "trial_03_strong_occlusion",
+        "condition": "strong_occlusion",
+        "center_error_m": {
+          "rgb_only": 0.00789040659014877,
+          "tactile_only_representative": 0.01603124056722129,
+          "fusion_representative": 0.011197508489147297,
+          "fusion_finite_patch": 0.009458506522019383
+        },
+        "delta_to_rgb_m": {
+          "tactile_only_representative": 0.00814083397707252,
+          "fusion_representative": 0.003307101898998528,
+          "fusion_finite_patch": 0.0015680999318706135
+        }
+      }
+    ]
+  },
+  "paired_by_condition": {
+    "controlled_mask_degradation": {
+      "common_valid_count": 3,
+      "center_error_m": {
+        "rgb_only": {
+          "count": 3,
+          "mean": 0.14997857186225125,
+          "median": 0.1475183210400635,
+          "minimum": 0.1220031336645715,
+          "maximum": 0.18041426088211873
+        },
+        "tactile_only_representative": {
+          "count": 3,
+          "mean": 0.016250985271113395,
+          "median": 0.01616742190155282,
+          "minimum": 0.01603124056722129,
+          "maximum": 0.01655429334456607
+        },
+        "fusion_representative": {
+          "count": 3,
+          "mean": 0.01788830612514355,
+          "median": 0.017599879365021665,
+          "minimum": 0.017225862119072274,
+          "maximum": 0.018839176891336712
+        },
+        "fusion_finite_patch": {
+          "count": 3,
+          "mean": 0.01905285090273939,
+          "median": 0.01865554627237869,
+          "minimum": 0.017722189309156387,
+          "maximum": 0.02078081712668309
+        }
+      },
+      "delta_to_rgb_m": {
+        "tactile_only_representative": {
+          "count": 3,
+          "mean": -0.13372758659113784,
+          "median": -0.13135089913851067,
+          "minimum": -0.16385996753755266,
+          "maximum": -0.10597189309735021
+        },
+        "fusion_representative": {
+          "count": 3,
+          "mean": -0.1320902657371077,
+          "median": -0.12991844167504182,
+          "minimum": -0.16157508399078202,
+          "maximum": -0.10477727154549922
+        },
+        "fusion_finite_patch": {
+          "count": 3,
+          "mean": -0.13092572095951185,
+          "median": -0.1288627747676848,
+          "minimum": -0.15963344375543564,
+          "maximum": -0.1042809443554151
+        }
+      }
+    },
+    "strong_occlusion": {
+      "common_valid_count": 3,
+      "center_error_m": {
+        "rgb_only": {
+          "count": 3,
+          "mean": 0.00789040659014877,
+          "median": 0.00789040659014877,
+          "minimum": 0.00789040659014877,
+          "maximum": 0.00789040659014877
+        },
+        "tactile_only_representative": {
+          "count": 3,
+          "mean": 0.016250985271113395,
+          "median": 0.01616742190155282,
+          "minimum": 0.01603124056722129,
+          "maximum": 0.01655429334456607
+        },
+        "fusion_representative": {
+          "count": 3,
+          "mean": 0.011773544771863527,
+          "median": 0.011933396943924165,
+          "minimum": 0.011197508489147297,
+          "maximum": 0.012189728882519119
+        },
+        "fusion_finite_patch": {
+          "count": 3,
+          "mean": 0.009598236461791573,
+          "median": 0.009621000261088569,
+          "minimum": 0.009458506522019383,
+          "maximum": 0.00971520260226677
+        }
+      },
+      "delta_to_rgb_m": {
+        "tactile_only_representative": {
+          "count": 3,
+          "mean": 0.008360578680964624,
+          "median": 0.00827701531140405,
+          "minimum": 0.00814083397707252,
+          "maximum": 0.008663886754417302
+        },
+        "fusion_representative": {
+          "count": 3,
+          "mean": 0.0038831381817147578,
+          "median": 0.004042990353775396,
+          "minimum": 0.003307101898998528,
+          "maximum": 0.00429932229237035
+        },
+        "fusion_finite_patch": {
+          "count": 3,
+          "mean": 0.0017078298716428047,
+          "median": 0.0017305936709397993,
+          "minimum": 0.0015680999318706135,
+          "maximum": 0.001824796012118001
+        }
+      }
+    }
+  },
+  "failure_diagnosis_evidence": {
+    "strong_occlusion": {
+      "case_count": 3,
+      "segmentation_iou": {
+        "count": 3,
+        "mean": 0.6065700834523939,
+        "median": 0.6062190054952419,
+        "minimum": 0.6062190054952419,
+        "maximum": 0.6072722393666979
+      },
+      "measured_visible_fraction": {
+        "count": 3,
+        "mean": 0.7189949644395992,
+        "median": 0.7188911384519545,
+        "minimum": 0.7188911384519545,
+        "maximum": 0.7192026164148887
+      },
+      "methods": {
+        "rgb_only": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "median": 0.00789040659014877,
+            "minimum": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.029724555284156108,
+            "median": 0.029724555284156108,
+            "minimum": 0.029724555284156108,
+            "maximum": 0.029724555284156108
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "minimum": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "median": 37.33326270499258,
+            "minimum": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "initializations": [
+            "visibility_aware_rgb_boundary_cone"
+          ]
+        },
+        "tactile_only_representative": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250985271113395,
+            "median": 0.01616742190155282,
+            "minimum": 0.01603124056722129,
+            "maximum": 0.01655429334456607
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "minimum": null,
+            "maximum": null
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.6774025999598936,
+            "median": 0.6751927106792233,
+            "minimum": 0.668363034787852,
+            "maximum": 0.6886520544126057
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "median": 2.913013726086412,
+            "minimum": 2.9043450970233935,
+            "maximum": 2.9236148384642364
+          },
+          "initializations": [
+            "algebraic_fixed_radius_points_rank_3"
+          ]
+        },
+        "fusion_representative": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863527,
+            "median": 0.011933396943924165,
+            "minimum": 0.011197508489147297,
+            "maximum": 0.012189728882519119
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 1.0271293822469685,
+            "median": 1.0427515167193535,
+            "minimum": 0.9889154892611668,
+            "maximum": 1.0497211407603853
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.8077706094163477,
+            "median": 0.8116674087947792,
+            "minimum": 0.7957082497094472,
+            "maximum": 0.8159361697448166
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "median": 1.739148832774328,
+            "minimum": 1.7332183138457804,
+            "maximum": 1.7853339300895916
+          },
+          "initializations": [
+            "reliable_rgb_center"
+          ]
+        },
+        "fusion_finite_patch": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "median": 0.009621000261088569,
+            "minimum": 0.009458506522019383,
+            "maximum": 0.00971520260226677
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.39161504866622165,
+            "median": 0.38727140094911316,
+            "minimum": 0.38601719608059415,
+            "maximum": 0.4015565489689576
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.41667268735067897,
+            "median": 0.4146750904053857,
+            "minimum": 0.41281913216719385,
+            "maximum": 0.42252383947945743
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "median": 1.744191342550264,
+            "minimum": 1.6778625397385467,
+            "maximum": 1.8148475995377948
+          },
+          "initializations": [
+            "reliable_rgb_center"
+          ]
+        }
+      },
+      "tactile_coverage": {
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10333485863816519,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828
+        },
+        "jacobian_condition": {
+          "count": 3,
+          "mean": 2.614188788956476,
+          "median": 2.600975446028755,
+          "minimum": 2.580355159671397,
+          "maximum": 2.661235761169276
+        }
+      }
+    },
+    "controlled_mask_degradation": {
+      "case_count": 3,
+      "segmentation_iou": {
+        "count": 3,
+        "mean": 0.8016175495387237,
+        "median": 0.8068181818181818,
+        "minimum": 0.7672875187326055,
+        "maximum": 0.8307469480653839
+      },
+      "measured_visible_fraction": {
+        "count": 3,
+        "mean": 0.7189949644395992,
+        "median": 0.7188911384519545,
+        "minimum": 0.7188911384519545,
+        "maximum": 0.7192026164148887
+      },
+      "methods": {
+        "rgb_only": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.14997857186225125,
+            "median": 0.1475183210400635,
+            "minimum": 0.1220031336645715,
+            "maximum": 0.18041426088211873
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 1.0320045609852562,
+            "median": 1.0222114691861477,
+            "minimum": 1.0007168987415251,
+            "maximum": 1.0730853150280957
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "minimum": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 12.127382024479738,
+            "median": 11.995598037504907,
+            "minimum": 11.35452781617178,
+            "maximum": 13.032020219762527
+          },
+          "initializations": [
+            "visibility_aware_rgb_boundary_cone"
+          ]
+        },
+        "tactile_only_representative": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250985271113395,
+            "median": 0.01616742190155282,
+            "minimum": 0.01603124056722129,
+            "maximum": 0.01655429334456607
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "minimum": null,
+            "maximum": null
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.6774025999598936,
+            "median": 0.6751927106792233,
+            "minimum": 0.668363034787852,
+            "maximum": 0.6886520544126057
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "median": 2.913013726086412,
+            "minimum": 2.9043450970233935,
+            "maximum": 2.9236148384642364
+          },
+          "initializations": [
+            "algebraic_fixed_radius_points_rank_3"
+          ]
+        },
+        "fusion_representative": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01788830612514355,
+            "median": 0.017599879365021665,
+            "minimum": 0.017225862119072274,
+            "maximum": 0.018839176891336712
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 2.184313669334583,
+            "median": 2.156042264402917,
+            "minimum": 1.9223060294016574,
+            "maximum": 2.4745927141991735
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.6990983064702514,
+            "median": 0.7031233598045292,
+            "minimum": 0.6876767856285894,
+            "maximum": 0.7064947739776357
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.413933111821939,
+            "median": 1.3955367137431542,
+            "minimum": 1.376208036904441,
+            "maximum": 1.4700545848182218
+          },
+          "initializations": [
+            "reliable_rgb_center"
+          ]
+        },
+        "fusion_finite_patch": {
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01905285090273939,
+            "median": 0.01865554627237869,
+            "minimum": 0.017722189309156387,
+            "maximum": 0.02078081712668309
+          },
+          "rgb_residual_rms_sigma": {
+            "count": 3,
+            "mean": 2.163110479078368,
+            "median": 2.1466109040272103,
+            "minimum": 1.9190923423221435,
+            "maximum": 2.4236281908857507
+          },
+          "tactile_residual_rms_sigma": {
+            "count": 3,
+            "mean": 0.1770860411524282,
+            "median": 0.1843929422911526,
+            "minimum": 0.1579057111202724,
+            "maximum": 0.18895947004585958
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.067806494140231,
+            "median": 2.056353433679431,
+            "minimum": 2.0559391536980205,
+            "maximum": 2.091126895043242
+          },
+          "initializations": [
+            "reliable_rgb_center"
+          ]
+        }
+      },
+      "tactile_coverage": {
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10333485863816519,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828
+        },
+        "jacobian_condition": {
+          "count": 3,
+          "mean": 2.842256723754942,
+          "median": 2.856170289270446,
+          "minimum": 2.8041751218782975,
+          "maximum": 2.8664247601160833
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "supported": [
+      "All four methods are jointly valid only in the three strong-occlusion and three controlled-mask-degradation cases; common-valid comparisons therefore use exactly those six IDs.",
+      "In ordinary strong occlusion, both fusion methods degrade center error versus RGB-only on every paired trial; finite-patch fusion degrades less than representative-point fusion.",
+      "Finite-patch fusion has a lower tactile residual than representative fusion in strong occlusion, supporting within-patch contact-location ambiguity as one contributor, but not proving it is the only cause.",
+      "The controlled mask degradation lowers RGB mask quality and makes RGB-only much worse; both fusion modes then improve the paired estimate.",
+      "The strong-occlusion runs use the same sensor/finger coverage and deterministic reliable-RGB initialization, while their reported condition numbers remain finite; gross rank loss and initialization failure are not supported as the primary cause in those cases."
+    ],
+    "unresolved_hypotheses": [
+      "The committed 18-case logs do not independently identify sensor-mount, joint-encoder, pressure-response, or camera-calibration error; sensitivity experiments bound these effects but do not validate hardware calibration.",
+      "Representative contact error cannot be measured directly without evaluation-only contact truth, which is intentionally excluded from algorithm input.",
+      "Equal standardized modality weights may still be suboptimal under occlusion, but changing them from held-out ground-truth error would be evaluation leakage and was not performed.",
+      "The experiment does not isolate optimizer basin effects beyond recording the successful initialization labels and finite conditioning."
+    ]
+  },
+  "warning": "Valid-only means from different method subsets are not used as a paired comparison."
+}

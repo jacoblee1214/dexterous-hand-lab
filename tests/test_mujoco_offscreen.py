@@ -69,6 +69,20 @@ def test_camera_commands_change_muJoCo_frame_and_validate_input(rendering):
         renderer.camera_command({"action": "overwrite_qpos"})
 
 
+def test_calibrated_research_camera_frustum_is_explicit_debug_overlay(rendering):
+    provider, engine, renderer = rendering
+    before_qpos = provider.simulation.data.qpos.copy()
+    renderer.render_rgb(engine)
+    baseline_geoms = renderer.renderer.scene.ngeom
+    renderer.camera_command({"action": "toggle_research_camera_frustum", "enabled": True})
+    assert renderer.show_research_camera_frustum
+    rgb = renderer.render_rgb(engine)
+    assert rgb.shape == (480, 640, 3)
+    # Three optical-frame axes, four rays, and four image-plane edges are appended.
+    assert renderer.renderer.scene.ngeom >= baseline_geoms + 12
+    np.testing.assert_array_equal(provider.simulation.data.qpos, before_qpos)
+
+
 def test_latest_frame_buffer_drops_old_frames_and_reports_metadata():
     buffer = LatestFrameBuffer()
     assert buffer.metadata()["status"] == "STARTING"

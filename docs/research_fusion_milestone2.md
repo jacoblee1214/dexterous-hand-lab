@@ -69,8 +69,9 @@ Launch with the existing command:
 MUJOCO_GL=egl python -m backend.dashboard_server
 ```
 
-The matching frontend/backend build is
-`geometric-fusion-v1-20260909.1`.
+The explainability milestone matching frontend/backend build is
+`fusion-explainability-v1-20260909.1`. Exact camera, A–D diagnostics, paired
+reanalysis, and sensitivity details are in `docs/camera_fusion_explainability.md`.
 
 ## Reproducible experiment
 
@@ -97,8 +98,8 @@ Measured results from the committed 2026-09-09 run:
 | C fusion representative | 6 | 14.83 mm | 66.7% | 14.77 ms |
 | D fusion finite patch | 6 | 14.33 mm | 66.7% | 37.21 ms |
 
-Across the six cases where RGB and fusion were both valid, C reduced mean center
-error by 64.10 mm and D by 64.61 mm relative to RGB. This aggregate improvement
+Across the six exact case IDs where all four methods were valid, C reduced mean
+center error by 64.10 mm and D by 64.61 mm relative to RGB. This aggregate improvement
 is dominated by controlled mask degradation. Under the undegraded stronger-grasp
 condition, RGB was about 7.89 mm while C was 11.20–12.19 mm and D was
 9.46–9.72 mm: fusion **degraded** the center estimate there. Partial, sparse, and
@@ -111,3 +112,6 @@ coverage, conditioning, covariance, runtime, valid-only aggregates, and
 all-attempt failure rates are in
 `experiments/fusion/geometric_v1_20260909/evaluation_summary.json` and its
 per-condition files.
+The corrected common-valid report is
+`experiments/fusion/geometric_v1_20260909/paired_reanalysis.json`; valid-only
+means from different subsets must not be compared as if paired.

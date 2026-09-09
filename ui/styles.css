@@ -105,6 +105,12 @@ tr { cursor: pointer; } tr:hover { background:#15283a } tr.selected { outline: 1
 .fusion-heading h3 { margin:0; }
 .fusion-heading label { font-size:.75rem; color:var(--muted); }
 .fusion-card .error { color:#ff8b5c; }
+.camera-calibration-panel { margin-top:6px; padding:5px 8px; border:1px solid var(--line); border-radius:6px; color:#c4d8e5; font-size:10px; }
+.camera-calibration-panel summary, .fusion-help summary { cursor:pointer; color:var(--cyan); }
+.camera-grid { display:grid; grid-template-columns:max-content 1fr; gap:4px 10px; margin:7px 0 2px; }
+.camera-grid dt { color:var(--muted); }.camera-grid dd { margin:0; font-family:ui-monospace,monospace; overflow-wrap:anywhere; }
+.fusion-help { margin-top:7px; border-top:1px solid var(--line); padding-top:6px; }
+.fusion-help-content p { line-height:1.4; }
 .detail-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:4px 14px; margin-top:5px; }
 .detail-grid b { color:var(--muted); font-weight:500; }.detail-grid span { font-family:ui-monospace,monospace; }
 .plot-grid { min-height: 0; flex: 1; display:grid; grid-template: 1fr 1fr / 1fr 1fr; gap:7px; }

@@ -1,7 +1,7 @@
 "use strict";
 
 const SCHEMA_VERSION = "1.1.0";
-const FRONTEND_BUILD_ID = "geometric-fusion-v1-20260909.1";
+const FRONTEND_BUILD_ID = "fusion-explainability-v1-20260909.1";
 const colors = ["#35d7e5", "#ff8b5c", "#c478ff", "#55ec89", "#ffd84f", "#4d99ff"];
 let state = null;
 let socket = null;
@@ -80,6 +80,8 @@ function renderStreamStatus() {
   document.querySelector("#repeat-experiment").disabled = !valid || state?.experiment?.active || !state?.experiment?.name;
   document.querySelector("#simulation-toggle").disabled = !transportOpen || state?.source.kind === "hardware";
   document.querySelector("#reset-render-camera").disabled = renderMode !== 'mujoco' || state?.render?.status !== 'STREAMING';
+  document.querySelector("#show-research-camera-frustum").disabled =
+    renderMode !== 'mujoco' || state?.render?.status !== 'STREAMING';
   if (!valid) {
     document.querySelector("#active-count").textContent = "Current activation unavailable";
     document.querySelectorAll("#sensor-table tbody tr").forEach(row => {
@@ -155,6 +157,8 @@ document.querySelector("#simulation-toggle").addEventListener("click", () => com
 document.querySelector("#show-ground-truth").addEventListener("change", event => command("show_ground_truth", {enabled: event.target.checked}));
 document.querySelector("#show-estimated").addEventListener("change", event => command("show_estimated_sphere", {enabled: event.target.checked}));
 document.querySelector("#show-projected-contacts").addEventListener("change", () => state && drawResearchContactOverlay());
+document.querySelector("#show-research-camera-frustum").addEventListener("change", event =>
+  command("render_camera", {action:"toggle_research_camera_frustum", enabled:event.target.checked}));
 document.querySelector("#series-scope").addEventListener("change", event => command("set_time_series_scope", {scope: event.target.value}));
 document.querySelector("#experiment-mode").addEventListener("change", event => command("set_experiment_mode", {mode:event.target.value}));
 document.querySelectorAll("[data-grasp-stage]").forEach(button => button.addEventListener("click", () => command("execute_grasp_stage", {stage_number:Number(button.dataset.graspStage)})));
@@ -559,15 +563,48 @@ function renderFusion() {
     fusion_representative:'C · Fusion / representative', fusion_finite_patch:'D · Fusion / finite sensor patch'};
   const validCount=Object.values(methods).filter(result=>result.valid).length;
   const root=document.querySelector('#fusion-metrics');
-  root.querySelector('p').innerHTML=
+  const diagnostics=selected.diagnostics || {};
+  const coverage=`${diagnostics.contact_count ?? 0} contacts · ${diagnostics.unique_sensor_count ?? 0} sensors · ${diagnostics.unique_finger_count ?? 0} fingers · spread ${format(diagnostics.spatial_spread_m,4)} m`;
+  const uncertainty=(selected.uncertainty_standard_deviation_m || []).map(value=>format(value,6)).join(', ') || 'unavailable';
+  root.querySelector(':scope > p').innerHTML=
     `Pipeline: <span class="mono">${fusion.status || 'NOT_RUN'}</span> · valid methods <span class="mono">${validCount} / 4</span><br>`+
     `Selected: <span class="mono">${labels[fusionMethod] || fusionMethod}</span> · status <span class="mono">${selected.status || 'NOT_RUN'}</span><br>`+
     `Center: <span class="mono">${vector(selected.estimated_center_world_m)}</span><br>`+
     `Known radius: <span class="mono">${fusion.known_radius_m == null ? '—' : format(fusion.known_radius_m,5)+' m'}</span> · `+
     `diameter <span class="mono">${fusion.known_diameter_m == null ? '—' : format(fusion.known_diameter_m,5)+' m'}</span> · <span class="mono">${fusion.radius_label || '—'}</span><br>`+
-    `RGB residual: <span class="mono">${format(selected.vision_residual_rms_sigma,3)} σ</span> · tactile residual: <span class="mono">${format(selected.tactile_residual_rms_sigma,3)} σ</span> · `+
-    `condition: <span class="mono">${format(selected.condition_number,2)}</span> · runtime: <span class="mono">${format(selected.runtime_ms,2)} ms</span>`+
+    `Validity: <span class="mono">${selected.validity_reason || 'No result yet'}</span><br>`+
+    `RGB residual: <span class="mono">${format(selected.vision_residual_rms_sigma,3)} σ / ${format(diagnostics.vision_residual_rms_px,3)} px</span> · `+
+    `tactile residual: <span class="mono">${format(selected.tactile_residual_rms_sigma,3)} σ / ${format(diagnostics.tactile_residual_rms_m,6)} m</span><br>`+
+    `Weights λRGB/λT: <span class="mono">${format(fusion.weights?.vision,2)} / ${format(fusion.weights?.tactile,2)}</span> · Huber: <span class="mono">${format(diagnostics.robust_loss?.threshold_sigma ?? fusion.robust_loss?.threshold_sigma,2)} σ</span><br>`+
+    `RGB evidence: <span class="mono">${diagnostics.vision_status || '—'} · ${diagnostics.visible_boundary_count ?? 0} boundary samples · angular coverage ${format(diagnostics.visible_angular_coverage,3)}</span><br>`+
+    `Contributors: <span class="mono">${coverage}</span><br>`+
+    `Sensors: <span class="mono">${(diagnostics.contributing_sensor_ids || []).join(', ') || 'none'}</span><br>`+
+    `Fingers: <span class="mono">${(diagnostics.contributing_finger_ids || []).join(', ') || 'none'}</span><br>`+
+    `Joint condition: <span class="mono">${format(selected.condition_number,2)}</span> · tactile coverage condition: <span class="mono">${format(diagnostics.jacobian_condition,2)}</span><br>`+
+    `Center uncertainty σx/y/z: <span class="mono">${uncertainty} m</span> · init: <span class="mono">${selected.initialization || '—'}</span><br>`+
+    `Runtime: <span class="mono">${format(selected.runtime_ms,2)} ms</span>`+
     (fusion.error ? `<br><span class="error">${fusion.error}</span>` : '');
+}
+
+function renderCameraCalibration() {
+  const root=document.querySelector('#camera-calibration-content');
+  const calibration=state.research_camera_calibration;
+  document.querySelector('#show-research-camera-frustum').checked=Boolean(state.research_camera_debug_visible);
+  if (!calibration) { root.textContent='Waiting for the compiled MuJoCo camera calibration…'; return; }
+  const i=calibration.intrinsics || {}, world=calibration.T_world_from_camera_cv || [];
+  const cameraFromWorld=calibration.T_camera_cv_from_world || [];
+  const position=world.length===4 ? world.slice(0,3).map(row=>row[3]) : null;
+  const rotation=world.length===4 ? world.slice(0,3).map(row=>row.slice(0,3)) : null;
+  root.innerHTML=`<p><b>Fixed Research RGB Camera</b> is the clean algorithm input. The movable <b>Debug Camera</b> is only the top-left engineering view controlled by drag/pan/zoom; moving it never changes research RGB or qpos.</p>`+
+    `<dl class="camera-grid"><dt>Calibration version</dt><dd>${calibration.calibration_version}</dd>`+
+    `<dt>Camera / optical frame</dt><dd>${calibration.camera_name} / ${calibration.frame_id}</dd>`+
+    `<dt>Parent / transform direction</dt><dd>${calibration.parent_frame} / T_world_from_camera_cv maps CV camera coordinates → world</dd>`+
+    `<dt>Position in world (m)</dt><dd>${vector(position)}</dd>`+
+    `<dt>Orientation R_world_from_camera_cv</dt><dd><code>${JSON.stringify(rotation)}</code></dd>`+
+    `<dt>Extrinsics T_camera_cv_from_world</dt><dd><code>${JSON.stringify(cameraFromWorld)}</code></dd>`+
+    `<dt>Resolution / vertical FOV</dt><dd>${i.width}×${i.height} / ${format(calibration.fovy_degrees,3)}°</dd>`+
+    `<dt>Intrinsics fx, fy, cx, cy (px)</dt><dd>${format(i.fx,6)}, ${format(i.fy,6)}, ${format(i.cx,3)}, ${format(i.cy,3)}</dd>`+
+    `<dt>Convention</dt><dd>CV optical: +X right, +Y down, +Z forward; world frame is MuJoCo world</dd></dl>`;
 }
 
 function render(){
@@ -583,7 +620,7 @@ function render(){
   const graspLabel = grasp.preset_name ? `${grasp.preset_name} · ${grasp.phase_name} · grasp stage ${grasp.stage}/${grasp.stage_count || 4}` : "Read-only robot state";
   document.querySelector("#simulation-summary").textContent=`${graspLabel} · accumulation ${state.accumulation.running?"RUNNING":"PAUSED"} · ${state.accumulation.accepted_point_count} accepted · ${state.accumulation.rejected_duplicate_count} duplicates`;
   document.querySelector("#show-ground-truth").checked=state.evaluation.enabled;document.querySelector("#show-estimated").checked=state.sphere_reconstruction.show_estimated_sphere;
-  renderSensors();renderJointTargets();renderGraspDiagnostics();renderPlots();renderReconstruction();renderVisionOnly();renderFusion();renderPrimaryView();reconstructionView.draw(state);
+  renderSensors();renderJointTargets();renderGraspDiagnostics();renderPlots();renderReconstruction();renderVisionOnly();renderFusion();renderCameraCalibration();renderPrimaryView();reconstructionView.draw(state);
   document.querySelectorAll(".quadrant").forEach(panel => panel.dataset.snapshotTimestamp = String(state.snapshot.timestamp));
   renderStreamStatus();
 }

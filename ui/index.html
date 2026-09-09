@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tactile Sphere Reconstruction</title>
-  <link rel="stylesheet" href="styles.css?v=geometric-fusion-v1-20260909.1">
+  <link rel="stylesheet" href="styles.css?v=fusion-explainability-v1-20260909.1">
   <script type="importmap">
     {"imports": {"three": "./vendor/three/build/three.module.js"}}
   </script>
@@ -14,7 +14,7 @@
     <div>
       <h1>Tactile Sphere Reconstruction</h1>
       <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE ONLY</span>
-      <span id="build-id" class="build-id">UI geometric-fusion-v1-20260909.1 · API —</span>
+      <span id="build-id" class="build-id">UI fusion-explainability-v1-20260909.1 · API —</span>
     </div>
     <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
   </header>
@@ -42,9 +42,14 @@
       <div class="toolbar render-controls">
         <label>View <select id="render-mode"><option value="mujoco">MuJoCo Debug Render</option><option value="research">Research RGB Camera</option><option value="mesh">Mesh Digital Twin (debug)</option></select></label>
         <button id="reset-render-camera">Reset Camera</button>
+        <label><input id="show-research-camera-frustum" type="checkbox"> Research camera frame/frustum</label>
         <label><input id="show-projected-contacts" type="checkbox"> Project tactile contacts</label>
         <span id="render-frame-status" class="mono">Renderer starting…</span>
       </div>
+      <details id="camera-calibration-panel" class="camera-calibration-panel">
+        <summary>Research RGB Camera — exact calibration and frame</summary>
+        <div id="camera-calibration-content">Waiting for the compiled MuJoCo camera calibration…</div>
+      </details>
       <details class="joint-controls">
         <summary>Individual Joint Targets &amp; Grasp Presets</summary>
         <div class="grasp-control-grid">
@@ -211,12 +216,23 @@
           </select></label>
         </div>
         <p>Waiting for synchronized RGB and tactile observations…</p>
+        <details class="fusion-help">
+          <summary>What A–D compute and why a result is valid/invalid</summary>
+          <div class="fusion-help-content">
+            <p><b>Shared prior:</b> the current 40 mm setting is a fixed, known sphere radius. Every mode estimates only the 3D center; radius is never fitted.</p>
+            <p><b>A · RGB-only:</b> calibrated RGB mask boundary rays minimize tangent-to-known-radius residuals, with penalties for sphere intrusion into known background. Unknown/hand-occluded pixels are excluded.</p>
+            <p><b>B · Tactile representative:</b> each active scalar channel is converted through its pressure/indentation calibration into one representative point. It minimizes point-to-sphere radial residuals.</p>
+            <p><b>C · Fusion representative:</b> combines A and B using configured modality weights after each modality is standardized and normalized by sample count.</p>
+            <p><b>D · Fusion finite-patch:</b> replaces each tactile point with the calibrated finite sensor surface. Its residual is zero when any sampled patch point can lie on the sphere; otherwise it is distance to that feasible radial interval.</p>
+            <p>All modes use deterministic RGB-cone or tactile algebraic initialization and a Huber robust loss. A finite patch cannot identify the exact contact location because one scalar channel reports no within-patch coordinates. Scalar pressure is a magnitude-like normal response, not a measured 3D force vector or direction.</p>
+          </div>
+        </details>
       </div>
         </div>
       </div>
     </section>
   </main>
   <div id="toast" role="status"></div>
-  <script src="app.js?v=geometric-fusion-v1-20260909.1"></script>
+  <script src="app.js?v=fusion-explainability-v1-20260909.1"></script>
 </body>
 </html>

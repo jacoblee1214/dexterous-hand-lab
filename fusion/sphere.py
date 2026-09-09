@@ -204,10 +204,53 @@ def _tactile_coverage(contacts, center, config) -> dict:
         and condition <= float(settings["maximum_jacobian_condition"])
     )
     return {"contact_count": len(contacts), "unique_sensor_count": sensors,
-            "unique_finger_count": fingers, "spatial_spread_m": spread,
+            "unique_finger_count": fingers,
+            "contributing_sensor_ids": sorted({item.sensor_id for item in contacts}),
+            "contributing_finger_ids": sorted({item.finger_id for item in contacts}),
+            "spatial_spread_m": spread,
             "minimum_jacobian_singular_value": minimum_singular,
             "jacobian_condition": condition if math.isfinite(condition) else None,
             "observable": valid}
+
+
+def _validity_reason(status: str, diagnostics: Mapping, config: Mapping) -> str:
+    if status == "VALID_ESTIMATE":
+        return "All required modality, spatial-coverage, and numerical-conditioning checks passed."
+    if status == "INSUFFICIENT_VISION":
+        return (
+            "RGB silhouette is not usable: status="
+            f"{diagnostics.get('vision_status', 'UNKNOWN')}, visible boundary="
+            f"{diagnostics.get('visible_boundary_count', 0)}, angular coverage="
+            f"{diagnostics.get('visible_angular_coverage', 0.0):.3f}."
+        )
+    if status == "INITIALIZATION_FAILURE":
+        return "No finite center initialization could be formed from the available modality constraints."
+    if status == "ILL_CONDITIONED":
+        return (
+            "The joint residual Jacobian did not provide a stable three-dimensional center "
+            f"(condition={diagnostics.get('joint_condition_number')}, "
+            f"minimum singular value={diagnostics.get('joint_minimum_singular_value')})."
+        )
+    settings = config["tactile_observability"]
+    missing = []
+    checks = (
+        ("contact_count", "minimum_contact_count", "contacts"),
+        ("unique_sensor_count", "minimum_unique_sensor_count", "unique sensors"),
+        ("unique_finger_count", "minimum_unique_finger_count", "unique fingers"),
+        ("spatial_spread_m", "minimum_spatial_spread_m", "spatial spread (m)"),
+        ("minimum_jacobian_singular_value", "minimum_jacobian_singular_value",
+         "tactile Jacobian minimum singular value"),
+    )
+    for actual_key, required_key, label in checks:
+        actual, required = diagnostics.get(actual_key, 0), settings[required_key]
+        if actual < required:
+            missing.append(f"{label} {actual} < {required}")
+    condition = diagnostics.get("jacobian_condition")
+    if condition is None or condition > settings["maximum_jacobian_condition"]:
+        missing.append(
+            f"tactile Jacobian condition {condition} > {settings['maximum_jacobian_condition']}"
+        )
+    return "Insufficient tactile observability: " + "; ".join(missing or ["unknown coverage check"])
 
 
 def _huber_cost(residual: np.ndarray, threshold: np.ndarray | float) -> float:
@@ -289,6 +332,7 @@ class FusionResult:
     condition_number: float | None
     minimum_singular_value: float | None
     covariance_diagonal_m2: tuple[float, float, float] | None
+    validity_reason: str
     diagnostics: Mapping
     runtime_ms: float
 
@@ -307,13 +351,27 @@ class FusionResult:
                 "condition_number": self.condition_number,
                 "minimum_singular_value": self.minimum_singular_value,
                 "covariance_diagonal_m2": list(self.covariance_diagonal_m2) if self.covariance_diagonal_m2 else None,
+                "uncertainty_standard_deviation_m": (
+                    [math.sqrt(max(0.0, value)) for value in self.covariance_diagonal_m2]
+                    if self.covariance_diagonal_m2 else None
+                ),
+                "validity_reason": self.validity_reason,
                 "diagnostics": dict(self.diagnostics), "runtime_ms": self.runtime_ms}
 
 
-def _failure(method, observation, status, initialization, diagnostics, started):
+def _failure(method, observation, status, initialization, diagnostics, config, started):
+    diagnostics = {
+        **diagnostics,
+        "modality_weights": {key: float(value) for key, value in config["weights"].items()},
+        "robust_loss": {
+            "name": "Huber",
+            "threshold_sigma": float(config["solver"]["robust_huber_threshold"]),
+        },
+    }
     return FusionResult(method, status, None, observation.known_radius_m,
                         observation.radius_label, initialization, None, None, None, 0,
-                        None, None, None, diagnostics, (time.perf_counter()-started)*1000)
+                        None, None, None, _validity_reason(status, diagnostics, config),
+                        diagnostics, (time.perf_counter()-started)*1000)
 
 
 def _fit_method(method, observation, vision, config, initial, initialization, use_vision, tactile_mode):
@@ -322,13 +380,22 @@ def _fit_method(method, observation, vision, config, initial, initialization, us
     preliminary = _tactile_coverage(contacts, initial, config)
     if use_vision and vision.status != "VALID":
         return _failure(method, observation, "INSUFFICIENT_VISION", initialization,
-                        {"vision_status": vision.status, **preliminary}, started)
+                        {"vision_status": vision.status,
+                         "visible_boundary_count": vision.visible_boundary_count,
+                         "visible_angular_coverage": vision.visible_angular_coverage,
+                         **preliminary}, config, started)
     if tactile_mode and not preliminary["observable"]:
         return _failure(method, observation, "INSUFFICIENT_TACTILE_COVERAGE", initialization,
-                        {"vision_status": vision.status, **preliminary}, started)
+                        {"vision_status": vision.status,
+                         "visible_boundary_count": vision.visible_boundary_count,
+                         "visible_angular_coverage": vision.visible_angular_coverage,
+                         **preliminary}, config, started)
     if initial is None or not np.isfinite(initial).all():
         return _failure(method, observation, "INITIALIZATION_FAILURE", initialization,
-                        {"vision_status": vision.status, **preliminary}, started)
+                        {"vision_status": vision.status,
+                         "visible_boundary_count": vision.visible_boundary_count,
+                         "visible_angular_coverage": vision.visible_angular_coverage,
+                         **preliminary}, config, started)
     vision_weight = math.sqrt(float(config["weights"]["vision"]))
     tactile_weight = math.sqrt(float(config["weights"]["tactile"]))
     patches = None
@@ -374,14 +441,31 @@ def _fit_method(method, observation, vision, config, initial, initialization, us
     minimum_singular = float(singular[-1]) if len(singular) >= 3 else 0.0
     valid = (np.isfinite(center).all() and len(values) >= 3 and minimum_singular > 1e-8
              and condition < 1e10 and (converged or iterations > 0))
+    vision_sigma = float(config["uncertainty"]["vision_boundary_sigma_px"])
+    tactile_raw = []
+    if tactile_mode == "representative":
+        tactile_raw = [abs(value)*item.position_sigma_m for value, item in zip(tr, contacts)]
+    elif tactile_mode == "finite_patch":
+        tactile_raw = [abs(value)*item.finite_patch_sigma_m for value, item in zip(tr, contacts)]
     diagnostics = {"vision_status": vision.status,
                    "visible_boundary_count": vision.visible_boundary_count,
                    "visible_angular_coverage": vision.visible_angular_coverage,
                    **final_coverage, "solver_converged": converged,
+                   "vision_residual_rms_px": float(np.sqrt(np.mean(vr*vr))*vision_sigma) if len(vr) else None,
+                   "tactile_residual_rms_m": float(np.sqrt(np.mean(np.square(tactile_raw)))) if tactile_raw else None,
+                   "modality_weights": {"vision": float(config["weights"]["vision"]),
+                                        "tactile": float(config["weights"]["tactile"])},
+                   "robust_loss": {"name": "Huber", "threshold_sigma": huber},
+                   "joint_condition_number": condition if math.isfinite(condition) else None,
+                   "joint_minimum_singular_value": minimum_singular,
                    "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
                    "tactile_model": tactile_mode or "none"}
+    status = "VALID_ESTIMATE" if valid else "ILL_CONDITIONED"
+    covariance_diagonal = (
+        tuple(float(x) for x in np.diag(covariance)) if covariance is not None else None
+    )
     return FusionResult(
-        method, "VALID_ESTIMATE" if valid else "ILL_CONDITIONED", tuple(float(x) for x in center) if valid else None,
+        method, status, tuple(float(x) for x in center) if valid else None,
         observation.known_radius_m, observation.radius_label, initialization,
         float(np.sqrt(np.mean(vr*vr))) if len(vr) else None,
         float(np.sqrt(np.mean(tr*tr))) if len(tr) else None,
@@ -389,8 +473,8 @@ def _fit_method(method, observation, vision, config, initial, initialization, us
         + (float(config["weights"]["tactile"])*float(np.mean(tr*tr)) if len(tr) else 0.0)
         if len(values) else None, iterations,
         condition if math.isfinite(condition) else None, minimum_singular,
-        tuple(float(x) for x in np.diag(covariance)) if covariance is not None else None,
-        diagnostics, (time.perf_counter()-started)*1000,
+        covariance_diagonal, _validity_reason(status, diagnostics, config), diagnostics,
+        (time.perf_counter()-started)*1000,
     )
 
 
@@ -435,6 +519,10 @@ def run_fusion_methods(
         "radius_label": observation.radius_label,
         "object_motion_assumption": observation.object_motion_assumption,
         "weights": {key: float(value) for key, value in config["weights"].items()},
+        "robust_loss": {
+            "name": "Huber",
+            "threshold_sigma": float(config["solver"]["robust_huber_threshold"]),
+        },
         "selected_method": selected,
         "status": "VALID_ESTIMATE" if selected else "NO_VALID_ESTIMATE",
         "methods": {name: result.to_dict() for name, result in methods.items()},

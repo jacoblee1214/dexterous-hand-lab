@@ -5,6 +5,7 @@
   "frame_id": "research_rgb_camera_optical",
   "parent_frame": "world",
   "time_base": "simulation_seconds",
+  "fovy_degrees": 50.0,
   "intrinsics": {
     "width": 640,
     "height": 480,

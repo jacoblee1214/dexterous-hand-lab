@@ -6,7 +6,8 @@
   "required": [
     "schema_version", "message_type", "build", "source", "common_state_schema_version", "simulation", "joints", "hand",
     "sensors", "current_estimated_contacts", "accumulation",
-    "accumulated_points", "time_series", "sphere_reconstruction", "evaluation", "render", "fusion"
+    "accumulated_points", "time_series", "sphere_reconstruction", "evaluation", "render", "fusion",
+    "research_camera_calibration", "research_camera_debug_visible"
   ],
   "properties": {
     "schema_version": {"const": "1.1.0"},
@@ -80,6 +81,14 @@
     "accumulated_points": {"type": "array"},
     "time_series": {"type": "object"},
     "sphere_reconstruction": {"type": "object"},
+    "research_camera_calibration": {
+      "type": ["object", "null"],
+      "description": "Actual compiled fixed research camera K/extrinsics; null when the source has no calibrated research camera"
+    },
+    "research_camera_debug_visible": {
+      "type": "boolean",
+      "description": "True only when the fixed research camera frame/frustum is drawn in the separate MuJoCo debug renderer"
+    },
     "fusion": {
       "type": "object",
       "required": ["configuration_version", "status", "selected_method", "radius_label", "methods"],

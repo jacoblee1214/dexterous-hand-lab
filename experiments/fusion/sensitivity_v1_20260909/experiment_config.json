@@ -1,0 +1,21 @@
+{
+  "analysis_version": "sim-to-real-sensitivity-v1",
+  "created_at_utc": "2026-09-09T08:36:49.233458+00:00",
+  "source": "fresh deterministic simulation repetitions of the committed strong_occlusion protocol",
+  "trials": 3,
+  "sphere_radius_m": 0.04,
+  "range_status": "EXPLORATORY_NOT_HARDWARE_JUSTIFIED",
+  "range_reason": "No real encoder, sensor, camera, or timestamp accuracy specification has been supplied.",
+  "baseline_policy": "Level zero is unperturbed; fusion/config.yaml and modality weights are unchanged.",
+  "algorithm_input_boundary": "Perturbed RGB/calibration/named joint/scalar tactile inputs only; no simulator truth.",
+  "evaluation_boundary": "MuJoCo sphere center is read only after solving to compute center error.",
+  "timestamp_model": "Offset selects the nearest recorded named joint snapshot at tactile_time + offset and recomputes sensor geometry.",
+  "camera_extrinsic_level_format": "[translation_m, rotation_deg]",
+  "input_sha256": {
+    "fusion/config.yaml": "2db4d56ca2127885c5db1b166bc421dfdd82efb105fcb329a1b664ac15591de7",
+    "vision/camera_calibration.yaml": "aa7b7035696672bab51cfadf490ed8588fc0c3f264b3da6eff66cd6799dd50c7",
+    "sensors/sensor_config.yaml": "6de2cb3ce5a21e95e1d7c54bf7d15b5ccaad855936c706f213e34f6a0a32cf56",
+    "sensors/pressure_config.yaml": "e2b5b87bf635d62b3e5879015efb23aba760f637a3376ca80ac32df459533b35",
+    "simulation/grasp_config_right.yaml": "5cef97f918500167d3ebd51a06b3bd27d701588fca9572da197df474104ab188"
+  }
+}

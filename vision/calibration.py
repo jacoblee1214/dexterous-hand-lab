@@ -104,6 +104,7 @@ class CalibratedCamera:
             "frame_id": self.config.frame_id,
             "parent_frame": self.config.parent_frame,
             "time_base": self.config.time_base,
+            "fovy_degrees": self.config.fovy_degrees,
             "intrinsics": self.intrinsics,
             "T_world_from_camera_cv": self.world_from_camera_cv.tolist(),
             "T_camera_cv_from_world": self.camera_cv_from_world.tolist(),

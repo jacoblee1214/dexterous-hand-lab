@@ -50,7 +50,7 @@ UI_DIRECTORY = PROJECT_ROOT / "ui"
 RECONSTRUCTION_CONFIG = PROJECT_ROOT / "experiments" / "reconstruction_config.yaml"
 STATE_SCHEMA_VERSION = "1.1.0"
 CONTROL_SCHEMA_VERSION = "1.1.0"
-DASHBOARD_BUILD_ID = "geometric-fusion-v1-20260909.1"
+DASHBOARD_BUILD_ID = "fusion-explainability-v1-20260909.1"
 
 
 @dataclass(frozen=True)
@@ -199,6 +199,7 @@ class DashboardSimulation:
         self.render_stream: LatestFrameBuffer | None = None
         self.render_controller: MuJoCoOffscreenRenderer | None = None
         self.research_stream: LatestFrameBuffer | None = None
+        self.research_camera_calibration: dict | None = None
         self.vision_result: dict = {
             "input_boundary": "clean_rgb_only",
             "segmentation": {"status": "NO_CAMERA_OBSERVATION"},
@@ -578,6 +579,11 @@ class DashboardSimulation:
             "time_series": self._time_series_state(), "sphere_reconstruction": self._reconstruction_state(),
             "evaluation": self._evaluation_state(),
             "camera": common.camera.to_dict() if common and common.camera else None,
+            "research_camera_calibration": self.research_camera_calibration,
+            "research_camera_debug_visible": bool(
+                self.render_controller
+                and self.render_controller.show_research_camera_frustum
+            ),
             "research_rgb": (
                 self.research_stream.metadata()
                 if self.research_stream
@@ -999,6 +1005,7 @@ async def run_servers(config: DashboardConfig) -> None:
             if research_camera is not None:
                 try:
                     capture = research_camera.capture(engine)
+                    engine.research_camera_calibration = capture.calibration.to_dict()
                     research_stream.publish(capture.frame)
                     engine.vision_result = capture.vision_result
                     engine.vision_evaluation = {"available": True, **capture.evaluation}

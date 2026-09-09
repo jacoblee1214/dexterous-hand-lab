@@ -130,6 +130,7 @@ class MuJoCoOffscreenRenderer:
         self.scene_option.sitegroup[4] = False
         self.scene_option.geomgroup[5] = False
         self.sequence = 0
+        self.show_research_camera_frustum = False
 
     def _reset_camera(self) -> None:
         self.camera.type = self.mujoco.mjtCamera.mjCAMERA_FREE
@@ -141,6 +142,9 @@ class MuJoCoOffscreenRenderer:
 
     def camera_command(self, parameters: dict) -> None:
         action = str(parameters.get("action", ""))
+        if action == "toggle_research_camera_frustum":
+            self.show_research_camera_frustum = bool(parameters.get("enabled", False))
+            return
         if action == "reset":
             self._reset_camera()
             return
@@ -170,7 +174,68 @@ class MuJoCoOffscreenRenderer:
             self.camera.lookat[:] += scale * horizontal * right
             self.camera.lookat[2] += scale * vertical
             return
-        raise ValueError("Camera action must be orbit, zoom, pan, or reset")
+        raise ValueError(
+            "Camera action must be orbit, zoom, pan, reset, or "
+            "toggle_research_camera_frustum"
+        )
+
+    def _append_line(self, start, end, rgba, width: float = 0.0007) -> None:
+        scene = self.renderer.scene
+        if scene.ngeom >= scene.maxgeom:
+            return
+        geom = scene.geoms[scene.ngeom]
+        # Fully initialize the user geom before setting its connector endpoints;
+        # leaving fields from a previous scene slot undefined can crash GL renderers.
+        self.mujoco.mjv_initGeom(
+            geom, self.mujoco.mjtGeom.mjGEOM_CAPSULE,
+            np.zeros(3), np.zeros(3), np.eye(3).reshape(-1),
+            np.asarray(rgba, dtype=float),
+        )
+        self.mujoco.mjv_connector(
+            geom, self.mujoco.mjtGeom.mjGEOM_CAPSULE, width,
+            np.asarray(start, dtype=float), np.asarray(end, dtype=float),
+        )
+        scene.ngeom += 1
+
+    def _append_research_camera_debug_geometry(self) -> None:
+        """Draw calibrated optical frame/frustum only in this debug renderer."""
+        if not self.show_research_camera_frustum:
+            return
+        from vision.calibration import calibration_from_mujoco, load_camera_config
+
+        calibration = calibration_from_mujoco(self.model, self.data, load_camera_config())
+        origin = calibration.world_from_camera_cv[:3, 3]
+        rotation = calibration.world_from_camera_cv[:3, :3]
+        scene = self.renderer.scene
+        if scene.ngeom < scene.maxgeom:
+            self.mujoco.mjv_initGeom(
+                scene.geoms[scene.ngeom], self.mujoco.mjtGeom.mjGEOM_SPHERE,
+                np.full(3, 0.005), origin, np.eye(3).reshape(-1),
+                np.array([1.0, 0.78, 0.15, 0.9]),
+            )
+            scene.ngeom += 1
+        axis_length = 0.035
+        self._append_line(
+            origin, origin + rotation[:, 0] * axis_length, [1, 0.1, 0.1, 1], .0012
+        )
+        self._append_line(
+            origin, origin + rotation[:, 1] * axis_length, [0.1, 1, 0.1, 1], .0012
+        )
+        self._append_line(
+            origin, origin + rotation[:, 2] * axis_length, [0.1, 0.45, 1, 1], .0012
+        )
+        width, height = calibration.config.width, calibration.config.height
+        pixels = np.asarray(
+            [[0, 0], [width - 1, 0], [width - 1, height - 1], [0, height - 1]],
+            dtype=float,
+        )
+        rays = calibration.pixel_rays_cv(pixels, normalize=False)
+        depth = 0.12  # Debug drawing length only; ray angles remain calibration-derived.
+        corners = calibration.camera_to_world(rays * depth)
+        for corner in corners:
+            self._append_line(origin, corner, [1, 0.78, 0.15, 0.8], .0006)
+        for start, end in zip(corners, np.roll(corners, -1, axis=0)):
+            self._append_line(start, end, [1, 0.78, 0.15, 0.8], .0006)
 
     def _sync_data(self, common_state) -> None:
         if self.source == "simulation":
@@ -243,6 +308,7 @@ class MuJoCoOffscreenRenderer:
             tuple(engine.point_buffer.points),
             [],
         )
+        self._append_research_camera_debug_geometry()
         result = engine.sphere_session.result
         if (engine.show_estimated_sphere and result is not None
                 and result.status.value == "VALID_RECONSTRUCTION"

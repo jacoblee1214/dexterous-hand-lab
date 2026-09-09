@@ -1,0 +1,2846 @@
+{
+  "sensor_mount_translation_m": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.001,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016228268072056736,
+            "maximum": 0.01655255593545241
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9827763772915543,
+            "maximum": 2.9920487877655133
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011262816443037732,
+            "maximum": 0.011733434972796306
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7808464329508664,
+            "maximum": 1.8115234404991474
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.010270249134326939,
+            "maximum": 0.01038272858219578
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8368878735026533,
+            "maximum": 1.8681931222925914
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.002,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016211299356928388,
+            "maximum": 0.01655561526410771
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 3.05941627758785,
+            "maximum": 3.068260064552925
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.010561053001331991,
+            "maximum": 0.011084902489358828
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8111560177870303,
+            "maximum": 1.8387817994618887
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.0108359404087146,
+            "maximum": 0.010953972882373276
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.10375341293954,
+            "maximum": 2.164005530370123
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.005,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016122929272155057,
+            "maximum": 0.016524281057568244
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 3.3347778725511747,
+            "maximum": 3.343225275462341
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008707422780258838,
+            "maximum": 0.008988833283030571
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8703977493512085,
+            "maximum": 1.8872331747000959
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012507311784389847,
+            "maximum": 0.012590640358325808
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.168628458632044,
+            "maximum": 2.23177062817845
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "sensor_mount_orientation_deg": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 1,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016320478455277336,
+            "maximum": 0.016627504843224256
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9271873452943673,
+            "maximum": 2.936906890320485
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011814278835595313,
+            "maximum": 0.012238222360938569
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.756253854475631,
+            "maximum": 1.789177176531498
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009682864213324488,
+            "maximum": 0.009796173505688208
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6565658153944725,
+            "maximum": 1.7349765592678577
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 3,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016446623677701108,
+            "maximum": 0.016760992265950837
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.954448648210254,
+            "maximum": 2.96370883379837
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011875845694565687,
+            "maximum": 0.012314653584483932
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7641676708956222,
+            "maximum": 1.7973939510529189
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009790504842479267,
+            "maximum": 0.00990591154862853
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6092111195003416,
+            "maximum": 1.6277778544892618
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 5,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01655507384161345,
+            "maximum": 0.01687665410974276
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9820104325771823,
+            "maximum": 2.990832324207185
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011909322875216314,
+            "maximum": 0.012363018494257768
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7728674649356784,
+            "maximum": 1.8063894465565167
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.0098735019853792,
+            "maximum": 0.009993535875478812
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6021231206494277,
+            "maximum": 1.608541203110872
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "joint_encoder_bias_deg": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250989275675747,
+            "maximum": 0.016554297359137948
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9136577780436674,
+            "maximum": 2.9236147242714376
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773550616797043,
+            "maximum": 0.012189734946056838
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525668683584203,
+            "maximum": 1.7853337826672426
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.25,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016187734153726298,
+            "maximum": 0.016484010667164012
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.908992767709076,
+            "maximum": 2.919010388599344
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011780632649550697,
+            "maximum": 0.012193405895521472
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7535395653659478,
+            "maximum": 1.786665393546098
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009531025609779755,
+            "maximum": 0.009646780357936853
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8068778879063714,
+            "maximum": 1.846915032816475
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.5,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.0161250509826827,
+            "maximum": 0.01641414591187598
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.904448070024676,
+            "maximum": 2.914513774739423
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011782190408796482,
+            "maximum": 0.012190852928372785
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7546117446046698,
+            "maximum": 1.7880996128739095
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009462261095532125,
+            "maximum": 0.009578568912765137
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8161804012193346,
+            "maximum": 1.8594890331981841
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 1,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016001348104632693,
+            "maximum": 0.01627496614683082
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.8957243677193625,
+            "maximum": 2.905896225554473
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011774222818248815,
+            "maximum": 0.012176683268589002
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.756918799597195,
+            "maximum": 1.7911142393165416
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009305311788118527,
+            "maximum": 0.009422462214374715
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7553306070786678,
+            "maximum": 1.8153661757947575
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "joint_encoder_noise_std_deg": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250989275675747,
+            "maximum": 0.016554297359137948
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9136577780436674,
+            "maximum": 2.9236147242714376
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773550616797043,
+            "maximum": 0.012189734946056838
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525668683584203,
+            "maximum": 1.7853337826672426
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.25,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016291305881522354,
+            "maximum": 0.0166040670519712
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9111324788768136,
+            "maximum": 2.9185129535635044
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011828585235994319,
+            "maximum": 0.012254960071008531
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7517193734756038,
+            "maximum": 1.7838547733959036
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009566198633942313,
+            "maximum": 0.00967331852782908
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.708749713039434,
+            "maximum": 1.7909197551513754
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.5,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016339316363199383,
+            "maximum": 0.0166622351702786
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9075985608072443,
+            "maximum": 2.915578519261936
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011892001134692262,
+            "maximum": 0.012329790945201875
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7505114053112572,
+            "maximum": 1.7820511266430397
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009508596552133384,
+            "maximum": 0.009604302185765148
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6944117094315754,
+            "maximum": 1.7770690464626528
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 1,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016458154243945897,
+            "maximum": 0.016802833412079565
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.8973994508493788,
+            "maximum": 2.9140187438943776
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01204333605696257,
+            "maximum": 0.012507660883835868
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7469894929398941,
+            "maximum": 1.7774178545524897
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009291351803534284,
+            "maximum": 0.009404523125113019
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.575566186339314,
+            "maximum": 1.6017037172986246
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "scalar_calibration_relative_error": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250989275675747,
+            "maximum": 0.016554297359137948
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9136577780436674,
+            "maximum": 2.9236147242714376
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773550616797043,
+            "maximum": 0.012189734946056838
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525668683584203,
+            "maximum": 1.7853337826672426
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.05,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.015739824188201412,
+            "maximum": 0.016040256507625437
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9276979342794323,
+            "maximum": 2.938539092455987
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011054524923100327,
+            "maximum": 0.011467696680643602
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7725518874038488,
+            "maximum": 1.8047394333852163
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009166513464853207,
+            "maximum": 0.009275435315113321
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7867121001099555,
+            "maximum": 1.8688561255924632
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.1,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.015221872399757913,
+            "maximum": 0.01551913766359825
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.939878763001378,
+            "maximum": 2.95180167406527
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.010331410091206571,
+            "maximum": 0.010745390591515361
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7918126003634676,
+            "maximum": 1.823422088318695
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008721761251718368,
+            "maximum": 0.00881904225801429
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8036023421312775,
+            "maximum": 1.8901407598659763
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.2,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.014170613705721272,
+            "maximum": 0.014461095337777376
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9580908224358935,
+            "maximum": 2.972744776554722
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008898056106408975,
+            "maximum": 0.009305946680318226
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8273835220172938,
+            "maximum": 1.8577094767167222
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.007811566867348792,
+            "maximum": 0.007902152961013003
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.8174764298684447,
+            "maximum": 1.931677389092065
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "tactile_channel_dropout_fraction": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.25,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01603674825474537,
+            "maximum": 0.016361240956044465
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 3.6567870787328256,
+            "maximum": 3.693108595051287
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012534870242686296,
+            "maximum": 0.012964026062751868
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7371813004765289,
+            "maximum": 1.7673328501736834
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009710874771729676,
+            "maximum": 0.009813841339531826
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.9307657295433998,
+            "maximum": 2.0330617759397276
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.5,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.75,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 0,
+          "failure_rate": 1.0,
+          "center_error_m": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "condition_number": {
+            "count": 0,
+            "mean": null,
+            "maximum": null
+          },
+          "failure_statuses": [
+            "INSUFFICIENT_TACTILE_COVERAGE"
+          ]
+        }
+      }
+    }
+  ],
+  "camera_focal_length_relative_error": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.01,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012272672979294538,
+            "maximum": 0.012272672979294538
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.67986024655883,
+            "maximum": 37.67986024655883
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011972879921269832,
+            "maximum": 0.012407094456807563
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7389512255647457,
+            "maximum": 1.774224232808057
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00926758594848331,
+            "maximum": 0.009410939603258497
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.833681481258875,
+            "maximum": 1.8766974128007259
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.02,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016722336433540284,
+            "maximum": 0.016722336433540284
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 38.026704101905786,
+            "maximum": 38.026704101905786
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012190049304708949,
+            "maximum": 0.012619128338732386
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.725287670823791,
+            "maximum": 1.762286875259789
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008997070238653043,
+            "maximum": 0.009139535392435404
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.946399296589983,
+            "maximum": 1.9623331348786552
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.05,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.030183334023895714,
+            "maximum": 0.030183334023895718
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 39.068648711412564,
+            "maximum": 39.068648711412564
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012794232353455675,
+            "maximum": 0.013183211574807152
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6776939788916838,
+            "maximum": 1.717760543995695
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008906314763316714,
+            "maximum": 0.00932486474554896
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.062798411847687,
+            "maximum": 2.338162313526612
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "camera_extrinsic_translation_m_rotation_deg": [
+    {
+      "level_index": 0,
+      "level": [
+        0,
+        0
+      ],
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": [
+        0.001,
+        0.5
+      ],
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.008443906064391228,
+            "maximum": 0.008443906064391228
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33356174606313,
+            "maximum": 37.33356174606313
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.013247487590632412,
+            "maximum": 0.01374323257813532
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7350649313479423,
+            "maximum": 1.7775357630222128
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00971140849952874,
+            "maximum": 0.009969439266621466
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6505925623293674,
+            "maximum": 1.6908986180087437
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": [
+        0.002,
+        1
+      ],
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.010784791977486144,
+            "maximum": 0.010784791977486146
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.333865727436596,
+            "maximum": 37.333865727436596
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.014507075871974091,
+            "maximum": 0.01517765383642002
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7381424058321853,
+            "maximum": 1.7892992376689345
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.014447636300491588,
+            "maximum": 0.014577546061036525
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.9852988647210363,
+            "maximum": 2.0860262742581273
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": [
+        0.005,
+        2
+      ],
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.018097320489845994,
+            "maximum": 0.018097320489845994
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33448759845979,
+            "maximum": 37.33448759845979
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.03850633631775635,
+            "maximum": 0.040935803442920055
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.6533267308070247,
+            "maximum": 1.6708605416437858
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.018524002855569613,
+            "maximum": 0.018777272137400908
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.005171279611057,
+            "maximum": 2.0367292913612354
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "rgb_mask_removed_fraction": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.1,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.019279373190678573,
+            "maximum": 0.02340653433594609
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 11.984776463488258,
+            "maximum": 12.089056391710942
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.012480953949410985,
+            "maximum": 0.01280797172129331
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.750154962825467,
+            "maximum": 1.7849116824568496
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.010368467069656837,
+            "maximum": 0.01047676031680515
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.5886021133226758,
+            "maximum": 1.6173087733062432
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.25,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.09341100104813488,
+            "maximum": 0.09375321093339066
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 10.907233317948398,
+            "maximum": 10.908562338143092
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.024552928419882252,
+            "maximum": 0.0398462073485992
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.5543082222320608,
+            "maximum": 1.6410777582233422
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01421127907059389,
+            "maximum": 0.014256947619179967
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.0309202889870472,
+            "maximum": 2.054167181842239
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.4,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.1419197352018866,
+            "maximum": 0.14243491833659483
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 12.004996873430379,
+            "maximum": 12.041722284773556
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.017927524410825273,
+            "maximum": 0.01809079028058212
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.4218792091711725,
+            "maximum": 1.432169798960626
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01937426502826753,
+            "maximum": 0.019551086101845156
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.0822503081638772,
+            "maximum": 2.1479120518103114
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ],
+  "encoder_tactile_timestamp_mismatch_s": [
+    {
+      "level_index": 0,
+      "level": 0,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.01625098527111339,
+            "maximum": 0.01655429334456607
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.913657887191347,
+            "maximum": 2.9236148384642364
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773544771863528,
+            "maximum": 0.012189728882519119
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525670255699,
+            "maximum": 1.7853339300895916
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 1,
+      "level": 0.01,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016250989275675747,
+            "maximum": 0.016554297359137948
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9136577780436674,
+            "maximum": 2.9236147242714376
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011773550616797043,
+            "maximum": 0.012189734946056838
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7525668683584203,
+            "maximum": 1.7853337826672426
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009598236461791573,
+            "maximum": 0.00971520260226677
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7456338272755352,
+            "maximum": 1.8148475995377948
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 2,
+      "level": 0.025,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016275202420235512,
+            "maximum": 0.016580116088634446
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.9437354689552158,
+            "maximum": 2.957043772205917
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011820513009807633,
+            "maximum": 0.012239006687332837
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.756540278650399,
+            "maximum": 1.7892062074092594
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00959696322417447,
+            "maximum": 0.009709178654148347
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7499532717212123,
+            "maximum": 1.80847096289296
+          },
+          "failure_statuses": []
+        }
+      }
+    },
+    {
+      "level_index": 3,
+      "level": 0.05,
+      "methods": {
+        "rgb_only": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.00789040659014877,
+            "maximum": 0.00789040659014877
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 37.33326270499258,
+            "maximum": 37.33326270499258
+          },
+          "failure_statuses": []
+        },
+        "tactile_only_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.016265620376576712,
+            "maximum": 0.016564112491631863
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 2.942755220383711,
+            "maximum": 2.9557798001606876
+          },
+          "failure_statuses": []
+        },
+        "fusion_representative": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.011813322354377162,
+            "maximum": 0.012229130817656657
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7568945749815381,
+            "maximum": 1.7899233468364364
+          },
+          "failure_statuses": []
+        },
+        "fusion_finite_patch": {
+          "attempt_count": 3,
+          "success_count": 3,
+          "failure_rate": 0.0,
+          "center_error_m": {
+            "count": 3,
+            "mean": 0.009595968309825639,
+            "maximum": 0.009710058916106216
+          },
+          "condition_number": {
+            "count": 3,
+            "mean": 1.7374533422886802,
+            "maximum": 1.8087398992468668
+          },
+          "failure_statuses": []
+        }
+      }
+    }
+  ]
+}

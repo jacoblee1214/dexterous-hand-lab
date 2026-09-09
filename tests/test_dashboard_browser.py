@@ -19,7 +19,7 @@ import pytest
 
 pytestmark = pytest.mark.skipif(os.environ.get("RUN_BROWSER_TESTS") != "1", reason="Opt-in Chromium validation")
 ROOT = Path(__file__).parents[1]
-BUILD_ID = "geometric-fusion-v1-20260909.1"
+BUILD_ID = "fusion-explainability-v1-20260909.1"
 
 
 def free_port():
@@ -86,6 +86,15 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert "no-store" in root_response.headers["cache-control"]
         assert page.locator("#mujoco-render").is_visible()
         assert page.evaluate("simulationView === null")
+        page.wait_for_function("state?.research_camera_calibration?.calibration_version === 'research-rgb-camera-v1'")
+        page.locator("#camera-calibration-panel").evaluate("element => element.open = true")
+        camera_text = page.locator("#camera-calibration-content").inner_text()
+        assert "0.30000" in camera_text and "T_camera_cv_from_world" in camera_text
+        page.locator("#show-research-camera-frustum").check()
+        page.wait_for_function("state.research_camera_debug_visible === true")
+        page.locator("#show-research-camera-frustum").uncheck()
+        page.wait_for_function("state.research_camera_debug_visible === false")
+        page.locator("#camera-calibration-panel").evaluate("element => element.open = false")
         page.locator(".joint-controls").evaluate("element => element.open = true")
         assert page.locator(".joint-target").count() == 20
         assert page.locator("#joint-diagnostics thead th").count() == 8
@@ -115,7 +124,7 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
             "state.current_estimated_contacts.length ? structuredClone({"
             "timestamp:state.snapshot.timestamp, contactPoints:state.current_estimated_contacts, "
             "activeSensorIds:state.sensors.filter(sensor => sensor.active).map(sensor => sensor.sensor_id)}) : null",
-            timeout=20000,
+            timeout=30000,
         )
         contact_frame = contact_handle.json_value()
         contact_sample = contact_frame["contactPoints"]
@@ -123,7 +132,7 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         selected = contact_sample[0]["sensor_id"]
         page.locator("#sensor-table tbody tr").filter(has_text=selected).click()
         page.wait_for_function("id => state.selected_sensor_id === id", arg=selected)
-        page.wait_for_function("start => state.accumulation.accepted_point_count > 0 && state.simulation.grasp.stage === 4 && state.simulation.time_seconds >= start + 5.2", arg=grasp_start, timeout=20000)
+        page.wait_for_function("start => state.accumulation.accepted_point_count > 0 && state.simulation.grasp.stage === 4 && state.simulation.time_seconds >= start + 5.2", arg=grasp_start, timeout=30000)
         page.locator('[data-command="fit_sphere"]').click()
         page.wait_for_function("state.sphere_reconstruction.status !== 'NOT_FITTED'")
         payload = page.evaluate("state")
@@ -168,6 +177,10 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert page.locator("#fusion-method option").count() == 4
         page.locator("#fusion-method").select_option("fusion_representative")
         assert "C · Fusion / representative" in page.locator("#fusion-metrics").inner_text()
+        assert "Validity:" in page.locator("#fusion-metrics").inner_text()
+        assert "Joint condition:" in page.locator("#fusion-metrics").inner_text()
+        page.locator(".fusion-help").evaluate("element => element.open = true")
+        assert "Scalar pressure is a magnitude-like normal response" in page.locator(".fusion-help").inner_text()
         assert page.evaluate("state.camera.depth_available") is False
         assert page.evaluate("state.camera.timestamp === state.research_rgb.simulation_timestamp")
         base = url.split('/?')[0]
