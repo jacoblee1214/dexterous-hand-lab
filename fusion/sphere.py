@@ -338,7 +338,10 @@ class FusionResult:
 
     @property
     def valid(self) -> bool:
-        return self.status == "VALID_ESTIMATE"
+        return self.status in {
+            "VALID_ESTIMATE", "VALID_FUSED", "VALID_RGB_FALLBACK",
+            "VALID_TACTILE_FALLBACK",
+        }
 
     def to_dict(self) -> dict:
         return {"method": self.method, "status": self.status, "valid": self.valid,
@@ -482,35 +485,55 @@ def run_fusion_methods(
     observation: FusionObservation,
     rgb_baseline_result: Mapping,
     config: Mapping | None = None,
+    *,
+    v1_observation: FusionObservation | None = None,
+    v1_config: Mapping | None = None,
 ) -> dict:
-    """Run A-D on one immutable, ground-truth-free observation."""
+    """Run A-E with explicit v1/v2 observations and no evaluation truth."""
     config = config or load_fusion_config()
-    vision = build_vision_constraints(observation, config)
+    v1_config = v1_config or config
+    if v1_observation is None:
+        # Callers that own RGB should provide a separately built v1 observation.
+        # For synthetic/direct callers, the conservative compatibility mapping
+        # keeps the new unreliable class out of known-background evidence.
+        unreliable = observation.unreliable_segmentation_mask
+        from dataclasses import replace
+        v1_observation = replace(
+            observation,
+            unknown_occluded_mask=observation.unknown_occluded_mask | unreliable,
+            unreliable_segmentation_mask=np.zeros_like(unreliable),
+        )
+    vision = build_vision_constraints(v1_observation, v1_config)
     sphere = rgb_baseline_result.get("sphere", rgb_baseline_result)
     rgb_center = sphere.get("estimated_center_world_m")
     rgb_initial = np.asarray(rgb_center, dtype=float) if rgb_center is not None else None
     rgb_initial_label = "existing_rgb_known_radius_baseline"
     if rgb_initial is None:
-        rgb_initial = _vision_initial(observation, vision)
+        rgb_initial = _vision_initial(v1_observation, vision)
         rgb_initial_label = "visibility_aware_rgb_boundary_cone"
-    contacts = _active_constraints(observation)
+    contacts = _active_constraints(v1_observation)
     tactile_initial, tactile_rank = _tactile_init(contacts)
     initial = rgb_initial if rgb_initial is not None and vision.status == "VALID" else tactile_initial
     init_label = "reliable_rgb_center" if initial is rgb_initial else "observable_tactile_algebraic_center"
     methods = {
-        "rgb_only": _fit_method("rgb_only", observation, vision, config, rgb_initial,
+        "rgb_only": _fit_method("rgb_only", v1_observation, vision, v1_config, rgb_initial,
                                 rgb_initial_label, True, None),
         "tactile_only_representative": _fit_method(
-            "tactile_only_representative", observation, vision, config, tactile_initial,
+            "tactile_only_representative", v1_observation, vision, v1_config, tactile_initial,
             f"algebraic_fixed_radius_points_rank_{tactile_rank}", False, "representative"),
-        "fusion_representative": _fit_method("fusion_representative", observation, vision, config,
+        "fusion_representative": _fit_method("fusion_representative", v1_observation, vision, v1_config,
                                              initial, init_label, True, "representative"),
-        "fusion_finite_patch": _fit_method("fusion_finite_patch", observation, vision, config,
+        "fusion_finite_patch": _fit_method("fusion_finite_patch", v1_observation, vision, v1_config,
                                            initial, init_label, True, "finite_patch"),
     }
-    preference = ("fusion_finite_patch", "fusion_representative",
+    if "reliability_v2" in config:
+        from fusion.reliability import fit_reliability_aware
+        methods["reliability_aware_fusion_v2"] = fit_reliability_aware(
+            observation, config
+        )
+    preference = ("reliability_aware_fusion_v2", "fusion_finite_patch", "fusion_representative",
                   "tactile_only_representative", "rgb_only")
-    selected = next((name for name in preference if methods[name].valid), None)
+    selected = next((name for name in preference if name in methods and methods[name].valid), None)
     return {
         "configuration_version": str(config["configuration_version"]),
         "input_boundary": "FusionObservation: RGB mask/calibration + named synchronized scalar tactile estimates; no ground truth",

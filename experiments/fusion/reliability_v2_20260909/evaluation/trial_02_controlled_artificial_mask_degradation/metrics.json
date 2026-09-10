@@ -1,0 +1,78 @@
+{
+  "boundary": "evaluation_only; MuJoCo object pose and segmentation never enter fusion",
+  "methods": {
+    "rgb_only": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.15212778470740393,
+      "visible_silhouette_iou": 0.6688688688688689,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "tactile_only_representative": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.01616742190155282,
+      "visible_silhouette_iou": 0.5796071876305893,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "fusion_representative": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.04167332815255521,
+      "visible_silhouette_iou": 0.45783651774170375,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "fusion_finite_patch": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.018851867899941654,
+      "visible_silhouette_iou": 0.5434307566238733,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "reliability_aware_fusion_v2": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.02411759003199077,
+      "visible_silhouette_iou": 0.508441303494307,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    }
+  },
+  "radius_error_m": null,
+  "radius_error_reason": "radius is a declared prior, not an estimated parameter",
+  "case_id": "trial_02_controlled_artificial_mask_degradation",
+  "trial": 2,
+  "condition": "controlled_artificial_mask_degradation",
+  "segmentation_iou": 0.8052985702270816,
+  "visible_fraction": 0.7188911384519545,
+  "ground_truth_boundary": "evaluation_only_after_all_algorithm_outputs",
+  "v2_ablations": {
+    "full_v2": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.02411759003199077,
+      "visible_silhouette_iou": 0.508441303494307,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "no_cross_modal_gate": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.02411759003199077,
+      "visible_silhouette_iou": 0.508441303494307,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "representative_instead_of_finite_patch": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.016720821432693527,
+      "visible_silhouette_iou": 0.577848893836093,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    },
+    "no_uncertainty_normalization": {
+      "success": true,
+      "failure_status": null,
+      "center_error_m": 0.14899709900521443,
+      "visible_silhouette_iou": 0.6773547094188377,
+      "silhouette_iou_interpretation": "estimated full sphere silhouette versus MuJoCo-visible sphere pixels; occluding hand therefore lowers this diagnostic"
+    }
+  }
+}

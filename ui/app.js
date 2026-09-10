@@ -1,7 +1,7 @@
 "use strict";
 
 const SCHEMA_VERSION = "1.1.0";
-const FRONTEND_BUILD_ID = "fusion-explainability-v1-20260909.1";
+const FRONTEND_BUILD_ID = "reliability-aware-fusion-v2-20260909.1";
 const colors = ["#35d7e5", "#ff8b5c", "#c478ff", "#55ec89", "#ffd84f", "#4d99ff"];
 let state = null;
 let socket = null;
@@ -23,7 +23,7 @@ const jointControls = new Map();
 let renderMode = null;
 let simulationView = null;
 let meshLoadPromise = null;
-let fusionMethod = "fusion_finite_patch";
+let fusionMethod = "reliability_aware_fusion_v2";
 
 function streamValid() {
   return socket?.readyState === WebSocket.OPEN && performance.now() - lastStateReceived < 1500 && state?.snapshot.valid;
@@ -560,23 +560,33 @@ function renderFusion() {
   selector.value=fusionMethod;
   const selected=methods[fusionMethod] || {};
   const labels={rgb_only:'A · RGB only', tactile_only_representative:'B · Tactile only / representative',
-    fusion_representative:'C · Fusion / representative', fusion_finite_patch:'D · Fusion / finite sensor patch'};
+    fusion_representative:'C · Fusion v1 / representative', fusion_finite_patch:'D · Fusion v1 / finite sensor patch',
+    reliability_aware_fusion_v2:'E · Reliability-aware Fusion v2'};
   const validCount=Object.values(methods).filter(result=>result.valid).length;
   const root=document.querySelector('#fusion-metrics');
   const diagnostics=selected.diagnostics || {};
+  const rgbReliability=diagnostics.rgb_reliability || {};
+  const tactileReliability=diagnostics.tactile_reliability || {};
+  const complementary=diagnostics.complementary_information || {};
+  const appliedWeights=diagnostics.applied_modality_weights || diagnostics.modality_weights || fusion.weights || {};
   const coverage=`${diagnostics.contact_count ?? 0} contacts · ${diagnostics.unique_sensor_count ?? 0} sensors · ${diagnostics.unique_finger_count ?? 0} fingers · spread ${format(diagnostics.spatial_spread_m,4)} m`;
   const uncertainty=(selected.uncertainty_standard_deviation_m || []).map(value=>format(value,6)).join(', ') || 'unavailable';
   root.querySelector(':scope > p').innerHTML=
-    `Pipeline: <span class="mono">${fusion.status || 'NOT_RUN'}</span> · valid methods <span class="mono">${validCount} / 4</span><br>`+
+    `Pipeline: <span class="mono">${fusion.status || 'NOT_RUN'}</span> · valid methods <span class="mono">${validCount} / ${Object.keys(methods).length || 5}</span><br>`+
     `Selected: <span class="mono">${labels[fusionMethod] || fusionMethod}</span> · status <span class="mono">${selected.status || 'NOT_RUN'}</span><br>`+
+    `${fusionMethod === 'reliability_aware_fusion_v2' ? `Decision: <span class="mono">${diagnostics.fusion_decision || 'INVALID'}</span> · genuinely fused <span class="mono">${diagnostics.genuinely_fused === true ? 'YES' : 'NO'}</span><br>` : ''}`+
+    `${diagnostics.exact_inputs ? `Inputs: <span class="mono">${diagnostics.exact_inputs}</span><br>` : ''}`+
     `Center: <span class="mono">${vector(selected.estimated_center_world_m)}</span><br>`+
     `Known radius: <span class="mono">${fusion.known_radius_m == null ? '—' : format(fusion.known_radius_m,5)+' m'}</span> · `+
     `diameter <span class="mono">${fusion.known_diameter_m == null ? '—' : format(fusion.known_diameter_m,5)+' m'}</span> · <span class="mono">${fusion.radius_label || '—'}</span><br>`+
     `Validity: <span class="mono">${selected.validity_reason || 'No result yet'}</span><br>`+
     `RGB residual: <span class="mono">${format(selected.vision_residual_rms_sigma,3)} σ / ${format(diagnostics.vision_residual_rms_px,3)} px</span> · `+
     `tactile residual: <span class="mono">${format(selected.tactile_residual_rms_sigma,3)} σ / ${format(diagnostics.tactile_residual_rms_m,6)} m</span><br>`+
-    `Weights λRGB/λT: <span class="mono">${format(fusion.weights?.vision,2)} / ${format(fusion.weights?.tactile,2)}</span> · Huber: <span class="mono">${format(diagnostics.robust_loss?.threshold_sigma ?? fusion.robust_loss?.threshold_sigma,2)} σ</span><br>`+
+    `Applied weights λRGB/λT: <span class="mono">${format(appliedWeights.vision,2)} / ${format(appliedWeights.tactile,2)}</span> · Huber: <span class="mono">${format(diagnostics.robust_loss?.threshold_sigma ?? fusion.robust_loss?.threshold_sigma,2)} σ</span><br>`+
     `RGB evidence: <span class="mono">${diagnostics.vision_status || '—'} · ${diagnostics.visible_boundary_count ?? 0} boundary samples · angular coverage ${format(diagnostics.visible_angular_coverage,3)}</span><br>`+
+    `${fusionMethod === 'reliability_aware_fusion_v2' ? `Reliability: RGB <span class="mono">${rgbReliability.reliable == null ? '—' : rgbReliability.reliable ? 'RELIABLE' : 'UNCERTAIN'}</span> · tactile <span class="mono">${tactileReliability.observable == null ? '—' : tactileReliability.observable ? 'OBSERVABLE' : 'INSUFFICIENT'}</span> · cross-modal RMS <span class="mono">${format(tactileReliability.cross_modal_residual_rms_sigma,3)} σ</span><br>` : ''}`+
+    `${fusionMethod === 'reliability_aware_fusion_v2' ? `Complementarity: <span class="mono">${complementary.passes == null ? '—' : complementary.passes ? 'PASS' : 'FAIL'} · tactile fraction in weak RGB direction ${format(complementary.tactile_fraction_in_weak_rgb_direction,3)}</span><br>` : ''}`+
+    `${fusionMethod === 'reliability_aware_fusion_v2' ? `Held contacts: <span class="mono">${diagnostics.raw_tactile_observation_count ?? 0} raw → ${diagnostics.effective_tactile_observation_count ?? 0} effective latest-per-sensor measurements</span><br>` : ''}`+
     `Contributors: <span class="mono">${coverage}</span><br>`+
     `Sensors: <span class="mono">${(diagnostics.contributing_sensor_ids || []).join(', ') || 'none'}</span><br>`+
     `Fingers: <span class="mono">${(diagnostics.contributing_finger_ids || []).join(', ') || 'none'}</span><br>`+

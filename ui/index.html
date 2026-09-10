@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tactile Sphere Reconstruction</title>
-  <link rel="stylesheet" href="styles.css?v=fusion-explainability-v1-20260909.1">
+  <link rel="stylesheet" href="styles.css?v=reliability-aware-fusion-v2-20260909.1">
   <script type="importmap">
     {"imports": {"three": "./vendor/three/build/three.module.js"}}
   </script>
@@ -14,7 +14,7 @@
     <div>
       <h1>Tactile Sphere Reconstruction</h1>
       <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE ONLY</span>
-      <span id="build-id" class="build-id">UI fusion-explainability-v1-20260909.1 · API —</span>
+      <span id="build-id" class="build-id">UI reliability-aware-fusion-v2-20260909.1 · API —</span>
     </div>
     <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
   </header>
@@ -207,8 +207,9 @@
         <p>Waiting for calibrated RGB observation…</p>
       </div>
       <div id="fusion-metrics" class="vision-card fusion-card">
-        <div class="fusion-heading"><h3>Geometric RGB + tactile fusion v1</h3>
+        <div class="fusion-heading"><h3>Geometric RGB + tactile fusion</h3>
           <label>Inspect <select id="fusion-method">
+            <option value="reliability_aware_fusion_v2">E · Reliability-aware Fusion v2</option>
             <option value="fusion_finite_patch">D · Fusion — finite patch</option>
             <option value="fusion_representative">C · Fusion — representative point</option>
             <option value="tactile_only_representative">B · Tactile only — representative point</option>
@@ -217,13 +218,14 @@
         </div>
         <p>Waiting for synchronized RGB and tactile observations…</p>
         <details class="fusion-help">
-          <summary>What A–D compute and why a result is valid/invalid</summary>
+          <summary>What A–E compute and why a result is valid/invalid</summary>
           <div class="fusion-help-content">
             <p><b>Shared prior:</b> the current 40 mm setting is a fixed, known sphere radius. Every mode estimates only the 3D center; radius is never fitted.</p>
             <p><b>A · RGB-only:</b> calibrated RGB mask boundary rays minimize tangent-to-known-radius residuals, with penalties for sphere intrusion into known background. Unknown/hand-occluded pixels are excluded.</p>
             <p><b>B · Tactile representative:</b> each active scalar channel is converted through its pressure/indentation calibration into one representative point. It minimizes point-to-sphere radial residuals.</p>
             <p><b>C · Fusion representative:</b> combines A and B using configured modality weights after each modality is standardized and normalized by sample count.</p>
             <p><b>D · Fusion finite-patch:</b> replaces each tactile point with the calibrated finite sensor surface. Its residual is zero when any sampled patch point can lie on the sphere; otherwise it is distance to that feasible radial interval.</p>
+            <p><b>E · Reliability-aware Fusion v2:</b> keeps one latest measurement per named sensor, checks RGB/tactile observability, cross-modal standardized residuals, and tactile information in the weakest RGB direction. It reports genuine fusion, RGB-only fallback, tactile-only fallback, or invalid explicitly.</p>
             <p>All modes use deterministic RGB-cone or tactile algebraic initialization and a Huber robust loss. A finite patch cannot identify the exact contact location because one scalar channel reports no within-patch coordinates. Scalar pressure is a magnitude-like normal response, not a measured 3D force vector or direction.</p>
           </div>
         </details>
@@ -233,6 +235,6 @@
     </section>
   </main>
   <div id="toast" role="status"></div>
-  <script src="app.js?v=fusion-explainability-v1-20260909.1"></script>
+  <script src="app.js?v=reliability-aware-fusion-v2-20260909.1"></script>
 </body>
 </html>

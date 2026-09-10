@@ -1,0 +1,3896 @@
+{
+  "algorithm_input_only": true,
+  "rgb_reference": "inputs/trial_02_tactile_channel_dropout_50_percent/rgb.png",
+  "predicted_mask_reference": "inputs/trial_02_tactile_channel_dropout_50_percent/predicted_mask.png",
+  "timestamp": 30.79399999999381,
+  "camera_timestamp": 30.79399999999381,
+  "tactile_timestamp": 30.79399999999381,
+  "time_base": "simulation_seconds",
+  "camera_id": "external_rgb_01",
+  "frame_id": "research_rgb_camera_optical",
+  "common_frame_id": "world",
+  "calibration_version": "research-rgb-camera-v1",
+  "intrinsic_matrix": [
+    [
+      514.6816609222941,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      514.6816609222941,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "T_camera_cv_from_world": [
+    [
+      0.7828232547561078,
+      0.6222441255753679,
+      0.0,
+      0.0016057912918074034
+    ],
+    [
+      0.2868137687236376,
+      -0.36083022516844726,
+      -0.8874341725871455,
+      0.0164476104174281
+    ],
+    [
+      -0.5522007007271884,
+      0.6947041073664628,
+      -0.4609344740031588,
+      0.5541000789982652
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "visibility_pixel_counts": {
+    "foreground": 7416,
+    "background": 271085,
+    "unknown_occluded": 27169,
+    "unreliable_segmentation": 1530
+  },
+  "v1_visibility_pixel_counts": {
+    "foreground": 7416,
+    "background": 270982,
+    "unknown_occluded": 28802,
+    "unreliable_segmentation": 0
+  },
+  "segmentation_status": "SEGMENTATION_OK",
+  "segmentation_confidence": 0.4125,
+  "segmentation_angular_coverage": 1.0,
+  "joint_state": {
+    "joint_00": -0.028567350935464038,
+    "joint_01": -0.892856353096425,
+    "joint_02": 1.2055607040941922,
+    "joint_03": 1.003356390743789,
+    "joint_10": -0.00031257115224078404,
+    "joint_11": 0.7694523470385611,
+    "joint_12": 0.7296105188800899,
+    "joint_13": 0.8716917066052358,
+    "joint_20": 0.07131260388465595,
+    "joint_21": 0.4732837370212365,
+    "joint_22": 0.5445425289035298,
+    "joint_23": 1.2632507262553543,
+    "joint_30": 0.09146211955521416,
+    "joint_31": 0.4463372953064083,
+    "joint_32": 0.2782985263568287,
+    "joint_33": 1.0134591987442654,
+    "joint_40": -0.4781766306479148,
+    "joint_41": 1.0622045741153068,
+    "joint_42": -0.04882528291456351,
+    "joint_43": 0.0015796360962584794
+  },
+  "known_radius_m": 0.04,
+  "radius_label": "declared_known_radius_prior",
+  "object_motion_assumption": "fixed_pose",
+  "tactile_constraints": [
+    {
+      "timestamp": 18.23600000000077,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.02763189535984346,
+        "joint_01": -0.8310263264842782,
+        "joint_02": 0.11016166512437645,
+        "joint_03": 0.07008894803426637,
+        "joint_10": -0.0003139161445033761,
+        "joint_11": 0.7126937899791673,
+        "joint_12": 0.6736001681487138,
+        "joint_13": 0.8110043335148547,
+        "joint_20": 0.0033657484708199503,
+        "joint_21": 0.4588276083486867,
+        "joint_22": 0.535933086762297,
+        "joint_23": 1.2350421342721414,
+        "joint_30": 0.004296513984950384,
+        "joint_31": 0.020912058400940705,
+        "joint_32": 0.013234774728779253,
+        "joint_33": 0.07343566504777549,
+        "joint_40": -0.030752086033465444,
+        "joint_41": 0.09322811851218571,
+        "joint_42": 0.00016857563139373213,
+        "joint_43": 0.0005626331040404925
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.016446070042116193,
+        -0.07705098564787663,
+        0.14689662587941357
+      ],
+      "surface_u_world": [
+        -0.11926406998567526,
+        -0.8987033354214216,
+        -0.4220289047499319
+      ],
+      "surface_v_world": [
+        -0.9902080952129014,
+        0.13872639748565074,
+        -0.015585730468256715
+      ],
+      "sensing_direction_world": [
+        0.07255349842342093,
+        0.4160376199983584,
+        -0.9064483919049325
+      ],
+      "representative_contact_world_m": [
+        0.01651396578896612,
+        -0.07666165659357514,
+        0.14604836918763928
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 0.9358025219582771,
+      "indentation_m": 0.0009358025219582771,
+      "position_sigma_m": 0.004125494375599405,
+      "finite_patch_sigma_m": 0.0022404695586198727,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 18.320000000000725,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.0280453790755738,
+        "joint_01": -0.837075352233053,
+        "joint_02": 0.09956932175843378,
+        "joint_03": 0.06361685757384378,
+        "joint_10": -0.00031384948369190516,
+        "joint_11": 0.7177235448097535,
+        "joint_12": 0.6786130798365734,
+        "joint_13": 0.8164438169822437,
+        "joint_20": 0.0050645080018499895,
+        "joint_21": 0.459132595009208,
+        "joint_22": 0.5371154964604353,
+        "joint_23": 1.2388763384204282,
+        "joint_30": 0.003899244414855745,
+        "joint_31": 0.01910840622290443,
+        "joint_32": 0.012092417162710143,
+        "joint_33": 0.06689804682811984,
+        "joint_40": -0.028707379833733608,
+        "joint_41": 0.0850894648981104,
+        "joint_42": 0.00022779680061758433,
+        "joint_43": 0.000526343706101687
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.016518914953589325,
+        -0.07693602157057959,
+        0.14672165348022467
+      ],
+      "surface_u_world": [
+        -0.12000501388196838,
+        -0.8964426280103432,
+        -0.42660216977959825
+      ],
+      "surface_v_world": [
+        -0.9902294026672009,
+        0.13882510900091344,
+        -0.01316508195877099
+      ],
+      "sensing_direction_world": [
+        0.07102483426597328,
+        0.4208541356603652,
+        -0.9043435563929629
+      ],
+      "representative_contact_world_m": [
+        0.01662243588515495,
+        -0.07632261342078149,
+        0.14540354428108754
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 1.4575314755986843,
+      "indentation_m": 0.0014575314755986843,
+      "position_sigma_m": 0.0041288980315640055,
+      "finite_patch_sigma_m": 0.002246730725977886,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 18.614000000000562,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.02926348940523146,
+        "joint_01": -0.8543630929792898,
+        "joint_02": 0.06931770486296014,
+        "joint_03": 0.0451536177212251,
+        "joint_10": -0.00031362833120228146,
+        "joint_11": 0.7320717728891076,
+        "joint_12": 0.6928828500391424,
+        "joint_13": 0.8319209184210762,
+        "joint_20": 0.011730383124443862,
+        "joint_21": 0.45749787482464566,
+        "joint_22": 0.538201480182285,
+        "joint_23": 1.2484387382421294,
+        "joint_30": 0.0027594598621444298,
+        "joint_31": 0.013931296932381019,
+        "joint_32": 0.00881306532357554,
+        "joint_33": 0.0482683138326678,
+        "joint_40": -0.022843808236359987,
+        "joint_41": 0.06180257237320506,
+        "joint_42": 0.00034989299567450745,
+        "joint_43": 0.00041224463467400257
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.016805053224279415,
+        -0.07661207059658093,
+        0.1465455349206443
+      ],
+      "surface_u_world": [
+        -0.12294058067209457,
+        -0.8925555869421701,
+        -0.4338549732040531
+      ],
+      "surface_v_world": [
+        -0.9902804723949762,
+        0.13898333496541676,
+        -0.005312134581494862
+      ],
+      "sensing_direction_world": [
+        0.06503998734902057,
+        0.42898503064432325,
+        -0.9009670593884896
+      ],
+      "representative_contact_world_m": [
+        0.016906964906513205,
+        -0.07593989048234641,
+        0.14513380234808415
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 1.5669080870859309,
+      "indentation_m": 0.0015669080870859308,
+      "position_sigma_m": 0.004129799271326748,
+      "finite_patch_sigma_m": 0.0022483865373754005,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 19.118000000000283,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.030708359062992078,
+        "joint_01": -0.8736782159198601,
+        "joint_02": 0.03556458382444414,
+        "joint_03": 0.024601762925183648,
+        "joint_10": -0.0003133087895672496,
+        "joint_11": 0.7480392990930692,
+        "joint_12": 0.708692518995832,
+        "joint_13": 0.8490549091567257,
+        "joint_20": 0.019581150776067185,
+        "joint_21": 0.4553868084283408,
+        "joint_22": 0.5393779014474817,
+        "joint_23": 1.259244616085114,
+        "joint_30": 0.0014752166717766004,
+        "joint_31": 0.00809266346956229,
+        "joint_32": 0.005113838970459096,
+        "joint_33": 0.02757635915753884,
+        "joint_40": -0.01624235470495487,
+        "joint_41": 0.03571303668754608,
+        "joint_42": 0.0003747388648491495,
+        "joint_43": 0.000260137282606002
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.017139739321061328,
+        -0.07623843329903038,
+        0.14636687597347364
+      ],
+      "surface_u_world": [
+        -0.1265149447095264,
+        -0.8882155470849359,
+        -0.44166402458578946
+      ],
+      "surface_v_world": [
+        -0.990264780613295,
+        0.13914365991703395,
+        0.003834887290887484
+      ],
+      "sensing_direction_world": [
+        0.058048543210094256,
+        0.4378494986958622,
+        -0.8971723255302639
+      ],
+      "representative_contact_world_m": [
+        0.01723039664119281,
+        -0.07555462178581092,
+        0.14496571697393892
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 1.561750132793991,
+      "indentation_m": 0.001561750132793991,
+      "position_sigma_m": 0.0041297553109402065,
+      "finite_patch_sigma_m": 0.002248305790643,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 20.125999999999724,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.03215227283188182,
+        "joint_01": -0.8912103228593694,
+        "joint_02": 0.004996510942423848,
+        "joint_03": 0.006065659654383563,
+        "joint_10": -0.00031290077619370313,
+        "joint_11": 0.7624291062654227,
+        "joint_12": 0.7228281231123236,
+        "joint_13": 0.864359272173091,
+        "joint_20": 0.027147788420332736,
+        "joint_21": 0.4533434573931344,
+        "joint_22": 0.5407241175847306,
+        "joint_23": 1.2694896291926943,
+        "joint_30": 0.0002910231951843422,
+        "joint_31": 0.002700745577613769,
+        "joint_32": 0.0016965341536597232,
+        "joint_33": 0.008980775325258806,
+        "joint_40": -0.01016125221746171,
+        "joint_41": 0.011897628226667041,
+        "joint_42": 0.00021494782249289015,
+        "joint_43": 8.168356507257646e-05
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01745965158077371,
+        -0.07587881298048021,
+        0.14618810332513318
+      ],
+      "surface_u_world": [
+        -0.13008285036270506,
+        -0.883935328634725,
+        -0.4491511847524149
+      ],
+      "surface_v_world": [
+        -0.9901713346803407,
+        0.13928583391608246,
+        0.012656406535529236
+      ],
+      "sensing_direction_world": [
+        0.0513729533467666,
+        0.4463830092404815,
+        -0.8933661216434486
+      ],
+      "representative_contact_world_m": [
+        0.017539670661701832,
+        -0.07518352186298792,
+        0.14479658636281845
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 1.5576110707702069,
+      "indentation_m": 0.001557611070770207,
+      "position_sigma_m": 0.004129720138892608,
+      "finite_patch_sigma_m": 0.0022482411849210444,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.645999999998327,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.032184389144574485,
+        "joint_01": -0.8980499952065931,
+        "joint_02": 0.3767766902870608,
+        "joint_03": 0.3955306512618867,
+        "joint_10": -0.00031260528170312104,
+        "joint_11": 0.7690199768071044,
+        "joint_12": 0.729204854957805,
+        "joint_13": 0.8712540345662481,
+        "joint_20": 0.03127723887983713,
+        "joint_21": 0.4523666378050134,
+        "joint_22": 0.5414493401739908,
+        "joint_23": 1.2743841078546971,
+        "joint_30": -0.0004511029716213461,
+        "joint_31": 0.36311595728011486,
+        "joint_32": 0.17926487723428108,
+        "joint_33": 0.4048013471470984,
+        "joint_40": -0.007157648168934035,
+        "joint_41": 0.4130141644810296,
+        "joint_42": 0.0013940181125514856,
+        "joint_43": 0.0002888157964615261
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.017633393214691276,
+        -0.07570540439310469,
+        0.1460971890510764
+      ],
+      "surface_u_world": [
+        -0.13206467164847624,
+        -0.8818248274547912,
+        -0.45270729629449413
+      ],
+      "surface_v_world": [
+        -0.9900904004289851,
+        0.1393503816845154,
+        0.017391672762848406
+      ],
+      "sensing_direction_world": [
+        0.04774852659434496,
+        0.4505179735379215,
+        -0.8914895581563296
+      ],
+      "representative_contact_world_m": [
+        0.017759012309823033,
+        -0.0745201602774647,
+        0.14375181591388161
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 2.630847567495296,
+      "indentation_m": 0.002630847567495296,
+      "position_sigma_m": 0.0041419476790244955,
+      "finite_patch_sigma_m": 0.0022706233892427884,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.645999999998327,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.032184389144574485,
+        "joint_01": -0.8980499952065931,
+        "joint_02": 0.3767766902870608,
+        "joint_03": 0.3955306512618867,
+        "joint_10": -0.00031260528170312104,
+        "joint_11": 0.7690199768071044,
+        "joint_12": 0.729204854957805,
+        "joint_13": 0.8712540345662481,
+        "joint_20": 0.03127723887983713,
+        "joint_21": 0.4523666378050134,
+        "joint_22": 0.5414493401739908,
+        "joint_23": 1.2743841078546971,
+        "joint_30": -0.0004511029716213461,
+        "joint_31": 0.36311595728011486,
+        "joint_32": 0.17926487723428108,
+        "joint_33": 0.4048013471470984,
+        "joint_40": -0.007157648168934035,
+        "joint_41": 0.4130141644810296,
+        "joint_42": 0.0013940181125514856,
+        "joint_43": 0.0002888157964615261
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013926784849594323,
+        -0.030541255143984494,
+        0.12703854249776436
+      ],
+      "surface_u_world": [
+        0.014198502570954665,
+        -0.38971154107509204,
+        0.920827948510263
+      ],
+      "surface_v_world": [
+        -0.9992975140337025,
+        -0.037473656776262056,
+        -0.0004511029563253879
+      ],
+      "sensing_direction_world": [
+        0.0346825905207562,
+        -0.9201746748125748,
+        -0.3899698439986634
+      ],
+      "representative_contact_world_m": [
+        -0.013801684693103722,
+        -0.03386032658845602,
+        0.12563192068035278
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 3.6070029442569846,
+      "indentation_m": 0.0036070029442569844,
+      "position_sigma_m": 0.004158453508264493,
+      "finite_patch_sigma_m": 0.002300594614528441,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.687999999998304,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03211902430472738,
+        "joint_01": -0.8979647016182156,
+        "joint_02": 0.3961804598672217,
+        "joint_03": 0.415416243157269,
+        "joint_10": -0.0003126039560507354,
+        "joint_11": 0.7690396077023182,
+        "joint_12": 0.729223460377851,
+        "joint_13": 0.8712741217438094,
+        "joint_20": 0.03251065468441366,
+        "joint_21": 0.4526870677843409,
+        "joint_22": 0.5399587259899609,
+        "joint_23": 1.2721079249102232,
+        "joint_30": -0.0017128748564694078,
+        "joint_31": 0.37404449338518875,
+        "joint_32": 0.18460181979867027,
+        "joint_33": 0.42495451796752387,
+        "joint_40": -0.007134883600037644,
+        "joint_41": 0.43399409863054755,
+        "joint_42": 0.0015184127370699227,
+        "joint_43": 0.0003174309035758978
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013965291613137486,
+        -0.030700427776731435,
+        0.12680695288191485
+      ],
+      "surface_u_world": [
+        0.013421061863584645,
+        -0.399787566672883,
+        0.9165099945511936
+      ],
+      "surface_v_world": [
+        -0.999296149769779,
+        -0.03747360561636493,
+        -0.001712874018894268
+      ],
+      "sensing_direction_world": [
+        0.03502971981529915,
+        -0.9158419201923569,
+        -0.4000091116812696
+      ],
+      "representative_contact_world_m": [
+        -0.013778279073893476,
+        -0.0355898166712004,
+        0.12467143138500628
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 5.338684249414787,
+      "indentation_m": 0.005338684249414787,
+      "position_sigma_m": 0.004200152957225054,
+      "finite_patch_sigma_m": 0.002375138914692436,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.72999999999828,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.03205210889837587,
+        "joint_01": -0.8978760353195351,
+        "joint_02": 0.4156142417705707,
+        "joint_03": 0.43531665612823867,
+        "joint_10": -0.0003126026805268989,
+        "joint_11": 0.7690583473887055,
+        "joint_12": 0.7292412125884152,
+        "joint_13": 0.8712932871313772,
+        "joint_20": 0.03322130500005759,
+        "joint_21": 0.4531219241246197,
+        "joint_22": 0.5386421190571437,
+        "joint_23": 1.269984874597975,
+        "joint_30": -0.0028598884236280073,
+        "joint_31": 0.38399558424023655,
+        "joint_32": 0.18970208086432566,
+        "joint_33": 0.44511275771140013,
+        "joint_40": -0.007111346273522808,
+        "joint_41": 0.4550224056558683,
+        "joint_42": 0.0016460345033289844,
+        "joint_43": 0.00034680708374077124
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.0177226004098706,
+        -0.07588043963054232,
+        0.14628457984052373
+      ],
+      "surface_u_world": [
+        -0.132755245558889,
+        -0.8847521628077343,
+        -0.44675458040763094
+      ],
+      "surface_v_world": [
+        -0.9900845688802947,
+        0.13925988167233286,
+        0.018418251829828574
+      ],
+      "sensing_direction_world": [
+        0.04591940276170283,
+        0.44476993540749804,
+        -0.8944669426994115
+      ],
+      "representative_contact_world_m": [
+        0.017830191396951106,
+        -0.07483832598149166,
+        0.14418880821702662
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 2.3430397725805507,
+      "indentation_m": 0.0023430397725805506,
+      "position_sigma_m": 0.004138057671898451,
+      "finite_patch_sigma_m": 0.002263519669885292,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.72999999999828,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03205210889837587,
+        "joint_01": -0.8978760353195351,
+        "joint_02": 0.4156142417705707,
+        "joint_03": 0.43531665612823867,
+        "joint_10": -0.0003126026805268989,
+        "joint_11": 0.7690583473887055,
+        "joint_12": 0.7292412125884152,
+        "joint_13": 0.8712932871313772,
+        "joint_20": 0.03322130500005759,
+        "joint_21": 0.4531219241246197,
+        "joint_22": 0.5386421190571437,
+        "joint_23": 1.269984874597975,
+        "joint_30": -0.0028598884236280073,
+        "joint_31": 0.38399558424023655,
+        "joint_32": 0.18970208086432566,
+        "joint_33": 0.44511275771140013,
+        "joint_40": -0.007111346273522808,
+        "joint_41": 0.4550224056558683,
+        "joint_42": 0.0016460345033289844,
+        "joint_43": 0.00034680708374077124
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013999857766421944,
+        -0.030843131566091614,
+        0.12659454117824925
+      ],
+      "surface_u_world": [
+        0.01272308022407382,
+        -0.4089204693324222,
+        0.9124817622673691
+      ],
+      "surface_v_world": [
+        -0.9992935291034555,
+        -0.0374735073413778,
+        -0.002859884525146734
+      ],
+      "sensing_direction_world": [
+        0.03536335733945914,
+        -0.9118007339184544,
+        -0.40910835736201934
+      ],
+      "representative_contact_world_m": [
+        -0.013771668873099413,
+        -0.03672670190717355,
+        0.12395469048705735
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 6.452695700347351,
+      "indentation_m": 0.006452695700347351,
+      "position_sigma_m": 0.004235190531785888,
+      "finite_patch_sigma_m": 0.0024365629153643513,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.771999999998258,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03198378943028066,
+        "joint_01": -0.8977842890180033,
+        "joint_02": 0.43507832950650016,
+        "joint_03": 0.4552319826056167,
+        "joint_10": -0.0003126014533067021,
+        "joint_11": 0.7690762363259459,
+        "joint_12": 0.7292581507149507,
+        "joint_13": 0.871311573028406,
+        "joint_20": 0.033247911429601346,
+        "joint_21": 0.4539719190492575,
+        "joint_22": 0.538090093913723,
+        "joint_23": 1.2686176874268835,
+        "joint_30": -0.003583893295079232,
+        "joint_31": 0.3929231963018428,
+        "joint_32": 0.1945758794846253,
+        "joint_33": 0.4652757260757337,
+        "joint_40": -0.007086985236929781,
+        "joint_41": 0.4760987202467648,
+        "joint_42": 0.0017766695239947556,
+        "joint_43": 0.00037689497821422616
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01401987802694958,
+        -0.030968938250569074,
+        0.12640269805362037
+      ],
+      "surface_u_world": [
+        0.012380771604402504,
+        -0.4170689251367977,
+        0.9087909669773989
+      ],
+      "surface_v_world": [
+        -0.9992911980812889,
+        -0.03747341992804656,
+        -0.0035838856229928285
+      ],
+      "sensing_direction_world": [
+        0.0355502328569544,
+        -0.9081024429269434,
+        -0.41723725573579096
+      ],
+      "representative_contact_world_m": [
+        -0.013823596731191776,
+        -0.03598278794589277,
+        0.12409903187163555
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 5.521240167967914,
+      "indentation_m": 0.005521240167967914,
+      "position_sigma_m": 0.00420545979559056,
+      "finite_patch_sigma_m": 0.002384510870666897,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.813999999998234,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03191420988288288,
+        "joint_01": -0.8976897484665933,
+        "joint_02": 0.4545729885443938,
+        "joint_03": 0.4751622920698075,
+        "joint_10": -0.0003126002726278641,
+        "joint_11": 0.7690933131369267,
+        "joint_12": 0.7292743120888246,
+        "joint_13": 0.8713290197933515,
+        "joint_20": 0.03310420674995722,
+        "joint_21": 0.4549479584235268,
+        "joint_22": 0.5378836205401988,
+        "joint_23": 1.2676356739834027,
+        "joint_30": -0.004171515236942474,
+        "joint_31": 0.40092465050939813,
+        "joint_32": 0.19923240441203344,
+        "joint_33": 0.4854426845120763,
+        "joint_40": -0.007061752149508282,
+        "joint_41": 0.4972226512215609,
+        "joint_42": 0.0019101088120323628,
+        "joint_43": 0.0004076463508219666
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.014035509588071888,
+        -0.031080145566830038,
+        0.1262297907550605
+      ],
+      "surface_u_world": [
+        0.012133153434360977,
+        -0.42434157444318427,
+        0.9054213429485842
+      ],
+      "surface_v_world": [
+        -0.999288921063387,
+        -0.03747333453987524,
+        -0.004171503138492052
+      ],
+      "sensing_direction_world": [
+        0.03569929909343781,
+        -0.9047269034152223,
+        -0.424494503805338
+      ],
+      "representative_contact_world_m": [
+        -0.013706899097300497,
+        -0.039408117244010846,
+        0.12232233736612627
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 9.204960026923757,
+      "indentation_m": 0.009204960026923757,
+      "position_sigma_m": 0.004348155241558015,
+      "finite_patch_sigma_m": 0.0026280133189709,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.85599999999821,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03184351176081138,
+        "joint_01": -0.8975926926623341,
+        "joint_02": 0.4740984559390437,
+        "joint_03": 0.495107630801556,
+        "joint_10": -0.00031259913678879643,
+        "joint_11": 0.7691096146911242,
+        "joint_12": 0.7292897323295785,
+        "joint_13": 0.8713456659327349,
+        "joint_20": 0.033104729005498934,
+        "joint_21": 0.4557474884349284,
+        "joint_22": 0.5374220536740495,
+        "joint_23": 1.2664286010201558,
+        "joint_30": -0.004792178498175059,
+        "joint_31": 0.40809721547302513,
+        "joint_32": 0.2036815532544312,
+        "joint_33": 0.5056135438494267,
+        "joint_40": -0.007035601227386991,
+        "joint_41": 0.5183937814380649,
+        "joint_42": 0.0020461480419561194,
+        "joint_43": 0.0004390140328657239
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.014052634596666586,
+        -0.031178769148583585,
+        0.12607405120038825
+      ],
+      "surface_u_world": [
+        0.011829231236859424,
+        -0.43084080344594683,
+        0.9023508546316094
+      ],
+      "surface_v_world": [
+        -0.9992861413088795,
+        -0.03747323029908121,
+        -0.00479216015615657
+      ],
+      "sensing_direction_world": [
+        0.0358786595181032,
+        -0.9016500160609793,
+        -0.43097652350031757
+      ],
+      "representative_contact_world_m": [
+        -0.013692336750581489,
+        -0.04023324785745085,
+        0.12174613273252971
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 10.042125148177314,
+      "indentation_m": 0.010042125148177315,
+      "position_sigma_m": 0.004389646482754875,
+      "finite_patch_sigma_m": 0.0026961076097890163,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.897999999998188,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.031771834126771925,
+        "joint_01": -0.8974933940252752,
+        "joint_02": 0.4936549399891372,
+        "joint_03": 0.5150680216664697,
+        "joint_10": -0.00031259804414671426,
+        "joint_11": 0.7691251761842024,
+        "joint_12": 0.7293044454234184,
+        "joint_13": 0.8713615481861208,
+        "joint_20": 0.03306135549070007,
+        "joint_21": 0.45655583296347574,
+        "joint_22": 0.5370609013055424,
+        "joint_23": 1.2653534609609198,
+        "joint_30": -0.004823470040888893,
+        "joint_31": 0.41462724143066315,
+        "joint_32": 0.2079312280386242,
+        "joint_33": 0.5257873457798719,
+        "joint_40": -0.008157689119564467,
+        "joint_41": 0.5387354688904497,
+        "joint_42": 0.00198191974325238,
+        "joint_43": 0.00047344279356888955
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.014049725007487357,
+        -0.03126688923972427,
+        0.1259315784408197
+      ],
+      "surface_u_world": [
+        0.012035138430943894,
+        -0.43672042863333427,
+        0.8995172128076623
+      ],
+      "surface_v_world": [
+        -0.9992859909708899,
+        -0.037473224661406596,
+        -0.004823451337215093
+      ],
+      "sensing_direction_world": [
+        0.03581431033782441,
+        -0.8988168984913192,
+        -0.43685960175034716
+      ],
+      "representative_contact_world_m": [
+        -0.013655295133380341,
+        -0.04116573226568564,
+        0.12112035979398598
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 11.013196313779781,
+      "indentation_m": 0.011013196313779781,
+      "position_sigma_m": 0.004441737958674699,
+      "finite_patch_sigma_m": 0.00278011440295749,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 22.939999999998165,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03169931362917903,
+        "joint_01": -0.8973921185587274,
+        "joint_02": 0.5132426199300759,
+        "joint_03": 0.53504346393439,
+        "joint_10": -0.0003125969931157936,
+        "joint_11": 0.7691400312139971,
+        "joint_12": 0.7293184837981062,
+        "joint_13": 0.8713767016071922,
+        "joint_20": 0.03303061343904889,
+        "joint_21": 0.45735876748571413,
+        "joint_22": 0.5367876350888018,
+        "joint_23": 1.2644033049584513,
+        "joint_30": -0.0012821141877303326,
+        "joint_31": 0.4211903850616564,
+        "joint_32": 0.2119916751713755,
+        "joint_33": 0.5459645194752053,
+        "joint_40": -0.016778252948477897,
+        "joint_41": 0.5528546353256868,
+        "joint_42": 0.0005646781231516528,
+        "joint_43": 0.0005089120833017345
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013924407560349822,
+        -0.031349926466486745,
+        0.1257871101426583
+      ],
+      "surface_u_world": [
+        0.015443010531550335,
+        -0.44249105444042053,
+        0.8966403814495125
+      ],
+      "surface_v_world": [
+        -0.9992967943781935,
+        -0.03747362978918048,
+        -0.0012821138364737148
+      ],
+      "sensing_direction_world": [
+        0.0341676936118825,
+        -0.8959900591950593,
+        -0.44275859790282873
+      ],
+      "representative_contact_world_m": [
+        -0.013500886474776048,
+        -0.04245605165140798,
+        0.12029895504032753
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 12.395371440997913,
+      "indentation_m": 0.012395371440997912,
+      "position_sigma_m": 0.004522943482524063,
+      "finite_patch_sigma_m": 0.0029080952092575816,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.023999999998118,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.03155222672593452,
+        "joint_01": -0.8971846709420656,
+        "joint_02": 0.5525122344733842,
+        "joint_03": 0.5750315583207356,
+        "joint_10": -0.0003125950098182169,
+        "joint_11": 0.7691677487178649,
+        "joint_12": 0.7293446587343184,
+        "joint_13": 0.8714049541983235,
+        "joint_20": 0.033126674965367524,
+        "joint_21": 0.4588120442466642,
+        "joint_22": 0.5362241824568245,
+        "joint_23": 1.2625884858890628,
+        "joint_30": 0.008242892337389784,
+        "joint_31": 0.4320174944496353,
+        "joint_32": 0.21957834549090932,
+        "joint_33": 0.5862887409884157,
+        "joint_40": -0.039216759498702576,
+        "joint_41": 0.5756811795729083,
+        "joint_42": -0.0032585619488106465,
+        "joint_43": 0.0005715930403745008
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.017715440044697495,
+        -0.07624664983237459,
+        0.14619093989581955
+      ],
+      "surface_u_world": [
+        -0.13259198809364972,
+        -0.8866043096933744,
+        -0.4431164211108309
+      ],
+      "surface_v_world": [
+        -0.990105325608367,
+        0.13919898823969953,
+        0.01775066347300633
+      ],
+      "sensing_direction_world": [
+        0.04594354365504659,
+        0.44108552389438865,
+        -0.896288318556949
+      ],
+      "representative_contact_world_m": [
+        0.017866701607858103,
+        -0.0747944482709817,
+        0.14324005798027917
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.2923355714241787,
+      "indentation_m": 0.0032923355714241788,
+      "position_sigma_m": 0.004152576086489501,
+      "finite_patch_sigma_m": 0.0022899537449661425,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.023999999998118,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03155222672593452,
+        "joint_01": -0.8971846709420656,
+        "joint_02": 0.5525122344733842,
+        "joint_03": 0.5750315583207356,
+        "joint_10": -0.0003125950098182169,
+        "joint_11": 0.7691677487178649,
+        "joint_12": 0.7293446587343184,
+        "joint_13": 0.8714049541983235,
+        "joint_20": 0.033126674965367524,
+        "joint_21": 0.4588120442466642,
+        "joint_22": 0.5362241824568245,
+        "joint_23": 1.2625884858890628,
+        "joint_30": 0.008242892337389784,
+        "joint_31": 0.4320174944496353,
+        "joint_32": 0.21957834549090932,
+        "joint_33": 0.5862887409884157,
+        "joint_40": -0.039216759498702576,
+        "joint_41": 0.5756811795729083,
+        "joint_42": -0.0032585619488106465,
+        "joint_43": 0.0005715930403745008
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013594690010505695,
+        -0.03148023000540111,
+        0.12554468764721166
+      ],
+      "surface_u_world": [
+        0.024300337548631225,
+        -0.4518476004206427,
+        0.8917645614561782
+      ],
+      "surface_v_world": [
+        -0.9992636671262056,
+        -0.03747238751723089,
+        0.00824279899344022
+      ],
+      "sensing_direction_world": [
+        0.029692058275083724,
+        -0.8913082286917793,
+        -0.45242548184392967
+      ],
+      "representative_contact_world_m": [
+        -0.013155797844784113,
+        -0.044655072759373166,
+        0.11885717552816329
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 14.781472398494023,
+      "indentation_m": 0.014781472398494023,
+      "position_sigma_m": 0.004681460065088392,
+      "finite_patch_sigma_m": 0.0031489789362613104,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.065999999998095,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03147738255479776,
+        "joint_01": -0.8970790087800724,
+        "joint_02": 0.5721954736974253,
+        "joint_03": 0.5944715477202392,
+        "joint_10": -0.0003125940746487865,
+        "joint_11": 0.7691806710349816,
+        "joint_12": 0.7293568529860339,
+        "joint_13": 0.8714181157249862,
+        "joint_20": 0.03316338143823205,
+        "joint_21": 0.45945923199346766,
+        "joint_22": 0.5358736353886611,
+        "joint_23": 1.2616430754097367,
+        "joint_30": 0.013361248600254113,
+        "joint_31": 0.4365671267224875,
+        "joint_32": 0.22311897150609045,
+        "joint_33": 0.6057430029650857,
+        "joint_40": -0.05074130415089482,
+        "joint_41": 0.5862589435489192,
+        "joint_42": -0.005251425957571607,
+        "joint_43": 0.0006015308200893442
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013419695710292607,
+        -0.03153284546953458,
+        0.12544062792998836
+      ],
+      "surface_u_world": [
+        0.028985645214304755,
+        -0.4557273920018294,
+        0.8896477786352986
+      ],
+      "surface_v_world": [
+        -0.9992084182499593,
+        -0.03747031568437164,
+        0.01336085105551502
+      ],
+      "sensing_direction_world": [
+        0.027246477306909874,
+        -0.8893308225782233,
+        -0.45645274779182227
+      ],
+      "representative_contact_world_m": [
+        -0.013080816813897316,
+        -0.04259392482635818,
+        0.11976348289263479
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 12.437535576613218,
+      "indentation_m": 0.012437535576613219,
+      "position_sigma_m": 0.004525547099792376,
+      "finite_patch_sigma_m": 0.002912142948489855,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.10799999999807,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03140234024564914,
+        "joint_01": -0.8969724100142974,
+        "joint_02": 0.5919098763436867,
+        "joint_03": 0.6130299539161539,
+        "joint_10": -0.00031259317528160494,
+        "joint_11": 0.7691930067041022,
+        "joint_12": 0.7293684880261074,
+        "joint_13": 0.8714306732701519,
+        "joint_20": 0.03310815311580019,
+        "joint_21": 0.4601315469145028,
+        "joint_22": 0.5356320502411893,
+        "joint_23": 1.26082954857157,
+        "joint_30": 0.018614318189604857,
+        "joint_31": 0.4406883864178689,
+        "joint_32": 0.22650088426259576,
+        "joint_33": 0.6243096446635321,
+        "joint_40": -0.06222881366415946,
+        "joint_41": 0.5966067901053761,
+        "joint_42": -0.0072228478287397506,
+        "joint_43": 0.0006305563554952193
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01324124725965822,
+        -0.03157936344442033,
+        0.12534481167104616
+      ],
+      "surface_u_world": [
+        0.033757688186358395,
+        -0.45921392470541844,
+        0.8876845066378929
+      ],
+      "surface_v_world": [
+        -0.9991244959727291,
+        -0.03746716859897549,
+        0.018613243253556892
+      ],
+      "sensing_direction_world": [
+        0.02471156458693779,
+        -0.8875356753392757,
+        -0.4600766860597499
+      ],
+      "representative_contact_world_m": [
+        -0.012914568348122822,
+        -0.043312298740711797,
+        0.11926274630865073
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 13.219682630481497,
+      "indentation_m": 0.013219682630481497,
+      "position_sigma_m": 0.004575161221109013,
+      "finite_patch_sigma_m": 0.0029886619412606234,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.149999999998048,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03132723799194048,
+        "joint_01": -0.8968651339126448,
+        "joint_02": 0.6116551489839864,
+        "joint_03": 0.6307468456259219,
+        "joint_10": -0.00031259231038963125,
+        "joint_11": 0.7692047823583132,
+        "joint_12": 0.7293795894986351,
+        "joint_13": 0.8714426545498802,
+        "joint_20": 0.03301614931096258,
+        "joint_21": 0.460791852145351,
+        "joint_22": 0.5354364625490216,
+        "joint_23": 1.26008743771217,
+        "joint_30": 0.02303027882431592,
+        "joint_31": 0.44492238718617744,
+        "joint_32": 0.22973014786937734,
+        "joint_33": 0.6420288640502507,
+        "joint_40": -0.07152586287490048,
+        "joint_41": 0.6051018762355902,
+        "joint_42": -0.009568159281062577,
+        "joint_43": 0.0006597911687682542
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.013092038274923178,
+        -0.031628040447104516,
+        0.12524626598277258
+      ],
+      "surface_u_world": [
+        0.03777043603378418,
+        -0.46282105828230147,
+        0.8856471394704939
+      ],
+      "surface_v_world": [
+        -0.9990326168210577,
+        -0.03746372313078779,
+        0.023028243025671646
+      ],
+      "sensing_direction_world": [
+        0.0225216834171734,
+        -0.8856601661054632,
+        -0.4637883541337578
+      ],
+      "representative_contact_world_m": [
+        -0.01271943207074588,
+        -0.04628069613766249,
+        0.11757319754581716
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.544338409487207,
+      "indentation_m": 0.016544338409487207,
+      "position_sigma_m": 0.004812337322099497,
+      "finite_patch_sigma_m": 0.003340447649892415,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.191999999998025,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03125220087960549,
+        "joint_01": -0.8967574215202184,
+        "joint_02": 0.6314310051842639,
+        "joint_03": 0.6476604684791247,
+        "joint_10": -0.00031259147869269164,
+        "joint_11": 0.7692160234215893,
+        "joint_12": 0.7293901818717771,
+        "joint_13": 0.8714540860084021,
+        "joint_20": 0.03299384444073407,
+        "joint_21": 0.4613649377633607,
+        "joint_22": 0.535115450089053,
+        "joint_23": 1.2592355394078427,
+        "joint_30": 0.027513551237767758,
+        "joint_31": 0.4488181102672197,
+        "joint_32": 0.23281557515719323,
+        "joint_33": 0.6589397473405036,
+        "joint_40": -0.0805752472132638,
+        "joint_41": 0.6134194829189278,
+        "joint_42": -0.011844105583988764,
+        "joint_43": 0.0006871236403236728
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.012941391993052984,
+        -0.0316719747134048,
+        0.12515431483231498
+      ],
+      "surface_u_world": [
+        0.041817353486396786,
+        -0.4661193442952155,
+        0.8837334775265628
+      ],
+      "surface_v_world": [
+        -0.9989194076685837,
+        -0.03745947778757001,
+        0.027510080096728257
+      ],
+      "sensing_direction_world": [
+        0.020281214075342443,
+        -0.8839289206515758,
+        -0.46718211553030403
+      ],
+      "representative_contact_world_m": [
+        -0.01265755384357432,
+        -0.044042671466388954,
+        0.11861604219000477
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 13.99513170336651,
+      "indentation_m": 0.01399513170336651,
+      "position_sigma_m": 0.004626762745849188,
+      "finite_patch_sigma_m": 0.0030670724651331474,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.233999999998,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.031177345000497465,
+        "joint_01": -0.8966494971011374,
+        "joint_02": 0.6512371559052157,
+        "joint_03": 0.6638073230724368,
+        "joint_10": -0.00031259067895595153,
+        "joint_11": 0.7692267541636851,
+        "joint_12": 0.7294002884916765,
+        "joint_13": 0.8714649928764805,
+        "joint_20": 0.032959850284776486,
+        "joint_21": 0.4619220141226605,
+        "joint_22": 0.5348362123300002,
+        "joint_23": 1.258452169913344,
+        "joint_30": 0.032071478614867685,
+        "joint_31": 0.452360464375342,
+        "joint_32": 0.23576258457247629,
+        "joint_33": 0.6750788992682563,
+        "joint_40": -0.089419638657455,
+        "joint_41": 0.6216788503220179,
+        "joint_42": -0.014031645110199978,
+        "joint_43": 0.0007134996754823779
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.012788976595499761,
+        -0.03171105097888542,
+        0.1250693096541733
+      ],
+      "surface_u_world": [
+        0.04590626916971937,
+        -0.4690969524358633,
+        0.8819532057577106
+      ],
+      "surface_v_world": [
+        -0.9987837311179067,
+        -0.0374543899169196,
+        0.032065980885422375
+      ],
+      "sensing_direction_world": [
+        0.017990965346708233,
+        -0.8823525430678024,
+        -0.47024579571504455
+      ],
+      "representative_contact_world_m": [
+        -0.012528438900433984,
+        -0.04448891438844251,
+        0.11825940516217298
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 14.481590810198103,
+      "indentation_m": 0.014481590810198104,
+      "position_sigma_m": 0.004660324090539769,
+      "finite_patch_sigma_m": 0.0031174702290263042,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.27599999999798,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.031102778072980994,
+        "joint_01": -0.8965415692533388,
+        "joint_02": 0.6710733104209279,
+        "joint_03": 0.6792222451196397,
+        "joint_10": -0.00031258990998843047,
+        "joint_11": 0.769236997752533,
+        "joint_12": 0.72940993163391,
+        "joint_13": 0.8714753992270906,
+        "joint_20": 0.03287103527880581,
+        "joint_21": 0.46251189603051845,
+        "joint_22": 0.5346721135724797,
+        "joint_23": 1.2578042776413745,
+        "joint_30": 0.03663752443099729,
+        "joint_31": 0.455534285377249,
+        "joint_32": 0.23857734909754086,
+        "joint_33": 0.6904814995457091,
+        "joint_40": -0.09825351271635735,
+        "joint_41": 0.6300072626573201,
+        "joint_42": -0.016105767210608767,
+        "joint_43": 0.0007389143776943786
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.017702452578306955,
+        -0.07648318071093668,
+        0.14612856401086674
+      ],
+      "surface_u_world": [
+        -0.1324018335286331,
+        -0.8877804074104703,
+        -0.440812548174299
+      ],
+      "surface_v_world": [
+        -0.9901218903913688,
+        0.1391588211121096,
+        0.017130815895582872
+      ],
+      "sensing_direction_world": [
+        0.046134552719239406,
+        0.438726304671264,
+        -0.8974356975345402
+      ],
+      "representative_contact_world_m": [
+        0.017943857818909448,
+        -0.07418748642335249,
+        0.14143261124403206
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 5.232634244869336,
+      "indentation_m": 0.0052326342448693365,
+      "position_sigma_m": 0.00419714907713117,
+      "finite_patch_sigma_m": 0.0023698228574437863,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.27599999999798,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.031102778072980994,
+        "joint_01": -0.8965415692533388,
+        "joint_02": 0.6710733104209279,
+        "joint_03": 0.6792222451196397,
+        "joint_10": -0.00031258990998843047,
+        "joint_11": 0.769236997752533,
+        "joint_12": 0.72940993163391,
+        "joint_13": 0.8714753992270906,
+        "joint_20": 0.03287103527880581,
+        "joint_21": 0.46251189603051845,
+        "joint_22": 0.5346721135724797,
+        "joint_23": 1.2578042776413745,
+        "joint_30": 0.03663752443099729,
+        "joint_31": 0.455534285377249,
+        "joint_32": 0.23857734909754086,
+        "joint_33": 0.6904814995457091,
+        "joint_40": -0.09825351271635735,
+        "joint_41": 0.6300072626573201,
+        "joint_42": -0.016105767210608767,
+        "joint_43": 0.0007389143776943786
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.012636925490419317,
+        -0.03174524253164572,
+        0.12499170808161982
+      ],
+      "surface_u_world": [
+        0.04998020978787554,
+        -0.47174437393576407,
+        0.8803181344090976
+      ],
+      "surface_v_world": [
+        -0.9986270080376095,
+        -0.03744851280140844,
+        0.03662932850619587
+      ],
+      "sensing_direction_world": [
+        0.01568692528188828,
+        -0.880940206209336,
+        -0.47296835722810565
+      ],
+      "representative_contact_world_m": [
+        -0.012323187109254091,
+        -0.04936403966575226,
+        0.11553234468996479
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 20.0,
+      "indentation_m": 0.02,
+      "position_sigma_m": 0.005099019513592785,
+      "finite_patch_sigma_m": 0.0037416573867739412,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.317999999997955,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.0310286000304311,
+        "joint_01": -0.8964338319697034,
+        "joint_02": 0.6909391770420603,
+        "joint_03": 0.6939384818528899,
+        "joint_10": -0.0003125891706415591,
+        "joint_11": 0.7692467763042646,
+        "joint_12": 0.7294191325525761,
+        "joint_13": 0.8714853280285483,
+        "joint_20": 0.032801282199388326,
+        "joint_21": 0.4630582419067404,
+        "joint_22": 0.5344896303585743,
+        "joint_23": 1.2571617045547416,
+        "joint_30": 0.04107939994406723,
+        "joint_31": 0.4582626267023433,
+        "joint_32": 0.24118522134735554,
+        "joint_33": 0.7051813651067732,
+        "joint_40": -0.1069591653676567,
+        "joint_41": 0.6385016563041314,
+        "joint_42": -0.018051217375584905,
+        "joint_43": 0.0007634967120718375
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01769904519149958,
+        -0.07651572026458558,
+        0.14611552881273487
+      ],
+      "surface_u_world": [
+        -0.13236296992145263,
+        -0.8879043783921029,
+        -0.4405744647131395
+      ],
+      "surface_v_world": [
+        -0.9901243548602306,
+        0.13915451829658368,
+        0.01702298825107254
+      ],
+      "sensing_direction_world": [
+        0.04619314250836947,
+        0.43847672065433557,
+        -0.8975546543825816
+      ],
+      "representative_contact_world_m": [
+        0.01788143096673381,
+        -0.07478446942785773,
+        0.14257168674948925
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.9483301027026174,
+      "indentation_m": 0.003948330102702617,
+      "position_sigma_m": 0.0041654242867321355,
+      "finite_patch_sigma_m": 0.0023131708731734283,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.317999999997955,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.0310286000304311,
+        "joint_01": -0.8964338319697034,
+        "joint_02": 0.6909391770420603,
+        "joint_03": 0.6939384818528899,
+        "joint_10": -0.0003125891706415591,
+        "joint_11": 0.7692467763042646,
+        "joint_12": 0.7294191325525761,
+        "joint_13": 0.8714853280285483,
+        "joint_20": 0.032801282199388326,
+        "joint_21": 0.4630582419067404,
+        "joint_22": 0.5344896303585743,
+        "joint_23": 1.2571617045547416,
+        "joint_30": 0.04107939994406723,
+        "joint_31": 0.4582626267023433,
+        "joint_32": 0.24118522134735554,
+        "joint_33": 0.7051813651067732,
+        "joint_40": -0.1069591653676567,
+        "joint_41": 0.6385016563041314,
+        "joint_42": -0.018051217375584905,
+        "joint_43": 0.0007634967120718375
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.012489511396957002,
+        -0.03177382807998062,
+        0.12492349806195589
+      ],
+      "surface_u_world": [
+        0.053924267206513936,
+        -0.47399981657039264,
+        0.8788726533335045
+      ],
+      "surface_v_world": [
+        -0.9984545683667868,
+        -0.03744204631375257,
+        0.0410678472205688
+      ],
+      "sensing_direction_world": [
+        0.013440638540513175,
+        -0.8797289693005954,
+        -0.47528631716990893
+      ],
+      "representative_contact_world_m": [
+        -0.012231134034527308,
+        -0.04868537957031653,
+        0.11578678743179295
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 19.223600438290205,
+      "indentation_m": 0.019223600438290207,
+      "position_sigma_m": 0.005031381849029967,
+      "finite_patch_sigma_m": 0.0036489455066838427,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.35999999999793,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.030954903577588476,
+        "joint_01": -0.8963264656446625,
+        "joint_02": 0.7108344636696952,
+        "joint_03": 0.7079877648581376,
+        "joint_10": -0.000312588459807776,
+        "joint_11": 0.7692561109309614,
+        "joint_12": 0.7294279115271348,
+        "joint_13": 0.8714948011951982,
+        "joint_20": 0.032804434485077395,
+        "joint_21": 0.46351680394992495,
+        "joint_22": 0.5341754142323981,
+        "joint_23": 1.2564007343575772,
+        "joint_30": 0.04512546371348526,
+        "joint_31": 0.4598541982204155,
+        "joint_32": 0.2427873772300202,
+        "joint_33": 0.7192105613636607,
+        "joint_40": -0.11508715003823426,
+        "joint_41": 0.6473655966238901,
+        "joint_42": -0.019828708451317373,
+        "joint_43": 0.0007874136828627431
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.012355254348746262,
+        -0.031788616376393936,
+        0.1248807759483812
+      ],
+      "surface_u_world": [
+        0.057495699863944004,
+        -0.47526623811011465,
+        0.877961867560212
+      ],
+      "surface_v_world": [
+        -0.9982803497464606,
+        -0.03743551311549033,
+        0.04511015038618228
+      ],
+      "sensing_direction_world": [
+        0.01142762153332831,
+        -0.8790457198794854,
+        -0.4766013274295909
+      ],
+      "representative_contact_world_m": [
+        -0.012176535597767312,
+        -0.04553617991374685,
+        0.11742711696040124
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 15.639196779713508,
+      "indentation_m": 0.015639196779713507,
+      "position_sigma_m": 0.004743748592419135,
+      "finite_patch_sigma_m": 0.0032408564775501135,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.485999999997862,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.030737533171510213,
+        "joint_01": -0.896008212002228,
+        "joint_02": 0.7706939241608786,
+        "joint_03": 0.7464299085271945,
+        "joint_10": -0.0003125864878961311,
+        "joint_11": 0.7692816482637237,
+        "joint_12": 0.7294519058854568,
+        "joint_13": 0.8715206912203789,
+        "joint_20": 0.032629258841218506,
+        "joint_21": 0.4649461180475384,
+        "joint_22": 0.5336704337508733,
+        "joint_23": 1.254681445718935,
+        "joint_30": 0.056287839782877894,
+        "joint_31": 0.4612935198558401,
+        "joint_32": 0.24532498202272585,
+        "joint_33": 0.7575690579474826,
+        "joint_40": -0.1400398158661525,
+        "joint_41": 0.674266517251732,
+        "joint_42": -0.02466841353094498,
+        "joint_43": 0.0008560502263153757
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01198417521366003,
+        -0.031792578583996235,
+        0.12482624773624217
+      ],
+      "surface_u_world": [
+        0.0672950140447663,
+        -0.4761641151901533,
+        0.8767781418180389
+      ],
+      "surface_v_world": [
+        -0.9977149858676911,
+        -0.03741431197003643,
+        0.05625812150118146
+      ],
+      "sensing_direction_world": [
+        0.006015952279618747,
+        -0.8785605824496393,
+        -0.4775938701071443
+      ],
+      "representative_contact_world_m": [
+        -0.011863856215803005,
+        -0.04936378326179067,
+        0.11527437412370886
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 20.0,
+      "indentation_m": 0.02,
+      "position_sigma_m": 0.005099019513592785,
+      "finite_patch_sigma_m": 0.0037416573867739412,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.52799999999784,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.030664857541776155,
+        "joint_01": -0.8959039227125007,
+        "joint_02": 0.7903240642554229,
+        "joint_03": 0.758101191225185,
+        "joint_10": -0.0003125858808123922,
+        "joint_11": 0.7692893997826495,
+        "joint_12": 0.7294591819072339,
+        "joint_13": 0.8715285415586445,
+        "joint_20": 0.0336828773101489,
+        "joint_21": 0.4652864084568587,
+        "joint_22": 0.5337945383918508,
+        "joint_23": 1.254635435334512,
+        "joint_30": 0.0586894712776215,
+        "joint_31": 0.4616470537443601,
+        "joint_32": 0.24619309253009908,
+        "joint_33": 0.7692673456359637,
+        "joint_40": -0.14889786648541886,
+        "joint_41": 0.6831594963538206,
+        "joint_42": -0.026168542356777146,
+        "joint_43": 0.0008778311284487029
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011904501832255221,
+        -0.03179397491915004,
+        0.12481299061094585
+      ],
+      "surface_u_world": [
+        0.06940080594846532,
+        -0.47639579876824006,
+        0.8764880857887769
+      ],
+      "surface_v_world": [
+        -0.9975770922953444,
+        -0.03740914096107342,
+        0.0586557848819735
+      ],
+      "sensing_direction_world": [
+        0.004845296860747944,
+        -0.878435194797029,
+        -0.47783776024947716
+      ],
+      "representative_contact_world_m": [
+        -0.011826938434489544,
+        -0.04585594478055804,
+        0.1171637750250159
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.00798274436393,
+      "indentation_m": 0.01600798274436393,
+      "position_sigma_m": 0.004771346666271137,
+      "finite_patch_sigma_m": 0.0032811200846260867,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.569999999997815,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.030593055712148418,
+        "joint_01": -0.8958008671238032,
+        "joint_02": 0.8090742869887934,
+        "joint_03": 0.7692436928138019,
+        "joint_10": -0.00031258529727274027,
+        "joint_11": 0.7692967994010801,
+        "joint_12": 0.7294661242570459,
+        "joint_13": 0.87153603164141,
+        "joint_20": 0.035341532309682566,
+        "joint_21": 0.46549643034912686,
+        "joint_22": 0.5341324519985772,
+        "joint_23": 1.2550666833442627,
+        "joint_30": 0.060212139709017995,
+        "joint_31": 0.4619043762297425,
+        "joint_32": 0.24700797938057356,
+        "joint_33": 0.7805130886111237,
+        "joint_40": -0.1573368748685862,
+        "joint_41": 0.692319883978535,
+        "joint_42": -0.027546237994346842,
+        "joint_43": 0.0008989461830063737
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011854043748845048,
+        -0.03179527196677373,
+        0.12480374198595598
+      ],
+      "surface_u_world": [
+        0.07073546648664812,
+        -0.4765718210198754,
+        0.8762856764039432
+      ],
+      "surface_v_world": [
+        -0.9974866852995679,
+        -0.03740575069873179,
+        0.06017576310064851
+      ],
+      "sensing_direction_world": [
+        0.004100050550298772,
+        -0.8783398554057733,
+        -0.47801995928125246
+      ],
+      "representative_contact_world_m": [
+        -0.011784468634137525,
+        -0.04670011166139472,
+        0.11669206309530059
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.969337684306964,
+      "indentation_m": 0.016969337684306963,
+      "position_sigma_m": 0.0048455200425228774,
+      "finite_patch_sigma_m": 0.0033880768117755104,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.7799999999977,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.030255567770270022,
+        "joint_01": -0.8953116942112884,
+        "joint_02": 0.8908817122047945,
+        "joint_03": 0.8178225641267785,
+        "joint_10": -0.0003125827027355245,
+        "joint_11": 0.7693290534340859,
+        "joint_12": 0.7294963425898936,
+        "joint_13": 0.8715686310088132,
+        "joint_20": 0.042978381003667535,
+        "joint_21": 0.46696076483441046,
+        "joint_22": 0.5364798488958153,
+        "joint_23": 1.257461388408608,
+        "joint_30": 0.06679873694693643,
+        "joint_31": 0.4610032802159289,
+        "joint_32": 0.2496569397434604,
+        "joint_33": 0.8293280600458071,
+        "joint_40": -0.20146522540047504,
+        "joint_41": 0.7382274261398968,
+        "joint_42": -0.03365294189560717,
+        "joint_43": 0.000997322325819853
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01811639467628169,
+        -0.07657040770818166,
+        0.14570901975328823
+      ],
+      "surface_u_world": [
+        -0.13707567447620228,
+        -0.8851337345975108,
+        -0.444689252485284
+      ],
+      "surface_v_world": [
+        -0.9898628026788552,
+        0.13924757028710932,
+        0.027959724974269587
+      ],
+      "sensing_direction_world": [
+        0.037173803063173506,
+        0.4440139476708181,
+        -0.8952484131312439
+      ],
+      "representative_contact_world_m": [
+        0.018264090985697017,
+        -0.07480628308287865,
+        0.14215208245514024
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.9731288471898027,
+      "indentation_m": 0.003973128847189803,
+      "position_sigma_m": 0.004165954805181924,
+      "finite_patch_sigma_m": 0.002314126063726513,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 23.863999999997652,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.03013188192981731,
+        "joint_01": -0.8951309295148181,
+        "joint_02": 0.9186726141059807,
+        "joint_03": 0.8343097431684845,
+        "joint_10": -0.0003125818010032997,
+        "joint_11": 0.7693399981211589,
+        "joint_12": 0.7295065787472155,
+        "joint_13": 0.8715796724178956,
+        "joint_20": 0.045916703485135386,
+        "joint_21": 0.4673992319285711,
+        "joint_22": 0.5372420154152593,
+        "joint_23": 1.2582852604372587,
+        "joint_30": 0.06933402083313656,
+        "joint_31": 0.46046516805867427,
+        "joint_32": 0.250664302056787,
+        "joint_33": 0.845885595160328,
+        "joint_40": -0.21927724071199023,
+        "joint_41": 0.7568516605412677,
+        "joint_42": -0.035729355021804146,
+        "joint_43": 0.001033774321104615
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011548994943655284,
+        -0.03176597613266771,
+        0.12481355425523412
+      ],
+      "surface_u_world": [
+        0.07872120580175615,
+        -0.4750075247406774,
+        0.8764540014609166
+      ],
+      "surface_v_world": [
+        -0.9968966627941364,
+        -0.03738362485477807,
+        0.06927848369177254
+      ],
+      "sensing_direction_world": [
+        -0.00014277346313225058,
+        -0.8791877549212884,
+        -0.47647630024189314
+      ],
+      "representative_contact_world_m": [
+        -0.011551502864122858,
+        -0.047209553090425176,
+        0.11644389900225346
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 17.565739511719656,
+      "indentation_m": 0.017565739511719657,
+      "position_sigma_m": 0.004893106590230357,
+      "finite_patch_sigma_m": 0.003455791096602304,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.073999999997536,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.029852826877665516,
+        "joint_01": -0.8947212560401634,
+        "joint_02": 0.9778950700816903,
+        "joint_03": 0.869410739146882,
+        "joint_10": -0.0003125798379198148,
+        "joint_11": 0.7693632974102323,
+        "joint_12": 0.7295283336522731,
+        "joint_13": 0.8716031360860637,
+        "joint_20": 0.05265960250105262,
+        "joint_21": 0.4690083600512827,
+        "joint_22": 0.5390920028415068,
+        "joint_23": 1.2598507769870386,
+        "joint_30": 0.07519338204017634,
+        "joint_31": 0.4583752051035078,
+        "joint_32": 0.25275475798809793,
+        "joint_33": 0.8809738226572825,
+        "joint_40": -0.2627020735983345,
+        "joint_41": 0.8040726425499708,
+        "joint_42": -0.040076054262492486,
+        "joint_43": 0.001114064767232775
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.018507543128564008,
+        -0.07651553939373376,
+        0.1453480054444893
+      ],
+      "surface_u_world": [
+        -0.141702141279826,
+        -0.8819384727906268,
+        -0.44956093391220353
+      ],
+      "surface_v_world": [
+        -0.9894940508754042,
+        0.13934699690983032,
+        0.038521914712706336
+      ],
+      "sensing_direction_world": [
+        0.02867100835175635,
+        0.4502965071330428,
+        -0.892418639158937
+      ],
+      "representative_contact_world_m": [
+        0.018657229114276946,
+        -0.07416462533775241,
+        0.14068885421994154
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 5.220813435292861,
+      "indentation_m": 0.005220813435292861,
+      "position_sigma_m": 0.004196817852949783,
+      "finite_patch_sigma_m": 0.002369236183000341,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.15799999999749,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.02975319457683732,
+        "joint_01": -0.8945745896751462,
+        "joint_02": 0.9980116177614228,
+        "joint_03": 0.8813216330601037,
+        "joint_10": -0.0003125791563169617,
+        "joint_11": 0.7693712035150633,
+        "joint_12": 0.7295357029014615,
+        "joint_13": 0.8716110832236464,
+        "joint_20": 0.055374677982923975,
+        "joint_21": 0.4696841013679601,
+        "joint_22": 0.53984174684749,
+        "joint_23": 1.260419032706423,
+        "joint_30": 0.0773822527010276,
+        "joint_31": 0.4576738323853255,
+        "joint_32": 0.253919945960456,
+        "joint_33": 0.8928370131583697,
+        "joint_40": -0.28022058911958286,
+        "joint_41": 0.8228112267263801,
+        "joint_42": -0.041667461664272716,
+        "joint_43": 0.0011486145905725115
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011277619030130102,
+        -0.03172103430617699,
+        0.12485388074775677
+      ],
+      "surface_u_world": [
+        0.08577886826444105,
+        -0.4722869103632425,
+        0.8772615650641571
+      ],
+      "surface_v_world": [
+        -0.9963072048009503,
+        -0.03736152018003357,
+        0.07730504816345458
+      ],
+      "sensing_direction_world": [
+        -0.0037343366862872744,
+        -0.8806531573109666,
+        -0.4737476804457614
+      ],
+      "representative_contact_world_m": [
+        -0.011340062183469021,
+        -0.04644674458888978,
+        0.11693217964280281
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.72135732750249,
+      "indentation_m": 0.01672135732750249,
+      "position_sigma_m": 0.0048260838466261105,
+      "finite_patch_sigma_m": 0.003360221018722649,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.199999999997466,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.0297058761834629,
+        "joint_01": -0.8945048932072023,
+        "joint_02": 1.0073942046870268,
+        "joint_03": 0.8868745716876547,
+        "joint_10": -0.0003125788354931371,
+        "joint_11": 0.7693748894670461,
+        "joint_12": 0.7295391360454335,
+        "joint_13": 0.8716147854065186,
+        "joint_20": 0.05639781653943485,
+        "joint_21": 0.46989867825160475,
+        "joint_22": 0.5401876955805525,
+        "joint_23": 1.2607688733174705,
+        "joint_30": 0.07820415949200397,
+        "joint_31": 0.4574542366131638,
+        "joint_32": 0.2544668742084128,
+        "joint_33": 0.8983933799321266,
+        "joint_40": -0.28694253882347964,
+        "joint_41": 0.8328271706187043,
+        "joint_42": -0.0421730680304132,
+        "joint_43": 0.001161361172829353
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011249943826293558,
+        -0.03171725406714554,
+        0.1248564047302402
+      ],
+      "surface_u_world": [
+        0.08650026942570899,
+        -0.4720664893978934,
+        0.8773093675875281
+      ],
+      "surface_v_world": [
+        -0.9962433753737402,
+        -0.03735912657651319,
+        0.07812446918460843
+      ],
+      "sensing_direction_world": [
+        -0.0041044321935888,
+        -0.8807714332456096,
+        -0.4735246873129669
+      ],
+      "representative_contact_world_m": [
+        -0.011332032437597504,
+        -0.04933267574331672,
+        0.11538591474130232
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 20.0,
+      "indentation_m": 0.02,
+      "position_sigma_m": 0.005099019513592785,
+      "finite_patch_sigma_m": 0.0037416573867739412,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.241999999997443,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.029660186856873594,
+        "joint_01": -0.8944375810286167,
+        "joint_02": 1.0163532930430896,
+        "joint_03": 0.8921753156081865,
+        "joint_10": -0.0003125785273062667,
+        "joint_11": 0.7693784080885401,
+        "joint_12": 0.729542411746485,
+        "joint_13": 0.8716183176919541,
+        "joint_20": 0.05750477519141463,
+        "joint_21": 0.4701653091985071,
+        "joint_22": 0.5401494250820749,
+        "joint_23": 1.2605061260437236,
+        "joint_30": 0.07942625918056802,
+        "joint_31": 0.4568801717406351,
+        "joint_32": 0.25490364327074444,
+        "joint_33": 0.903629272997262,
+        "joint_40": -0.2951244219540646,
+        "joint_41": 0.8421437803260723,
+        "joint_42": -0.04286763724936078,
+        "joint_43": 0.0011784700083418867
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01870172470408373,
+        -0.0765089064892876,
+        0.14518222134510395
+      ],
+      "surface_u_world": [
+        -0.14402402124121588,
+        -0.8806251133309696,
+        -0.4513939421479758
+      ],
+      "surface_v_world": [
+        -0.9892728058407532,
+        0.13938549078554832,
+        0.04371499469488522
+      ],
+      "sensing_direction_world": [
+        0.02442124492384989,
+        0.45284776073039756,
+        -0.8912533349010526
+      ],
+      "representative_contact_world_m": [
+        0.018786266845924406,
+        -0.07494122557296741,
+        0.14209685587376417
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.4618276850353604,
+      "indentation_m": 0.0034618276850353603,
+      "position_sigma_m": 0.004155676316283516,
+      "finite_patch_sigma_m": 0.002295570875777905,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.241999999997443,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.029660186856873594,
+        "joint_01": -0.8944375810286167,
+        "joint_02": 1.0163532930430896,
+        "joint_03": 0.8921753156081865,
+        "joint_10": -0.0003125785273062667,
+        "joint_11": 0.7693784080885401,
+        "joint_12": 0.729542411746485,
+        "joint_13": 0.8716183176919541,
+        "joint_20": 0.05750477519141463,
+        "joint_21": 0.4701653091985071,
+        "joint_22": 0.5401494250820749,
+        "joint_23": 1.2605061260437236,
+        "joint_30": 0.07942625918056802,
+        "joint_31": 0.4568801717406351,
+        "joint_32": 0.25490364327074444,
+        "joint_33": 0.903629272997262,
+        "joint_40": -0.2951244219540646,
+        "joint_41": 0.8421437803260723,
+        "joint_42": -0.04286763724936078,
+        "joint_43": 0.0011784700083418867
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.011208458240249616,
+        -0.03170852404591503,
+        0.12486564431647654
+      ],
+      "surface_u_world": [
+        0.08757429803174041,
+        -0.4715206034509106,
+        0.8774963568730852
+      ],
+      "surface_v_world": [
+        -0.9961472226103742,
+        -0.037355520847886965,
+        0.07934277501966017
+      ],
+      "sensing_direction_world": [
+        -0.004632419703622599,
+        -0.8810639465760828,
+        -0.47297532304705603
+      ],
+      "representative_contact_world_m": [
+        -0.011294762012389053,
+        -0.04812308640219533,
+        0.11605393097454682
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 18.630394459314104,
+      "indentation_m": 0.018630394459314106,
+      "position_sigma_m": 0.004980919689019985,
+      "finite_patch_sigma_m": 0.0035790446977464444,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.66199999999721,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.029285291175764137,
+        "joint_01": -0.8938856241229401,
+        "joint_02": 1.0864548693392813,
+        "joint_03": 0.9335881455871493,
+        "joint_10": -0.00031257604180587957,
+        "joint_11": 0.7694059034054577,
+        "joint_12": 0.729567945345598,
+        "joint_13": 0.8716458466785245,
+        "joint_20": 0.06652204424758643,
+        "joint_21": 0.47161287717996897,
+        "joint_22": 0.5428443659935641,
+        "joint_23": 1.263168352934899,
+        "joint_30": 0.08684212540503332,
+        "joint_31": 0.45421816731150283,
+        "joint_32": 0.26087738262265525,
+        "joint_33": 0.9449349278650955,
+        "joint_40": -0.3602341667103575,
+        "joint_41": 0.919138761356651,
+        "joint_42": -0.047196973965378794,
+        "joint_43": 0.001306970081405998
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010957362997561513,
+        -0.03166574331224023,
+        0.12490218962758168
+      ],
+      "surface_u_world": [
+        0.09409646998941298,
+        -0.46892940878053113,
+        0.8782094610036224
+      ],
+      "surface_v_world": [
+        -0.995531854405467,
+        -0.037332444540202916,
+        0.0867330124500733
+      ],
+      "sensing_direction_world": [
+        -0.007885954252368101,
+        -0.8824467635724618,
+        -0.4703470151558502
+      ],
+      "representative_contact_world_m": [
+        -0.01110858384677794,
+        -0.04858751900421088,
+        0.11588282776190506
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 19.17598103823187,
+      "indentation_m": 0.01917598103823187,
+      "position_sigma_m": 0.005027291576735841,
+      "finite_patch_sigma_m": 0.0036433035280524096,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.745999999997164,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.029226218744718018,
+        "joint_01": -0.893798889629866,
+        "joint_02": 1.0969899382820822,
+        "joint_03": 0.9397996839381967,
+        "joint_10": -0.0003125756544008001,
+        "joint_11": 0.7694100289817507,
+        "joint_12": 0.7295717647326798,
+        "joint_13": 0.8716499636730338,
+        "joint_20": 0.06756222276996629,
+        "joint_21": 0.4721704743838789,
+        "joint_22": 0.5432584753777115,
+        "joint_23": 1.2632475222854378,
+        "joint_30": 0.08778194138861531,
+        "joint_31": 0.45343617740399356,
+        "joint_32": 0.2618116080255689,
+        "joint_33": 0.9510154793192973,
+        "joint_40": -0.36981845718913514,
+        "joint_41": 0.9310702159423042,
+        "joint_42": -0.047635196291868555,
+        "joint_43": 0.0013270747861164384
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.019096531451663047,
+        -0.07643451427522277,
+        0.1447850084203959
+      ],
+      "surface_u_world": [
+        -0.14902260048734697,
+        -0.8769928394708153,
+        -0.4568104902390799
+      ],
+      "surface_v_world": [
+        -0.9887091705075992,
+        0.13948499164611972,
+        0.05475503116970541
+      ],
+      "sensing_direction_world": [
+        0.015698438078679867,
+        0.45981245772954593,
+        -0.887877278306534
+      ],
+      "representative_contact_world_m": [
+        0.0191589438181848,
+        -0.07460643536066765,
+        0.14125506984674496
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.9757054914926435,
+      "indentation_m": 0.003975705491492644,
+      "position_sigma_m": 0.004166010113824666,
+      "finite_patch_sigma_m": 0.0023142256304192568,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.78799999999714,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.029198416277277935,
+        "joint_01": -0.893758110101557,
+        "joint_02": 1.1019033098490416,
+        "joint_03": 0.9426952758764637,
+        "joint_10": -0.00031257547218183237,
+        "joint_11": 0.7694119523935045,
+        "joint_12": 0.7295735440858446,
+        "joint_13": 0.8716518815776682,
+        "joint_20": 0.06816924253497426,
+        "joint_21": 0.47226367057735985,
+        "joint_22": 0.5432374976050786,
+        "joint_23": 1.2631461523383523,
+        "joint_30": 0.0884674239916161,
+        "joint_31": 0.4531145055361978,
+        "joint_32": 0.26243319545753463,
+        "joint_33": 0.9538748999101653,
+        "joint_40": -0.3750817180250727,
+        "joint_41": 0.9364554783945422,
+        "joint_42": -0.04794796153029663,
+        "joint_43": 0.0013386993259743697
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010901456770513207,
+        -0.03164976735894495,
+        0.1249215225991694
+      ],
+      "surface_u_world": [
+        0.09553220678675617,
+        -0.4679016847217877,
+        0.8786025292366084
+      ],
+      "surface_v_world": [
+        -0.9953896715420358,
+        -0.037327112682824244,
+        0.08835207097856732
+      ],
+      "sensing_direction_world": [
+        -0.00854438724730137,
+        -0.8829923513075921,
+        -0.4693104457167536
+      ],
+      "representative_contact_world_m": [
+        -0.01101284437917049,
+        -0.04316076324760707,
+        0.11880342814098778
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 13.036353529549254,
+      "indentation_m": 0.013036353529549254,
+      "position_sigma_m": 0.004563309824054938,
+      "finite_patch_sigma_m": 0.0029704875947083676,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.871999999997094,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.029146087688051533,
+        "joint_01": -0.8936814430586297,
+        "joint_02": 1.111074198104249,
+        "joint_03": 0.9480974331391022,
+        "joint_10": -0.0003125751292341111,
+        "joint_11": 0.7694155412351139,
+        "joint_12": 0.7295768617303605,
+        "joint_13": 0.871655457378046,
+        "joint_20": 0.06914316125465063,
+        "joint_21": 0.47247249427691673,
+        "joint_22": 0.5437699721371632,
+        "joint_23": 1.2636471608303115,
+        "joint_30": 0.08890464638306701,
+        "joint_31": 0.45279584284136115,
+        "joint_32": 0.26341741861991236,
+        "joint_33": 0.9592314722263177,
+        "joint_40": -0.3830369312310017,
+        "joint_41": 0.9470852917655432,
+        "joint_42": -0.04821008219481793,
+        "joint_43": 0.0013554867428687244
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.019157934918417295,
+        -0.07642303116492008,
+        0.1447227368268958
+      ],
+      "surface_u_world": [
+        -0.14981808431233365,
+        -0.8764270714595424,
+        -0.45763536790483733
+      ],
+      "surface_v_world": [
+        -0.9886096791474821,
+        0.13949959058620523,
+        0.05648687193438595
+      ],
+      "sensing_direction_world": [
+        0.01433332364091461,
+        0.46088550888340607,
+        -0.8873438466057576
+      ],
+      "representative_contact_world_m": [
+        0.019228693637767826,
+        -0.07414779694899011,
+        0.1403422235710471
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 4.936658173133811,
+      "indentation_m": 0.004936658173133811,
+      "position_sigma_m": 0.004189073687960537,
+      "finite_patch_sigma_m": 0.0023554911086996907,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 24.91399999999707,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.02912148692385502,
+        "joint_01": -0.8936454443084911,
+        "joint_02": 1.1153512979005835,
+        "joint_03": 0.9506156861546409,
+        "joint_10": -0.00031257496794815574,
+        "joint_11": 0.7694172144127612,
+        "joint_12": 0.7295784073344946,
+        "joint_13": 0.8716571231666955,
+        "joint_20": 0.0695333334069929,
+        "joint_21": 0.47266219506663,
+        "joint_22": 0.5437741517479833,
+        "joint_23": 1.2635008568768036,
+        "joint_30": 0.0893967311423077,
+        "joint_31": 0.4523961398273332,
+        "joint_32": 0.26392050254195654,
+        "joint_33": 0.9616923830305357,
+        "joint_40": -0.3872167811188228,
+        "joint_41": 0.9519515358181262,
+        "joint_42": -0.04838915505745957,
+        "joint_43": 0.0013638439943251218
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010869327018886769,
+        -0.03163951379673092,
+        0.12493447124111029
+      ],
+      "surface_u_world": [
+        0.09635451736843927,
+        -0.4672366452234231,
+        0.8788666098009733
+      ],
+      "surface_v_world": [
+        -0.9953071931975275,
+        -0.03732401974490517,
+        0.08927770561199273
+      ],
+      "sensing_direction_world": [
+        -0.008910980966042474,
+        -0.8833445688320384,
+        -0.4686403318251246
+      ],
+      "representative_contact_world_m": [
+        -0.011023688184391055,
+        -0.04694131925523268,
+        0.1168164123990467
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 17.32258517145916,
+      "indentation_m": 0.01732258517145916,
+      "position_sigma_m": 0.004873563278855141,
+      "finite_patch_sigma_m": 0.0034280634523014995,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 25.207999999996908,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.028975177909897978,
+        "joint_01": -0.8934321022830329,
+        "joint_02": 1.1403422377514858,
+        "joint_03": 0.9653120185234985,
+        "joint_10": -0.00031257400572512576,
+        "joint_11": 0.7694269824347654,
+        "joint_12": 0.7295874138488274,
+        "joint_13": 0.8716668287879841,
+        "joint_20": 0.0718723441132475,
+        "joint_21": 0.4735449363372263,
+        "joint_22": 0.5443956482214675,
+        "joint_23": 1.263463185488244,
+        "joint_30": 0.09122946169944451,
+        "joint_31": 0.45076975300365435,
+        "joint_32": 0.2674285356712748,
+        "joint_33": 0.9760782967556663,
+        "joint_40": -0.41131166683236176,
+        "joint_41": 0.9808302297858674,
+        "joint_42": -0.049246504906685556,
+        "joint_43": 0.0014217421384315422
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01926312951705275,
+        -0.07644333583948673,
+        0.1446099226012272
+      ],
+      "surface_u_world": [
+        -0.15116175201536217,
+        -0.8757191251182144,
+        -0.4585478585288545
+      ],
+      "surface_v_world": [
+        -0.9884366655858806,
+        0.13951752353355462,
+        0.059395445374779116
+      ],
+      "sensing_direction_world": [
+        0.011961735111696124,
+        0.46222383558965136,
+        -0.8866826045887685
+      ],
+      "representative_contact_world_m": [
+        0.01930092509194367,
+        -0.07498284407710726,
+        0.14180826561139442
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 3.159706724070858,
+      "indentation_m": 0.003159706724070858,
+      "position_sigma_m": 0.004150257136383012,
+      "finite_patch_sigma_m": 0.002285745895347538,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 25.207999999996908,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028975177909897978,
+        "joint_01": -0.8934321022830329,
+        "joint_02": 1.1403422377514858,
+        "joint_03": 0.9653120185234985,
+        "joint_10": -0.00031257400572512576,
+        "joint_11": 0.7694269824347654,
+        "joint_12": 0.7295874138488274,
+        "joint_13": 0.8716668287879841,
+        "joint_20": 0.0718723441132475,
+        "joint_21": 0.4735449363372263,
+        "joint_22": 0.5443956482214675,
+        "joint_23": 1.263463185488244,
+        "joint_30": 0.09122946169944451,
+        "joint_31": 0.45076975300365435,
+        "joint_32": 0.2674285356712748,
+        "joint_33": 0.9760782967556663,
+        "joint_40": -0.41131166683236176,
+        "joint_41": 0.9808302297858674,
+        "joint_42": -0.049246504906685556,
+        "joint_43": 0.0014217421384315422
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01080555960794195,
+        -0.031616593536562515,
+        0.12496455986257529
+      ],
+      "surface_u_world": [
+        0.09797973752423036,
+        -0.46573896087903194,
+        0.8794816569059315
+      ],
+      "surface_v_world": [
+        -0.9951420146665809,
+        -0.03731782554999467,
+        0.09110296670009549
+      ],
+      "sensing_direction_world": [
+        -0.009609857997063728,
+        -0.8841353926806252,
+        -0.4671327985902433
+      ],
+      "representative_contact_world_m": [
+        -0.010959607153753366,
+        -0.045789423920640886,
+        0.11747634711137406
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.03016475116455,
+      "indentation_m": 0.016030164751164547,
+      "position_sigma_m": 0.0047730220085249195,
+      "finite_patch_sigma_m": 0.003283555861236909,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 25.375999999996814,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028909080245526932,
+        "joint_01": -0.8933362795459577,
+        "joint_02": 1.1513833702061174,
+        "joint_03": 0.9717933082431921,
+        "joint_10": -0.0003125735676619127,
+        "joint_11": 0.7694312927627168,
+        "joint_12": 0.7295913772668603,
+        "joint_13": 0.8716710990554553,
+        "joint_20": 0.07267124145707915,
+        "joint_21": 0.4736194221905091,
+        "joint_22": 0.5445575539181199,
+        "joint_23": 1.2634970248099022,
+        "joint_30": 0.09193390031446277,
+        "joint_31": 0.450200097607648,
+        "joint_32": 0.2692040337485128,
+        "joint_33": 0.9824527297765512,
+        "joint_40": -0.42199897602259584,
+        "joint_41": 0.993854488144442,
+        "joint_42": -0.0495116647438454,
+        "joint_43": 0.001447201579934439
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010781106067785042,
+        -0.03160847210109503,
+        0.12497484967279039
+      ],
+      "surface_u_world": [
+        0.09860446883450179,
+        -0.46521201010741847,
+        0.8796907057924854
+      ],
+      "surface_v_world": [
+        -0.9950776363892045,
+        -0.03731541136459306,
+        0.09180445322948795
+      ],
+      "sensing_direction_world": [
+        -0.009882513663446788,
+        -0.884412877620873,
+        -0.46660153375450736
+      ],
+      "representative_contact_world_m": [
+        -0.010903473235627,
+        -0.042559440925728706,
+        0.11919730054503754
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 12.382195517979124,
+      "indentation_m": 0.012382195517979123,
+      "position_sigma_m": 0.004522131381497325,
+      "finite_patch_sigma_m": 0.002906831992311028,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 25.501999999996745,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.02886644590756365,
+        "joint_01": -0.8932747209496713,
+        "joint_02": 1.1584222596213378,
+        "joint_03": 0.9759205524041212,
+        "joint_10": -0.00031257328320515146,
+        "joint_11": 0.7694340386386725,
+        "joint_12": 0.7295938978074069,
+        "joint_13": 0.8716738144176024,
+        "joint_20": 0.07306477804748229,
+        "joint_21": 0.4737882073252219,
+        "joint_22": 0.544708140454579,
+        "joint_23": 1.2635778468777898,
+        "joint_30": 0.09233606949608487,
+        "joint_31": 0.44982032192288623,
+        "joint_32": 0.2704287675705864,
+        "joint_33": 0.9865252267863581,
+        "joint_40": -0.4285622440010776,
+        "joint_41": 1.0023240105973106,
+        "joint_42": -0.04959786681058156,
+        "joint_43": 0.0014632485094862758
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010767052066461655,
+        -0.03160313802750575,
+        0.12498192679811013
+      ],
+      "surface_u_world": [
+        0.09896181548595978,
+        -0.4648628380372182,
+        0.8798351518140803
+      ],
+      "surface_v_world": [
+        -0.9950406609290974,
+        -0.037314024784839035,
+        0.09220491663757045
+      ],
+      "sensing_direction_world": [
+        -0.010032448567762909,
+        -0.884596516916921,
+        -0.4662500892377253
+      ],
+      "representative_contact_world_m": [
+        -0.010966077170640642,
+        -0.04915188624650775,
+        0.1157323929522873
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 19.838146370340187,
+      "indentation_m": 0.019838146370340187,
+      "position_sigma_m": 0.005084773461694084,
+      "finite_patch_sigma_m": 0.003722219923210937,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 26.34199999999628,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028689097502543892,
+        "joint_01": -0.893021924978814,
+        "joint_02": 1.1869597721153307,
+        "joint_03": 0.992599315162233,
+        "joint_10": -0.00031257207005930574,
+        "joint_11": 0.7694451488827079,
+        "joint_12": 0.7296040466313422,
+        "joint_13": 0.8716847440197892,
+        "joint_20": 0.07373510014410439,
+        "joint_21": 0.473813974932265,
+        "joint_22": 0.5451269709893825,
+        "joint_23": 1.2638164220858303,
+        "joint_30": 0.09315113509065355,
+        "joint_31": 0.4477249499922967,
+        "joint_32": 0.2750010947681619,
+        "joint_33": 1.0029155954940077,
+        "joint_40": -0.45762704167961626,
+        "joint_41": 1.0370959413944503,
+        "joint_42": -0.04985505716222372,
+        "joint_43": 0.0015332814708545245
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01073643274687882,
+        -0.031575409517330094,
+        0.12502568555510307
+      ],
+      "surface_u_world": [
+        0.09970000660339064,
+        -0.4629813581727664,
+        0.8807434156142098
+      ],
+      "surface_v_world": [
+        -0.9949652301499169,
+        -0.03731119613061976,
+        0.09301647937879202
+      ],
+      "sensing_direction_world": [
+        -0.010203305634508521,
+        -0.8855828188279058,
+        -0.46437028009009085
+      ],
+      "representative_contact_world_m": [
+        -0.010893630896078818,
+        -0.04521922114757631,
+        0.11787132292121699
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 15.4065963715838,
+      "indentation_m": 0.0154065963715838,
+      "position_sigma_m": 0.004726592034915879,
+      "finite_patch_sigma_m": 0.0032156915686256714,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 26.383999999996256,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028683701299198568,
+        "joint_01": -0.8930143582192475,
+        "joint_02": 1.1878071486229247,
+        "joint_03": 0.9930926280881167,
+        "joint_10": -0.00031257203189687143,
+        "joint_11": 0.7694454780178731,
+        "joint_12": 0.7296043455213318,
+        "joint_13": 0.8716850657738671,
+        "joint_20": 0.07376890514046408,
+        "joint_21": 0.4735446451928229,
+        "joint_22": 0.5451581226579078,
+        "joint_23": 1.2640692833512166,
+        "joint_30": 0.09283054749821228,
+        "joint_31": 0.44798561121585606,
+        "joint_32": 0.2752135575780907,
+        "joint_33": 1.0034655410599995,
+        "joint_40": -0.45767781027783516,
+        "joint_41": 1.0383925022705012,
+        "joint_42": -0.049711949263204214,
+        "joint_43": 0.0015333516996462876
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.01074758764899221,
+        -0.03157913971247815,
+        0.12502099754376803
+      ],
+      "surface_u_world": [
+        0.09941522108856254,
+        -0.4632227591373693,
+        0.8806486715558453
+      ],
+      "surface_v_world": [
+        -0.9949949780040641,
+        -0.037312311675150284,
+        0.09269727689715836
+      ],
+      "sensing_direction_world": [
+        -0.010080450659423678,
+        -0.8854565258610552,
+        -0.4646137307533791
+      ],
+      "representative_contact_world_m": [
+        -0.010928383422280927,
+        -0.047460056420991964,
+        0.11668801704814051
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 17.935293879803055,
+      "indentation_m": 0.017935293879803055,
+      "position_sigma_m": 0.004923178063759757,
+      "finite_patch_sigma_m": 0.0034982398784939362,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 26.71999999999607,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028648206284486635,
+        "joint_01": -0.8929648919773882,
+        "joint_02": 1.1933429455878133,
+        "joint_03": 0.9963108861973599,
+        "joint_10": -0.0003125717776167857,
+        "joint_11": 0.7694476264977258,
+        "joint_12": 0.7296062925077539,
+        "joint_13": 0.8716871613966727,
+        "joint_20": 0.07344395988298812,
+        "joint_21": 0.4732357219482412,
+        "joint_22": 0.5451926748988629,
+        "joint_23": 1.2642240429774907,
+        "joint_30": 0.09269794812287208,
+        "joint_31": 0.44746279493458585,
+        "joint_32": 0.27601538382612684,
+        "joint_33": 1.0066437764490335,
+        "joint_40": -0.46346922111028327,
+        "joint_41": 1.0454731974013802,
+        "joint_42": -0.04961133492452142,
+        "joint_43": 0.001545275560697358
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010751200008823602,
+        -0.03157263089413854,
+        0.12503305739129142
+      ],
+      "surface_u_world": [
+        0.09930375339028545,
+        -0.4627641419250115,
+        0.8809023254544225
+      ],
+      "surface_v_world": [
+        -0.9950072522243164,
+        -0.03731277195840974,
+        0.09256524763535869
+      ],
+      "sensing_direction_world": [
+        -0.009966969806739256,
+        -0.8856962788521079,
+        -0.46415897558961505
+      ],
+      "representative_contact_world_m": [
+        -0.010919242029167006,
+        -0.04650537324159781,
+        0.11720738785170232
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 16.859897267749204,
+      "indentation_m": 0.016859897267749203,
+      "position_sigma_m": 0.004836916689098416,
+      "finite_patch_sigma_m": 0.003375761107850907,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 27.643999999995557,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028596649428437794,
+        "joint_01": -0.8928944625274735,
+        "joint_02": 1.201235126281829,
+        "joint_03": 1.000878901814608,
+        "joint_10": -0.000312571392715778,
+        "joint_11": 0.7694506819536617,
+        "joint_12": 0.7296090432635607,
+        "joint_13": 0.8716901208027421,
+        "joint_20": 0.0727263693934265,
+        "joint_21": 0.4733282120099595,
+        "joint_22": 0.5448573359506697,
+        "joint_23": 1.2637299972161111,
+        "joint_30": 0.09209527545477142,
+        "joint_31": 0.4469110532845667,
+        "joint_32": 0.2776737238460195,
+        "joint_33": 1.0110939192428712,
+        "joint_40": -0.47183682027420987,
+        "joint_41": 1.0560177584315427,
+        "joint_42": -0.04926077963097839,
+        "joint_43": 0.0015675678340275397
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010770528561396332,
+        -0.031566337218172244,
+        0.12504735709326645
+      ],
+      "surface_u_world": [
+        0.09877854561861112,
+        -0.4622952969307635,
+        0.8812074959061398
+      ],
+      "surface_v_world": [
+        -0.9950628188816667,
+        -0.03731485570806039,
+        0.0919651456953017
+      ],
+      "sensing_direction_world": [
+        -0.009632923777891617,
+        -0.8859409982354036,
+        -0.4636987684964732
+      ],
+      "representative_contact_world_m": [
+        -0.010949335041262592,
+        -0.048011187703467476,
+        0.11644017339443297
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 18.562022801042502,
+      "indentation_m": 0.0185620228010425,
+      "position_sigma_m": 0.00497517291513516,
+      "finite_patch_sigma_m": 0.0035710426398314664,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 27.85399999999544,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028590513478487723,
+        "joint_01": -0.8928862720232085,
+        "joint_02": 1.2021573054765906,
+        "joint_03": 1.001409995520855,
+        "joint_10": -0.00031257134475909707,
+        "joint_11": 0.7694510379920143,
+        "joint_12": 0.7296093614005671,
+        "joint_13": 0.8716904628923876,
+        "joint_20": 0.07263720591695585,
+        "joint_21": 0.4728572993039981,
+        "joint_22": 0.5448574909298871,
+        "joint_23": 1.2639624782733418,
+        "joint_30": 0.09206791758069474,
+        "joint_31": 0.4468998152139895,
+        "joint_32": 0.27739304364607187,
+        "joint_33": 1.0116559432927135,
+        "joint_40": -0.47380951348273065,
+        "joint_41": 1.0570487697318822,
+        "joint_42": -0.049348160654506125,
+        "joint_43": 0.0015727469057932114
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010771428049491154,
+        -0.03156622792318013,
+        0.12504769946667482
+      ],
+      "surface_u_world": [
+        0.09875456266430269,
+        -0.46228624405423874,
+        0.8812149331412894
+      ],
+      "surface_v_world": [
+        -0.9950653327129843,
+        -0.0373149499767348,
+        0.09193790372328292
+      ],
+      "sensing_direction_world": [
+        -0.00961913704953777,
+        -0.885945718112353,
+        -0.4636900368142597
+      ],
+      "representative_contact_world_m": [
+        -0.010884869023633392,
+        -0.042014415196345065,
+        0.11957928278798871
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 11.793263633170948,
+      "indentation_m": 0.011793263633170948,
+      "position_sigma_m": 0.004486571520686273,
+      "finite_patch_sigma_m": 0.0028511969434315003,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 30.03799999999423,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.028568630616791508,
+        "joint_01": -0.8928579059808281,
+        "joint_02": 1.205380225655676,
+        "joint_03": 1.0032545543925446,
+        "joint_10": -0.0003125711640413096,
+        "joint_11": 0.7694522781169663,
+        "joint_12": 0.7296104591691431,
+        "joint_13": 0.8716916425384281,
+        "joint_20": 0.0714882226123479,
+        "joint_21": 0.47337193220104146,
+        "joint_22": 0.5446036317873674,
+        "joint_23": 1.2631828568250092,
+        "joint_30": 0.09119024792311181,
+        "joint_31": 0.44637818816126085,
+        "joint_32": 0.27860102061342,
+        "joint_33": 1.0133095700827377,
+        "joint_40": -0.4774595781374981,
+        "joint_41": 1.0620405280369283,
+        "joint_42": -0.04880767701409251,
+        "joint_43": 0.00157831231818141
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01924784362799655,
+        -0.07644586334947438,
+        0.14461861799166895
+      ],
+      "surface_u_world": [
+        -0.15097025510298848,
+        -0.8758339759375864,
+        -0.4583915668934813
+      ],
+      "surface_v_world": [
+        -0.9884618527011612,
+        0.13951463942262868,
+        0.05898161849339276
+      ],
+      "sensing_direction_world": [
+        0.012294229664685343,
+        0.46200704717390745,
+        -0.8867910344906588
+      ],
+      "representative_contact_world_m": [
+        0.019301010524804228,
+        -0.07444789506097942,
+        0.1407836540527595
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 4.324540717056969,
+      "indentation_m": 0.004324540717056969,
+      "position_sigma_m": 0.004173821651592624,
+      "finite_patch_sigma_m": 0.0023282584004580293,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 30.079999999994207,
+      "sensor_id": "Finger03_Tip_Sensor",
+      "finger_id": "Finger03",
+      "parent_link": "middle_3",
+      "joint_state_snapshot": {
+        "joint_00": -0.028568528965493903,
+        "joint_01": -0.8928577812671596,
+        "joint_02": 1.205394664790241,
+        "joint_03": 1.00326272115633,
+        "joint_10": -0.0003125711631199116,
+        "joint_11": 0.7694522836379495,
+        "joint_12": 0.7296104639696309,
+        "joint_13": 0.871691647690434,
+        "joint_20": 0.07156647489580607,
+        "joint_21": 0.47325986715349877,
+        "joint_22": 0.5447165977832049,
+        "joint_23": 1.2634506545893953,
+        "joint_30": 0.0913071085789583,
+        "joint_31": 0.4462593121611323,
+        "joint_32": 0.2785498865634345,
+        "joint_33": 1.0133645582918258,
+        "joint_40": -0.477990352173506,
+        "joint_41": 1.0619258000772627,
+        "joint_42": -0.04888566059350726,
+        "joint_43": 0.0015806809522813873
+      },
+      "sensor_type": "fingertip_surface",
+      "sensor_center_world_m": [
+        0.01925077116062933,
+        -0.0764342989610432,
+        0.14461423908864726
+      ],
+      "surface_u_world": [
+        -0.15102295137549893,
+        -0.8757081922092114,
+        -0.45861446792166466
+      ],
+      "surface_v_world": [
+        -0.9884545536462982,
+        0.1395177975719405,
+        0.05909635957747963
+      ],
+      "sensing_direction_world": [
+        0.012233715214838698,
+        0.46224446553342363,
+        -0.8866681390859693
+      ],
+      "representative_contact_world_m": [
+        0.019281017518438043,
+        -0.07529145631233879,
+        0.14242206105266914
+      ],
+      "surface_width_m": 0.018,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": [
+        0.01,
+        0.008,
+        0.004
+      ],
+      "scalar_measurement_n": 2.472377136135045,
+      "indentation_m": 0.0024723771361350446,
+      "position_sigma_m": 0.004139750547535911,
+      "finite_patch_sigma_m": 0.0022666130229538244,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.00031101767270538946,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    },
+    {
+      "timestamp": 30.079999999994207,
+      "sensor_id": "Finger04_Link02_Sensor",
+      "finger_id": "Finger04",
+      "parent_link": "ring_1",
+      "joint_state_snapshot": {
+        "joint_00": -0.028568528965493903,
+        "joint_01": -0.8928577812671596,
+        "joint_02": 1.205394664790241,
+        "joint_03": 1.00326272115633,
+        "joint_10": -0.0003125711631199116,
+        "joint_11": 0.7694522836379495,
+        "joint_12": 0.7296104639696309,
+        "joint_13": 0.871691647690434,
+        "joint_20": 0.07156647489580607,
+        "joint_21": 0.47325986715349877,
+        "joint_22": 0.5447165977832049,
+        "joint_23": 1.2634506545893953,
+        "joint_30": 0.0913071085789583,
+        "joint_31": 0.4462593121611323,
+        "joint_32": 0.2785498865634345,
+        "joint_33": 1.0133645582918258,
+        "joint_40": -0.477990352173506,
+        "joint_41": 1.0619258000772627,
+        "joint_42": -0.04888566059350726,
+        "joint_43": 0.0015806809522813873
+      },
+      "sensor_type": "rectangular",
+      "sensor_center_world_m": [
+        -0.010795939606361583,
+        -0.03155899083447379,
+        0.1250644870586798
+      ],
+      "surface_u_world": [
+        0.09809048900982395,
+        -0.4617438313739567,
+        0.8815734136383158
+      ],
+      "surface_v_world": [
+        -0.9951349427742037,
+        -0.03731756035403052,
+        0.09118029040864924
+      ],
+      "sensing_direction_world": [
+        -0.009203767569123177,
+        -0.8862284278064668,
+        -0.46315791895444436
+      ],
+      "representative_contact_world_m": [
+        -0.010930526628619111,
+        -0.04451834082268799,
+        0.11829171224891671
+      ],
+      "surface_width_m": 0.014,
+      "surface_height_m": 0.022,
+      "fingertip_radii_m": null,
+      "scalar_measurement_n": 14.623041558012098,
+      "indentation_m": 0.014623041558012098,
+      "position_sigma_m": 0.004670251625893978,
+      "finite_patch_sigma_m": 0.003132291533233353,
+      "activation_valid": true,
+      "response_calibration": {
+        "effective_sensor_area_m2": 0.000308,
+        "virtual_stiffness_n_per_m": 1000.0,
+        "minimum_activation_force_n": 0.05,
+        "saturation_pressure_pa": 100000.0,
+        "contact_projection_sign": 1.0
+      }
+    }
+  ]
+}

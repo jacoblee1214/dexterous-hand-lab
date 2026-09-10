@@ -60,6 +60,7 @@ experiments/**/*.jsonl
 experiments/**/*.png
 experiments/**/*.jpg
 experiments/**/*.jpeg
+experiments/fusion/reliability_v2_20260909_invalid_v1_visibility_projection/
 experiments/grasp_trials/**/summary.json
 experiments/grasp_trials/**/trial_*.reconstruction.json
 experiments/grasp_trials/**/trial_*.evaluation.json

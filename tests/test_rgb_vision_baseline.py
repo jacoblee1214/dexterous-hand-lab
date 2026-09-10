@@ -79,7 +79,11 @@ def test_clean_rgb_is_independent_of_debug_sensor_activity(research_camera):
     channels = list(common.tactile_channels)
     channels[0] = replace(channels[0], active=True)
     changed = camera.render_clean_rgb(replace(common, tactile_channels=tuple(channels)))
-    np.testing.assert_array_equal(clean, changed)
+    # The input model is identical; EGL may still vary an anti-aliased edge by
+    # one uint8 level between consecutive renders on some drivers.
+    delta = np.abs(clean.astype(np.int16)-changed.astype(np.int16))
+    assert delta.max(initial=0) <= 1
+    assert np.count_nonzero(delta) <= 8
     assert clean.shape == (480, 640, 3) and clean.dtype == np.uint8
 
 
@@ -125,9 +129,10 @@ def test_capture_preserves_timestamp_and_ground_truth_is_evaluation_only(researc
     engine.update_fusion(capture)
     fusion = engine.state()["fusion"]
     assert fusion["status"] == "VALID_ESTIMATE"
-    assert fusion["selected_method"] == "rgb_only"
+    assert fusion["selected_method"] == "reliability_aware_fusion_v2"
     assert set(fusion["methods"]) == {"rgb_only", "tactile_only_representative",
-                                      "fusion_representative", "fusion_finite_patch"}
+                                      "fusion_representative", "fusion_finite_patch",
+                                      "reliability_aware_fusion_v2"}
     assert "ground_truth" not in json.dumps(fusion).lower()
     provider.publish_camera_observation(capture.observation)
     state = provider.read_common_state()

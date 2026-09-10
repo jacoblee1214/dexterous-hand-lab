@@ -1,0 +1,68 @@
+schema_version: 1
+configuration_version: reliability-aware-geometric-fusion-v2
+
+sphere_experiment:
+  radius_m: 0.04
+  diameter_m: 0.08
+  radius_role: declared_known_radius_prior
+
+# V1 A-D retain these exact constants for fair comparison.
+weights:
+  vision: 1.0
+  tactile: 1.0
+
+uncertainty:
+  vision_boundary_sigma_px: 2.0
+  representative_position_sigma_m: 0.004
+  finite_patch_surface_sigma_m: 0.002
+  sensor_mount_sigma_m: 0.001
+  indentation_relative_sigma: 0.15
+
+rgb_visibility:
+  hand_minimum_intensity: 42
+  hand_maximum_channel_spread: 62
+  unknown_dilation_pixels: 2
+  background_sample_stride_pixels: 10
+  maximum_boundary_samples: 700
+  maximum_background_samples: 900
+  minimum_visible_boundary_samples: 20
+  minimum_visible_angular_coverage: 0.20
+  # Exact controlled-blue thresholds come from camera_calibration.yaml. The
+  # eight-level band is an exploratory algorithm parameter, not hardware noise.
+  segmentation_minimum_blue: 45
+  segmentation_minimum_blue_minus_red: 35
+  segmentation_minimum_blue_minus_green: 14
+  unreliable_color_margin: 8
+
+tactile_observability:
+  minimum_contact_count: 4
+  minimum_unique_sensor_count: 3
+  minimum_unique_finger_count: 2
+  minimum_spatial_spread_m: 0.015
+  minimum_jacobian_singular_value: 0.08
+  maximum_jacobian_condition: 1000.0
+
+solver:
+  maximum_iterations: 80
+  finite_difference_step_m: 0.00001
+  maximum_center_step_m: 0.025
+  robust_huber_threshold: 2.5
+  convergence_step_m: 0.00000001
+  damping: 0.000001
+  finite_patch_grid_resolution: 5
+
+reliability_v2:
+  schema_version: 1
+  parameter_selection: analytic_uncertainty_and_observability_only_no_ground_truth_tuning
+  held_contact_policy: latest_valid_observation_per_named_sensor
+  tactile_model: finite_patch
+  rgb_expected_residual_rms_sigma_max: 1.0
+  cross_modal_consistency_huber_sigma: 2.5
+  minimum_tactile_information_fraction_in_weak_rgb_direction: 0.10
+  maximum_rgb_jacobian_condition: 1000.0
+  status_policy:
+    consistent_complementary_modalities: VALID_FUSED
+    reliable_rgb_contradictory_or_uninformative_touch: VALID_RGB_FALLBACK
+    invalid_rgb_observable_touch: VALID_TACTILE_FALLBACK
+    neither_observable: INVALID_NO_RELIABLE_MODALITY
+  uncertainty_status: exploratory_simulation_values_not_hardware_validated

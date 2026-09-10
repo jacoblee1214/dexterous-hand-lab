@@ -69,7 +69,7 @@ def test_versioned_state_has_four_panel_data_and_hides_gt_by_default(engine):
     assert len(state["joints"]) == 20
     assert len(state["sensors"]) == 18
     assert state["evaluation"] == {"enabled": False}
-    assert state["fusion"]["configuration_version"] == "geometric-fusion-v1"
+    assert state["fusion"]["configuration_version"] == "reliability-aware-geometric-fusion-v2"
     assert "ground_truth" not in json.dumps(state).lower()
     json.dumps(state, allow_nan=False)
 

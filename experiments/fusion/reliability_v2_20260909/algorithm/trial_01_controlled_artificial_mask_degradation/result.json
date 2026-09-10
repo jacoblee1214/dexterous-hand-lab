@@ -1,0 +1,458 @@
+{
+  "configuration_version": "reliability-aware-geometric-fusion-v2",
+  "input_boundary": "FusionObservation: RGB mask/calibration + named synchronized scalar tactile estimates; no ground truth",
+  "known_radius_m": 0.04,
+  "known_diameter_m": 0.08,
+  "radius_label": "declared_known_radius_prior",
+  "object_motion_assumption": "fixed_pose",
+  "weights": {
+    "vision": 1.0,
+    "tactile": 1.0
+  },
+  "robust_loss": {
+    "name": "Huber",
+    "threshold_sigma": 2.5
+  },
+  "selected_method": "reliability_aware_fusion_v2",
+  "status": "VALID_ESTIMATE",
+  "methods": {
+    "rgb_only": {
+      "method": "rgb_only",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.1614781033195043,
+        0.0390427260071066,
+        0.05815763807722081
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "visibility_aware_rgb_boundary_cone",
+      "vision_residual_rms_sigma": 0.9592763903065914,
+      "tactile_residual_rms_sigma": null,
+      "joint_objective": 0.9202111929996439,
+      "iteration_count": 20,
+      "condition_number": 13.303937990260026,
+      "minimum_singular_value": 7.179241288067298,
+      "covariance_diagonal_m2": [
+        8.163688686355615e-06,
+        7.795122412297562e-06,
+        2.0415165753838422e-06
+      ],
+      "uncertainty_standard_deviation_m": [
+        0.002857216947723014,
+        0.0027919746439209582,
+        0.0014288164946499751
+      ],
+      "validity_reason": "All required modality, spatial-coverage, and numerical-conditioning checks passed.",
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 107,
+        "visible_angular_coverage": 0.5555555555555556,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "contributing_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "contributing_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 0.6685712875609139,
+        "jacobian_condition": 17.26347632622335,
+        "observable": true,
+        "solver_converged": true,
+        "vision_residual_rms_px": 1.9185527806131828,
+        "tactile_residual_rms_m": null,
+        "modality_weights": {
+          "vision": 1.0,
+          "tactile": 1.0
+        },
+        "robust_loss": {
+          "name": "Huber",
+          "threshold_sigma": 2.5
+        },
+        "joint_condition_number": 13.303937990260026,
+        "joint_minimum_singular_value": 7.179241288067298,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "none"
+      },
+      "runtime_ms": 4.194978857412934
+    },
+    "tactile_only_representative": {
+      "method": "tactile_only_representative",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.021337713037614708,
+        -0.08140595659152873,
+        0.12518735372032186
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "algebraic_fixed_radius_points_rank_3",
+      "vision_residual_rms_sigma": null,
+      "tactile_residual_rms_sigma": 0.668363034787852,
+      "joint_objective": 0.44670914627082736,
+      "iteration_count": 8,
+      "condition_number": 2.913013726086412,
+      "minimum_singular_value": 62.05588871667763,
+      "covariance_diagonal_m2": [
+        1.880059196871145e-07,
+        2.027769680145199e-07,
+        7.786429671333477e-07
+      ],
+      "uncertainty_standard_deviation_m": [
+        0.00043359649408997126,
+        0.00045030763708216176,
+        0.0008824074836113686
+      ],
+      "validity_reason": "All required modality, spatial-coverage, and numerical-conditioning checks passed.",
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 107,
+        "visible_angular_coverage": 0.5555555555555556,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "contributing_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "contributing_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.1797255664299544,
+        "jacobian_condition": 2.7943773174703437,
+        "observable": true,
+        "solver_converged": true,
+        "vision_residual_rms_px": null,
+        "tactile_residual_rms_m": 0.0029051666323891873,
+        "modality_weights": {
+          "vision": 1.0,
+          "tactile": 1.0
+        },
+        "robust_loss": {
+          "name": "Huber",
+          "threshold_sigma": 2.5
+        },
+        "joint_condition_number": 2.913013726086412,
+        "joint_minimum_singular_value": 62.05588871667763,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "representative"
+      },
+      "runtime_ms": 10.465644067153335
+    },
+    "fusion_representative": {
+      "method": "fusion_representative",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.03957487581533258,
+        -0.03912105954822509,
+        0.12652300220288296
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "reliable_rgb_center",
+      "vision_residual_rms_sigma": 3.016838832884999,
+      "tactile_residual_rms_sigma": 3.3401986732379547,
+      "joint_objective": 20.25824372030352,
+      "iteration_count": 58,
+      "condition_number": 1.4692495883722916,
+      "minimum_singular_value": 132.3603399541892,
+      "covariance_diagonal_m2": [
+        5.833167926857171e-07,
+        7.551387449238666e-07,
+        7.562509406112733e-07
+      ],
+      "uncertainty_standard_deviation_m": [
+        0.0007637517873535335,
+        0.0008689871949136343,
+        0.0008696268973595937
+      ],
+      "validity_reason": "All required modality, spatial-coverage, and numerical-conditioning checks passed.",
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 107,
+        "visible_angular_coverage": 0.5555555555555556,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "contributing_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "contributing_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.730955178211777,
+        "jacobian_condition": 2.2980215456655895,
+        "observable": true,
+        "solver_converged": true,
+        "vision_residual_rms_px": 6.033677665769998,
+        "tactile_residual_rms_m": 0.014086654832511272,
+        "modality_weights": {
+          "vision": 1.0,
+          "tactile": 1.0
+        },
+        "robust_loss": {
+          "name": "Huber",
+          "threshold_sigma": 2.5
+        },
+        "joint_condition_number": 1.4692495883722916,
+        "joint_minimum_singular_value": 132.3603399541892,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "representative"
+      },
+      "runtime_ms": 67.6183090545237
+    },
+    "fusion_finite_patch": {
+      "method": "fusion_finite_patch",
+      "status": "VALID_ESTIMATE",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.02671800382745287,
+        -0.08091743060539387,
+        0.12970434563060254
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "reliable_rgb_center",
+      "vision_residual_rms_sigma": 2.4070827421591736,
+      "tactile_residual_rms_sigma": 0.21033665125294712,
+      "joint_objective": 5.83828883446083,
+      "iteration_count": 25,
+      "condition_number": 2.1680531765799307,
+      "minimum_singular_value": 86.46080116640468,
+      "covariance_diagonal_m2": [
+        2.2206770021208156e-07,
+        6.049444413390621e-07,
+        2.3195588622688217e-07
+      ],
+      "uncertainty_standard_deviation_m": [
+        0.0004712405969481848,
+        0.0007777817440253159,
+        0.000481617987856436
+      ],
+      "validity_reason": "All required modality, spatial-coverage, and numerical-conditioning checks passed.",
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 107,
+        "visible_angular_coverage": 0.5555555555555556,
+        "contact_count": 136,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "contributing_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "contributing_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "spatial_spread_m": 0.10370619577460828,
+        "minimum_jacobian_singular_value": 3.1187139094355274,
+        "jacobian_condition": 2.885112509294874,
+        "observable": true,
+        "solver_converged": true,
+        "vision_residual_rms_px": 4.814165484318347,
+        "tactile_residual_rms_m": 0.000488755320204625,
+        "modality_weights": {
+          "vision": 1.0,
+          "tactile": 1.0
+        },
+        "robust_loss": {
+          "name": "Huber",
+          "threshold_sigma": 2.5
+        },
+        "joint_condition_number": 2.1680531765799307,
+        "joint_minimum_singular_value": 86.46080116640468,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "finite_patch"
+      },
+      "runtime_ms": 81.19302801787853
+    },
+    "reliability_aware_fusion_v2": {
+      "method": "reliability_aware_fusion_v2",
+      "status": "VALID_FUSED",
+      "valid": true,
+      "estimated_center_world_m": [
+        -0.024627610958914598,
+        -0.08552216590837776,
+        0.12972742392375688
+      ],
+      "radius_m": 0.04,
+      "diameter_m": 0.08,
+      "radius_label": "declared_known_radius_prior",
+      "initialization": "reliable_v2_rgb_center",
+      "vision_residual_rms_sigma": 2.3750020545479247,
+      "tactile_residual_rms_sigma": 0.09217432331726948,
+      "joint_objective": 5.331627571352643,
+      "iteration_count": 28,
+      "condition_number": 3.125028398822177,
+      "minimum_singular_value": 95.65232535187525,
+      "covariance_diagonal_m2": [
+        1.5800835449486405e-07,
+        3.816191302118246e-07,
+        2.506257290404049e-07
+      ],
+      "uncertainty_standard_deviation_m": [
+        0.00039750264715453665,
+        0.0006177532923520721,
+        0.0005006253379927996
+      ],
+      "validity_reason": "RGB and effective tactile geometry are sufficiently observable and complementary; reliability-aware fusion was applied.",
+      "diagnostics": {
+        "vision_status": "VALID",
+        "visible_boundary_count": 109,
+        "visible_angular_coverage": 0.5555555555555556,
+        "contact_count": 4,
+        "unique_sensor_count": 4,
+        "unique_finger_count": 3,
+        "contributing_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "contributing_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "spatial_spread_m": 0.09563194062546124,
+        "minimum_jacobian_singular_value": 0.4762558626375519,
+        "jacobian_condition": 3.2997434290970036,
+        "observable": true,
+        "solver_converged": true,
+        "vision_residual_rms_px": 4.750004109095849,
+        "tactile_residual_rms_m": 0.00021309850331397348,
+        "modality_weights": {
+          "vision": 0.9437114248320005,
+          "tactile": 1.0
+        },
+        "robust_loss": {
+          "name": "Huber",
+          "threshold_sigma": 2.5
+        },
+        "joint_condition_number": 3.125028398822177,
+        "joint_minimum_singular_value": 95.65232535187525,
+        "objective_definition": "lambda_rgb*mean(standardized RGB residual^2) + lambda_tactile*mean(standardized tactile residual^2)",
+        "tactile_model": "finite_patch",
+        "algorithm_version": "reliability-aware-geometric-fusion-v2",
+        "exact_inputs": "clean RGB predicted/visibility masks + K/T/timestamps + named synchronized joints + named scalar tactile calibration/finite regions + declared radius prior",
+        "raw_tactile_observation_count": 136,
+        "effective_tactile_observation_count": 4,
+        "held_contact_policy": "latest_valid_observation_per_named_sensor",
+        "effective_sensor_ids": [
+          "Finger03_Tip_Sensor",
+          "Finger04_Link02_Sensor",
+          "Finger04_Link03_Sensor",
+          "Finger05_Link03_Sensor"
+        ],
+        "effective_finger_ids": [
+          "Finger03",
+          "Finger04",
+          "Finger05"
+        ],
+        "unreliable_segmentation_pixel_count": 1878,
+        "tactile_observability": {
+          "contact_count": 4,
+          "unique_sensor_count": 4,
+          "unique_finger_count": 3,
+          "contributing_sensor_ids": [
+            "Finger03_Tip_Sensor",
+            "Finger04_Link02_Sensor",
+            "Finger04_Link03_Sensor",
+            "Finger05_Link03_Sensor"
+          ],
+          "contributing_finger_ids": [
+            "Finger03",
+            "Finger04",
+            "Finger05"
+          ],
+          "spatial_spread_m": 0.09563194062546124,
+          "minimum_jacobian_singular_value": 0.43898913180139953,
+          "jacobian_condition": 3.5308844972650015,
+          "observable": true
+        },
+        "tactile_algebraic_initialization_rank": 3,
+        "rgb_reliability": {
+          "reliable": false,
+          "vision_residual_rms_sigma": 1.0293910633703465,
+          "expected_rms_sigma_max": 1.0,
+          "jacobian_condition": 13.086142256545164
+        },
+        "tactile_reliability": {
+          "observable": true,
+          "cross_modal_residual_rms_sigma": 55.33166636476241,
+          "consistent_with_rgb": false,
+          "consistency_gate_sigma": 2.5
+        },
+        "uncertainty_normalization_enabled": true,
+        "cross_modal_gate_enabled": true,
+        "rgb_information_eigenvalues": [
+          57.097659886943816,
+          8672.614032998008,
+          9777.809766333543
+        ],
+        "tactile_information_eigenvalues": [
+          363.4205045514841,
+          4042.2312962261053,
+          157345.59785976843
+        ],
+        "combined_information_eigenvalues": [
+          10064.469542953342,
+          12585.72999940926,
+          157608.5715774019
+        ],
+        "weak_rgb_direction_world": [
+          0.6740518132352914,
+          -0.6594515899479565,
+          0.33283292143255283
+        ],
+        "rgb_information_in_weak_direction": 57.09765988694464,
+        "tactile_information_in_weak_rgb_direction": 153996.24341074706,
+        "tactile_information_fraction_in_weak_rgb_direction": 0.9996293643520477,
+        "interpretation": "Local standardized-residual information only; this is not complete real-world uncertainty or an accuracy guarantee.",
+        "complementary_information": {
+          "passes": true,
+          "tactile_fraction_in_weak_rgb_direction": 0.9996293643520477,
+          "minimum_fraction": 0.1
+        },
+        "applied_modality_weights": {
+          "vision": 0.9437114248320005,
+          "tactile": 1.0,
+          "source": "standardized residual reliability; no evaluation truth"
+        },
+        "fusion_decision": "VALID_FUSED",
+        "genuinely_fused": true
+      },
+      "runtime_ms": 21.495933877304196
+    }
+  }
+}

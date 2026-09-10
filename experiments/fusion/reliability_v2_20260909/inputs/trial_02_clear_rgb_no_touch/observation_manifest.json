@@ -1,0 +1,97 @@
+{
+  "algorithm_input_only": true,
+  "rgb_reference": "inputs/trial_02_clear_rgb_no_touch/rgb.png",
+  "predicted_mask_reference": "inputs/trial_02_clear_rgb_no_touch/predicted_mask.png",
+  "timestamp": 16.388000000001796,
+  "camera_timestamp": 16.388000000001796,
+  "tactile_timestamp": 16.388000000001796,
+  "time_base": "simulation_seconds",
+  "camera_id": "external_rgb_01",
+  "frame_id": "research_rgb_camera_optical",
+  "common_frame_id": "world",
+  "calibration_version": "research-rgb-camera-v1",
+  "intrinsic_matrix": [
+    [
+      514.6816609222941,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      514.6816609222941,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "T_camera_cv_from_world": [
+    [
+      0.7828232547561078,
+      0.6222441255753679,
+      0.0,
+      0.0016057912918074034
+    ],
+    [
+      0.2868137687236376,
+      -0.36083022516844726,
+      -0.8874341725871455,
+      0.0164476104174281
+    ],
+    [
+      -0.5522007007271884,
+      0.6947041073664628,
+      -0.4609344740031588,
+      0.5541000789982652
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "visibility_pixel_counts": {
+    "foreground": 6319,
+    "background": 268510,
+    "unknown_occluded": 29428,
+    "unreliable_segmentation": 2943
+  },
+  "v1_visibility_pixel_counts": {
+    "foreground": 6319,
+    "background": 268417,
+    "unknown_occluded": 32464,
+    "unreliable_segmentation": 0
+  },
+  "segmentation_status": "SEGMENTATION_OK",
+  "segmentation_confidence": 0.775,
+  "segmentation_angular_coverage": 1.0,
+  "joint_state": {
+    "joint_00": -0.004506066920434686,
+    "joint_01": -0.40431300723209435,
+    "joint_02": 0.7464153757816921,
+    "joint_03": 0.5408260349732874,
+    "joint_10": -0.0003141090700783507,
+    "joint_11": 0.347139782353857,
+    "joint_12": 0.30279050521376727,
+    "joint_13": 0.4086950464860979,
+    "joint_20": 0.024526112339256414,
+    "joint_21": 0.1659704629226885,
+    "joint_22": 0.19356282477635203,
+    "joint_23": 0.8014347469508755,
+    "joint_30": 0.03314171287517666,
+    "joint_31": 0.1514376089054788,
+    "joint_32": 0.09584942161174059,
+    "joint_33": 0.5502592717719268,
+    "joint_40": -0.1805460528039476,
+    "joint_41": 0.6269853865977495,
+    "joint_42": -0.012314668728714624,
+    "joint_43": 0.0014938585006853825
+  },
+  "known_radius_m": 0.04,
+  "radius_label": "declared_known_radius_prior",
+  "object_motion_assumption": "fixed_pose",
+  "tactile_constraints": []
+}

@@ -1,0 +1,98 @@
+{
+  "calibration_version": "research-rgb-camera-v1",
+  "camera_id": "external_rgb_01",
+  "camera_name": "research_rgb_camera",
+  "frame_id": "research_rgb_camera_optical",
+  "parent_frame": "world",
+  "time_base": "simulation_seconds",
+  "fovy_degrees": 50.0,
+  "intrinsics": {
+    "width": 640,
+    "height": 480,
+    "fx": 514.6816609222941,
+    "fy": 514.6816609222941,
+    "cx": 319.5,
+    "cy": 239.5,
+    "distortion_model": "none",
+    "distortion_coefficients": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "T_world_from_camera_cv": [
+    [
+      0.7828232547561076,
+      0.2868137687236375,
+      -0.5522007007271882,
+      0.3
+    ],
+    [
+      0.6222441255753677,
+      -0.36083022516844715,
+      0.6947041073664626,
+      -0.38
+    ],
+    [
+      0.0,
+      -0.8874341725871453,
+      -0.4609344740031586,
+      0.27
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "T_camera_cv_from_world": [
+    [
+      0.7828232547561078,
+      0.6222441255753679,
+      0.0,
+      0.0016057912918074034
+    ],
+    [
+      0.2868137687236376,
+      -0.36083022516844726,
+      -0.8874341725871455,
+      0.0164476104174281
+    ],
+    [
+      -0.5522007007271884,
+      0.6947041073664628,
+      -0.4609344740031588,
+      0.5541000789982652
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinate_convention": {
+    "mujoco_camera": "+X right, +Y up, -Z forward",
+    "computer_vision_camera": "+X right, +Y down, +Z forward",
+    "mujoco_to_cv_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    ]
+  }
+}

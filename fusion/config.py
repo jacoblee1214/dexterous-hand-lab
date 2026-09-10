@@ -10,6 +10,7 @@ import yaml
 
 
 DEFAULT_CONFIG = Path(__file__).with_name("config.yaml")
+V2_CONFIG = Path(__file__).with_name("config_v2.yaml")
 
 
 def load_fusion_config(path: str | Path = DEFAULT_CONFIG) -> Mapping:

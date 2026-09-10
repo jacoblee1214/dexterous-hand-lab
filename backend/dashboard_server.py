@@ -39,7 +39,7 @@ from backend.visual_assets import VisualAssets, link_transform
 from backend.mujoco_offscreen import LatestFrameBuffer, MuJoCoOffscreenRenderer
 from simulation.experiment_recording import RepeatableSphereExperiment
 from vision.research_camera import ResearchRGBCamera
-from fusion.config import load_fusion_config
+from fusion.config import DEFAULT_CONFIG as FUSION_V1_CONFIG, V2_CONFIG, load_fusion_config
 from fusion.observation import build_fusion_observation
 from fusion.sphere import run_fusion_methods
 
@@ -50,7 +50,7 @@ UI_DIRECTORY = PROJECT_ROOT / "ui"
 RECONSTRUCTION_CONFIG = PROJECT_ROOT / "experiments" / "reconstruction_config.yaml"
 STATE_SCHEMA_VERSION = "1.1.0"
 CONTROL_SCHEMA_VERSION = "1.1.0"
-DASHBOARD_BUILD_ID = "fusion-explainability-v1-20260909.1"
+DASHBOARD_BUILD_ID = "reliability-aware-fusion-v2-20260909.1"
 
 
 @dataclass(frozen=True)
@@ -211,7 +211,8 @@ class DashboardSimulation:
             "projected_estimated_tactile_contacts": [],
         }
         self.vision_evaluation: dict = {"available": False}
-        self.fusion_config = load_fusion_config()
+        self.fusion_config = load_fusion_config(V2_CONFIG)
+        self.v1_fusion_config = load_fusion_config(FUSION_V1_CONFIG)
         self.fusion_result: dict = {
             "configuration_version": self.fusion_config["configuration_version"],
             "status": "NOT_RUN",
@@ -387,8 +388,21 @@ class DashboardSimulation:
                 config=self.fusion_config,
                 fixed_object_pose=fixed_pose,
             )
+            v1_observation = build_fusion_observation(
+                rgb=capture.rgb,
+                segmentation=capture.segmentation,
+                calibration=capture.calibration,
+                camera_observation=capture.observation,
+                common_state=common,
+                description=self.description,
+                tactile_observations=tactile,
+                known_radius_m=float(object_state["radius_m"]),
+                config=self.v1_fusion_config,
+                fixed_object_pose=fixed_pose,
+            )
             self.fusion_result = run_fusion_methods(
-                observation, capture.vision_result, self.fusion_config
+                observation, capture.vision_result, self.fusion_config,
+                v1_observation=v1_observation, v1_config=self.v1_fusion_config,
             )
         except Exception as exc:
             self.fusion_result = {

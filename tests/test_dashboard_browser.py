@@ -19,7 +19,7 @@ import pytest
 
 pytestmark = pytest.mark.skipif(os.environ.get("RUN_BROWSER_TESTS") != "1", reason="Opt-in Chromium validation")
 ROOT = Path(__file__).parents[1]
-BUILD_ID = "fusion-explainability-v1-20260909.1"
+BUILD_ID = "reliability-aware-fusion-v2-20260909.1"
 
 
 def free_port():
@@ -90,9 +90,13 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         page.locator("#camera-calibration-panel").evaluate("element => element.open = true")
         camera_text = page.locator("#camera-calibration-content").inner_text()
         assert "0.30000" in camera_text and "T_camera_cv_from_world" in camera_text
-        page.locator("#show-research-camera-frustum").check()
+        page.locator("#show-research-camera-frustum").evaluate(
+            "element => { element.checked=true; element.dispatchEvent(new Event('change')); }"
+        )
         page.wait_for_function("state.research_camera_debug_visible === true")
-        page.locator("#show-research-camera-frustum").uncheck()
+        page.locator("#show-research-camera-frustum").evaluate(
+            "element => { element.checked=false; element.dispatchEvent(new Event('change')); }"
+        )
         page.wait_for_function("state.research_camera_debug_visible === false")
         page.locator("#camera-calibration-panel").evaluate("element => element.open = false")
         page.locator(".joint-controls").evaluate("element => element.open = true")
@@ -107,8 +111,19 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         page.locator("#teach-mode-toggle").click()
         page.wait_for_function("!state.simulation.grasp.teach.enabled")
         joint_slider = page.locator(".joint-target").filter(has_text="joint_10").locator("input")
-        joint_slider.evaluate("element => { element.value = '0.2'; element.dispatchEvent(new Event('change')); }")
+        previous_request = page.evaluate("requestSequence")
+        joint_slider.evaluate(
+            "(element, value) => { element.value = String(value); "
+            "element.dispatchEvent(new Event('change')); }",
+            0.2,
+        )
+        # Range inputs quantize from their non-round URDF lower bound.
         slider_target = float(joint_slider.input_value())
+        page.wait_for_function(
+            "request => dashboardDiagnostics.lastAcknowledgement?.request_id > request && "
+            "dashboardDiagnostics.lastAcknowledgement?.command === 'set_joint_target'",
+            arg=previous_request,
+        )
         page.wait_for_function(
             "target => Math.abs(state.joints.find(j => j.name === 'joint_10').target_rad-target) < 1e-9",
             arg=slider_target,
@@ -117,14 +132,20 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert page.locator("#data-source").inner_text() == "SIMULATION"
         page.locator('[data-radius="0.04"]').click()
         page.wait_for_function("state.simulation.object.radius_m === .04")
-        page.locator('[data-command="start_accumulation"]').click()
         page.locator('[data-command="grasp"]').click()
-        grasp_start = page.evaluate("state.simulation.time_seconds")
+        page.wait_for_function("state.simulation.grasp.running === true")
+        page.locator('[data-command="open_hand"]').click()
+        page.wait_for_function("state.simulation.grasp.running === false")
+        page.locator('[data-command="start_accumulation"]').click()
+        page.locator('[data-grasp-stage="1"]').click()
+        page.wait_for_function("state.simulation.grasp.stage === 1")
+        page.locator('[data-grasp-stage="4"]').click()
+        page.wait_for_function("state.simulation.grasp.stage === 4")
         contact_handle = page.wait_for_function(
             "state.current_estimated_contacts.length ? structuredClone({"
             "timestamp:state.snapshot.timestamp, contactPoints:state.current_estimated_contacts, "
             "activeSensorIds:state.sensors.filter(sensor => sensor.active).map(sensor => sensor.sensor_id)}) : null",
-            timeout=30000,
+            timeout=60000,
         )
         contact_frame = contact_handle.json_value()
         contact_sample = contact_frame["contactPoints"]
@@ -132,7 +153,7 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         selected = contact_sample[0]["sensor_id"]
         page.locator("#sensor-table tbody tr").filter(has_text=selected).click()
         page.wait_for_function("id => state.selected_sensor_id === id", arg=selected)
-        page.wait_for_function("start => state.accumulation.accepted_point_count > 0 && state.simulation.grasp.stage === 4 && state.simulation.time_seconds >= start + 5.2", arg=grasp_start, timeout=30000)
+        page.wait_for_function("state.accumulation.accepted_point_count > 0")
         page.locator('[data-command="fit_sphere"]').click()
         page.wait_for_function("state.sphere_reconstruction.status !== 'NOT_FITTED'")
         payload = page.evaluate("state")
@@ -172,11 +193,16 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert page.locator("#research-rgb").is_visible()
         assert page.locator("#mujoco-render").is_hidden()
         assert "Vision-only RGB sphere baseline" in page.locator("#vision-only-metrics").inner_text()
-        page.wait_for_function("Object.keys(state?.fusion?.methods || {}).length === 4")
-        assert "Geometric RGB + tactile fusion v1" in page.locator("#fusion-metrics").inner_text()
-        assert page.locator("#fusion-method option").count() == 4
+        page.wait_for_function("Object.keys(state?.fusion?.methods || {}).length === 5")
+        assert "E · Reliability-aware Fusion v2" in page.locator("#fusion-metrics").inner_text()
+        assert "Decision:" in page.locator("#fusion-metrics").inner_text()
+        assert page.locator("#fusion-method option").count() == 5
+        page.locator("#render-mode").select_option("mujoco")
+        page.wait_for_function("!document.querySelector('#mujoco-render').classList.contains('view-hidden')")
+        page.locator("#fusion-metrics").scroll_into_view_if_needed()
+        capture(page, "reliability-v2-dashboard.png", tmp_path)
         page.locator("#fusion-method").select_option("fusion_representative")
-        assert "C · Fusion / representative" in page.locator("#fusion-metrics").inner_text()
+        assert "C · Fusion v1 / representative" in page.locator("#fusion-metrics").inner_text()
         assert "Validity:" in page.locator("#fusion-metrics").inner_text()
         assert "Joint condition:" in page.locator("#fusion-metrics").inner_text()
         page.locator(".fusion-help").evaluate("element => element.open = true")

@@ -182,6 +182,7 @@ class FusionObservation:
     calibration_version: str
     time_base: str
     object_motion_assumption: str
+    unreliable_segmentation_mask: np.ndarray | None = None
 
     def __post_init__(self) -> None:
         stamps = (float(self.timestamp), float(self.camera_timestamp), float(self.tactile_timestamp))
@@ -221,12 +222,22 @@ class FusionObservation:
                            _readonly_mask("known_background_mask", self.known_background_mask, shape))
         object.__setattr__(self, "unknown_occluded_mask",
                            _readonly_mask("unknown_occluded_mask", self.unknown_occluded_mask, shape))
+        unreliable = (np.zeros(shape, dtype=bool) if self.unreliable_segmentation_mask is None
+                      else self.unreliable_segmentation_mask)
+        object.__setattr__(self, "unreliable_segmentation_mask",
+                           _readonly_mask("unreliable_segmentation_mask", unreliable, shape))
         if np.any(self.predicted_object_mask & self.known_background_mask):
             raise ValueError("Object and known-background classifications must be disjoint")
         if np.any(self.predicted_object_mask & self.unknown_occluded_mask):
             raise ValueError("Object and unknown/occluded classifications must be disjoint")
         if np.any(self.known_background_mask & self.unknown_occluded_mask):
             raise ValueError("Background and unknown/occluded classifications must be disjoint")
+        if np.any(self.unreliable_segmentation_mask & self.predicted_object_mask):
+            raise ValueError("Unreliable and foreground classifications must be disjoint")
+        if np.any(self.unreliable_segmentation_mask & self.known_background_mask):
+            raise ValueError("Unreliable and known-background classifications must be disjoint")
+        if np.any(self.unreliable_segmentation_mask & self.unknown_occluded_mask):
+            raise ValueError("Unreliable and unknown/occluded classifications must be disjoint")
         intrinsic.setflags(write=False)
         extrinsic.setflags(write=False)
         object.__setattr__(self, "intrinsic_matrix", intrinsic)
@@ -257,19 +268,32 @@ def _dilate(mask: np.ndarray, pixels: int) -> np.ndarray:
     return result
 
 
-def classify_visibility(rgb: np.ndarray, object_mask: np.ndarray, settings) -> tuple[np.ndarray, np.ndarray]:
+def classify_visibility(
+    rgb: np.ndarray, object_mask: np.ndarray, settings
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Controlled RGB-only hand/unknown heuristic; no segmentation IDs or depth."""
     image = np.asarray(rgb, dtype=np.uint8)
     maximum = image.max(axis=2).astype(int)
     spread = maximum - image.min(axis=2).astype(int)
+    margin = int(settings.get("unreliable_color_margin", 0))
+    unreliable_candidate = np.zeros_like(object_mask, dtype=bool)
+    if margin > 0:
+        red, green, blue = [image[:, :, index].astype(int) for index in range(3)]
+        unreliable_candidate = (
+            (blue >= int(settings.get("segmentation_minimum_blue", 45)) - margin)
+            & (blue - red >= int(settings.get("segmentation_minimum_blue_minus_red", 35)) - margin)
+            & (blue - green >= int(settings.get("segmentation_minimum_blue_minus_green", 14)) - margin)
+            & ~object_mask
+        )
     likely_hand = (
         (maximum >= int(settings["hand_minimum_intensity"]))
         & (spread <= int(settings["hand_maximum_channel_spread"]))
-        & ~object_mask
+        & ~object_mask & ~unreliable_candidate
     )
     unknown = _dilate(likely_hand, int(settings["unknown_dilation_pixels"])) & ~object_mask
-    background = ~(object_mask | unknown)
-    return background, unknown
+    unreliable = unreliable_candidate & ~unknown
+    background = ~(object_mask | unknown | unreliable)
+    return background, unknown, unreliable
 
 
 def build_fusion_observation(
@@ -336,7 +360,7 @@ def build_fusion_observation(
             activation_valid=sample.scalar_sensor_value > 0,
             response_calibration=description.calibration_config[sample.sensor_id],
         ))
-    background, unknown = classify_visibility(
+    background, unknown, unreliable = classify_visibility(
         rgb, segmentation.mask, config["rgb_visibility"]
     )
     return FusionObservation(
@@ -354,6 +378,7 @@ def build_fusion_observation(
         predicted_object_mask=segmentation.mask,
         known_background_mask=background,
         unknown_occluded_mask=unknown,
+        unreliable_segmentation_mask=unreliable,
         segmentation_status=segmentation.status,
         segmentation_confidence=segmentation.confidence,
         segmentation_angular_coverage=segmentation.angular_boundary_coverage,

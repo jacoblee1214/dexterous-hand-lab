@@ -1,0 +1,78 @@
+{
+  "boundary": "evaluation_only; MuJoCo object pose and segmentation never enter fusion",
+  "methods": {
+    "rgb_only": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_VISION",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "tactile_only_representative": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_TACTILE_COVERAGE",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "fusion_representative": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_VISION",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "fusion_finite_patch": {
+      "success": false,
+      "failure_status": "INSUFFICIENT_VISION",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "reliability_aware_fusion_v2": {
+      "success": false,
+      "failure_status": "INVALID_NO_RELIABLE_MODALITY",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    }
+  },
+  "radius_error_m": null,
+  "radius_error_reason": "radius is a declared prior, not an estimated parameter",
+  "case_id": "trial_03_clustered_single_finger_tactile",
+  "trial": 3,
+  "condition": "clustered_single_finger_tactile",
+  "segmentation_iou": 0.6014907493677626,
+  "visible_fraction": 0.7188911384519545,
+  "ground_truth_boundary": "evaluation_only_after_all_algorithm_outputs",
+  "v2_ablations": {
+    "full_v2": {
+      "success": false,
+      "failure_status": "INVALID_NO_RELIABLE_MODALITY",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "no_cross_modal_gate": {
+      "success": false,
+      "failure_status": "INVALID_NO_RELIABLE_MODALITY",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "representative_instead_of_finite_patch": {
+      "success": false,
+      "failure_status": "INVALID_NO_RELIABLE_MODALITY",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    },
+    "no_uncertainty_normalization": {
+      "success": false,
+      "failure_status": "INVALID_NO_RELIABLE_MODALITY",
+      "center_error_m": null,
+      "visible_silhouette_iou": null,
+      "silhouette_iou_interpretation": "not available for a failed estimate"
+    }
+  }
+}

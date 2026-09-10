@@ -1,0 +1,4972 @@
+{
+  "report_version": "reliability-aware-fusion-v2-diagnostics-v1",
+  "source": "experiments/fusion/reliability_v2_20260909",
+  "attempt_count": 27,
+  "truth_boundary": "algorithm/*.json is read independently; center errors are joined from evaluation/*.json only for this report",
+  "all_attempt_diagnostics": {
+    "rgb_only": {
+      "vision_residual_rms_sigma": {
+        "count": 9,
+        "mean": 0.36291270080729193,
+        "median": 0.03839597855038236,
+        "minimum": 0.034564175060708184,
+        "maximum": 1.075907497578161,
+        "p95": 1.04887176057007
+      },
+      "silhouette_residual_rms_px": {
+        "count": 9,
+        "mean": 0.7258254016145839,
+        "median": 0.07679195710076472,
+        "minimum": 0.06912835012141637,
+        "maximum": 2.151814995156322,
+        "p95": 2.09774352114014
+      },
+      "tactile_residual_rms_sigma": {
+        "count": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null,
+        "p95": null
+      },
+      "tactile_residual_rms_m": {
+        "count": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null,
+        "p95": null
+      },
+      "optimizer_condition_number": {
+        "count": 9,
+        "mean": 35.15167523521814,
+        "median": 26.642896999402932,
+        "minimum": 11.676400060532181,
+        "maximum": 56.47002821390733,
+        "p95": 56.470028209037835
+      },
+      "optimizer_minimum_singular_value": {
+        "count": 9,
+        "mean": 4.891504782189247,
+        "median": 4.630852984588173,
+        "minimum": 2.7062731370583184,
+        "maximum": 8.446641771712223,
+        "p95": 8.392329647335046
+      },
+      "contact_count": {
+        "count": 27,
+        "mean": 85.0,
+        "median": 136.0,
+        "minimum": 0.0,
+        "maximum": 139.0,
+        "p95": 139.0
+      },
+      "unique_sensor_count": {
+        "count": 27,
+        "mean": 2.6666666666666665,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_finger_count": {
+        "count": 27,
+        "mean": 2.111111111111111,
+        "median": 3.0,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "p95": 3.0
+      },
+      "spatial_spread_m": {
+        "count": 27,
+        "mean": 0.06539975786748174,
+        "median": 0.10230161615451915,
+        "minimum": 0.0,
+        "maximum": 0.10370619577460828,
+        "p95": 0.10370619577460828
+      },
+      "tactile_coverage_condition": {
+        "count": 6,
+        "mean": 269.4747502392748,
+        "median": 210.34839990557128,
+        "minimum": 12.905411325812462,
+        "maximum": 706.8269403407211,
+        "p95": 645.9084410468748
+      },
+      "runtime_ms": {
+        "count": 27,
+        "mean": 1.6279623550535351,
+        "median": 0.1519478391855955,
+        "minimum": 0.05105300806462765,
+        "maximum": 6.309775169938803,
+        "p95": 6.108940928243101
+      }
+    },
+    "tactile_only_representative": {
+      "vision_residual_rms_sigma": {
+        "count": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null,
+        "p95": null
+      },
+      "silhouette_residual_rms_px": {
+        "count": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null,
+        "p95": null
+      },
+      "tactile_residual_rms_sigma": {
+        "count": 15,
+        "mean": 0.6676167243171597,
+        "median": 0.6751927106792233,
+        "minimum": 0.6143236004317355,
+        "maximum": 0.6886520544126057,
+        "p95": 0.6886520544126057
+      },
+      "tactile_residual_rms_m": {
+        "count": 15,
+        "mean": 0.002910729166488039,
+        "median": 0.002936408031525377,
+        "minimum": 0.0027039519899350606,
+        "maximum": 0.002998194441482695,
+        "p95": 0.002998194441482695
+      },
+      "optimizer_condition_number": {
+        "count": 15,
+        "mean": 2.9518799037678525,
+        "median": 2.913013726086412,
+        "minimum": 2.9043450970233935,
+        "maximum": 3.1129480348552043,
+        "p95": 3.105868420332252
+      },
+      "optimizer_minimum_singular_value": {
+        "count": 15,
+        "mean": 61.28855386319092,
+        "median": 62.05588871667763,
+        "minimum": 57.69137167051018,
+        "maximum": 62.437814619364715,
+        "p95": 62.437814619364715
+      },
+      "contact_count": {
+        "count": 27,
+        "mean": 85.0,
+        "median": 136.0,
+        "minimum": 0.0,
+        "maximum": 139.0,
+        "p95": 139.0
+      },
+      "unique_sensor_count": {
+        "count": 27,
+        "mean": 2.6666666666666665,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_finger_count": {
+        "count": 27,
+        "mean": 2.111111111111111,
+        "median": 3.0,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "p95": 3.0
+      },
+      "spatial_spread_m": {
+        "count": 27,
+        "mean": 0.06539975786748174,
+        "median": 0.10230161615451915,
+        "minimum": 0.0,
+        "maximum": 0.10370619577460828,
+        "p95": 0.10370619577460828
+      },
+      "tactile_coverage_condition": {
+        "count": 24,
+        "mean": 432.11805373466547,
+        "median": 2.8880557229889203,
+        "minimum": 2.773247877914033,
+        "maximum": 6529.756653482238,
+        "p95": 3014.6222842044085
+      },
+      "runtime_ms": {
+        "count": 27,
+        "mean": 5.626158547346239,
+        "median": 8.8217300362885,
+        "minimum": 0.019273953512310982,
+        "maximum": 11.706623015925288,
+        "p95": 11.213030316866934
+      }
+    },
+    "fusion_representative": {
+      "vision_residual_rms_sigma": {
+        "count": 3,
+        "mean": 2.764075877664517,
+        "median": 2.860307341070491,
+        "minimum": 2.4150814590380616,
+        "maximum": 3.016838832884999,
+        "p95": 3.0011856837035484
+      },
+      "silhouette_residual_rms_px": {
+        "count": 3,
+        "mean": 5.528151755329034,
+        "median": 5.720614682140982,
+        "minimum": 4.830162918076123,
+        "maximum": 6.033677665769998,
+        "p95": 6.002371367407097
+      },
+      "tactile_residual_rms_sigma": {
+        "count": 3,
+        "mean": 3.3070710586689778,
+        "median": 3.3401986732379547,
+        "minimum": 3.1873179802067515,
+        "maximum": 3.393696522562227,
+        "p95": 3.3883467376297998
+      },
+      "tactile_residual_rms_m": {
+        "count": 3,
+        "mean": 0.013915097300899506,
+        "median": 0.014086654832511272,
+        "minimum": 0.013397056522856875,
+        "maximum": 0.014261580547330371,
+        "p95": 0.014244087975848462
+      },
+      "optimizer_condition_number": {
+        "count": 3,
+        "mean": 1.4089739841426292,
+        "median": 1.4268909603218987,
+        "minimum": 1.3307814037336976,
+        "maximum": 1.4692495883722916,
+        "p95": 1.4650137255672522
+      },
+      "optimizer_minimum_singular_value": {
+        "count": 3,
+        "mean": 139.17487162532206,
+        "median": 137.91503506200485,
+        "minimum": 132.3603399541892,
+        "maximum": 147.2492398597721,
+        "p95": 146.3158193799954
+      },
+      "contact_count": {
+        "count": 27,
+        "mean": 85.0,
+        "median": 136.0,
+        "minimum": 0.0,
+        "maximum": 139.0,
+        "p95": 139.0
+      },
+      "unique_sensor_count": {
+        "count": 27,
+        "mean": 2.6666666666666665,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_finger_count": {
+        "count": 27,
+        "mean": 2.111111111111111,
+        "median": 3.0,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "p95": 3.0
+      },
+      "spatial_spread_m": {
+        "count": 27,
+        "mean": 0.06539975786748174,
+        "median": 0.10230161615451915,
+        "minimum": 0.0,
+        "maximum": 0.10370619577460828,
+        "p95": 0.10370619577460828
+      },
+      "tactile_coverage_condition": {
+        "count": 24,
+        "mean": 558.8675181009079,
+        "median": 3.0313357914796315,
+        "minimum": 2.2980215456655895,
+        "maximum": 5381.545758926124,
+        "p95": 4237.403086250785
+      },
+      "runtime_ms": {
+        "count": 27,
+        "mean": 13.454767461452219,
+        "median": 0.12755696661770344,
+        "minimum": 0.009395182132720947,
+        "maximum": 157.81065495684743,
+        "p95": 115.21905532572413
+      }
+    },
+    "fusion_finite_patch": {
+      "vision_residual_rms_sigma": {
+        "count": 3,
+        "mean": 2.130785349139455,
+        "median": 2.0869374161063567,
+        "minimum": 1.8983358891528344,
+        "maximum": 2.4070827421591736,
+        "p95": 2.3750682095538918
+      },
+      "silhouette_residual_rms_px": {
+        "count": 3,
+        "mean": 4.26157069827891,
+        "median": 4.1738748322127135,
+        "minimum": 3.7966717783056687,
+        "maximum": 4.814165484318347,
+        "p95": 4.7501364191077835
+      },
+      "tactile_residual_rms_sigma": {
+        "count": 3,
+        "mean": 0.20235002570493124,
+        "median": 0.21033665125294712,
+        "minimum": 0.11213932365343064,
+        "maximum": 0.284574102208416,
+        "p95": 0.2771503571128691
+      },
+      "tactile_residual_rms_m": {
+        "count": 3,
+        "mean": 0.00046749161287622893,
+        "median": 0.000488755320204625,
+        "minimum": 0.0002562533321801888,
+        "maximum": 0.0006574661862438729,
+        "p95": 0.0006405950996399481
+      },
+      "optimizer_condition_number": {
+        "count": 3,
+        "mean": 2.1619270879996857,
+        "median": 2.1680531765799307,
+        "minimum": 2.081077114063827,
+        "maximum": 2.2366509733553,
+        "p95": 2.229791193677763
+      },
+      "optimizer_minimum_singular_value": {
+        "count": 3,
+        "mean": 87.13684452099263,
+        "median": 86.46080116640468,
+        "minimum": 80.01092903812322,
+        "maximum": 94.93880335844999,
+        "p95": 94.09100313924546
+      },
+      "contact_count": {
+        "count": 27,
+        "mean": 85.0,
+        "median": 136.0,
+        "minimum": 0.0,
+        "maximum": 139.0,
+        "p95": 139.0
+      },
+      "unique_sensor_count": {
+        "count": 27,
+        "mean": 2.6666666666666665,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_finger_count": {
+        "count": 27,
+        "mean": 2.111111111111111,
+        "median": 3.0,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "p95": 3.0
+      },
+      "spatial_spread_m": {
+        "count": 27,
+        "mean": 0.06539975786748174,
+        "median": 0.10230161615451915,
+        "minimum": 0.0,
+        "maximum": 0.10370619577460828,
+        "p95": 0.10370619577460828
+      },
+      "tactile_coverage_condition": {
+        "count": 24,
+        "mean": 558.9134971073685,
+        "median": 3.0313357914796315,
+        "minimum": 2.7661012565119134,
+        "maximum": 5381.545758926124,
+        "p95": 4237.403086250785
+      },
+      "runtime_ms": {
+        "count": 27,
+        "mean": 12.01714852100445,
+        "median": 0.11894595809280872,
+        "minimum": 0.006560003384947777,
+        "maximum": 146.599852014333,
+        "p95": 90.62531657982616
+      }
+    },
+    "reliability_aware_fusion_v2": {
+      "vision_residual_rms_sigma": {
+        "count": 9,
+        "mean": 0.7274317076957288,
+        "median": 0.03827040867936342,
+        "minimum": 0.03349579692330515,
+        "maximum": 2.3750020545479247,
+        "p95": 2.242230408441437
+      },
+      "silhouette_residual_rms_px": {
+        "count": 9,
+        "mean": 1.4548634153914577,
+        "median": 0.07654081735872684,
+        "minimum": 0.0669915938466103,
+        "maximum": 4.750004109095849,
+        "p95": 4.484460816882874
+      },
+      "tactile_residual_rms_sigma": {
+        "count": 15,
+        "mean": 0.018026039342523906,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.11309869280104717,
+        "p95": 0.09845163416240277
+      },
+      "tactile_residual_rms_m": {
+        "count": 15,
+        "mean": 4.1459872497963435e-05,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0002585398300385601,
+        "p95": 0.00022673090133134942
+      },
+      "optimizer_condition_number": {
+        "count": 9,
+        "mean": 29.500961366829497,
+        "median": 25.575155688127815,
+        "minimum": 2.0933854785750685,
+        "maximum": 51.568869195108796,
+        "p95": 51.568869195108796
+      },
+      "optimizer_minimum_singular_value": {
+        "count": 21,
+        "mean": 17.070419678577423,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 153.73415701170111,
+        "p95": 95.65232535187525
+      },
+      "contact_count": {
+        "count": 21,
+        "mean": 3.0,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_sensor_count": {
+        "count": 21,
+        "mean": 3.0,
+        "median": 4.0,
+        "minimum": 0.0,
+        "maximum": 4.0,
+        "p95": 4.0
+      },
+      "unique_finger_count": {
+        "count": 21,
+        "mean": 2.2857142857142856,
+        "median": 3.0,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "p95": 3.0
+      },
+      "spatial_spread_m": {
+        "count": 21,
+        "mean": 0.06804272608486801,
+        "median": 0.09547863203504454,
+        "minimum": 0.0,
+        "maximum": 0.09563194062546124,
+        "p95": 0.09563194062546124
+      },
+      "tactile_coverage_condition": {
+        "count": 15,
+        "mean": 3.38844555177522,
+        "median": 3.2312846498112107,
+        "minimum": 3.0906080217798113,
+        "maximum": 3.76828301781188,
+        "p95": 3.747978931046819
+      },
+      "runtime_ms": {
+        "count": 27,
+        "mean": 7.0255553539566415,
+        "median": 6.930763833224773,
+        "minimum": 0.9240810759365559,
+        "maximum": 25.908387964591384,
+        "p95": 21.40362272039056
+      }
+    }
+  },
+  "v2_reliability_diagnostics": {
+    "raw_tactile_observation_count": {
+      "count": 27,
+      "mean": 85.0,
+      "median": 136.0,
+      "minimum": 0.0,
+      "maximum": 139.0,
+      "p95": 139.0
+    },
+    "effective_tactile_observation_count": {
+      "count": 27,
+      "mean": 2.6666666666666665,
+      "median": 4.0,
+      "minimum": 0.0,
+      "maximum": 4.0,
+      "p95": 4.0
+    },
+    "unreliable_segmentation_pixel_count": {
+      "count": 27,
+      "mean": 2094.296296296296,
+      "median": 1557.0,
+      "minimum": 1530.0,
+      "maximum": 7970.0,
+      "p95": 3111.0
+    },
+    "cross_modal_residual_rms_sigma": {
+      "count": 3,
+      "mean": 44.519964025922945,
+      "median": 42.14402005543189,
+      "minimum": 36.084205657574515,
+      "maximum": 55.33166636476241,
+      "p95": 54.01290173382936
+    },
+    "tactile_information_fraction_in_weak_rgb_direction": {
+      "count": 3,
+      "mean": 0.9995398002314841,
+      "median": 0.9995228601117923,
+      "minimum": 0.9994671762306125,
+      "maximum": 0.9996293643520477,
+      "p95": 0.9996187139280222
+    }
+  },
+  "per_condition": {
+    "camera_calibration_exploratory_2mm_1deg": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.15585590153932571,
+          "median": 0.15975977294147015,
+          "minimum": 0.13717287220060825,
+          "maximum": 0.17063505947589874,
+          "p95": 0.16954753082245588
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.6774025999598937,
+          "median": 0.6751927106792233,
+          "minimum": 0.668363034787852,
+          "maximum": 0.6886520544126057,
+          "p95": 0.6873061200392674
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0029465897017990866,
+          "median": 0.002936408031525377,
+          "minimum": 0.0029051666323891873,
+          "maximum": 0.002998194441482695,
+          "p95": 0.0029920158004869634
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.913657887191347,
+          "median": 2.913013726086412,
+          "minimum": 2.9043450970233935,
+          "maximum": 2.9236148384642364,
+          "p95": 2.922554727226454
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 62.16063411707836,
+          "median": 62.05588871667763,
+          "minimum": 61.98819901519274,
+          "maximum": 62.437814619364715,
+          "p95": 62.39962202909601
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.7963640989293714,
+          "median": 2.7943773174703437,
+          "minimum": 2.773247877914033,
+          "maximum": 2.821467101403737,
+          "p95": 2.8187581230103977
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 10.177045284459988,
+          "median": 10.636628838256001,
+          "minimum": 9.07779298722744,
+          "maximum": 10.816714027896523,
+          "p95": 10.798705508932471
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.1475476504613956,
+          "median": 0.14945189468562603,
+          "minimum": 0.1400420442223549,
+          "maximum": 0.15314901247620583,
+          "p95": 0.15277930069714785
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.12997770681977272,
+          "median": 0.13344804756343365,
+          "minimum": 0.12216507457196712,
+          "maximum": 0.1343199983239174,
+          "p95": 0.13423280324786901
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.09554090842618011,
+          "median": 0.09551215261803452,
+          "minimum": 0.09547863203504454,
+          "maximum": 0.09563194062546124,
+          "p95": 0.09561996182471856
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.394941515325325,
+          "median": 3.2312846498112107,
+          "minimum": 3.214262716588684,
+          "maximum": 3.739277179576079,
+          "p95": 3.688477926599592
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 1.1592473989973466,
+          "median": 1.1695660650730133,
+          "minimum": 1.1341599747538567,
+          "maximum": 1.1740161571651697,
+          "p95": 1.173571147955954
+        }
+      }
+    },
+    "clear_rgb_no_touch": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.035841442890599574,
+          "median": 0.034564175060708184,
+          "minimum": 0.034564175060708184,
+          "maximum": 0.03839597855038236,
+          "p95": 0.03801279820141494
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 0.07168288578119915,
+          "median": 0.06912835012141637,
+          "minimum": 0.06912835012141637,
+          "maximum": 0.07679195710076472,
+          "p95": 0.07602559640282988
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 36.5852740709044,
+          "median": 26.642896999402932,
+          "minimum": 26.642896999402932,
+          "maximum": 56.47002821390733,
+          "p95": 53.48731509245688
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 3.9893263687448886,
+          "median": 4.630852984588173,
+          "minimum": 2.7062731370583184,
+          "maximum": 4.630852984588173,
+          "p95": 4.630852984588173
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 4.126778260494272,
+          "median": 3.218958852812648,
+          "minimum": 2.8728649485856295,
+          "maximum": 6.2885109800845385,
+          "p95": 5.981555767357349
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.022111926227808,
+          "median": 0.022302847355604172,
+          "minimum": 0.019273953512310982,
+          "maximum": 0.024758977815508842,
+          "p95": 0.024513364769518375
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.011108039567867914,
+          "median": 0.010899966582655907,
+          "minimum": 0.009395182132720947,
+          "maximum": 0.01302896998822689,
+          "p95": 0.012816069647669792
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.007569945106903712,
+          "median": 0.007660826668143272,
+          "minimum": 0.006560003384947777,
+          "maximum": 0.008489005267620087,
+          "p95": 0.008406187407672405
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.035087334175353015,
+          "median": 0.033495796923390476,
+          "minimum": 0.03349579692330515,
+          "maximum": 0.03827040867936342,
+          "p95": 0.037792947503766126
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 0.07017466835070603,
+          "median": 0.06699159384678095,
+          "minimum": 0.0669915938466103,
+          "maximum": 0.07654081735872684,
+          "p95": 0.07558589500753225
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 34.05061390875501,
+          "median": 25.575155688127815,
+          "minimum": 25.007816867303134,
+          "maximum": 51.56886917083409,
+          "p95": 48.96949782256346
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 4.191698383973253,
+          "median": 4.762870568163913,
+          "minimum": 2.9413007446731525,
+          "maximum": 4.8709238390826926,
+          "p95": 4.860118511990814
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 9.42354858852923,
+          "median": 8.245030883699656,
+          "minimum": 8.083087857812643,
+          "maximum": 11.942527024075389,
+          "p95": 11.572777410037816
+        }
+      }
+    },
+    "clustered_single_finger_tactile": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 19.0,
+          "median": 18.0,
+          "minimum": 17.0,
+          "maximum": 22.0,
+          "p95": 21.6
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.007370737889449988,
+          "median": 0.007341488235381376,
+          "minimum": 0.00682987602156806,
+          "maximum": 0.00794084941140053,
+          "p95": 0.007880913293798614
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.05392264574766159,
+          "median": 0.052756862714886665,
+          "minimum": 0.05105300806462765,
+          "maximum": 0.05795806646347046,
+          "p95": 0.05743794608861208
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 19.0,
+          "median": 18.0,
+          "minimum": 17.0,
+          "maximum": 22.0,
+          "p95": 21.6
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.007370737889449988,
+          "median": 0.007341488235381376,
+          "minimum": 0.00682987602156806,
+          "maximum": 0.00794084941140053,
+          "p95": 0.007880913293798614
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 12.81167044078021,
+          "median": 12.56629608594604,
+          "minimum": 12.336097744616204,
+          "maximum": 13.53261749177838,
+          "p95": 13.435985351195146
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.07322865227858226,
+          "median": 0.07422198541462421,
+          "minimum": 0.06910483352839947,
+          "maximum": 0.07635913789272308,
+          "p95": 0.0761454226449132
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 19.0,
+          "median": 18.0,
+          "minimum": 17.0,
+          "maximum": 22.0,
+          "p95": 21.6
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.007370737889449988,
+          "median": 0.007341488235381376,
+          "minimum": 0.00682987602156806,
+          "maximum": 0.00794084941140053,
+          "p95": 0.007880913293798614
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 12.81167044078021,
+          "median": 12.56629608594604,
+          "minimum": 12.336097744616204,
+          "maximum": 13.53261749177838,
+          "p95": 13.435985351195146
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.05688137995700041,
+          "median": 0.05695503205060959,
+          "minimum": 0.05659600719809532,
+          "maximum": 0.05709310062229633,
+          "p95": 0.05707929376512766
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 19.0,
+          "median": 18.0,
+          "minimum": 17.0,
+          "maximum": 22.0,
+          "p95": 21.6
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.007370737889449988,
+          "median": 0.007341488235381376,
+          "minimum": 0.00682987602156806,
+          "maximum": 0.00794084941140053,
+          "p95": 0.007880913293798614
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 12.81167044078021,
+          "median": 12.56629608594604,
+          "minimum": 12.336097744616204,
+          "maximum": 13.53261749177838,
+          "p95": 13.435985351195146
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.04789644541839758,
+          "median": 0.047504203394055367,
+          "minimum": 0.04677497781813145,
+          "maximum": 0.04941015504300594,
+          "p95": 0.049219559878110886
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "unique_sensor_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "unique_finger_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "spatial_spread_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 7.1272893498341245,
+          "median": 6.930763833224773,
+          "minimum": 6.80487509816885,
+          "maximum": 7.646229118108749,
+          "p95": 7.574682589620352
+        }
+      }
+    },
+    "controlled_artificial_mask_degradation": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 1.0145006809808954,
+          "median": 1.0083181550579334,
+          "minimum": 0.9592763903065914,
+          "maximum": 1.075907497578161,
+          "p95": 1.0691485633261384
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 2.029001361961791,
+          "median": 2.016636310115867,
+          "minimum": 1.9185527806131828,
+          "maximum": 2.151814995156322,
+          "p95": 2.138297126652277
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 12.399723435069129,
+          "median": 12.218832254415178,
+          "minimum": 11.676400060532181,
+          "maximum": 13.303937990260026,
+          "p95": 13.19542741667554
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 7.9789148401829335,
+          "median": 8.31086146076928,
+          "minimum": 7.179241288067298,
+          "maximum": 8.446641771712223,
+          "p95": 8.433063740617929
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 14.478431481557456,
+          "median": 13.266406792636555,
+          "minimum": 12.905411325812462,
+          "maximum": 17.26347632622335,
+          "p95": 16.86376937286467
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 4.406616324558854,
+          "median": 4.194978857412934,
+          "minimum": 2.7150949463248253,
+          "maximum": 6.309775169938803,
+          "p95": 6.098295538686216
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.6774025999598937,
+          "median": 0.6751927106792233,
+          "minimum": 0.668363034787852,
+          "maximum": 0.6886520544126057,
+          "p95": 0.6873061200392674
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0029465897017990866,
+          "median": 0.002936408031525377,
+          "minimum": 0.0029051666323891873,
+          "maximum": 0.002998194441482695,
+          "p95": 0.0029920158004869634
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.913657887191347,
+          "median": 2.913013726086412,
+          "minimum": 2.9043450970233935,
+          "maximum": 2.9236148384642364,
+          "p95": 2.922554727226454
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 62.16063411707836,
+          "median": 62.05588871667763,
+          "minimum": 61.98819901519274,
+          "maximum": 62.437814619364715,
+          "p95": 62.39962202909601
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.7963640989293714,
+          "median": 2.7943773174703437,
+          "minimum": 2.773247877914033,
+          "maximum": 2.821467101403737,
+          "p95": 2.8187581230103977
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 10.305014982198676,
+          "median": 10.465644067153335,
+          "minimum": 8.742777863517404,
+          "maximum": 11.706623015925288,
+          "p95": 11.582525121048093
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 2.764075877664517,
+          "median": 2.860307341070491,
+          "minimum": 2.4150814590380616,
+          "maximum": 3.016838832884999,
+          "p95": 3.0011856837035484
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 5.528151755329034,
+          "median": 5.720614682140982,
+          "minimum": 4.830162918076123,
+          "maximum": 6.033677665769998,
+          "p95": 6.002371367407097
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 3.3070710586689778,
+          "median": 3.3401986732379547,
+          "minimum": 3.1873179802067515,
+          "maximum": 3.393696522562227,
+          "p95": 3.3883467376297998
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.013915097300899506,
+          "median": 0.014086654832511272,
+          "minimum": 0.013397056522856875,
+          "maximum": 0.014261580547330371,
+          "p95": 0.014244087975848462
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 1.4089739841426292,
+          "median": 1.4268909603218987,
+          "minimum": 1.3307814037336976,
+          "maximum": 1.4692495883722916,
+          "p95": 1.4650137255672522
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 139.17487162532206,
+          "median": 137.91503506200485,
+          "minimum": 132.3603399541892,
+          "maximum": 147.2492398597721,
+          "p95": 146.3158193799954
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.4628749390295233,
+          "median": 2.431888384836917,
+          "minimum": 2.2980215456655895,
+          "maximum": 2.658714886586064,
+          "p95": 2.636032236411149
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 120.34944638920327,
+          "median": 135.61937515623868,
+          "minimum": 67.6183090545237,
+          "maximum": 157.81065495684743,
+          "p95": 155.59152697678655
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 2.130785349139455,
+          "median": 2.0869374161063567,
+          "minimum": 1.8983358891528344,
+          "maximum": 2.4070827421591736,
+          "p95": 2.3750682095538918
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 4.26157069827891,
+          "median": 4.1738748322127135,
+          "minimum": 3.7966717783056687,
+          "maximum": 4.814165484318347,
+          "p95": 4.7501364191077835
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.20235002570493124,
+          "median": 0.21033665125294712,
+          "minimum": 0.11213932365343064,
+          "maximum": 0.284574102208416,
+          "p95": 0.2771503571128691
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.00046749161287622893,
+          "median": 0.000488755320204625,
+          "minimum": 0.0002562533321801888,
+          "maximum": 0.0006574661862438729,
+          "p95": 0.0006405950996399481
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.1619270879996857,
+          "median": 2.1680531765799307,
+          "minimum": 2.081077114063827,
+          "maximum": 2.2366509733553,
+          "p95": 2.229791193677763
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 87.13684452099263,
+          "median": 86.46080116640468,
+          "minimum": 80.01092903812322,
+          "maximum": 94.93880335844999,
+          "p95": 94.09100313924546
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.8307069907144644,
+          "median": 2.8409072063366065,
+          "minimum": 2.7661012565119134,
+          "maximum": 2.885112509294874,
+          "p95": 2.8806919789990473
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 107.4868686652432,
+          "median": 94.66772596351802,
+          "minimum": 81.19302801787853,
+          "maximum": 146.599852014333,
+          "p95": 141.4066394092515
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 2.1089373802324736,
+          "median": 2.0430729392817057,
+          "minimum": 1.9087371468677896,
+          "maximum": 2.3750020545479247,
+          "p95": 2.341809143021303
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 4.217874760464947,
+          "median": 4.0861458785634115,
+          "minimum": 3.8174742937355792,
+          "maximum": 4.750004109095849,
+          "p95": 4.683618286042606
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.09013019671261953,
+          "median": 0.09217432331726948,
+          "minimum": 0.06511757401954196,
+          "maximum": 0.11309869280104717,
+          "p95": 0.1110062558526694
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0002072993624898172,
+          "median": 0.00021309850331397348,
+          "minimum": 0.000150259754116918,
+          "maximum": 0.0002585398300385601,
+          "p95": 0.0002539956973661014
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.883400998901209,
+          "median": 3.125028398822177,
+          "minimum": 2.0933854785750685,
+          "maximum": 3.4317891193063805,
+          "p95": 3.4011130472579603
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 112.35993862277932,
+          "median": 95.65232535187525,
+          "minimum": 87.69333350476161,
+          "maximum": 153.73415701170111,
+          "p95": 147.92597384571852
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.09554090842618011,
+          "median": 0.09551215261803452,
+          "minimum": 0.09547863203504454,
+          "maximum": 0.09563194062546124,
+          "p95": 0.09561996182471856
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.4600573084135178,
+          "median": 3.3121454783316704,
+          "minimum": 3.2997434290970036,
+          "maximum": 3.76828301781188,
+          "p95": 3.722669263863859
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 22.86418395427366,
+          "median": 21.495933877304196,
+          "minimum": 21.188230020925403,
+          "maximum": 25.908387964591384,
+          "p95": 25.467142555862665
+        }
+      }
+    },
+    "partial_actual_hand_occlusion": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.038395978550380704,
+          "median": 0.03839597855037914,
+          "minimum": 0.03839597855037914,
+          "maximum": 0.03839597855038384,
+          "p95": 0.03839597855038337
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 0.07679195710076141,
+          "median": 0.07679195710075828,
+          "minimum": 0.07679195710075828,
+          "maximum": 0.07679195710076768,
+          "p95": 0.07679195710076674
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 56.47002819968091,
+          "median": 56.47002819865457,
+          "minimum": 56.47002819865457,
+          "maximum": 56.47002820173359,
+          "p95": 56.47002820142569
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 2.7062731376399185,
+          "median": 2.706273137747485,
+          "minimum": 2.7062731374247853,
+          "maximum": 2.706273137747485,
+          "p95": 2.706273137747485
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 6.333333333333333,
+          "median": 6.0,
+          "minimum": 5.0,
+          "maximum": 8.0,
+          "p95": 7.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0028972815306004414,
+          "median": 0.002753118292255178,
+          "minimum": 0.002191783065962131,
+          "maximum": 0.0037469432335840137,
+          "p95": 0.00364756073945113
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 524.4710689969921,
+          "median": 463.152943165336,
+          "minimum": 403.43332348491924,
+          "maximum": 706.8269403407211,
+          "p95": 682.4595406231825
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 5.4114507511258125,
+          "median": 5.31244813464582,
+          "minimum": 5.231959978118539,
+          "maximum": 5.689944140613079,
+          "p95": 5.652194540016353
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 6.333333333333333,
+          "median": 6.0,
+          "minimum": 5.0,
+          "maximum": 8.0,
+          "p95": 7.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0028972815306004414,
+          "median": 0.002753118292255178,
+          "minimum": 0.002191783065962131,
+          "maximum": 0.0037469432335840137,
+          "p95": 0.00364756073945113
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3420.33833214353,
+          "median": 3507.047903945947,
+          "minimum": 224.21043900240394,
+          "maximum": 6529.756653482238,
+          "p95": 6227.4857785286085
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.056544008354345955,
+          "median": 0.05789007991552353,
+          "minimum": 0.052819959819316864,
+          "maximum": 0.05892198532819748,
+          "p95": 0.058818794786930084
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 6.333333333333333,
+          "median": 6.0,
+          "minimum": 5.0,
+          "maximum": 8.0,
+          "p95": 7.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0028972815306004414,
+          "median": 0.002753118292255178,
+          "minimum": 0.002191783065962131,
+          "maximum": 0.0037469432335840137,
+          "p95": 0.00364756073945113
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 4434.0246589711805,
+          "median": 4356.176933646678,
+          "minimum": 3564.3512843407393,
+          "maximum": 5381.545758926124,
+          "p95": 5279.008876398179
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.04477969681223234,
+          "median": 0.046201981604099274,
+          "minimum": 0.03952905535697937,
+          "maximum": 0.04860805347561836,
+          "p95": 0.048367446288466454
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 6.333333333333333,
+          "median": 6.0,
+          "minimum": 5.0,
+          "maximum": 8.0,
+          "p95": 7.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0028972815306004414,
+          "median": 0.002753118292255178,
+          "minimum": 0.002191783065962131,
+          "maximum": 0.0037469432335840137,
+          "p95": 0.00364756073945113
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 4434.0246589711805,
+          "median": 4356.176933646678,
+          "minimum": 3564.3512843407393,
+          "maximum": 5381.545758926124,
+          "p95": 5279.008876398179
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.039254315197467804,
+          "median": 0.04101404920220375,
+          "minimum": 0.0356980599462986,
+          "maximum": 0.04105083644390106,
+          "p95": 0.04104715771973133
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.038270408679360414,
+          "median": 0.03827040867935803,
+          "minimum": 0.03827040867935803,
+          "maximum": 0.03827040867936521,
+          "p95": 0.03827040867936449
+        },
+        "silhouette_residual_rms_px": {
+          "count": 3,
+          "mean": 0.07654081735872083,
+          "median": 0.07654081735871605,
+          "minimum": 0.07654081735871605,
+          "maximum": 0.07654081735873042,
+          "p95": 0.07654081735872897
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 51.56886919283227,
+          "median": 51.568869195108796,
+          "minimum": 51.5688691882792,
+          "maximum": 51.568869195108796,
+          "p95": 51.568869195108796
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 2.9413007432893763,
+          "median": 2.9413007432374205,
+          "minimum": 2.9413007432374205,
+          "maximum": 2.9413007433932874,
+          "p95": 2.9413007433777008
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0,
+          "p95": 1.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 12.283301291366419,
+          "median": 12.08293391391635,
+          "minimum": 11.945925885811448,
+          "maximum": 12.821044074371457,
+          "p95": 12.747233058325946
+        }
+      }
+    },
+    "sensor_mount_exploratory_2mm_3deg": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10231116260263644,
+          "median": 0.10230161615451915,
+          "minimum": 0.10192693057563829,
+          "maximum": 0.10270494107775187,
+          "p95": 0.1026646085854286
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.13315933756530285,
+          "median": 0.1351840328425169,
+          "minimum": 0.1263059675693512,
+          "maximum": 0.13798801228404045,
+          "p95": 0.1377076143398881
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.6284732217462246,
+          "median": 0.6301187157718046,
+          "minimum": 0.6143236004317355,
+          "maximum": 0.6409773490351337,
+          "p95": 0.6398914857088008
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.002767287025243854,
+          "median": 0.0027741493361540873,
+          "minimum": 0.0027039519899350606,
+          "maximum": 0.002823759749642414,
+          "p95": 0.0028187987082935813
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 3.1047679700738713,
+          "median": 3.102834299822416,
+          "minimum": 3.098521575543994,
+          "maximum": 3.1129480348552043,
+          "p95": 3.1119366613519253
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 57.8002328476411,
+          "median": 57.74455381219767,
+          "minimum": 57.69137167051018,
+          "maximum": 57.96477306021544,
+          "p95": 57.942751135413666
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10231116260263644,
+          "median": 0.10230161615451915,
+          "minimum": 0.10192693057563829,
+          "maximum": 0.10270494107775187,
+          "p95": 0.1026646085854286
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9741102742582206,
+          "median": 2.970479986926016,
+          "minimum": 2.9546443445741035,
+          "maximum": 2.997206491274541,
+          "p95": 2.994533840839688
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 9.487913300593695,
+          "median": 9.759112959727645,
+          "minimum": 8.8217300362885,
+          "maximum": 9.882896905764937,
+          "p95": 9.870518511161208
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10231116260263644,
+          "median": 0.10230161615451915,
+          "minimum": 0.10192693057563829,
+          "maximum": 0.10270494107775187,
+          "p95": 0.1026646085854286
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.0959106380453227,
+          "median": 3.105020498423104,
+          "minimum": 3.0437129268496124,
+          "maximum": 3.138998488863251,
+          "p95": 3.1356006898192366
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.1379069872200489,
+          "median": 0.14222599565982819,
+          "minimum": 0.12760795652866364,
+          "maximum": 0.1438870094716549,
+          "p95": 0.14372090809047222
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.10231116260263644,
+          "median": 0.10230161615451915,
+          "minimum": 0.10192693057563829,
+          "maximum": 0.10270494107775187,
+          "p95": 0.1026646085854286
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.0959106380453227,
+          "median": 3.105020498423104,
+          "minimum": 3.0437129268496124,
+          "maximum": 3.138998488863251,
+          "p95": 3.1356006898192366
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.12462764667967956,
+          "median": 0.12423214502632618,
+          "minimum": 0.12077693827450275,
+          "maximum": 0.12887385673820972,
+          "p95": 0.12840968556702137
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.09413544888935581,
+          "median": 0.09409391791788438,
+          "minimum": 0.09407276078035874,
+          "maximum": 0.09423966796982426,
+          "p95": 0.09422509296463027
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.297345904486606,
+          "median": 3.121253651431045,
+          "minimum": 3.0906080217798113,
+          "maximum": 3.6801760402489614,
+          "p95": 3.6242838013671697
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 1.0756457534929116,
+          "median": 1.1251370888203382,
+          "minimum": 0.9240810759365559,
+          "maximum": 1.1777190957218409,
+          "p95": 1.1724608950316906
+        }
+      }
+    },
+    "spatially_diverse_tactile": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.14276104047894478,
+          "median": 0.14533009380102158,
+          "minimum": 0.130373053252697,
+          "maximum": 0.15257997438311577,
+          "p95": 0.15185498632490635
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.6774025999598937,
+          "median": 0.6751927106792233,
+          "minimum": 0.668363034787852,
+          "maximum": 0.6886520544126057,
+          "p95": 0.6873061200392674
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0029465897017990866,
+          "median": 0.002936408031525377,
+          "minimum": 0.0029051666323891873,
+          "maximum": 0.002998194441482695,
+          "p95": 0.0029920158004869634
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.913657887191347,
+          "median": 2.913013726086412,
+          "minimum": 2.9043450970233935,
+          "maximum": 2.9236148384642364,
+          "p95": 2.922554727226454
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 62.16063411707836,
+          "median": 62.05588871667763,
+          "minimum": 61.98819901519274,
+          "maximum": 62.437814619364715,
+          "p95": 62.39962202909601
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.7963640989293714,
+          "median": 2.7943773174703437,
+          "minimum": 2.773247877914033,
+          "maximum": 2.821467101403737,
+          "p95": 2.8187581230103977
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 10.525737423449755,
+          "median": 10.780662996694446,
+          "minimum": 9.413669118657708,
+          "maximum": 11.38288015499711,
+          "p95": 11.322658439166844
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.13357866555452347,
+          "median": 0.13538403436541557,
+          "minimum": 0.12755696661770344,
+          "maximum": 0.1377949956804514,
+          "p95": 0.1375538995489478
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.12275964642564456,
+          "median": 0.12247986160218716,
+          "minimum": 0.11894595809280872,
+          "maximum": 0.1268531195819378,
+          "p95": 0.12641579378396273
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.09554090842618011,
+          "median": 0.09551215261803452,
+          "minimum": 0.09547863203504454,
+          "maximum": 0.09563194062546124,
+          "p95": 0.09561996182471856
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.394941515325325,
+          "median": 3.2312846498112107,
+          "minimum": 3.214262716588684,
+          "maximum": 3.739277179576079,
+          "p95": 3.688477926599592
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 1.1373610080530245,
+          "median": 1.121066976338625,
+          "minimum": 1.1209379881620407,
+          "maximum": 1.1700780596584082,
+          "p95": 1.1651769513264298
+        }
+      }
+    },
+    "strong_actual_hand_occlusion": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.14423897179464498,
+          "median": 0.1519478391855955,
+          "minimum": 0.1241310965269804,
+          "maximum": 0.15663797967135906,
+          "p95": 0.1561689656227827
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.6774025999598937,
+          "median": 0.6751927106792233,
+          "minimum": 0.668363034787852,
+          "maximum": 0.6886520544126057,
+          "p95": 0.6873061200392674
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0029465897017990866,
+          "median": 0.002936408031525377,
+          "minimum": 0.0029051666323891873,
+          "maximum": 0.002998194441482695,
+          "p95": 0.0029920158004869634
+        },
+        "optimizer_condition_number": {
+          "count": 3,
+          "mean": 2.913657887191347,
+          "median": 2.913013726086412,
+          "minimum": 2.9043450970233935,
+          "maximum": 2.9236148384642364,
+          "p95": 2.922554727226454
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 62.16063411707836,
+          "median": 62.05588871667763,
+          "minimum": 61.98819901519274,
+          "maximum": 62.437814619364715,
+          "p95": 62.39962202909601
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.7963640989293714,
+          "median": 2.7943773174703437,
+          "minimum": 2.773247877914033,
+          "maximum": 2.821467101403737,
+          "p95": 2.8187581230103977
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 9.893175680190325,
+          "median": 10.011743055656552,
+          "minimum": 8.928852155804634,
+          "maximum": 10.738931829109788,
+          "p95": 10.666212951764464
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.13445038348436356,
+          "median": 0.13568787835538387,
+          "minimum": 0.11631520465016365,
+          "maximum": 0.15134806744754314,
+          "p95": 0.14978204853832722
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 137.33333333333334,
+          "median": 137.0,
+          "minimum": 136.0,
+          "maximum": 139.0,
+          "p95": 138.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.1033348586381652,
+          "median": 0.10332405485125021,
+          "minimum": 0.10297432528863709,
+          "maximum": 0.10370619577460828,
+          "p95": 0.10366798168227247
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 2.9700563983963097,
+          "median": 2.9855313803949732,
+          "minimum": 2.905679158684306,
+          "maximum": 3.0189586561096506,
+          "p95": 3.0156159285381827
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.12637930922210217,
+          "median": 0.12426008470356464,
+          "minimum": 0.10739592835307121,
+          "maximum": 0.14748191460967064,
+          "p95": 0.14515973161906004
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "tactile_residual_rms_m": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "p95": 0.0
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0,
+          "p95": 4.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "p95": 3.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.09554090842618011,
+          "median": 0.09551215261803452,
+          "minimum": 0.09547863203504454,
+          "maximum": 0.09563194062546124,
+          "p95": 0.09561996182471856
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 3.394941515325325,
+          "median": 3.2312846498112107,
+          "minimum": 3.214262716588684,
+          "maximum": 3.739277179576079,
+          "p95": 3.688477926599592
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 1.1241047953565915,
+          "median": 1.1047681327909231,
+          "minimum": 1.0465101804584265,
+          "maximum": 1.221036072820425,
+          "p95": 1.2094092788174748
+        }
+      }
+    },
+    "tactile_channel_dropout_50_percent": {
+      "rgb_only": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 53.0,
+          "median": 54.0,
+          "minimum": 49.0,
+          "maximum": 56.0,
+          "p95": 55.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.06267920423198801,
+          "median": 0.0624926924933759,
+          "minimum": 0.06225939469883968,
+          "maximum": 0.06328552550374845,
+          "p95": 0.0632062422027112
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.07687796217699845,
+          "median": 0.07350998930633068,
+          "minimum": 0.07278285920619965,
+          "maximum": 0.08434103801846504,
+          "p95": 0.0832579331472516
+        }
+      },
+      "tactile_only_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 53.0,
+          "median": 54.0,
+          "minimum": 49.0,
+          "maximum": 56.0,
+          "p95": 55.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.06267920423198801,
+          "median": 0.0624926924933759,
+          "minimum": 0.06225939469883968,
+          "maximum": 0.06328552550374845,
+          "p95": 0.0632062422027112
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 9.634860623038323,
+          "median": 9.58829612031287,
+          "minimum": 8.618282262650814,
+          "maximum": 10.69800348615129,
+          "p95": 10.587032749567447
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.09465566836297512,
+          "median": 0.0882039312273264,
+          "minimum": 0.08752802386879921,
+          "maximum": 0.10823504999279976,
+          "p95": 0.10623193811625242
+        }
+      },
+      "fusion_representative": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 53.0,
+          "median": 54.0,
+          "minimum": 49.0,
+          "maximum": 56.0,
+          "p95": 55.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.06267920423198801,
+          "median": 0.0624926924933759,
+          "minimum": 0.06225939469883968,
+          "maximum": 0.06328552550374845,
+          "p95": 0.0632062422027112
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 9.634860623038323,
+          "median": 9.58829612031287,
+          "minimum": 8.618282262650814,
+          "maximum": 10.69800348615129,
+          "p95": 10.587032749567447
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.07720796080927055,
+          "median": 0.07348693907260895,
+          "minimum": 0.07304991595447063,
+          "maximum": 0.08508702740073204,
+          "p95": 0.08392701856791973
+        }
+      },
+      "fusion_finite_patch": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 3,
+          "mean": 53.0,
+          "median": 54.0,
+          "minimum": 49.0,
+          "maximum": 56.0,
+          "p95": 55.8
+        },
+        "unique_sensor_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "unique_finger_count": {
+          "count": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "p95": 2.0
+        },
+        "spatial_spread_m": {
+          "count": 3,
+          "mean": 0.06267920423198801,
+          "median": 0.0624926924933759,
+          "minimum": 0.06225939469883968,
+          "maximum": 0.06328552550374845,
+          "p95": 0.0632062422027112
+        },
+        "tactile_coverage_condition": {
+          "count": 3,
+          "mean": 9.634860623038323,
+          "median": 9.58829612031287,
+          "minimum": 8.618282262650814,
+          "maximum": 10.69800348615129,
+          "p95": 10.587032749567447
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 0.06900300892690818,
+          "median": 0.06753578782081604,
+          "minimum": 0.0649280846118927,
+          "maximum": 0.07454515434801579,
+          "p95": 0.07384421769529581
+        }
+      },
+      "reliability_aware_fusion_v2": {
+        "vision_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "silhouette_residual_rms_px": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_sigma": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_residual_rms_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_condition_number": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "optimizer_minimum_singular_value": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "contact_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "unique_sensor_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "unique_finger_count": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "spatial_spread_m": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "tactile_coverage_condition": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null,
+          "p95": null
+        },
+        "runtime_ms": {
+          "count": 3,
+          "mean": 7.0353160457064705,
+          "median": 6.950918817892671,
+          "minimum": 6.941614206880331,
+          "maximum": 7.213415112346411,
+          "p95": 7.187165482901037
+        }
+      }
+    }
+  },
+  "calibration_sensitivity_note": "Camera and sensor-mount perturbations share the already-invalid strong-occlusion baseline for v2, so incremental v2 accuracy sensitivity is not identifiable; the failure floor is preserved rather than omitted.",
+  "local_uncertainty_warning": "Jacobian covariance/condition diagnostics are local model quantities, not complete real-world uncertainty or guaranteed accuracy."
+}

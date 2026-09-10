@@ -325,6 +325,20 @@ transport, but no hardware camera driver or fabricated image source exists.
 Sensor mounting/calibration remains independent of simulation contact geometry. See
 [`docs/robot_data_provider.md`](docs/robot_data_provider.md).
 
+The bottom-right selector now includes **E · Reliability-aware Fusion v2**. It
+deduplicates held observations by named sensor, treats unreliable RGB regions as
+unknown, checks modality observability/cross-consistency/complementarity, and
+labels genuine fusion, RGB fallback, tactile fallback, or invalid explicitly.
+In the frozen 27-case study E was valid in 9 cases versus 3 for each v1 fusion
+mode, mainly because its RGB fallbacks are explicit. The all-method paired
+comparison was limited to three artificially damaged-mask cases: E beat v1
+representative fusion but remained 3.42 mm worse than v1 finite-patch fusion and
+was invalid under actual strong occlusion. This mixed/negative result and all diagnostics are preserved in
+[`docs/reliability_aware_fusion_v2.md`](docs/reliability_aware_fusion_v2.md).
+The future object-centric interface—without implementing a general reconstructor
+or regrasp—is documented in
+[`docs/general_object_research_interface.md`](docs/general_object_research_interface.md).
+
 ### Calibrated research RGB baseline
 
 Choose `Research RGB Camera` in the top-left view selector to see the fixed,
@@ -586,7 +600,7 @@ strict reconstruction serialization, separate evaluation serialization, and
 buffer reset. They also cover four complete URDF-limited grasp presets, negative
 right-thumb opposition, actuator-only staging, named-preset save/reload, all-18
 channel telemetry, active-state agreement, and a settling multi-sensor 40 mm
-grasp. The current automated suite reports 147 passed tests with three opt-in
+grasp. The current automated suite reports 177 passed tests with three opt-in
 browser tests skipped by default; those three Chromium/HTTP/WebSocket tests also
 pass when run explicitly. Manual visual acceptance remains open: confirm the posture and red/table
 agreement in the GUI, explore the sphere with several configurations, fit it,
@@ -621,9 +635,10 @@ penetration have not been scientifically validated.
   remote repository includes `assets/`; see
   [docs/repository_snapshot_plan.md](docs/repository_snapshot_plan.md).
 
-The current milestone stops at explainability, paired evaluation, exploratory
-sim-to-real sensitivity, and a read-only real-hardware protocol. It does not
-start neural fusion or real motor control.
+The current milestone stops at reliability-aware geometric Fusion v2, its
+negative/ablation results, and future object-centric interface documentation. It
+does not start neural fusion, general-object reconstruction, regrasp, on-device
+deployment, or real motor control.
 
 ## Layout
 

@@ -31,6 +31,14 @@ The required registry-to-link mapping is: Finger01 Link02/Link03/Tip to
 channel or bus address corresponding to each name is still required from the
 real system and must be recorded in a versioned mapping before collection.
 
+Reliability-aware fusion additionally requires every tactile update to retain a
+monotonic acquisition sequence or source timestamp so that a held display value
+cannot be mistaken for a fresh independent measurement. Record the sensor-mount
+and response-calibration version used for each session. Measured mount covariance,
+response repeatability, and camera intrinsic/extrinsic covariance should replace
+the explicitly exploratory simulation uncertainty values; missing uncertainty
+must remain labeled unknown rather than being fabricated.
+
 Joint, tactile scan, and RGB timestamps must be source measurement timestamps in
 one documented monotonic time base—not packet reception times. Measure tick
 frequency, epoch/reset/wrap, drift, latency, and jitter. Collect encoder samples
@@ -75,7 +83,7 @@ timing event. Do not reuse the MuJoCo calibration for real images.
    and receive-time diagnostics.
 5. Check all IDs/units, monotonic timestamps, encoder brackets, dropout, saturation,
    and sensor normal directions before running any reconstruction.
-6. Run A–D offline on a frozen log. Keep object truth inaccessible to fusion and
+6. Run A–E offline on a frozen log. Keep object truth inaccessible to fusion and
    join evaluation by case ID. Report all-attempt success plus common-valid paired
    errors and calibration/timing uncertainty.
 7. Repeat across sessions and mount/remount cycles. Compare against the exploratory

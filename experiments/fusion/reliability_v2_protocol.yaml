@@ -1,0 +1,44 @@
+schema_version: 1
+protocol_version: reliability-aware-fusion-v2-preregistered-20260909
+baseline_commit: 1ccb18fbfb572f9b61e915c244b47f70d0b91e8d
+parameter_selection: analytic_uncertainty_and_observability_only_no_ground_truth_error_tuning
+trial_count: 3
+fixed_seed_policy: sha256_labels_for_deterministic_perturbation_directions
+object:
+  geometry: sphere
+  radius_m: 0.04
+  diameter_m: 0.08
+  radius_role: declared_known_radius_prior_not_estimated
+grasp:
+  configuration: user_approved_sphere_40mm
+  experiment_mode: fixed_contact_diagnostic
+conditions:
+  - clear_rgb_no_touch
+  - partial_actual_hand_occlusion
+  - strong_actual_hand_occlusion
+  - controlled_artificial_mask_degradation
+  - spatially_diverse_tactile
+  - clustered_single_finger_tactile
+  - tactile_channel_dropout_50_percent
+  - camera_calibration_exploratory_2mm_1deg
+  - sensor_mount_exploratory_2mm_3deg
+methods:
+  A: rgb_only
+  B: tactile_only_representative
+  C: fusion_v1_representative
+  D: fusion_v1_finite_patch
+  E: reliability_aware_fusion_v2
+ablations:
+  - full_v2
+  - no_cross_modal_gate
+  - representative_instead_of_finite_patch
+  - no_uncertainty_normalization_unit_mismatched_diagnostic_only
+evaluation:
+  join_key: trial_XX_condition
+  primary: all_attempt_success_and_common_valid_paired_center_error
+  secondary: per_condition_mean_median_distribution_residual_coverage_condition_runtime
+  truth_boundary: MuJoCo_center_and_visible_segmentation_only_after_algorithm_result
+  preserve_failures: true
+  radius_error: forbidden_because_radius_is_supplied
+perturbation_status: exploratory_not_hardware_justified
+stopping_rule: run_frozen_three_trials_once_and_report_all_results_without_metric_driven_retuning
