@@ -1,0 +1,33 @@
+{
+  "recorded_for": "lightweight-learned-visuotactile-neural-sdf-v1",
+  "parent_commit": "4978129441fa06306a1ffd1a2453bbe2715dd66f",
+  "branch": "research/learned-visuotactile-neural-sdf-v1",
+  "baseline_tests_before_implementation": {
+    "passed": 188,
+    "skipped": 3,
+    "total_collected": 191
+  },
+  "training_environment": {
+    "python": "3.10.19",
+    "pytorch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "cuda_build": "12.8",
+    "cuda_available": false,
+    "python_executable": "/home/jake/Isaac-GR00T-n17/.venv/bin/python"
+  },
+  "simulation_test_environment": {
+    "python": "3.12.3",
+    "mujoco": "3.12.0",
+    "python_executable": "/home/jake/tactile_shape_reconstruction/.venv/bin/python"
+  },
+  "sha256": {
+    "neural_config_v1_yaml": "3f8ba5731eb0d9205e0f50de5c0fe31ad16735e2c98dbe3a78a17a4ae403c41e",
+    "neural_protocol_v1_yaml": "ea303d1930af0645ff605e61ae464884ac670b5494181ac46e6e65ddcef734cb",
+    "neural_dataset_manifest_v1_json": "4ca2073f8f41f912d0a916672e1d3edb4439e599de11b5b9ea625e1ce4988423",
+    "resnet18_weights": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+    "general_object_protocol_v1_yaml": "1ffa07c0aea978a7602cd5eecb490941ef6e174ef2995d92949ba55c69c79861",
+    "general_object_config_v1_yaml": "fbfd1c4454e54278571722f3b10a0ea9e238fc292c1e5e7161f87f9e2a6a1969"
+  },
+  "implicit_downloads": false,
+  "execution_note": "Frozen pretrained weights were loaded only from the explicit local SHA-verified file. Training and evaluation ran on CPU."
+}

@@ -19,7 +19,7 @@ import pytest
 
 pytestmark = pytest.mark.skipif(os.environ.get("RUN_BROWSER_TESTS") != "1", reason="Opt-in Chromium validation")
 ROOT = Path(__file__).parents[1]
-BUILD_ID = "general-object-sdf-v1-20260910.1"
+BUILD_ID = "learned-neural-sdf-v1-20260911.1"
 
 
 def free_port():
@@ -223,6 +223,22 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert "object identity/radius input: NO" in page.locator("#general-object-metrics").inner_text()
         assert "finite_patch" in page.locator("#general-object-metrics").inner_text()
         capture(page, "general-object-sdf-dashboard.png", tmp_path)
+        neural_state = page.evaluate("state.neural_sdf_reconstruction")
+        assert neural_state["status"] == "AVAILABLE"
+        assert "ground_truth" not in json.dumps(neural_state).lower()
+        page.locator("#reconstruction-family").select_option("neural_sdf")
+        page.wait_for_function(
+            "document.querySelector('#neural-sdf-rgb').complete && "
+            "document.querySelector('#neural-sdf-rgb').naturalWidth > 0 && "
+            "document.querySelector('#neural-sdf-visibility').width > 1"
+        )
+        assert page.locator("#neural-sdf-metrics").is_visible()
+        assert page.locator("#neural-sdf-method option").count() == 5
+        assert "PRELIMINARY SINGLE SEED" in page.locator("#neural-sdf-metrics").inner_text()
+        assert "validation-only selection" in page.locator("#neural-sdf-metrics").inner_text()
+        page.locator("#neural-sdf-method").select_option("learned_rgb_only")
+        assert "learned_rgb_only" in page.locator("#reconstruction-metrics").inner_text()
+        capture(page, "learned-neural-sdf-v1-dashboard.png", tmp_path)
         page.locator("#reconstruction-family").select_option("sphere")
         assert page.locator("#general-object-metrics").is_hidden()
         assert page.evaluate("state.camera.depth_available") is False

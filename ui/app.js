@@ -1,7 +1,7 @@
 "use strict";
 
 const SCHEMA_VERSION = "1.1.0";
-const FRONTEND_BUILD_ID = "general-object-sdf-v1-20260910.1";
+const FRONTEND_BUILD_ID = "learned-neural-sdf-v1-20260911.1";
 const colors = ["#35d7e5", "#ff8b5c", "#c478ff", "#55ec89", "#ffd84f", "#4d99ff"];
 let state = null;
 let socket = null;
@@ -26,6 +26,7 @@ let meshLoadPromise = null;
 let fusionMethod = "reliability_aware_fusion_v2";
 let reconstructionFamily = "sphere";
 let generalObjectMethod = "rgb_reliability_tactile";
+let neuralSdfMethod = "learned_rgb_tactile_reliability";
 
 function streamValid() {
   return socket?.readyState === WebSocket.OPEN && performance.now() - lastStateReceived < 1500 && state?.snapshot.valid;
@@ -243,6 +244,10 @@ document.querySelector('#general-object-method').addEventListener('change', even
   generalObjectMethod = event.target.value;
   if (state) { renderReconstruction(); reconstructionView.draw(state); }
 });
+document.querySelector('#neural-sdf-method').addEventListener('change', event => {
+  neuralSdfMethod = event.target.value;
+  if (state) { renderReconstruction(); reconstructionView.draw(state); }
+});
 document.querySelector('#reset-render-camera').addEventListener('click', () => command('render_camera', {action:'reset'}));
 const renderImage = document.querySelector('#mujoco-render');
 let renderDrag = null;
@@ -309,7 +314,9 @@ class ReconstructionProjectionView {
   }
   drawGeneral(payload) {
     this.resize(); const c=this.context; c.clearRect(0,0,this.width,this.height);
-    const general=payload.general_object_reconstruction || {}, selected=general.methods?.[generalObjectMethod];
+    const neural=reconstructionFamily==='neural_sdf';
+    const general=neural ? (payload.neural_sdf_reconstruction || {}) : (payload.general_object_reconstruction || {});
+    const selected=general.methods?.[neural ? neuralSdfMethod : generalObjectMethod];
     if (!selected?.surface_points_object_m) {
       c.fillStyle="#8fa7b8"; c.font=`${12*this.ratio}px ui-monospace`;
       c.fillText(general.reason || "General-object artifact unavailable",20*this.ratio,this.height/2); return;
@@ -329,7 +336,7 @@ class ReconstructionProjectionView {
     }
   }
   draw(payload) {
-    if (reconstructionFamily === 'general_object') return this.drawGeneral(payload);
+    if (reconstructionFamily === 'general_object' || reconstructionFamily === 'neural_sdf') return this.drawGeneral(payload);
     this.resize(); const c=this.context; c.clearRect(0,0,this.width,this.height);
     const center = payload.sphere_reconstruction.estimated_center_xyz || [0,-.045,.105];
     const scale = Math.min(this.width,this.height) * 5.5 * this.zoom;
@@ -570,14 +577,14 @@ function unpackGeneralMask(packed) {
   return {values, height:packed.shape[0], width:packed.shape[1]};
 }
 
-function drawGeneralVisibility(frame) {
+function drawGeneralVisibility(frame, selector='#general-object-visibility') {
   const layers=[
     [unpackGeneralMask(frame.known_background_mask),[22,28,34,255]],
     [unpackGeneralMask(frame.object_mask),[40,174,231,255]],
     [unpackGeneralMask(frame.hand_occluded_mask),[223,139,85,255]],
     [unpackGeneralMask(frame.unreliable_mask),[255,212,92,255]],
   ];
-  const first=layers.find(([mask])=>mask)?.[0], canvas=document.querySelector('#general-object-visibility');
+  const first=layers.find(([mask])=>mask)?.[0], canvas=document.querySelector(selector);
   if(!first){canvas.width=1;canvas.height=1;return;}
   canvas.width=first.width;canvas.height=first.height;
   const image=canvas.getContext('2d').createImageData(first.width,first.height);
@@ -587,10 +594,11 @@ function drawGeneralVisibility(frame) {
 
 function renderReconstruction(){
   const generalCard=document.querySelector('#general-object-metrics');
+  const neuralCard=document.querySelector('#neural-sdf-metrics');
   const sphereCards=[document.querySelector('#vision-only-metrics'),document.querySelector('#fusion-metrics')];
   if(reconstructionFamily==='general_object'){
     document.querySelectorAll('[data-sphere-control]').forEach(item=>item.classList.add('hidden'));
-    generalCard.classList.remove('hidden'); sphereCards.forEach(item=>item.classList.add('hidden'));
+    generalCard.classList.remove('hidden'); neuralCard.classList.add('hidden'); sphereCards.forEach(item=>item.classList.add('hidden'));
     const general=state.general_object_reconstruction || {}, selected=general.methods?.[generalObjectMethod] || {};
     const badge=document.querySelector('#fit-status'); badge.textContent=selected.status || general.status || 'UNAVAILABLE';
     badge.className=`status-badge ${selected.status==='VALID_RECONSTRUCTION'?'valid':'insufficient'}`;
@@ -614,8 +622,31 @@ function renderReconstruction(){
     document.querySelector('#evaluation-metrics').classList.add('hidden');
     return;
   }
+  if(reconstructionFamily==='neural_sdf'){
+    document.querySelectorAll('[data-sphere-control]').forEach(item=>item.classList.add('hidden'));
+    generalCard.classList.add('hidden'); neuralCard.classList.remove('hidden'); sphereCards.forEach(item=>item.classList.add('hidden'));
+    const learned=state.neural_sdf_reconstruction || {}, selected=learned.methods?.[neuralSdfMethod] || {};
+    const badge=document.querySelector('#fit-status'); badge.textContent=selected.status || learned.status || 'UNAVAILABLE';
+    badge.className=`status-badge ${selected.status==='VALID_RECONSTRUCTION'?'valid':'insufficient'}`;
+    document.querySelector('#neural-sdf-method').value=neuralSdfMethod;
+    const frame=learned.input?.rgb_observations?.[0] || {}, image=document.querySelector('#neural-sdf-rgb');
+    if(frame.rgb_png_base64) image.src=`data:image/png;base64,${frame.rgb_png_base64}`;
+    drawGeneralVisibility(frame, '#neural-sdf-visibility');
+    const rows=[['Mode',neuralSdfMethod],['Status',selected.status],['Grid',`${selected.grid_resolution || '—'}³`],
+      ['Active sensors',selected.active_sensor_count ?? 0],['Observable reliability',format(selected.observable_reliability,3)],
+      ['Surface points',selected.diagnostics?.surface_point_count ?? selected.surface_points_object_m?.length ?? 0],
+      ['Runtime',`${format(selected.runtime_ms,2)} ms`],['Checkpoint',selected.checkpoint || '—']];
+    document.querySelector('#reconstruction-metrics').innerHTML=rows.map(row=>`<dt>${row[0]}</dt><dd>${row[1] ?? '—'}</dd>`).join('');
+    neuralCard.querySelector(':scope > p').innerHTML=
+      `Case: <span class="mono">${learned.case_id || '—'}</span> · held-out family replay · drag/wheel rotates and zooms<br>`+
+      `Checkpoint: <span class="mono">validation-only selection</span> · training status: <span class="mono">PRELIMINARY SINGLE SEED</span><br>`+
+      `Decoder inputs: <span class="mono">RGB/masks/camera geometry + calibrated tactile geometry/scalar/uncertainty</span> · joint/time retained as interface hooks<br>`+
+      `GT, CAD, object family/ID, radius and exact contact as input: <span class="mono">NO</span>`;
+    document.querySelector('#evaluation-metrics').classList.add('hidden');
+    return;
+  }
   document.querySelectorAll('[data-sphere-control]').forEach(item=>item.classList.remove('hidden'));
-  generalCard.classList.add('hidden'); sphereCards.forEach(item=>item.classList.remove('hidden'));
+  generalCard.classList.add('hidden'); neuralCard.classList.add('hidden'); sphereCards.forEach(item=>item.classList.remove('hidden'));
   const r=state.sphere_reconstruction, badge=document.querySelector("#fit-status");badge.textContent=r.status;badge.className=`status-badge ${r.status==="VALID_RECONSTRUCTION"?"valid":r.status==="POOR_SPATIAL_COVERAGE"?"poor":r.status==="INSUFFICIENT_DATA"?"insufficient":""}`;
   const rows=[["Accepted tactile point count",r.number_of_input_points],["Unique sensors",r.number_of_unique_sensors],["Unique fingers",r.number_of_unique_fingers],["Spatial coverage",`${format(r.spatial_coverage_m)} m`],["Estimated center",vector(r.estimated_center_xyz)],["Estimated radius",r.estimated_radius_m==null?"—":`${format(r.estimated_radius_m)} m`],["Sphere fit RMSE",r.fit_residual_rmse_m==null?"—":`${format(r.fit_residual_rmse_m,6)} m`]];
   document.querySelector("#reconstruction-metrics").innerHTML=rows.map(row=>`<dt>${row[0]}</dt><dd>${row[1]}</dd>`).join("");

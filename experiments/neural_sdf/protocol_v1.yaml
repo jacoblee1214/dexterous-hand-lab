@@ -1,0 +1,54 @@
+schema_version: 1
+protocol_version: learned-neural-sdf-v1-frozen-20260911
+frozen_before_training: true
+parent_commit: 4978129441fa06306a1ffd1a2453bbe2715dd66f
+random_seed_base: 510000
+dataset:
+  train_instances_per_seen_family: 12
+  validation_instances_per_seen_family: 3
+  test_instances_per_seen_family: 4
+  test_asymmetric_l_instances: 8
+  samples_per_train_instance: 6
+  samples_per_validation_instance: 4
+  samples_per_test_instance: 4
+  surface_resolution: 44
+  image_downsample: 4
+families:
+  seen_during_training: [sphere, cylinder, cuboid, rounded_box]
+  family_holdout: [asymmetric_l]
+parameter_ranges_m:
+  train:
+    sphere_radius: [0.026, 0.041]
+    cylinder_radius: [0.021, 0.031]
+    cylinder_half_height: [0.031, 0.043]
+    box_half_extent: [0.020, 0.041]
+    rounded_box_round: [0.004, 0.009]
+  validation:
+    sphere_radius: [0.027, 0.040]
+    cylinder_radius: [0.022, 0.030]
+    cylinder_half_height: [0.032, 0.042]
+    box_half_extent: [0.021, 0.040]
+    rounded_box_round: [0.0045, 0.0085]
+  test:
+    sphere_radius: [0.043, 0.050]
+    cylinder_radius: [0.033, 0.038]
+    cylinder_half_height: [0.045, 0.052]
+    box_half_extent: [0.018, 0.050]
+    rounded_box_round: [0.0095, 0.012]
+conditions:
+  active_sensor_counts: [0, 1, 2, 4, 8]
+  contact_patterns: [clustered, diverse]
+  occlusion_fraction_range: [0.18, 0.62]
+  yaw_degrees_range: [-42.0, 42.0]
+  pitch_degrees_range: [-22.0, 22.0]
+  lighting_scale_range: [0.72, 1.25]
+  object_rgb_ranges: [[25, 65, 145], [60, 135, 235]]
+  background_rgb_ranges: [[12, 18, 24], [38, 48, 58]]
+split_policy:
+  unit: object_instance
+  identical_instance_cross_split: forbidden
+  held_out_parameters: outside_training_ranges_where_declared
+  held_out_family: asymmetric_l
+  hyperparameter_tuning: development_and_validation_only
+  test_access_before_checkpoint_selection: forbidden
+model_input_excludes: [geometry_family, object_instance_id, shape_parameters, sample_order]

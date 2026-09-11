@@ -1,0 +1,33 @@
+{
+  "mode": "learned_rgb_tactile_reliability",
+  "best_epoch": 4,
+  "best_validation_metric_m": 0.0013294747210845042,
+  "elapsed_seconds": 108.96150297508575,
+  "epochs": [
+    {
+      "epoch": 1,
+      "training_loss": 0.007718241100923883,
+      "validation_occluded_surface_abs_sdf_m": 0.0029772628574088835
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.0037157400640555555,
+      "validation_occluded_surface_abs_sdf_m": 0.0017095878793043084
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.003357420727196667,
+      "validation_occluded_surface_abs_sdf_m": 0.0014645060582552105
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.003271603620507651,
+      "validation_occluded_surface_abs_sdf_m": 0.0013294747210845042
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.003255984875270062,
+      "validation_occluded_surface_abs_sdf_m": 0.0014648311929098174
+    }
+  ]
+}

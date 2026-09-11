@@ -1,0 +1,33 @@
+{
+  "mode": "learned_rgb_only",
+  "best_epoch": 3,
+  "best_validation_metric_m": 0.0011290680364860843,
+  "elapsed_seconds": 55.642865498084575,
+  "epochs": [
+    {
+      "epoch": 1,
+      "training_loss": 0.007309333304874599,
+      "validation_occluded_surface_abs_sdf_m": 0.0030558961855907305
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.0036801588204171923,
+      "validation_occluded_surface_abs_sdf_m": 0.0012716056698991451
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.003353255981993344,
+      "validation_occluded_surface_abs_sdf_m": 0.0011290680364860843
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.0032541765960761243,
+      "validation_occluded_surface_abs_sdf_m": 0.0016481148425858312
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0032021542623018226,
+      "validation_occluded_surface_abs_sdf_m": 0.001526538373582298
+    }
+  ]
+}

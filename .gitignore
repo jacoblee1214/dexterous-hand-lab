@@ -60,6 +60,8 @@ experiments/**/*.jsonl
 experiments/**/*.png
 experiments/**/*.jpg
 experiments/**/*.jpeg
+experiments/neural_sdf/generated_cache/
+experiments/neural_sdf/learned_v1_20260911/checkpoints/
 experiments/fusion/reliability_v2_20260909_invalid_v1_visibility_projection/
 experiments/grasp_trials/**/summary.json
 experiments/grasp_trials/**/trial_*.reconstruction.json

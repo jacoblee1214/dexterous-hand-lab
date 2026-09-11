@@ -98,7 +98,9 @@ def _dilate(mask, iterations=1):
     return result
 
 
-def _render(points, camera_from_object, intrinsic, size, occlusion_fraction):
+def _render(points, camera_from_object, intrinsic, size, occlusion_fraction, *,
+            object_rgb=(32, 82, 205), background_rgb=(22, 28, 34),
+            hand_rgb=(132, 118, 106), lighting_scale=1.0):
     h, w = size
     homogeneous = np.column_stack((points, np.ones(len(points))))
     camera = (camera_from_object@homogeneous.T).T[:, :3]
@@ -128,10 +130,11 @@ def _render(points, camera_from_object, intrinsic, size, occlusion_fraction):
     object_mask = visible_object.copy()
     unreliable = boundary.copy()
     background = ~(object_mask | hand | unreliable)
-    rgb = np.empty((h, w, 3), dtype=np.uint8); rgb[:] = [22, 28, 34]
-    rgb[object_mask] = [32, 82, 205]
-    rgb[unreliable] = [50, 73, 120]
-    rgb[hand] = [132, 118, 106]
+    rgb = np.empty((h, w, 3), dtype=np.uint8); rgb[:] = np.asarray(background_rgb)
+    lit_object = np.clip(np.asarray(object_rgb, dtype=float)*lighting_scale, 0, 255).astype(np.uint8)
+    rgb[object_mask] = lit_object
+    rgb[unreliable] = np.clip(.55*lit_object+.45*np.asarray(background_rgb), 0, 255).astype(np.uint8)
+    rgb[hand] = np.asarray(hand_rgb)
     # Classify only physically front-most GT surface points into three evaluator regions.
     nearest = np.full(len(points), np.inf)
     nearest[in_frame] = zbuffer[v[in_frame], u[in_frame]]
@@ -152,14 +155,21 @@ def _basis(normal):
     return u, v
 
 
-def _contacts(points, labels, count, rng, timestamp):
+def _contacts(points, labels, count, rng, timestamp, pattern="diverse"):
     candidates = points[labels == "occluded_by_hand"]
     if len(candidates) < count:
         candidates = points[labels != "visible_to_rgb"]
     if count == 0 or not len(candidates):
         return (), np.empty((0, 3))
     order = np.argsort(np.arctan2(candidates[:, 1], candidates[:, 0]))
-    indexes = np.linspace(0, len(order)-1, count, dtype=int)
+    if pattern == "clustered":
+        center = int(rng.integers(0, len(order)))
+        offsets = np.arange(count)-count//2
+        indexes = (center+offsets) % len(order)
+    elif pattern == "diverse":
+        indexes = np.linspace(0, len(order)-1, count, dtype=int)
+    else:
+        raise ValueError(f"Unknown contact pattern: {pattern}")
     exact = candidates[order[indexes]]
     fingers = ("thumb", "index", "middle", "ring")
     observations = []
@@ -199,10 +209,15 @@ def generate_case(
     grid_resolution: int,
     image_downsample: int = 4,
     feature_encoder=None,
+    contact_pattern: str = "diverse",
+    object_rgb=(32, 82, 205),
+    background_rgb=(22, 28, 34),
+    lighting_scale: float = 1.0,
+    surface_resolution: int = 58,
 ):
     rng = np.random.default_rng(seed)
     bounds = np.array([[-.065, -.065, -.065], [.065, .065, .065]])
-    surface = _surface(spec, bounds)
+    surface = _surface(spec, bounds, resolution=surface_resolution)
     camera = calibration_from_declared_pose(load_camera_config())
     rotation = _rotation(yaw_degrees, pitch_degrees)
     world_from_object = np.eye(4); world_from_object[:3, :3] = rotation
@@ -215,10 +230,13 @@ def generate_case(
     intrinsic[1, 2] = (intrinsic[1, 2]+.5)*scale-.5
     size = (camera.config.height//image_downsample, camera.config.width//image_downsample)
     rgb, foreground, background, hand, unreliable, labels = _render(
-        surface, camera_from_object, intrinsic, size, occlusion_fraction)
+        surface, camera_from_object, intrinsic, size, occlusion_fraction,
+        object_rgb=object_rgb, background_rgb=background_rgb,
+        lighting_scale=lighting_scale)
     encoding = (feature_encoder or AnalyticColorEdgeEncoder()).encode(rgb)
     timestamp = 1.0
-    tactile, oracle = _contacts(surface, labels, active_sensor_count, rng, timestamp)
+    tactile, oracle = _contacts(
+        surface, labels, active_sensor_count, rng, timestamp, contact_pattern)
     object_frame = ObjectFrameInitialization(
         "declared_static_object", "world", timestamp, world_from_object,
         np.diag([1e-6]*3+[math.radians(.25)**2]*3),
@@ -247,6 +265,11 @@ def generate_case(
                        "pitch_degrees": pitch_degrees,
                        "occlusion_fraction": occlusion_fraction,
                        "active_sensor_count": active_sensor_count,
+                       "contact_pattern": contact_pattern,
+                       "object_rgb": list(object_rgb),
+                       "background_rgb": list(background_rgb),
+                       "lighting_scale": lighting_scale,
+                       "surface_resolution": surface_resolution,
                        "image_downsample": image_downsample},
         "rgb_feature_efficiency": {
             "encoder": encoding.name, "parameter_count": encoding.parameter_count,

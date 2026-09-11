@@ -1,0 +1,63 @@
+schema_version: 1
+configuration_version: lightweight-learned-visuotactile-neural-sdf-v1
+parent_commit: 4978129441fa06306a1ffd1a2453bbe2715dd66f
+seed: 51001
+environment:
+  training_python: 3.10.19
+  torch: 2.7.1+cu128
+  torchvision: 0.22.1+cu128
+  cuda_build: "12.8"
+  cuda_available: false
+  simulation_python: 3.12.3
+  mujoco: 3.12.0
+rgb_encoder:
+  name: torchvision-resnet18-layer2-imagenet1k-v1-frozen
+  weight_filename: resnet18-5c106cde.pth
+  weight_sha256: 5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8
+  output_channels: 16
+  channel_reduction: fixed_group_mean_128_to_16
+  implicit_downloads: forbidden
+model:
+  query_fourier_frequencies: 3
+  tactile_hidden: 32
+  decoder_hidden: 96
+  reliability_gate: observable_only
+  maximum_contacts: 8
+  patch_samples: 25
+training:
+  principal_seed_count: 1
+  preliminary_single_seed: true
+  epochs: 5
+  epoch_choice_basis: validation-only pilot showed no improvement after epoch 5
+  batch_size: 16
+  queries_per_sample: 128
+  near_surface_fraction: 0.5
+  visible_surface_fraction: 0.25
+  occluded_surface_fraction: 0.25
+  learning_rate: 0.001
+  optimizer: AdamW
+  weight_decay: 0.0001
+  gradient_clip_norm: 2.0
+  modality_dropout_probability: 0.20
+  contact_dropout_probability: 0.20
+  tactile_contact_loss_every_batches: 4
+  loss:
+    sdf_l1: 1.0
+    surface: 0.20
+    tactile_contact: 0.10
+    finite_patch_softmin_temperature_m: 0.002
+  checkpoint_selection: validation_hand_occluded_mean_absolute_predicted_sdf_m
+  development_note: CPU profiling fixed the five-epoch/128-query schedule before held-out evaluation
+  test_tuning_forbidden: true
+evaluation:
+  extraction_resolutions: [24, 48]
+  selected_resolution: 48
+  selection_source: validation_only
+  distance_thresholds_m: [0.002, 0.005]
+  bootstrap_resamples: 500
+  robustness:
+    camera_translation_m: 0.004
+    camera_rotation_deg: 2.0
+    sensor_translation_m: 0.003
+    joint_bias_proxy_translation_m: 0.002
+    segmentation_erosion_pixels: 2

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tactile Shape Reconstruction</title>
-  <link rel="stylesheet" href="styles.css?v=general-object-sdf-v1-20260910.1">
+  <link rel="stylesheet" href="styles.css?v=learned-neural-sdf-v1-20260911.1">
   <script type="importmap">
     {"imports": {"three": "./vendor/three/build/three.module.js"}}
   </script>
@@ -13,8 +13,8 @@
   <header>
     <div>
       <h1>Tactile Shape Reconstruction</h1>
-      <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE A–E + GENERAL OBJECT SDF</span>
-      <span id="build-id" class="build-id">UI general-object-sdf-v1-20260910.1 · API —</span>
+      <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · GEOMETRIC + LEARNED OBJECT SDF</span>
+      <span id="build-id" class="build-id">UI learned-neural-sdf-v1-20260911.1 · API —</span>
     </div>
     <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
   </header>
@@ -192,6 +192,7 @@
         <label>Mode <select id="reconstruction-family">
           <option value="sphere">Sphere A–E baselines</option>
           <option value="general_object">General Object SDF v1</option>
+          <option value="neural_sdf">Learned Neural SDF v1</option>
         </select></label>
         <button data-sphere-control data-command="start_accumulation" class="primary">Start Accumulation</button>
         <button data-sphere-control data-command="pause_accumulation">Pause Accumulation</button>
@@ -254,11 +255,30 @@
           <p>Input: calibrated RGB visibility plus named scalar tactile patches in a declared static fixture frame. Prediction: a rotatable object-centric dense SDF zero surface. GT is evaluation-only and hidden by default. No radius, object identity, CAD, GT pose, mesh, contact point or contact normal enters the proposed methods.</p>
         </details>
       </div>
+      <div id="neural-sdf-metrics" class="vision-card general-object-card hidden">
+        <div class="fusion-heading"><h3>Learned Visuo-Tactile Neural SDF v1</h3>
+          <label>Inspect <select id="neural-sdf-method">
+            <option value="learned_rgb_tactile_reliability">L4 · Reliability-aware finite patch</option>
+            <option value="learned_rgb_tactile_finite_patch">L3 · Finite-patch local tactile</option>
+            <option value="learned_rgb_tactile_representative">L2 · Representative local tactile</option>
+            <option value="learned_rgb_tactile_global">L1 · RGB + global tactile</option>
+            <option value="learned_rgb_only">L0 · RGB only</option>
+          </select></label>
+        </div>
+        <div class="general-input-grid">
+          <figure><img id="neural-sdf-rgb" alt="GT-free learned-model RGB observation"><figcaption>Clean RGB input to frozen encoder</figcaption></figure>
+          <figure><canvas id="neural-sdf-visibility" aria-label="Learned-model input visibility classes"></canvas><figcaption>Visibility mask · <i class="mask-object"></i>object <i class="mask-hand"></i>hand-occluded <i class="mask-unreliable"></i>unreliable</figcaption></figure>
+        </div>
+        <p>Waiting for the held-out learned-model replay artifact…</p>
+        <details><summary>Scientific boundary and preliminary status</summary>
+          <p>The interface carries calibrated RGB, visibility masks, joints, named scalar tactile observations, finite patches, uncertainty and timing. The v1 decoder consumes RGB/camera features and calibrated tactile geometry/scalars; raw joint/time fields remain future hooks. Object family/ID, CAD, radius, exact contact and ground-truth surface are excluded. Checkpoint selection used validation data only. This v1 run is preliminary because it uses one training seed; GT is evaluation-only and hidden by default.</p>
+        </details>
+      </div>
         </div>
       </div>
     </section>
   </main>
   <div id="toast" role="status"></div>
-  <script src="app.js?v=general-object-sdf-v1-20260910.1"></script>
+  <script src="app.js?v=learned-neural-sdf-v1-20260911.1"></script>
 </body>
 </html>

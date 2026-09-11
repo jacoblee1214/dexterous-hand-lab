@@ -108,7 +108,7 @@ tr { cursor: pointer; } tr:hover { background:#15283a } tr.selected { outline: 1
 .general-object-card { border-color:rgba(53,215,229,.45); }
 .general-input-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:7px; }
 .general-input-grid figure { margin:0; min-width:0; }
-#general-object-rgb, #general-object-visibility { width:100%; height:105px; display:block; object-fit:contain; image-rendering:pixelated; background:#020508; border:1px solid var(--line); border-radius:4px; }
+#general-object-rgb, #general-object-visibility, #neural-sdf-rgb, #neural-sdf-visibility { width:100%; height:105px; display:block; object-fit:contain; image-rendering:pixelated; background:#020508; border:1px solid var(--line); border-radius:4px; }
 .general-input-grid figcaption { margin-top:3px; color:var(--muted); font-size:9px; line-height:1.35; }
 .general-input-grid figcaption i { display:inline-block; width:7px; height:7px; margin:0 2px 0 5px; border-radius:1px; }
 .mask-object { background:#28aee7; }.mask-hand { background:#df8b55; }.mask-unreliable { background:#ffd45c; }

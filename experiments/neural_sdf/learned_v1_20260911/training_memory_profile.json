@@ -1,0 +1,10 @@
+{
+  "profile_kind": "representative_one_epoch_L4_training_process",
+  "not_used_for_checkpoint_selection": true,
+  "device": "cpu",
+  "cuda_available": false,
+  "elapsed_seconds": 20.252765865065157,
+  "process_peak_rss_bytes": 935256064,
+  "batch_size": 16,
+  "queries_per_sample": 128
+}

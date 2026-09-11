@@ -51,9 +51,12 @@ RECONSTRUCTION_CONFIG = PROJECT_ROOT / "experiments" / "reconstruction_config.ya
 GENERAL_OBJECT_DASHBOARD_CASE = (
     PROJECT_ROOT / "experiments/general_object/object_sdf_v1_20260910/dashboard_case.json"
 )
+NEURAL_SDF_DASHBOARD_CASE = (
+    PROJECT_ROOT / "experiments/neural_sdf/learned_v1_20260911/dashboard_case.json"
+)
 STATE_SCHEMA_VERSION = "1.1.0"
 CONTROL_SCHEMA_VERSION = "1.1.0"
-DASHBOARD_BUILD_ID = "general-object-sdf-v1-20260910.1"
+DASHBOARD_BUILD_ID = "learned-neural-sdf-v1-20260911.1"
 
 
 def _load_general_object_dashboard_case(path: Path = GENERAL_OBJECT_DASHBOARD_CASE) -> dict:
@@ -62,6 +65,15 @@ def _load_general_object_dashboard_case(path: Path = GENERAL_OBJECT_DASHBOARD_CA
     value = json.loads(path.read_text(encoding="utf-8"))
     if not value.get("methods") or not value.get("input", {}).get("rgb_observations"):
         return {"status": "ERROR", "reason": "General-object dashboard artifact is incomplete"}
+    return {"status": "AVAILABLE", **value}
+
+
+def _load_neural_sdf_dashboard_case(path: Path = NEURAL_SDF_DASHBOARD_CASE) -> dict:
+    if not path.is_file():
+        return {"status": "UNAVAILABLE", "reason": "Run python -m neural_sdf.evaluate"}
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not value.get("methods") or not value.get("input", {}).get("rgb_observations"):
+        return {"status": "ERROR", "reason": "Neural-SDF dashboard artifact is incomplete"}
     return {"status": "AVAILABLE", **value}
 
 
@@ -235,6 +247,7 @@ class DashboardSimulation:
             "methods": {},
         }
         self.general_object_result = _load_general_object_dashboard_case()
+        self.neural_sdf_result = _load_neural_sdf_dashboard_case()
         self._last_fusion_update_wall = -math.inf
         self._update_sensor_pipeline(force=True)
 
@@ -264,6 +277,19 @@ class DashboardSimulation:
         if self.show_ground_truth:
             value["evaluation_surface_points_object_m"] = truth
             value["methods"]["rgb_perfect_contact_oracle"] = oracle
+        return value
+
+    def _neural_sdf_state(self) -> dict:
+        value = json.loads(json.dumps(self.neural_sdf_result))
+        if value.get("status") != "AVAILABLE":
+            return value
+        truth = value.pop("evaluation_only_gt_surface_points_object_m", None)
+        value.get("input", {}).pop("forbidden_fields_absent", None)
+        for result in value.get("methods", {}).values():
+            result.get("diagnostics", {}).pop("ground_truth_input", None)
+        value["evaluation_comparison_enabled"] = bool(self.show_ground_truth)
+        if self.show_ground_truth:
+            value["evaluation_surface_points_object_m"] = truth
         return value
 
     def close(self) -> None:
@@ -640,6 +666,7 @@ class DashboardSimulation:
             "vision_evaluation": self.vision_evaluation,
             "fusion": self.fusion_result,
             "general_object_reconstruction": self._general_object_state(),
+            "neural_sdf_reconstruction": self._neural_sdf_state(),
             "recording": {"enabled": self._recorder is not None,
                           "path": str(self._recorder.path) if self._recorder else None,
                           "detail": self._recording_detail},

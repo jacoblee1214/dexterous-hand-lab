@@ -627,9 +627,10 @@ strict reconstruction serialization, separate evaluation serialization, and
 buffer reset. They also cover four complete URDF-limited grasp presets, negative
 right-thumb opposition, actuator-only staging, named-preset save/reload, all-18
 channel telemetry, active-state agreement, and a settling multi-sensor 40 mm
-grasp. The current automated suite reports 188 passed tests with three opt-in
-browser tests skipped by default; those three Chromium/HTTP/WebSocket tests also
-pass when run explicitly. Manual visual acceptance remains open: confirm the posture and red/table
+grasp. The current automated suite reports 193 passed tests with four opt-in or
+environment-specific tests skipped by default; the four PyTorch neural tests
+pass in the documented training environment, and all three
+Chromium/HTTP/WebSocket tests pass when run explicitly. Manual visual acceptance remains open: confirm the posture and red/table
 agreement in the GUI, explore the sphere with several configurations, fit it,
 and save a representative run before marking this milestone complete.
 Dashboard checks additionally cover the versioned state groups, bounded series
@@ -642,6 +643,29 @@ diagnostics. See `docs/user_taught_grasp.md`. Final thumb/finger direction and
 posture approval still require manual visual acceptance. The local `grasp`
 taught pose is preserved, but its final physical grasp quality, collision and
 penetration have not been scientifically validated.
+
+## Learned visuo-tactile Neural SDF v1
+
+The browser reconstruction selector now includes a preliminary learned
+object-centric SDF with five matched ablations (L0 RGB-only through L4
+reliability-aware finite-patch tactile). The frozen dataset contains 432 samples
+from 84 disjoint procedural object instances, including an asymmetric-L family
+holdout. Ground truth is training/evaluation-only and is omitted from dashboard
+state by default.
+
+Training requires the documented PyTorch environment and an explicit local
+ResNet-18 checkpoint whose SHA-256 matches `neural_sdf/config_v1.yaml`:
+
+```bash
+/path/to/torch-python -m neural_sdf.train --feature-weights /path/to/resnet18-5c106cde.pth
+/path/to/torch-python -m neural_sdf.evaluate --feature-weights /path/to/resnet18-5c106cde.pth
+```
+
+The result is intentionally reported without tuning away failures: L4 improves
+the overall paired hand-occluded metric, while L1–L3 degrade it and L4 does not
+improve the unseen asymmetric-L occluded surface. See
+`docs/learned_neural_sdf_v1_architecture.md` and
+`docs/learned_neural_sdf_v1_report.md`.
 
 ## Known limitations and next direction
 
@@ -657,16 +681,18 @@ penetration have not been scientifically validated.
 - The color-based RGB mask is a controlled experimental assumption. In the
   four-condition 40 mm run, three of four known-radius fits were unreliable under
   offset/occlusion effects.
-- The general-object experiment assumes a declared rigid fixture pose. There is
-  no measured object tracker, learned SDF decoder, multi-view temporal fusion,
-  actual hardware transport, or real motor control.
+- The general-object experiment assumes a declared rigid fixture pose. The
+  learned SDF is a preliminary single-seed simulation result; there is no
+  measured object tracker, multi-view temporal fusion, actual hardware
+  transport, or real motor control.
 - CAD/URDF/STL ownership and redistribution terms must be confirmed before any
   remote repository includes `assets/`; see
   [docs/repository_snapshot_plan.md](docs/repository_snapshot_plan.md).
 
-The current milestone stops at static, controlled object-centric SDF v1 and its
-visible/occluded/contact/sparsity evaluation. It does not start free regrasp,
-real motor control, VLM integration, or NPU deployment.
+The current milestone stops at static, controlled learned Neural SDF v1 and its
+visible/occluded/contact/sparsity/negative-control evaluation. It does not start
+object reorientation, temporal fusion, free regrasp, real motor control, VLM
+integration, or NPU deployment.
 
 ## Layout
 
@@ -677,6 +703,7 @@ tactile_shape_reconstruction/
 ├── sensors/                # right/left surface catalogs and shared FK
 ├── reconstruction/         # ground-truth-free contacts and sphere fitting
 ├── general_object/         # object-centric RGB/tactile dense-SDF baseline
+├── neural_sdf/             # lightweight learned implicit model and evaluation
 ├── evaluation/             # one-way MuJoCo ground-truth comparison and metrics
 ├── vision/                 # calibrated RGB observation and transparent baseline
 ├── robot_data/             # simulation/replay/read-only hardware common state

@@ -1,0 +1,33 @@
+{
+  "mode": "learned_rgb_tactile_finite_patch",
+  "best_epoch": 3,
+  "best_validation_metric_m": 0.0013101530967105646,
+  "elapsed_seconds": 108.07097102119587,
+  "epochs": [
+    {
+      "epoch": 1,
+      "training_loss": 0.007869181740615103,
+      "validation_occluded_surface_abs_sdf_m": 0.003535953704461766
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.0037023340636450383,
+      "validation_occluded_surface_abs_sdf_m": 0.0015790193295591355
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.003515075672314399,
+      "validation_occluded_surface_abs_sdf_m": 0.0013101530967105646
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.0033703043849931825,
+      "validation_occluded_surface_abs_sdf_m": 0.0013764309721106354
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.00330778691245036,
+      "validation_occluded_surface_abs_sdf_m": 0.0018488046880520415
+    }
+  ]
+}

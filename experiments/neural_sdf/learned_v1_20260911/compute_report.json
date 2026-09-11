@@ -1,0 +1,29 @@
+{
+  "execution_device": "cpu",
+  "cuda_available": false,
+  "frozen_rgb_parameters": 683072,
+  "frozen_rgb_estimated_flops_per_frame": 555000000,
+  "trainable_parameters_by_model": {
+    "learned_rgb_only": 27889,
+    "learned_rgb_tactile_global": 27889,
+    "learned_rgb_tactile_representative": 27889,
+    "learned_rgb_tactile_finite_patch": 27889,
+    "learned_rgb_tactile_reliability": 27889
+  },
+  "checkpoint_bytes": {
+    "learned_rgb_only": 321173,
+    "learned_rgb_tactile_global": 338537,
+    "learned_rgb_tactile_representative": 352673,
+    "learned_rgb_tactile_finite_patch": 352673,
+    "learned_rgb_tactile_reliability": 352673
+  },
+  "process_peak_rss_bytes": 864833536,
+  "gpu_peak_memory_bytes": 0,
+  "inference_latency_ms": {
+    "mean": 3246.061667384735,
+    "median": 3171.3804973696824,
+    "maximum": 5894.192028499674
+  },
+  "sdf_query_throughput_per_second": 34069.59304291376,
+  "selected_query_count": 110592
+}
