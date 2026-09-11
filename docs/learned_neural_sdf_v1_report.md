@@ -174,10 +174,20 @@ are documented in `docs/learned_neural_sdf_v1_architecture.md`.
 ## Verification
 
 - simulation suite with `MUJOCO_GL=egl`: 193 passed, 4 skipped;
-- PyTorch neural contract suite in the training environment: 4 passed;
+- PyTorch neural contract/device suite in the training environment: 5 passed;
 - real headless Chromium + HTTP + WebSocket dashboard suite: 3 passed.
 
 The browser run loaded build `learned-neural-sdf-v1-20260911.1`, exercised the
 actual server state, selected learned L0/L4 views, rendered the held-out SDF
 surface with GT disabled, and captured a dashboard screenshot. No claim of
 real-hardware or physical manual validation is made.
+
+After this frozen CPU result was recorded, device selection was changed to
+`--device auto`. On the host (outside the restricted development sandbox),
+PyTorch detected the NVIDIA GeForce RTX 5070 Ti Laptop GPU and completed an
+actual CUDA neural-SDF forward pass. `--device cuda` now rejects silent CPU
+fallback. A complete five-epoch L0 smoke training ran on the RTX 5070 Ti in
+12.64 s versus 55.64 s for the corresponding cached-feature CPU training
+(about 4.4× faster), with the same best epoch and numerically equivalent
+validation result. These checks do not relabel or overwrite the CPU result table
+above.

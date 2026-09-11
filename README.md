@@ -628,7 +628,7 @@ buffer reset. They also cover four complete URDF-limited grasp presets, negative
 right-thumb opposition, actuator-only staging, named-preset save/reload, all-18
 channel telemetry, active-state agreement, and a settling multi-sensor 40 mm
 grasp. The current automated suite reports 193 passed tests with four opt-in or
-environment-specific tests skipped by default; the four PyTorch neural tests
+environment-specific tests skipped by default; the five PyTorch neural tests
 pass in the documented training environment, and all three
 Chromium/HTTP/WebSocket tests pass when run explicitly. Manual visual acceptance remains open: confirm the posture and red/table
 agreement in the GUI, explore the sphere with several configurations, fit it,
@@ -660,6 +660,11 @@ ResNet-18 checkpoint whose SHA-256 matches `neural_sdf/config_v1.yaml`:
 /path/to/torch-python -m neural_sdf.train --feature-weights /path/to/resnet18-5c106cde.pth
 /path/to/torch-python -m neural_sdf.evaluate --feature-weights /path/to/resnet18-5c106cde.pth
 ```
+
+Both commands default to `--device auto`: CUDA is selected whenever PyTorch can
+see an NVIDIA GPU. Use `--device cuda` to require GPU execution and fail loudly
+instead of falling back to CPU. The dashboard itself loads saved predictions;
+MuJoCo `EGL` rendering can use the GPU independently of neural training.
 
 The result is intentionally reported without tuning away failures: L4 improves
 the overall paired hand-occluded metric, while L1–L3 degrade it and L4 does not

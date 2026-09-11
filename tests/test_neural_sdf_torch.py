@@ -2,6 +2,7 @@ import pytest
 
 torch = pytest.importorskip("torch")
 NeuralSDFModel = pytest.importorskip("neural_sdf.model").NeuralSDFModel
+device_module = pytest.importorskip("neural_sdf.device")
 
 
 def _input(batch=2, contacts=8):
@@ -67,3 +68,9 @@ def test_model_interface_contains_no_ground_truth_or_shape_identity():
     model = NeuralSDFModel("learned_rgb_only")
     forbidden = ("ground_truth", "oracle", "family", "shape_parameter", "object_id", "radius")
     assert not any(token in name.lower() for name in model.state_dict() for token in forbidden)
+
+
+def test_auto_device_prefers_cuda_when_visible_and_cpu_remains_explicit():
+    expected = "cuda" if torch.cuda.is_available() else "cpu"
+    assert device_module.resolve_device("auto").type == expected
+    assert device_module.resolve_device("cpu").type == "cpu"

@@ -16,6 +16,7 @@ import torch.nn.functional as F
 import yaml
 
 from .data import collate_model_inputs, materialize_with_rgb_features, split_records
+from .device import device_metadata, resolve_device
 from .model import FrozenResNet18GridEncoder, MODES, NeuralSDFModel
 
 
@@ -215,8 +216,10 @@ def train_mode(mode, train_records, validation_records, config, output, *, devic
             "trainable_parameters": model.trainable_parameter_count}
 
 
-def run(config_path, output, weights_path, *, device="cpu", force_data=False, modes=MODES):
+def run(config_path, output, weights_path, *, device="auto", force_data=False, modes=MODES):
     config = yaml.safe_load(Path(config_path).read_text())
+    device = resolve_device(device)
+    print({"compute_device": device_metadata(device)}, flush=True)
     output = Path(output); output.mkdir(parents=True, exist_ok=True)
     encoder = FrozenResNet18GridEncoder(
         weights_path, config["rgb_encoder"]["weight_sha256"])
@@ -262,7 +265,8 @@ def main():
     parser.add_argument("--config", default=str(DEFAULT_CONFIG))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     parser.add_argument("--feature-weights", required=True)
-    parser.add_argument("--device", default="cpu")
+    parser.add_argument("--device", default="auto",
+                        help="auto (CUDA when visible), cpu, cuda, or cuda:N")
     parser.add_argument("--force-data", action="store_true")
     parser.add_argument("--mode", action="append", choices=MODES,
                         help="Train one or more ablations; default trains all")

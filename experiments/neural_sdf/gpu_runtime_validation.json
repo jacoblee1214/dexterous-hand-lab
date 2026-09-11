@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "validation_scope": "post-milestone CUDA execution path; frozen CPU research tables unchanged",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "total_memory_bytes": 12386893824,
+    "driver_version": "610.43.02",
+    "host_cuda_umd_version": "13.3"
+  },
+  "pytorch": {
+    "version": "2.7.1+cu128",
+    "cuda_build": "12.8",
+    "cuda_available_outside_restricted_sandbox": true,
+    "device_count": 1,
+    "compute_capability": "12.0"
+  },
+  "neural_sdf_forward_smoke": {
+    "device": "cuda:0",
+    "batch_size": 2,
+    "query_count_per_sample": 128,
+    "finite_output": true,
+    "allocated_memory_mib_after_forward": 10.36279296875
+  },
+  "five_epoch_l0_training_smoke": {
+    "device": "cuda",
+    "output_path_policy": "temporary; not a milestone checkpoint",
+    "elapsed_seconds": 12.643863543169573,
+    "best_epoch": 3,
+    "best_validation_metric_m": 0.0011290679382606565,
+    "corresponding_cpu_elapsed_seconds": 55.642865498084575,
+    "observed_speedup": 4.4007802922029935
+  },
+  "silent_cpu_fallback": "forbidden when --device cuda is requested"
+}

@@ -13,6 +13,7 @@ import torch
 import yaml
 
 from .data import materialize_with_rgb_features, split_records
+from .device import device_metadata, resolve_device
 from .model import FrozenResNet18GridEncoder
 from .train import DEFAULT_CONFIG, DEFAULT_OUTPUT, train_mode
 
@@ -20,22 +21,25 @@ from .train import DEFAULT_CONFIG, DEFAULT_OUTPUT, train_mode
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--feature-weights", required=True)
+    parser.add_argument("--device", default="auto")
     args = parser.parse_args()
+    device = resolve_device(args.device)
     config = yaml.safe_load(Path(DEFAULT_CONFIG).read_text())
     encoder = FrozenResNet18GridEncoder(
         args.feature_weights, config["rgb_encoder"]["weight_sha256"])
-    records = materialize_with_rgb_features(encoder)
+    records = materialize_with_rgb_features(encoder, device=device)
     profile_config = copy.deepcopy(config)
     profile_config["training"]["epochs"] = 1
     scratch = DEFAULT_OUTPUT.parent/"generated_cache/training_memory_profile_scratch"
     started = time.perf_counter()
     train_mode(
         "learned_rgb_tactile_reliability", split_records(records, "train"),
-        split_records(records, "validation"), profile_config, scratch)
+        split_records(records, "validation"), profile_config, scratch,
+        device=device)
     payload = {
         "profile_kind": "representative_one_epoch_L4_training_process",
         "not_used_for_checkpoint_selection": True,
-        "device": "cpu", "cuda_available": torch.cuda.is_available(),
+        "device": device_metadata(device),
         "elapsed_seconds": time.perf_counter()-started,
         "process_peak_rss_bytes": int(
             resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024),

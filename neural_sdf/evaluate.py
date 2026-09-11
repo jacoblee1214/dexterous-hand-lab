@@ -19,6 +19,7 @@ from general_object.sdf import DenseSDF
 from general_object.serialization import observation_to_dict
 from .data import collate_model_inputs, materialize_with_rgb_features, split_records
 from .dataset import DEFAULT_MANIFEST, load_sample
+from .device import device_metadata, resolve_device
 from .model import FrozenResNet18GridEncoder, MODES, NeuralSDFModel
 
 
@@ -344,8 +345,10 @@ def _write_records(path, records):
     path.write_text(json.dumps(records, indent=2)+"\n")
 
 
-def run(config_path, output, weights_path, *, device="cpu"):
+def run(config_path, output, weights_path, *, device="auto"):
     config = yaml.safe_load(Path(config_path).read_text())
+    device = resolve_device(device)
+    print({"compute_device": device_metadata(device)}, flush=True)
     output = Path(output); output.mkdir(parents=True, exist_ok=True)
     encoder = FrozenResNet18GridEncoder(weights_path, config["rgb_encoder"]["weight_sha256"])
     records = materialize_with_rgb_features(encoder, device=device)
@@ -464,7 +467,8 @@ def run(config_path, output, weights_path, *, device="cpu"):
     (output/"evaluation_summary.json").write_text(json.dumps(result_payload, indent=2)+"\n")
     runtimes = [item["runtime_ms"] for item in primary]
     compute = {
-        "execution_device": device, "cuda_available": torch.cuda.is_available(),
+        "execution_device": str(device), "cuda_available": torch.cuda.is_available(),
+        "device": device_metadata(device),
         "frozen_rgb_parameters": encoder.parameter_count,
         "frozen_rgb_estimated_flops_per_frame": encoder.estimated_flops_per_frame,
         "trainable_parameters_by_model": {mode: model.trainable_parameter_count
@@ -513,7 +517,8 @@ def main():
     parser.add_argument("--config", default=str(DEFAULT_CONFIG))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     parser.add_argument("--feature-weights", required=True)
-    parser.add_argument("--device", default="cpu")
+    parser.add_argument("--device", default="auto",
+                        help="auto (CUDA when visible), cpu, cuda, or cuda:N")
     args = parser.parse_args()
     run(args.config, args.output, args.feature_weights, device=args.device)
 
