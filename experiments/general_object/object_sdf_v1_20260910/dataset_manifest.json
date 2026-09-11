@@ -1,0 +1,465 @@
+{
+  "algorithm_input_and_evaluation_isolation": "separate paths; reconstructor reloads only algorithm_inputs",
+  "cases": [
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_001/observation.json",
+      "case_id": "case_001",
+      "evaluation_truth": "evaluation_truth/case_001/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 0,
+      "seed": 41001,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_002/observation.json",
+      "case_id": "case_002",
+      "evaluation_truth": "evaluation_truth/case_002/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 0,
+      "seed": 41002,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_003/observation.json",
+      "case_id": "case_003",
+      "evaluation_truth": "evaluation_truth/case_003/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 0,
+      "seed": 41003,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_004/observation.json",
+      "case_id": "case_004",
+      "evaluation_truth": "evaluation_truth/case_004/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 0,
+      "seed": 41004,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_005/observation.json",
+      "case_id": "case_005",
+      "evaluation_truth": "evaluation_truth/case_005/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 1,
+      "seed": 41005,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_006/observation.json",
+      "case_id": "case_006",
+      "evaluation_truth": "evaluation_truth/case_006/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 1,
+      "seed": 41006,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_007/observation.json",
+      "case_id": "case_007",
+      "evaluation_truth": "evaluation_truth/case_007/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 1,
+      "seed": 41007,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_008/observation.json",
+      "case_id": "case_008",
+      "evaluation_truth": "evaluation_truth/case_008/ground_truth.json",
+      "geometry": "sphere",
+      "object_instance_id": "dev_sphere_01",
+      "pose_index": 1,
+      "seed": 41008,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_009/observation.json",
+      "case_id": "case_009",
+      "evaluation_truth": "evaluation_truth/case_009/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 0,
+      "seed": 41009,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_010/observation.json",
+      "case_id": "case_010",
+      "evaluation_truth": "evaluation_truth/case_010/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 0,
+      "seed": 41010,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_011/observation.json",
+      "case_id": "case_011",
+      "evaluation_truth": "evaluation_truth/case_011/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 0,
+      "seed": 41011,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_012/observation.json",
+      "case_id": "case_012",
+      "evaluation_truth": "evaluation_truth/case_012/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 0,
+      "seed": 41012,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_013/observation.json",
+      "case_id": "case_013",
+      "evaluation_truth": "evaluation_truth/case_013/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 1,
+      "seed": 41013,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_014/observation.json",
+      "case_id": "case_014",
+      "evaluation_truth": "evaluation_truth/case_014/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 1,
+      "seed": 41014,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_015/observation.json",
+      "case_id": "case_015",
+      "evaluation_truth": "evaluation_truth/case_015/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 1,
+      "seed": 41015,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_016/observation.json",
+      "case_id": "case_016",
+      "evaluation_truth": "evaluation_truth/case_016/ground_truth.json",
+      "geometry": "cylinder",
+      "object_instance_id": "dev_cylinder_01",
+      "pose_index": 1,
+      "seed": 41016,
+      "split": "development"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_017/observation.json",
+      "case_id": "case_017",
+      "evaluation_truth": "evaluation_truth/case_017/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 0,
+      "seed": 41017,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_018/observation.json",
+      "case_id": "case_018",
+      "evaluation_truth": "evaluation_truth/case_018/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 0,
+      "seed": 41018,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_019/observation.json",
+      "case_id": "case_019",
+      "evaluation_truth": "evaluation_truth/case_019/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 0,
+      "seed": 41019,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_020/observation.json",
+      "case_id": "case_020",
+      "evaluation_truth": "evaluation_truth/case_020/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 0,
+      "seed": 41020,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_021/observation.json",
+      "case_id": "case_021",
+      "evaluation_truth": "evaluation_truth/case_021/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 1,
+      "seed": 41021,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_022/observation.json",
+      "case_id": "case_022",
+      "evaluation_truth": "evaluation_truth/case_022/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 1,
+      "seed": 41022,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_023/observation.json",
+      "case_id": "case_023",
+      "evaluation_truth": "evaluation_truth/case_023/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 1,
+      "seed": 41023,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_024/observation.json",
+      "case_id": "case_024",
+      "evaluation_truth": "evaluation_truth/case_024/ground_truth.json",
+      "geometry": "rounded_box",
+      "object_instance_id": "val_rounded_box_01",
+      "pose_index": 1,
+      "seed": 41024,
+      "split": "validation"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_025/observation.json",
+      "case_id": "case_025",
+      "evaluation_truth": "evaluation_truth/case_025/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 0,
+      "seed": 41025,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_026/observation.json",
+      "case_id": "case_026",
+      "evaluation_truth": "evaluation_truth/case_026/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 0,
+      "seed": 41026,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_027/observation.json",
+      "case_id": "case_027",
+      "evaluation_truth": "evaluation_truth/case_027/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 0,
+      "seed": 41027,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_028/observation.json",
+      "case_id": "case_028",
+      "evaluation_truth": "evaluation_truth/case_028/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 0,
+      "seed": 41028,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_029/observation.json",
+      "case_id": "case_029",
+      "evaluation_truth": "evaluation_truth/case_029/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 1,
+      "seed": 41029,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_030/observation.json",
+      "case_id": "case_030",
+      "evaluation_truth": "evaluation_truth/case_030/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 1,
+      "seed": 41030,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_031/observation.json",
+      "case_id": "case_031",
+      "evaluation_truth": "evaluation_truth/case_031/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 1,
+      "seed": 41031,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_032/observation.json",
+      "case_id": "case_032",
+      "evaluation_truth": "evaluation_truth/case_032/ground_truth.json",
+      "geometry": "cuboid",
+      "object_instance_id": "test_cuboid_01",
+      "pose_index": 1,
+      "seed": 41032,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_033/observation.json",
+      "case_id": "case_033",
+      "evaluation_truth": "evaluation_truth/case_033/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 0,
+      "seed": 41033,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_034/observation.json",
+      "case_id": "case_034",
+      "evaluation_truth": "evaluation_truth/case_034/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 0,
+      "seed": 41034,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_035/observation.json",
+      "case_id": "case_035",
+      "evaluation_truth": "evaluation_truth/case_035/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 0,
+      "seed": 41035,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_036/observation.json",
+      "case_id": "case_036",
+      "evaluation_truth": "evaluation_truth/case_036/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 0,
+      "seed": 41036,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 0,
+      "algorithm_input": "algorithm_inputs/case_037/observation.json",
+      "case_id": "case_037",
+      "evaluation_truth": "evaluation_truth/case_037/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 1,
+      "seed": 41037,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 2,
+      "algorithm_input": "algorithm_inputs/case_038/observation.json",
+      "case_id": "case_038",
+      "evaluation_truth": "evaluation_truth/case_038/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 1,
+      "seed": 41038,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 4,
+      "algorithm_input": "algorithm_inputs/case_039/observation.json",
+      "case_id": "case_039",
+      "evaluation_truth": "evaluation_truth/case_039/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 1,
+      "seed": 41039,
+      "split": "test"
+    },
+    {
+      "active_sensor_count": 8,
+      "algorithm_input": "algorithm_inputs/case_040/observation.json",
+      "case_id": "case_040",
+      "evaluation_truth": "evaluation_truth/case_040/ground_truth.json",
+      "geometry": "asymmetric_l",
+      "object_instance_id": "test_asymmetric_l_01",
+      "pose_index": 1,
+      "seed": 41040,
+      "split": "test"
+    }
+  ],
+  "config_sha256": "fbfd1c4454e54278571722f3b10a0ea9e238fc292c1e5e7161f87f9e2a6a1969",
+  "protocol_sha256": "1ffa07c0aea978a7602cd5eecb490941ef6e174ef2995d92949ba55c69c79861",
+  "protocol_version": "general-object-sdf-v1-frozen-20260910",
+  "rgb_feature_encoder": "torchvision-resnet18-imagenet1k-v1-local-weights-only",
+  "rgb_feature_weight_sha256": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+  "schema_version": 1,
+  "split_policy": {
+    "development": [
+      "dev_sphere_01",
+      "dev_cylinder_01"
+    ],
+    "test": [
+      "test_cuboid_01",
+      "test_asymmetric_l_01"
+    ],
+    "validation": [
+      "val_rounded_box_01"
+    ]
+  },
+  "training_performed": false
+}

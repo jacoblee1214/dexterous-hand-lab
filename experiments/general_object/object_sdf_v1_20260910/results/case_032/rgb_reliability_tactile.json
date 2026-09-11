@@ -1,0 +1,197 @@
+{
+  "algorithm": {
+    "bounds_m": [
+      [
+        -0.065,
+        -0.065,
+        -0.065
+      ],
+      [
+        0.065,
+        0.065,
+        0.065
+      ]
+    ],
+    "confidence": 0.92,
+    "diagnostics": {
+      "active_raw_tactile_count": 8,
+      "applied_contact_constraints": [
+        {
+          "point_object_m": [
+            -0.0019215495065525205,
+            0.003942290246646606,
+            0.03506513310264962
+          ],
+          "pre_constraint_sdf_m": -0.014130434021353722,
+          "sensor_id": "sim_sensor_01",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            -0.010284428917203499,
+            -0.028491057322799142,
+            -0.017041646550604028
+          ],
+          "pre_constraint_sdf_m": -0.025434533495890845,
+          "sensor_id": "sim_sensor_02",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.0017672139537684745,
+            -0.024920060706873273,
+            0.035633330516298856
+          ],
+          "pre_constraint_sdf_m": -0.012700634721879565,
+          "sensor_id": "sim_sensor_03",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.01381342219345991,
+            -0.0273708764955641,
+            0.018467515644482436
+          ],
+          "pre_constraint_sdf_m": -0.03175359327761346,
+          "sensor_id": "sim_sensor_04",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.028267036746236783,
+            -0.024358971940474355,
+            0.006615201412071349
+          ],
+          "pre_constraint_sdf_m": -0.01976629931949721,
+          "sensor_id": "sim_sensor_05",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.03986453017807381,
+            -0.0242502375851719,
+            0.01615275970511251
+          ],
+          "pre_constraint_sdf_m": -0.006163655958720088,
+          "sensor_id": "sim_sensor_06",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.04527675252672414,
+            -0.023312767944564366,
+            -0.003340391943204188
+          ],
+          "pre_constraint_sdf_m": -0.0060322665383495955,
+          "sensor_id": "sim_sensor_07",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        },
+        {
+          "point_object_m": [
+            0.007237266421341199,
+            0.0126449151122165,
+            0.03407713903395144
+          ],
+          "pre_constraint_sdf_m": -0.011470627435760914,
+          "sensor_id": "sim_sensor_08",
+          "source": "minimum_absolute_sdf_within_finite_patch",
+          "weight": 0.9690976514215079
+        }
+      ],
+      "candidate_voxel_fraction": 0.7120949074074074,
+      "coverage_score": 1.0,
+      "effective_latest_sensor_count": 8,
+      "estimated_grid_operations": 1741824,
+      "finger_count": 4,
+      "foreground_supported_voxel_fraction": 0.251953125,
+      "ground_truth_input": false,
+      "hand_occluded_is_empty_space": false,
+      "inactive_sensors_used_as_free_space": false,
+      "input_boundary": "calibrated RGB/features/visibility + declared static object frame + named scalar tactile patches; no CAD, shape identity, GT pose, GT surface or GT normals",
+      "known_background_is_empty_space": true,
+      "known_radius_input": false,
+      "object_identity_input": false,
+      "parameter_count": 0,
+      "sensor_count": 8,
+      "spatial_spread_m": 0.06687348805513144,
+      "surface_point_count": 2285,
+      "tactile_constraint_mode": "finite_patch",
+      "unknown_preserved_voxel_fraction": 0.4601417824074074,
+      "unknown_rays_penalized_as_empty": false
+    },
+    "grid_resolution": 24,
+    "method": "rgb_reliability_tactile",
+    "representation": "object-centric_dense_sdf_grid",
+    "runtime_ms": 17.33282580971718,
+    "status": "VALID_RECONSTRUCTION"
+  },
+  "evaluation": {
+    "algorithm_status": "VALID_RECONSTRUCTION",
+    "boundary": "evaluation_only_truth_consumed_after_reconstruction",
+    "contact_region": {
+      "completeness": {
+        "0.002": 0.06006006006006006,
+        "0.005": 0.4594594594594595
+      },
+      "count": 666,
+      "mean_point_to_surface_m": 0.006389018867427732,
+      "median_point_to_surface_m": 0.005440376517478753
+    },
+    "f_score": {
+      "0.002": 0.017233232342885735,
+      "0.005": 0.07853812360186507
+    },
+    "ground_truth_was_algorithm_input": false,
+    "method": "rgb_reliability_tactile",
+    "precision": {
+      "0.002": 0.027133479212253828,
+      "0.005": 0.06783369803063458
+    },
+    "recall_completeness": {
+      "0.002": 0.012626262626262626,
+      "0.005": 0.09325396825396826
+    },
+    "regions": {
+      "occluded_by_hand": {
+        "completeness": {
+          "0.002": 0.029467680608365018,
+          "0.005": 0.24429657794676807
+        },
+        "count": 1052,
+        "mean_point_to_surface_m": 0.010772436129885288,
+        "median_point_to_surface_m": 0.009637544595829193
+      },
+      "other_unobserved": {
+        "completeness": {
+          "0.002": 0.009664292980671414,
+          "0.005": 0.06307222787385554
+        },
+        "count": 3932,
+        "mean_point_to_surface_m": 0.01985972136649841,
+        "median_point_to_surface_m": 0.017916254838794624
+      },
+      "visible_to_rgb": {
+        "completeness": {
+          "0.002": 0.0017857142857142857,
+          "0.005": 0.02142857142857143
+        },
+        "count": 560,
+        "mean_point_to_surface_m": 0.01454722602241009,
+        "median_point_to_surface_m": 0.013681401879605237
+      }
+    },
+    "surface_counts": {
+      "ground_truth": 5544,
+      "predicted": 2285
+    },
+    "whole_surface_chamfer_l1_m": 0.03814736643093966,
+    "whole_surface_point_to_surface_m": 0.01759875068439046
+  }
+}

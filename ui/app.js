@@ -1,7 +1,7 @@
 "use strict";
 
 const SCHEMA_VERSION = "1.1.0";
-const FRONTEND_BUILD_ID = "reliability-aware-fusion-v2-20260909.1";
+const FRONTEND_BUILD_ID = "general-object-sdf-v1-20260910.1";
 const colors = ["#35d7e5", "#ff8b5c", "#c478ff", "#55ec89", "#ffd84f", "#4d99ff"];
 let state = null;
 let socket = null;
@@ -24,6 +24,8 @@ let renderMode = null;
 let simulationView = null;
 let meshLoadPromise = null;
 let fusionMethod = "reliability_aware_fusion_v2";
+let reconstructionFamily = "sphere";
+let generalObjectMethod = "rgb_reliability_tactile";
 
 function streamValid() {
   return socket?.readyState === WebSocket.OPEN && performance.now() - lastStateReceived < 1500 && state?.snapshot.valid;
@@ -233,6 +235,14 @@ document.querySelector('#fusion-method').addEventListener('change', event => {
   fusionMethod = event.target.value;
   if (state) { renderFusion(); reconstructionView.draw(state); }
 });
+document.querySelector('#reconstruction-family').addEventListener('change', event => {
+  reconstructionFamily = event.target.value;
+  if (state) { renderReconstruction(); renderVisionOnly(); renderFusion(); reconstructionView.draw(state); }
+});
+document.querySelector('#general-object-method').addEventListener('change', event => {
+  generalObjectMethod = event.target.value;
+  if (state) { renderReconstruction(); reconstructionView.draw(state); }
+});
 document.querySelector('#reset-render-camera').addEventListener('click', () => command('render_camera', {action:'reset'}));
 const renderImage = document.querySelector('#mujoco-render');
 let renderDrag = null;
@@ -297,7 +307,29 @@ class ReconstructionProjectionView {
     const [x,y] = this.project(point, center, scale), radius = Math.max(2, radiusM*scale);
     const c=this.context; c.beginPath(); c.arc(x,y,radius,0,Math.PI*2); c.setLineDash(dash); c.strokeStyle=stroke; c.lineWidth=2*this.ratio; c.stroke(); c.setLineDash([]); if(fill){c.fillStyle=fill;c.fill();}
   }
+  drawGeneral(payload) {
+    this.resize(); const c=this.context; c.clearRect(0,0,this.width,this.height);
+    const general=payload.general_object_reconstruction || {}, selected=general.methods?.[generalObjectMethod];
+    if (!selected?.surface_points_object_m) {
+      c.fillStyle="#8fa7b8"; c.font=`${12*this.ratio}px ui-monospace`;
+      c.fillText(general.reason || "General-object artifact unavailable",20*this.ratio,this.height/2); return;
+    }
+    const center=[0,0,0], scale=Math.min(this.width,this.height)*5.2*this.zoom;
+    const points=selected.surface_points_object_m.map(point=>[point,this.transform(point,center)[2]])
+      .sort((a,b)=>a[1]-b[1]);
+    c.fillStyle="#35d7e5";
+    for(const [point] of points){const [x,y]=this.project(point,center,scale);c.beginPath();c.arc(x,y,1.2*this.ratio,0,Math.PI*2);c.fill();}
+    for(const contact of general.input?.tactile_observations || [])
+      this.circle(contact.representative_point_object_m,.0018,center,scale,"#ffcf5a","#ffcf5a");
+    if(document.querySelector('#show-ground-truth').checked) {
+      c.fillStyle="rgba(85,236,137,.5)";
+      for(const point of general.evaluation_surface_points_object_m || []) {
+        const [x,y]=this.project(point,center,scale);c.fillRect(x,y,1.2*this.ratio,1.2*this.ratio);
+      }
+    }
+  }
   draw(payload) {
+    if (reconstructionFamily === 'general_object') return this.drawGeneral(payload);
     this.resize(); const c=this.context; c.clearRect(0,0,this.width,this.height);
     const center = payload.sphere_reconstruction.estimated_center_xyz || [0,-.045,.105];
     const scale = Math.min(this.width,this.height) * 5.5 * this.zoom;
@@ -530,7 +562,60 @@ function drawPlot(canvas, series, field, unit) {
 
 function renderPlots(){ document.querySelector("#series-scope").value=state.time_series.scope; document.querySelectorAll(".plot canvas").forEach(canvas=>drawPlot(canvas,state.time_series.series,canvas.dataset.field,canvas.dataset.unit)); document.querySelector("#series-legend").innerHTML=state.time_series.series.map((item,index)=>`<span style="color:${colors[index%colors.length]}">● ${item.sensor_id}</span>`).join(" &nbsp; ")||"No currently active sensor series"; }
 
+function unpackGeneralMask(packed) {
+  if (!packed?.packed_base64 || packed.shape?.length !== 2) return null;
+  const binary=atob(packed.packed_base64), bytes=Uint8Array.from(binary, value=>value.charCodeAt(0));
+  const count=packed.shape[0]*packed.shape[1], values=new Uint8Array(count);
+  for(let index=0;index<count;index++) values[index]=(bytes[index>>3]>>(7-(index&7)))&1;
+  return {values, height:packed.shape[0], width:packed.shape[1]};
+}
+
+function drawGeneralVisibility(frame) {
+  const layers=[
+    [unpackGeneralMask(frame.known_background_mask),[22,28,34,255]],
+    [unpackGeneralMask(frame.object_mask),[40,174,231,255]],
+    [unpackGeneralMask(frame.hand_occluded_mask),[223,139,85,255]],
+    [unpackGeneralMask(frame.unreliable_mask),[255,212,92,255]],
+  ];
+  const first=layers.find(([mask])=>mask)?.[0], canvas=document.querySelector('#general-object-visibility');
+  if(!first){canvas.width=1;canvas.height=1;return;}
+  canvas.width=first.width;canvas.height=first.height;
+  const image=canvas.getContext('2d').createImageData(first.width,first.height);
+  for(const [mask,color] of layers){if(!mask)continue;for(let i=0;i<mask.values.length;i++)if(mask.values[i])image.data.set(color,i*4);}
+  canvas.getContext('2d').putImageData(image,0,0);
+}
+
 function renderReconstruction(){
+  const generalCard=document.querySelector('#general-object-metrics');
+  const sphereCards=[document.querySelector('#vision-only-metrics'),document.querySelector('#fusion-metrics')];
+  if(reconstructionFamily==='general_object'){
+    document.querySelectorAll('[data-sphere-control]').forEach(item=>item.classList.add('hidden'));
+    generalCard.classList.remove('hidden'); sphereCards.forEach(item=>item.classList.add('hidden'));
+    const general=state.general_object_reconstruction || {}, selected=general.methods?.[generalObjectMethod] || {};
+    const badge=document.querySelector('#fit-status'); badge.textContent=selected.status || general.status || 'UNAVAILABLE';
+    badge.className=`status-badge ${selected.status==='VALID_RECONSTRUCTION'?'valid':'insufficient'}`;
+    document.querySelector('#general-object-method').value=generalObjectMethod;
+    const frame=general.input?.rgb_observations?.[0] || {}, image=document.querySelector('#general-object-rgb');
+    if(frame.rgb_png_base64) image.src=`data:image/png;base64,${frame.rgb_png_base64}`;
+    drawGeneralVisibility(frame);
+    const d=selected.diagnostics || {};
+    const rows=[['Representation',selected.representation],['Method',selected.method],['Status',selected.status],
+      ['Confidence',format(selected.confidence,3)],['Grid',`${selected.grid_resolution || '—'}³`],
+      ['Effective sensors',d.effective_latest_sensor_count ?? 0],['Contributing fingers',d.finger_count ?? 0],
+      ['Spatial coverage',`${format(d.spatial_spread_m,4)} m`],['Surface points',d.surface_point_count],
+      ['Runtime',`${format(selected.runtime_ms,2)} ms`]];
+    document.querySelector('#reconstruction-metrics').innerHTML=rows.map(row=>`<dt>${row[0]}</dt><dd>${row[1] ?? '—'}</dd>`).join('');
+    generalCard.querySelector(':scope > p').innerHTML=
+      `Case: <span class="mono">${general.case_id || '—'}</span> · drag/wheel rotates and zooms the object-frame surface<br>`+
+      `Input: <span class="mono">${d.input_boundary || '—'}</span><br>`+
+      `Known-background empty-space constraint: <span class="mono">YES</span> · hand-occluded empty penalty: <span class="mono">${d.unknown_rays_penalized_as_empty?'YES':'NO'}</span><br>`+
+      `Tactile: <span class="mono">${d.tactile_constraint_mode || 'none'}</span> · scalar channels are not 3D force vectors<br>`+
+      `GT input: <span class="mono">${d.ground_truth_input?'ORACLE ONLY':'NO'}</span> · object identity/radius input: <span class="mono">NO</span>`;
+    document.querySelector('#evaluation-metrics').classList.add('hidden');
+    return;
+  }
+  document.querySelectorAll('[data-sphere-control]').forEach(item=>item.classList.remove('hidden'));
+  generalCard.classList.add('hidden'); sphereCards.forEach(item=>item.classList.remove('hidden'));
   const r=state.sphere_reconstruction, badge=document.querySelector("#fit-status");badge.textContent=r.status;badge.className=`status-badge ${r.status==="VALID_RECONSTRUCTION"?"valid":r.status==="POOR_SPATIAL_COVERAGE"?"poor":r.status==="INSUFFICIENT_DATA"?"insufficient":""}`;
   const rows=[["Accepted tactile point count",r.number_of_input_points],["Unique sensors",r.number_of_unique_sensors],["Unique fingers",r.number_of_unique_fingers],["Spatial coverage",`${format(r.spatial_coverage_m)} m`],["Estimated center",vector(r.estimated_center_xyz)],["Estimated radius",r.estimated_radius_m==null?"—":`${format(r.estimated_radius_m)} m`],["Sphere fit RMSE",r.fit_residual_rmse_m==null?"—":`${format(r.fit_residual_rmse_m,6)} m`]];
   document.querySelector("#reconstruction-metrics").innerHTML=rows.map(row=>`<dt>${row[0]}</dt><dd>${row[1]}</dd>`).join("");

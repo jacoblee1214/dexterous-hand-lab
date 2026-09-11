@@ -1,0 +1,33 @@
+schema_version: 1
+configuration_version: general-object-object-centric-sdf-v1
+representation:
+  type: dense_object_centric_sdf_grid
+  grid_resolution: 24
+  bounds_m:
+    - [-0.065, -0.065, -0.065]
+    - [0.065, 0.065, 0.065]
+  static_frame_source: declared_static_fixture
+  temporal_accumulation: disabled
+solver:
+  contact_influence_radius_m: 0.014
+  tactile_only_support_radius_m: 0.012
+  minimum_surface_points: 20
+  fixed_rgb_weight: 1.0
+  fixed_tactile_weight: 1.0
+reliability:
+  contact_sigma_source: per_observation_calibration
+  spatial_coverage_scale_m: 0.060
+  ground_truth_error_used: false
+evaluation:
+  distance_thresholds_m: [0.002, 0.005]
+  contact_region_radius_m: 0.012
+features:
+  primary_encoder: torchvision-resnet18-imagenet1k-v1-local-weights-only
+  weight_filename: resnet18-5c106cde.pth
+  weight_sha256: 5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8
+  fixed_weight_ablation: analytic-rgb-luminance-sobel-v1
+  implicit_weight_downloads: forbidden
+optional_priors:
+  monocular_depth: disabled
+  predicted_normals: disabled
+  mujoco_depth_algorithm_input: forbidden

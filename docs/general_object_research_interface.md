@@ -1,11 +1,12 @@
-# Future general-object visuo-tactile interface
+# General-object visuo-tactile interface and future motion hooks
 
-This is an interface plan only. No SDF, neural reconstruction, regrasp planner,
-or object-pose oracle is implemented in the current milestone.
+The static portion of this interface is now implemented by General Object SDF
+v1. Neural decoding, measured moving-object pose tracking, regrasp planning and
+object-pose oracle inputs remain unimplemented.
 
 ## Object-centric observation contract
 
-A future solver should consume a timestamped bundle containing calibrated RGB
+The general-object solver consumes a timestamped bundle containing calibrated RGB
 features and rays; explicit foreground, background, unknown/occluded, and
 unreliable visibility; named scalar tactile observations with finite contact
 regions and uncertainty; named synchronized joint state; calibration versions;

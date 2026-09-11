@@ -1,0 +1,25 @@
+{
+  "dense_sdf_float32_memory_bytes": 55296,
+  "execution_device": "CPU/NumPy",
+  "feature_runtime_ms": {
+    "maximum": 984.7752749919891,
+    "mean": 817.6913613278884
+  },
+  "fixed_feature_ablation": "analytic-rgb-luminance-sobel-v1",
+  "flops_note": "No neural decoder. Per-result deterministic grid-operation estimates are recorded in diagnostics.",
+  "frozen_pretrained_rgb_encoder": true,
+  "gpu_memory_bytes": 0,
+  "learned_sdf_decoder": false,
+  "primary_encoder": "torchvision-resnet18-imagenet1k-v1-local-weights-only",
+  "primary_encoder_estimated_flops_per_224px_frame": 1814000000,
+  "primary_encoder_parameter_count": 11176512,
+  "primary_encoder_weight_sha256": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+  "runtime_ms": {
+    "maximum": 20.303359953686595,
+    "mean": 11.614441909478046,
+    "median": 12.193440459668636,
+    "minimum": 0.41993986815214157
+  },
+  "total_parameter_count": 11176512,
+  "trainable_parameter_count": 0
+}

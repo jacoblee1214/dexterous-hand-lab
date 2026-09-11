@@ -1,0 +1,508 @@
+{
+  "attempt_count": 40,
+  "by_geometry": {
+    "asymmetric_l": {
+      "rgb_finite_patch_tactile": {
+        "mean_occluded_error_m": 0.018415063610582615,
+        "valid": 8
+      },
+      "rgb_only": {
+        "mean_occluded_error_m": 0.02583668113926537,
+        "valid": 8
+      },
+      "rgb_perfect_contact_oracle": {
+        "mean_occluded_error_m": 0.01750055278191115,
+        "valid": 8
+      },
+      "rgb_reliability_tactile": {
+        "mean_occluded_error_m": 0.021174463415843912,
+        "valid": 8
+      },
+      "rgb_representative_tactile": {
+        "mean_occluded_error_m": 0.017231958817184978,
+        "valid": 8
+      },
+      "tactile_only": {
+        "mean_occluded_error_m": 0.01848919676706849,
+        "valid": 6
+      }
+    },
+    "cuboid": {
+      "rgb_finite_patch_tactile": {
+        "mean_occluded_error_m": 0.019759638265941907,
+        "valid": 8
+      },
+      "rgb_only": {
+        "mean_occluded_error_m": 0.027389315967990352,
+        "valid": 8
+      },
+      "rgb_perfect_contact_oracle": {
+        "mean_occluded_error_m": 0.018640212355337808,
+        "valid": 8
+      },
+      "rgb_reliability_tactile": {
+        "mean_occluded_error_m": 0.02129715253522905,
+        "valid": 8
+      },
+      "rgb_representative_tactile": {
+        "mean_occluded_error_m": 0.018814919234537257,
+        "valid": 8
+      },
+      "tactile_only": {
+        "mean_occluded_error_m": 0.019244539459090524,
+        "valid": 6
+      }
+    },
+    "cylinder": {
+      "rgb_finite_patch_tactile": {
+        "mean_occluded_error_m": 0.017408712366379954,
+        "valid": 8
+      },
+      "rgb_only": {
+        "mean_occluded_error_m": 0.024558563186050222,
+        "valid": 8
+      },
+      "rgb_perfect_contact_oracle": {
+        "mean_occluded_error_m": 0.016218595032242666,
+        "valid": 8
+      },
+      "rgb_reliability_tactile": {
+        "mean_occluded_error_m": 0.01970816544872643,
+        "valid": 8
+      },
+      "rgb_representative_tactile": {
+        "mean_occluded_error_m": 0.015961625381511833,
+        "valid": 8
+      },
+      "tactile_only": {
+        "mean_occluded_error_m": 0.013051903071581042,
+        "valid": 6
+      }
+    },
+    "rounded_box": {
+      "rgb_finite_patch_tactile": {
+        "mean_occluded_error_m": 0.01828102235041107,
+        "valid": 8
+      },
+      "rgb_only": {
+        "mean_occluded_error_m": 0.02606775853034209,
+        "valid": 8
+      },
+      "rgb_perfect_contact_oracle": {
+        "mean_occluded_error_m": 0.017641216158276664,
+        "valid": 8
+      },
+      "rgb_reliability_tactile": {
+        "mean_occluded_error_m": 0.02069600586827731,
+        "valid": 8
+      },
+      "rgb_representative_tactile": {
+        "mean_occluded_error_m": 0.01776067011672447,
+        "valid": 8
+      },
+      "tactile_only": {
+        "mean_occluded_error_m": 0.015814320271777604,
+        "valid": 6
+      }
+    },
+    "sphere": {
+      "rgb_finite_patch_tactile": {
+        "mean_occluded_error_m": 0.017185765826456294,
+        "valid": 8
+      },
+      "rgb_only": {
+        "mean_occluded_error_m": 0.024629182953152876,
+        "valid": 8
+      },
+      "rgb_perfect_contact_oracle": {
+        "mean_occluded_error_m": 0.016197252257523442,
+        "valid": 8
+      },
+      "rgb_reliability_tactile": {
+        "mean_occluded_error_m": 0.019576180916679557,
+        "valid": 8
+      },
+      "rgb_representative_tactile": {
+        "mean_occluded_error_m": 0.016119311262895335,
+        "valid": 8
+      },
+      "tactile_only": {
+        "mean_occluded_error_m": 0.01321185932672591,
+        "valid": 6
+      }
+    }
+  },
+  "central_result": {
+    "rgb_finite_patch_tactile": {
+      "cases_improved": 12,
+      "cases_tied": 4,
+      "cases_worsened": 0,
+      "improved": true,
+      "paired_case_count": 16,
+      "paired_mean_occluded_improvement_m_vs_rgb": 0.007525647615365602
+    },
+    "rgb_reliability_tactile": {
+      "cases_improved": 12,
+      "cases_tied": 4,
+      "cases_worsened": 0,
+      "improved": true,
+      "paired_case_count": 16,
+      "paired_mean_occluded_improvement_m_vs_rgb": 0.005377190578091377
+    },
+    "rgb_representative_tactile": {
+      "cases_improved": 12,
+      "cases_tied": 4,
+      "cases_worsened": 0,
+      "improved": true,
+      "paired_case_count": 16,
+      "paired_mean_occluded_improvement_m_vs_rgb": 0.00858955952776674
+    }
+  },
+  "held_out_test": {
+    "rgb_finite_patch_tactile": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.01908735093826226,
+      "mean_visible_error_m": 0.0175303723977628,
+      "valid": 16
+    },
+    "rgb_only": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.02661299855362786,
+      "mean_visible_error_m": 0.020544268305807595,
+      "valid": 16
+    },
+    "rgb_perfect_contact_oracle": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.018070382568624477,
+      "mean_visible_error_m": 0.017237761097022724,
+      "valid": 16
+    },
+    "rgb_reliability_tactile": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.021235807975536484,
+      "mean_visible_error_m": 0.01885369694456925,
+      "valid": 16
+    },
+    "rgb_representative_tactile": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.01802343902586112,
+      "mean_visible_error_m": 0.01713993240098309,
+      "valid": 16
+    },
+    "tactile_only": {
+      "attempted": 16,
+      "mean_occluded_error_m": 0.01886686811307951,
+      "mean_visible_error_m": 0.026028653038014733,
+      "valid": 12
+    }
+  },
+  "methods": {
+    "rgb_finite_patch_tactile": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.044556705606389996,
+      "mean_contact_region_error_m": 0.006749668207706454,
+      "mean_f_score_5mm": 0.02990458270965759,
+      "mean_occluded_error_m": 0.018210040483954366,
+      "mean_other_unobserved_error_m": 0.022478878467399776,
+      "mean_runtime_ms": 13.994157442357391,
+      "mean_visible_error_m": 0.016448694836080642,
+      "success_rate": 1.0,
+      "valid": 40
+    },
+    "rgb_only": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.048679133227285086,
+      "mean_contact_region_error_m": 0.021913763374231676,
+      "mean_f_score_5mm": 0.0,
+      "mean_occluded_error_m": 0.02569630035536018,
+      "mean_other_unobserved_error_m": 0.02374639979823271,
+      "mean_runtime_ms": 11.637570086168125,
+      "mean_visible_error_m": 0.019910695347019162,
+      "success_rate": 1.0,
+      "valid": 40
+    },
+    "rgb_perfect_contact_oracle": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.04382083031658303,
+      "mean_contact_region_error_m": 0.00487468527939476,
+      "mean_f_score_5mm": 0.0435338126913244,
+      "mean_occluded_error_m": 0.01723956571705835,
+      "mean_other_unobserved_error_m": 0.02210472219040604,
+      "mean_runtime_ms": 13.590669119730592,
+      "mean_visible_error_m": 0.016376725927132192,
+      "success_rate": 1.0,
+      "valid": 40
+    },
+    "rgb_reliability_tactile": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.04598840793559731,
+      "mean_contact_region_error_m": 0.013513066774815998,
+      "mean_f_score_5mm": 0.018146793497967943,
+      "mean_occluded_error_m": 0.020490393636951255,
+      "mean_other_unobserved_error_m": 0.022985532885533684,
+      "mean_runtime_ms": 13.885442045284435,
+      "mean_visible_error_m": 0.017875438590951264,
+      "success_rate": 1.0,
+      "valid": 40
+    },
+    "rgb_representative_tactile": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.04376448056784019,
+      "mean_contact_region_error_m": 0.004769053841360609,
+      "mean_f_score_5mm": 0.043605223435417624,
+      "mean_occluded_error_m": 0.017177696962570776,
+      "mean_other_unobserved_error_m": 0.02210864623097957,
+      "mean_runtime_ms": 13.264863204676658,
+      "mean_visible_error_m": 0.016178648354022634,
+      "success_rate": 1.0,
+      "valid": 40
+    },
+    "tactile_only": {
+      "attempted": 40,
+      "mean_chamfer_l1_m": 0.03244211216295476,
+      "mean_contact_region_error_m": 0.004785713945483107,
+      "mean_f_score_5mm": 0.15949498918141666,
+      "mean_occluded_error_m": 0.015962363779248714,
+      "mean_other_unobserved_error_m": 0.029826871442174743,
+      "mean_runtime_ms": 3.3139495586510748,
+      "mean_visible_error_m": 0.021541738237352934,
+      "success_rate": 0.75,
+      "valid": 30
+    }
+  },
+  "protocol_version": "general-object-sdf-v1-frozen-20260910",
+  "schema_version": 1,
+  "sensor_sparsity": {
+    "0": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 0,
+        "dropout_fraction_relative_to_8": 1.0,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "contributing_fingers": 0,
+        "dropout_fraction_relative_to_8": 1.0,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 0,
+        "dropout_fraction_relative_to_8": 1.0,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 0,
+        "dropout_fraction_relative_to_8": 1.0,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "contributing_fingers": 0,
+        "dropout_fraction_relative_to_8": 1.0,
+        "mean_occluded_error_m": null,
+        "valid": 0
+      }
+    },
+    "2": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 2,
+        "dropout_fraction_relative_to_8": 0.75,
+        "mean_occluded_error_m": 0.022976469079945508,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "contributing_fingers": 2,
+        "dropout_fraction_relative_to_8": 0.75,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 2,
+        "dropout_fraction_relative_to_8": 0.75,
+        "mean_occluded_error_m": 0.02552606244504867,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 2,
+        "dropout_fraction_relative_to_8": 0.75,
+        "mean_occluded_error_m": 0.021910178122461977,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "contributing_fingers": 2,
+        "dropout_fraction_relative_to_8": 0.75,
+        "mean_occluded_error_m": 0.02807777862340825,
+        "valid": 10
+      }
+    },
+    "4": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.5,
+        "mean_occluded_error_m": 0.015810710914454167,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.5,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.5,
+        "mean_occluded_error_m": 0.022079816180938815,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.5,
+        "mean_occluded_error_m": 0.013665230608002135,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.5,
+        "mean_occluded_error_m": 0.012926915021073215,
+        "valid": 10
+      }
+    },
+    "8": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.0,
+        "mean_occluded_error_m": 0.008356681586057606,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.0,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.0,
+        "mean_occluded_error_m": 0.00865939556645735,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.0,
+        "mean_occluded_error_m": 0.007439078764458806,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "contributing_fingers": 4,
+        "dropout_fraction_relative_to_8": 0.0,
+        "mean_occluded_error_m": 0.006882397693264675,
+        "valid": 10
+      }
+    }
+  },
+  "spatial_coverage": {
+    "high": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.008356681586057606,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.00865939556645735,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.007439078764458806,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.006882397693264675,
+        "valid": 10
+      }
+    },
+    "low": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 20,
+        "mean_occluded_error_m": 0.02433638471765285,
+        "valid": 20
+      },
+      "rgb_only": {
+        "attempted": 20,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 20
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 20,
+        "mean_occluded_error_m": 0.025611181400204425,
+        "valid": 20
+      },
+      "rgb_representative_tactile": {
+        "attempted": 20,
+        "mean_occluded_error_m": 0.02380323923891108,
+        "valid": 20
+      },
+      "tactile_only": {
+        "attempted": 20,
+        "mean_occluded_error_m": 0.02807777862340825,
+        "valid": 10
+      }
+    },
+    "medium": {
+      "rgb_finite_patch_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.015810710914454167,
+        "valid": 10
+      },
+      "rgb_only": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.02569630035536018,
+        "valid": 10
+      },
+      "rgb_reliability_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.022079816180938815,
+        "valid": 10
+      },
+      "rgb_representative_tactile": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.013665230608002135,
+        "valid": 10
+      },
+      "tactile_only": {
+        "attempted": 10,
+        "mean_occluded_error_m": 0.012926915021073215,
+        "valid": 10
+      }
+    }
+  }
+}

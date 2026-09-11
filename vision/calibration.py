@@ -157,6 +157,33 @@ def load_camera_config(path: str | Path = DEFAULT_CALIBRATION) -> CameraConfig:
     return config
 
 
+def calibration_from_declared_pose(config: CameraConfig) -> CalibratedCamera:
+    """Build the calibrated pinhole model directly from the versioned YAML pose.
+
+    This is useful for offline/replay dataset tools that must use the research
+    camera calibration but should not need to instantiate a MuJoCo model.  The
+    transform convention is identical to :func:`calibration_from_mujoco`.
+    """
+    x_axis = np.asarray(config.xyaxes_world[:3], dtype=float)
+    y_axis = np.asarray(config.xyaxes_world[3:], dtype=float)
+    x_axis /= np.linalg.norm(x_axis)
+    y_axis -= x_axis * float(np.dot(x_axis, y_axis))
+    y_axis /= np.linalg.norm(y_axis)
+    z_axis = np.cross(x_axis, y_axis)
+    rotation_world_from_mujoco = np.column_stack((x_axis, y_axis, z_axis))
+    rotation_world_from_cv = rotation_world_from_mujoco @ MUJOCO_TO_CV
+    world_from_cv = np.eye(4)
+    world_from_cv[:3, :3] = rotation_world_from_cv
+    world_from_cv[:3, 3] = config.position_world_m
+    fy = 0.5 * config.height / math.tan(math.radians(config.fovy_degrees) / 2.0)
+    intrinsic = np.array([
+        [fy, 0.0, (config.width - 1.0) / 2.0],
+        [0.0, fy, (config.height - 1.0) / 2.0],
+        [0.0, 0.0, 1.0],
+    ])
+    return CalibratedCamera(config, intrinsic, world_from_cv, np.linalg.inv(world_from_cv))
+
+
 def calibration_from_mujoco(model, data, config: CameraConfig) -> CalibratedCamera:
     camera_id = model.camera(config.camera_name).id
     actual_fovy = float(model.cam_fovy[camera_id])

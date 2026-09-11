@@ -48,9 +48,21 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = Path(__file__).with_name("dashboard_config.yaml")
 UI_DIRECTORY = PROJECT_ROOT / "ui"
 RECONSTRUCTION_CONFIG = PROJECT_ROOT / "experiments" / "reconstruction_config.yaml"
+GENERAL_OBJECT_DASHBOARD_CASE = (
+    PROJECT_ROOT / "experiments/general_object/object_sdf_v1_20260910/dashboard_case.json"
+)
 STATE_SCHEMA_VERSION = "1.1.0"
 CONTROL_SCHEMA_VERSION = "1.1.0"
-DASHBOARD_BUILD_ID = "reliability-aware-fusion-v2-20260909.1"
+DASHBOARD_BUILD_ID = "general-object-sdf-v1-20260910.1"
+
+
+def _load_general_object_dashboard_case(path: Path = GENERAL_OBJECT_DASHBOARD_CASE) -> dict:
+    if not path.is_file():
+        return {"status": "UNAVAILABLE", "reason": "Run python -m general_object.experiment"}
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not value.get("methods") or not value.get("input", {}).get("rgb_observations"):
+        return {"status": "ERROR", "reason": "General-object dashboard artifact is incomplete"}
+    return {"status": "AVAILABLE", **value}
 
 
 @dataclass(frozen=True)
@@ -222,6 +234,7 @@ class DashboardSimulation:
             "radius_label": "declared_known_radius_prior",
             "methods": {},
         }
+        self.general_object_result = _load_general_object_dashboard_case()
         self._last_fusion_update_wall = -math.inf
         self._update_sensor_pipeline(force=True)
 
@@ -237,6 +250,21 @@ class DashboardSimulation:
     @property
     def grasp(self):
         return getattr(self.provider, "grasp")
+
+    def _general_object_state(self) -> dict:
+        value = json.loads(json.dumps(self.general_object_result))
+        if value.get("status") != "AVAILABLE":
+            return value
+        truth = value.pop("evaluation_only_gt_surface_points_object_m", None)
+        oracle = value.get("methods", {}).pop("rgb_perfect_contact_oracle", None)
+        value.get("input", {}).pop("forbidden_fields_absent", None)
+        for result in value.get("methods", {}).values():
+            result.get("diagnostics", {}).pop("ground_truth_input", None)
+        value["evaluation_comparison_enabled"] = bool(self.show_ground_truth)
+        if self.show_ground_truth:
+            value["evaluation_surface_points_object_m"] = truth
+            value["methods"]["rgb_perfect_contact_oracle"] = oracle
+        return value
 
     def close(self) -> None:
         if self._recorder:
@@ -611,6 +639,7 @@ class DashboardSimulation:
             "vision_only": self.vision_result,
             "vision_evaluation": self.vision_evaluation,
             "fusion": self.fusion_result,
+            "general_object_reconstruction": self._general_object_state(),
             "recording": {"enabled": self._recorder is not None,
                           "path": str(self._recorder.path) if self._recorder else None,
                           "detail": self._recording_detail},

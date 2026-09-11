@@ -1,0 +1,43 @@
+schema_version: 1
+protocol_version: general-object-sdf-v1-frozen-20260910
+frozen_before_first_result: true
+parent_commit: 1841d1cfd00481866fa0708e359bf8d07bad1071
+random_seed_base: 41000
+camera:
+  calibration: vision/camera_calibration.yaml
+  downsample_factor: 4
+  intrinsics_rule: scale_pinhole_intrinsics_with_pixel_centers
+object_frame:
+  assumption: declared_rigid_fixture_no_motion
+  source: declared_static_fixture
+  temporal_fusion: disabled
+objects:
+  development: [dev_sphere_01, dev_cylinder_01]
+  validation: [val_rounded_box_01]
+  test: [test_cuboid_01, test_asymmetric_l_01]
+poses:
+  - {yaw_degrees: -18.0, pitch_degrees: 8.0, occlusion_fraction: 0.28}
+  - {yaw_degrees: 27.0, pitch_degrees: -12.0, occlusion_fraction: 0.48}
+active_sensor_counts: [0, 2, 4, 8]
+attempt_count: 40
+methods:
+  proposed:
+    - rgb_only
+    - tactile_only
+    - rgb_representative_tactile
+    - rgb_finite_patch_tactile
+    - rgb_reliability_tactile
+  evaluation_only_upper_bound: rgb_perfect_contact_oracle
+evaluation:
+  distance_thresholds_m: [0.002, 0.005]
+  regions: [visible_to_rgb, occluded_by_hand, other_unobserved]
+  primary_metric: occluded_by_hand_mean_point_to_surface_m
+  tuning_split: development_and_validation_only
+  held_out_split: test
+failures:
+  include_zero_contact_cases: true
+  include_clustered_and_sparse_contacts: true
+  force_all_18_sensors: false
+training:
+  learned_parameters: false
+  tune_on_test: false

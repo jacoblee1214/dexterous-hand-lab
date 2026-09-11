@@ -5,8 +5,9 @@ grasping, sparse scalar tactile sensing, calibrated RGB perception and shape
 reconstruction. Its motivating question is whether inexpensive, spatially sparse
 tactile observations can improve RGB reconstruction in regions hidden by the
 hand. The current research snapshot provides controlled right-hand sphere
-baselines and infrastructure for future real-hardware observation; it is not a
-finished arbitrary-object or multimodal reconstruction system.
+baselines, a controlled object-centric general-surface SDF baseline, and
+infrastructure for future real-hardware observation. It is not yet a robust
+arbitrary-object or real-hardware reconstruction system.
 
 The platform contains right- and left-hand MuJoCo foundations, while the
 validated reconstruction/dashboard experiment is currently the right hand: 20
@@ -63,6 +64,12 @@ the reconstruction packages retain explicit algorithm/evaluation boundaries.
   residuals, weights, coverage, conditioning, uncertainty, initialization, and
   validity reasons. See `docs/research_fusion_milestone2.md` and
   `docs/camera_fusion_explainability.md`.
+- A GT-isolated object-centric `24³` dense-SDF baseline spanning sphere,
+  cylinder, cuboid, rounded-box and asymmetric-L cases, with fixed-weight,
+  finite-patch and reliability-aware tactile variants, region-specific metrics,
+  sensor-sparsity analysis and a frozen ResNet-18 RGB frontend. See
+  `docs/general_object_sdf_v1_architecture.md` and
+  `docs/general_object_sdf_v1_report.md`.
 
 The invisible hand collision geometry uses provisional convex hulls generated
 from the supplied high-resolution visual meshes. It prevents obvious hand/object
@@ -335,9 +342,29 @@ comparison was limited to three artificially damaged-mask cases: E beat v1
 representative fusion but remained 3.42 mm worse than v1 finite-patch fusion and
 was invalid under actual strong occlusion. This mixed/negative result and all diagnostics are preserved in
 [`docs/reliability_aware_fusion_v2.md`](docs/reliability_aware_fusion_v2.md).
-The future object-centric interface—without implementing a general reconstructor
-or regrasp—is documented in
-[`docs/general_object_research_interface.md`](docs/general_object_research_interface.md).
+The dashboard also has a **General Object SDF v1** mode. It preserves A–E and
+adds a GT-isolated `24³` object-centric dense SDF baseline for sphere, cylinder,
+cuboid, rounded-box and asymmetric-L simulation cases. On 16 held-out cuboid/L
+cases, RGB-only hand-occluded surface error was 26.61 mm; representative,
+finite-patch and reliability-aware tactile reduced it to 18.02, 19.09 and
+21.24 mm. Absolute error remains high, so this is a controlled first baseline,
+not general reconstruction solved. See the
+[`architecture`](docs/general_object_sdf_v1_architecture.md),
+[`research report`](docs/general_object_sdf_v1_report.md), and
+[`future pose interface`](docs/general_object_research_interface.md).
+
+Reproduce that frozen research run with the optional, version-pinned vision
+dependencies and an explicitly supplied local checkpoint (implicit downloads
+are refused):
+
+```bash
+pip install -r requirements-research.txt
+python -m general_object.experiment \
+  --feature-weights /path/to/resnet18-5c106cde.pth
+```
+
+The required checkpoint filename and SHA-256 are fixed in
+`general_object/config_v1.yaml`.
 
 ### Calibrated research RGB baseline
 
@@ -600,7 +627,7 @@ strict reconstruction serialization, separate evaluation serialization, and
 buffer reset. They also cover four complete URDF-limited grasp presets, negative
 right-thumb opposition, actuator-only staging, named-preset save/reload, all-18
 channel telemetry, active-state agreement, and a settling multi-sensor 40 mm
-grasp. The current automated suite reports 177 passed tests with three opt-in
+grasp. The current automated suite reports 188 passed tests with three opt-in
 browser tests skipped by default; those three Chromium/HTTP/WebSocket tests also
 pass when run explicitly. Manual visual acceptance remains open: confirm the posture and red/table
 agreement in the GUI, explore the sphere with several configurations, fit it,
@@ -618,8 +645,10 @@ penetration have not been scientifically validated.
 
 ## Known limitations and next direction
 
-- Reconstruction is sphere-only. Cylinder, box, free-form surface and arbitrary
-  object reconstruction are not implemented.
+- Sphere A–E remain controlled center-fitting baselines. General Object SDF v1
+  supports controlled cylinder, box, rounded-box and asymmetric evaluation, but
+  uses a coarse single-view visual hull and local tactile corrections; it is not
+  yet a robust arbitrary-object reconstructor.
 - The tactile baseline uses a representative point along each calibrated sensor
   normal; a scalar pad does not reveal tangential position within its area.
 - Collision hulls and sensor mounts are engineering approximations, not measured
@@ -628,17 +657,16 @@ penetration have not been scientifically validated.
 - The color-based RGB mask is a controlled experimental assumption. In the
   four-condition 40 mm run, three of four known-radius fits were unreliable under
   offset/occlusion effects.
-- The current RGB+tactile implementation is a geometric known-radius sphere
-  baseline, not a final/general fusion method. There is no vision-based object
-  tracker, learned reconstruction, or actual hardware transport/motor control.
+- The general-object experiment assumes a declared rigid fixture pose. There is
+  no measured object tracker, learned SDF decoder, multi-view temporal fusion,
+  actual hardware transport, or real motor control.
 - CAD/URDF/STL ownership and redistribution terms must be confirmed before any
   remote repository includes `assets/`; see
   [docs/repository_snapshot_plan.md](docs/repository_snapshot_plan.md).
 
-The current milestone stops at reliability-aware geometric Fusion v2, its
-negative/ablation results, and future object-centric interface documentation. It
-does not start neural fusion, general-object reconstruction, regrasp, on-device
-deployment, or real motor control.
+The current milestone stops at static, controlled object-centric SDF v1 and its
+visible/occluded/contact/sparsity evaluation. It does not start free regrasp,
+real motor control, VLM integration, or NPU deployment.
 
 ## Layout
 
@@ -648,11 +676,12 @@ tactile_shape_reconstruction/
 ├── simulation/             # MJCF generators, models, runner, object definitions
 ├── sensors/                # right/left surface catalogs and shared FK
 ├── reconstruction/         # ground-truth-free contacts and sphere fitting
+├── general_object/         # object-centric RGB/tactile dense-SDF baseline
 ├── evaluation/             # one-way MuJoCo ground-truth comparison and metrics
 ├── vision/                 # calibrated RGB observation and transparent baseline
 ├── robot_data/             # simulation/replay/read-only hardware common state
 ├── backend/                # versioned WebSocket state/control server
 ├── ui/                     # four-quadrant browser dashboard
 ├── tests/                  # model, transforms, controls, and collision tests
-└── experiments/            # temporal buffer configuration and saved sphere runs
+└── experiments/            # frozen protocols, metrics, and saved runs
 ```

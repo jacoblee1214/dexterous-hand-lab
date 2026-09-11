@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tactile Sphere Reconstruction</title>
-  <link rel="stylesheet" href="styles.css?v=reliability-aware-fusion-v2-20260909.1">
+  <title>Tactile Shape Reconstruction</title>
+  <link rel="stylesheet" href="styles.css?v=general-object-sdf-v1-20260910.1">
   <script type="importmap">
     {"imports": {"three": "./vendor/three/build/three.module.js"}}
   </script>
@@ -12,9 +12,9 @@
 <body>
   <header>
     <div>
-      <h1>Tactile Sphere Reconstruction</h1>
-      <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE ONLY</span>
-      <span id="build-id" class="build-id">UI reliability-aware-fusion-v2-20260909.1 · API —</span>
+      <h1>Tactile Shape Reconstruction</h1>
+      <span class="subtitle">RIGHT HAND · 18 PHYSICAL CHANNELS · SPHERE A–E + GENERAL OBJECT SDF</span>
+      <span id="build-id" class="build-id">UI general-object-sdf-v1-20260910.1 · API —</span>
     </div>
     <div><span id="data-source" class="metric-pill">SOURCE —</span> <span id="connection" class="connection offline">Disconnected</span></div>
   </header>
@@ -189,12 +189,16 @@
         <span id="fit-status" class="status-badge">NOT_FITTED</span>
       </div>
       <div class="toolbar wrap">
-        <button data-command="start_accumulation" class="primary">Start Accumulation</button>
-        <button data-command="pause_accumulation">Pause Accumulation</button>
-        <button data-command="reset_points">Reset Points</button>
-        <button data-command="fit_sphere" class="primary">Fit Sphere</button>
-        <button data-command="reset_fit">Reset Fit</button>
-        <label><input id="show-estimated" type="checkbox" checked> Show Estimated Sphere</label>
+        <label>Mode <select id="reconstruction-family">
+          <option value="sphere">Sphere A–E baselines</option>
+          <option value="general_object">General Object SDF v1</option>
+        </select></label>
+        <button data-sphere-control data-command="start_accumulation" class="primary">Start Accumulation</button>
+        <button data-sphere-control data-command="pause_accumulation">Pause Accumulation</button>
+        <button data-sphere-control data-command="reset_points">Reset Points</button>
+        <button data-sphere-control data-command="fit_sphere" class="primary">Fit Sphere</button>
+        <button data-sphere-control data-command="reset_fit">Reset Fit</button>
+        <label data-sphere-control><input id="show-estimated" type="checkbox" checked> Show Estimated Sphere</label>
         <label class="evaluation-toggle"><input id="show-ground-truth" type="checkbox"> Show Ground Truth</label>
       </div>
       <div class="reconstruction-body">
@@ -230,11 +234,31 @@
           </div>
         </details>
       </div>
+      <div id="general-object-metrics" class="vision-card general-object-card hidden">
+        <div class="fusion-heading"><h3>General Object Reconstruction</h3>
+          <label>Inspect <select id="general-object-method">
+            <option value="rgb_reliability_tactile">RGB + reliability-aware tactile</option>
+            <option value="rgb_finite_patch_tactile">RGB + finite-patch tactile</option>
+            <option value="rgb_representative_tactile">RGB + representative tactile</option>
+            <option value="tactile_only">Tactile only</option>
+            <option value="rgb_only">RGB only</option>
+            <option value="rgb_perfect_contact_oracle">Perfect-contact oracle (evaluation only)</option>
+          </select></label>
+        </div>
+        <div class="general-input-grid">
+          <figure><img id="general-object-rgb" alt="GT-free RGB algorithm observation"><figcaption>Clean RGB input</figcaption></figure>
+          <figure><canvas id="general-object-visibility" aria-label="Input visibility and occlusion classes"></canvas><figcaption>Visibility mask · <i class="mask-object"></i>object <i class="mask-hand"></i>hand-occluded <i class="mask-unreliable"></i>unreliable</figcaption></figure>
+        </div>
+        <p>Waiting for the reproducible general-object replay artifact…</p>
+        <details><summary>Input / prediction / evaluation boundary</summary>
+          <p>Input: calibrated RGB visibility plus named scalar tactile patches in a declared static fixture frame. Prediction: a rotatable object-centric dense SDF zero surface. GT is evaluation-only and hidden by default. No radius, object identity, CAD, GT pose, mesh, contact point or contact normal enters the proposed methods.</p>
+        </details>
+      </div>
         </div>
       </div>
     </section>
   </main>
   <div id="toast" role="status"></div>
-  <script src="app.js?v=reliability-aware-fusion-v2-20260909.1"></script>
+  <script src="app.js?v=general-object-sdf-v1-20260910.1"></script>
 </body>
 </html>

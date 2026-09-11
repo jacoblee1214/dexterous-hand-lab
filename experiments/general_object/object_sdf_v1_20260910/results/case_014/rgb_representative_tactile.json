@@ -1,0 +1,131 @@
+{
+  "algorithm": {
+    "bounds_m": [
+      [
+        -0.065,
+        -0.065,
+        -0.065
+      ],
+      [
+        0.065,
+        0.065,
+        0.065
+      ]
+    ],
+    "confidence": 0.6111111111111112,
+    "diagnostics": {
+      "active_raw_tactile_count": 2,
+      "applied_contact_constraints": [
+        {
+          "point_object_m": [
+            -0.007283091643816061,
+            -0.030074229825018554,
+            -0.027087787805248488
+          ],
+          "pre_constraint_sdf_m": -0.02543478272855282,
+          "sensor_id": "sim_sensor_01",
+          "source": "representative_point",
+          "weight": 1.0
+        },
+        {
+          "point_object_m": [
+            -0.008336390876573398,
+            0.0006265781182297175,
+            0.04548798596112104
+          ],
+          "pre_constraint_sdf_m": -0.008478259705999365,
+          "sensor_id": "sim_sensor_02",
+          "source": "representative_point",
+          "weight": 1.0
+        }
+      ],
+      "candidate_voxel_fraction": 0.5967158564814815,
+      "coverage_score": 0.2222222222222222,
+      "effective_latest_sensor_count": 2,
+      "estimated_grid_operations": 746496,
+      "finger_count": 2,
+      "foreground_supported_voxel_fraction": 0.22938368055555555,
+      "ground_truth_input": false,
+      "hand_occluded_is_empty_space": false,
+      "inactive_sensors_used_as_free_space": false,
+      "input_boundary": "calibrated RGB/features/visibility + declared static object frame + named scalar tactile patches; no CAD, shape identity, GT pose, GT surface or GT normals",
+      "known_background_is_empty_space": true,
+      "known_radius_input": false,
+      "object_identity_input": false,
+      "parameter_count": 0,
+      "sensor_count": 2,
+      "spatial_spread_m": 0.07880921256699115,
+      "surface_point_count": 2056,
+      "tactile_constraint_mode": "representative",
+      "unknown_preserved_voxel_fraction": 0.36733217592592593,
+      "unknown_rays_penalized_as_empty": false
+    },
+    "grid_resolution": 24,
+    "method": "rgb_representative_tactile",
+    "representation": "object-centric_dense_sdf_grid",
+    "runtime_ms": 11.95248612202704,
+    "status": "VALID_RECONSTRUCTION"
+  },
+  "evaluation": {
+    "algorithm_status": "VALID_RECONSTRUCTION",
+    "boundary": "evaluation_only_truth_consumed_after_reconstruction",
+    "contact_region": {
+      "completeness": {
+        "0.002": 0.0,
+        "0.005": 0.46113989637305697
+      },
+      "count": 193,
+      "mean_point_to_surface_m": 0.005735571068368587,
+      "median_point_to_surface_m": 0.005181970615181201
+    },
+    "f_score": {
+      "0.002": 0.0,
+      "0.005": 0.01361248610970805
+    },
+    "ground_truth_was_algorithm_input": false,
+    "method": "rgb_representative_tactile",
+    "precision": {
+      "0.002": 0.0,
+      "0.005": 0.010700389105058366
+    },
+    "recall_completeness": {
+      "0.002": 0.0,
+      "0.005": 0.01870229007633588
+    },
+    "regions": {
+      "occluded_by_hand": {
+        "completeness": {
+          "0.002": 0.0,
+          "0.005": 0.006200177147918512
+        },
+        "count": 1129,
+        "mean_point_to_surface_m": 0.021290564273142683,
+        "median_point_to_surface_m": 0.020749161252746
+      },
+      "other_unobserved": {
+        "completeness": {
+          "0.002": 0.0,
+          "0.005": 0.00726321905868681
+        },
+        "count": 3442,
+        "mean_point_to_surface_m": 0.020366040174942122,
+        "median_point_to_surface_m": 0.017306822928311035
+      },
+      "visible_to_rgb": {
+        "completeness": {
+          "0.002": 0.0,
+          "0.005": 0.09865470852017937
+        },
+        "count": 669,
+        "mean_point_to_surface_m": 0.013072385657325646,
+        "median_point_to_surface_m": 0.013216646562447783
+      }
+    },
+    "surface_counts": {
+      "ground_truth": 5240,
+      "predicted": 2056
+    },
+    "whole_surface_chamfer_l1_m": 0.04529250769011454,
+    "whole_surface_point_to_surface_m": 0.019634042624290027
+  }
+}

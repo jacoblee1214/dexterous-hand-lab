@@ -19,7 +19,7 @@ import pytest
 
 pytestmark = pytest.mark.skipif(os.environ.get("RUN_BROWSER_TESTS") != "1", reason="Opt-in Chromium validation")
 ROOT = Path(__file__).parents[1]
-BUILD_ID = "reliability-aware-fusion-v2-20260909.1"
+BUILD_ID = "general-object-sdf-v1-20260910.1"
 
 
 def free_port():
@@ -207,6 +207,24 @@ def test_actual_browser_sphere_controls_four_panels_and_disconnect(tmp_path):
         assert "Joint condition:" in page.locator("#fusion-metrics").inner_text()
         page.locator(".fusion-help").evaluate("element => element.open = true")
         assert "Scalar pressure is a magnitude-like normal response" in page.locator(".fusion-help").inner_text()
+        assert page.evaluate("state.general_object_reconstruction.status") == "AVAILABLE"
+        general_state = page.evaluate("state.general_object_reconstruction")
+        assert "ground_truth" not in json.dumps(general_state).lower()
+        page.locator("#reconstruction-family").select_option("general_object")
+        page.wait_for_function(
+            "document.querySelector('#general-object-rgb').complete && "
+            "document.querySelector('#general-object-rgb').naturalWidth > 0 && "
+            "document.querySelector('#general-object-visibility').width > 1"
+        )
+        assert page.locator("#general-object-metrics").is_visible()
+        assert "Visibility mask" in page.locator("#general-object-metrics").inner_text()
+        assert page.locator('[data-command="fit_sphere"]').is_hidden()
+        assert page.locator("header h1").inner_text() == "Tactile Shape Reconstruction"
+        assert "object identity/radius input: NO" in page.locator("#general-object-metrics").inner_text()
+        assert "finite_patch" in page.locator("#general-object-metrics").inner_text()
+        capture(page, "general-object-sdf-dashboard.png", tmp_path)
+        page.locator("#reconstruction-family").select_option("sphere")
+        assert page.locator("#general-object-metrics").is_hidden()
         assert page.evaluate("state.camera.depth_available") is False
         assert page.evaluate("state.camera.timestamp === state.research_rgb.simulation_timestamp")
         base = url.split('/?')[0]

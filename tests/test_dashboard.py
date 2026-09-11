@@ -64,12 +64,14 @@ def test_versioned_state_has_four_panel_data_and_hides_gt_by_default(engine):
         "evaluation",
         "render",
         "fusion",
+        "general_object_reconstruction",
     ):
         assert group in state
     assert len(state["joints"]) == 20
     assert len(state["sensors"]) == 18
     assert state["evaluation"] == {"enabled": False}
     assert state["fusion"]["configuration_version"] == "reliability-aware-geometric-fusion-v2"
+    assert state["general_object_reconstruction"]["status"] == "AVAILABLE"
     assert "ground_truth" not in json.dumps(state).lower()
     json.dumps(state, allow_nan=False)
 
@@ -134,9 +136,15 @@ def test_gt_appears_only_through_optional_evaluation_payload(engine):
     state = engine.state()
     assert state["evaluation"]["enabled"] is True
     assert state["evaluation"]["ground_truth_sphere"]["radius_m"] == pytest.approx(0.03)
+    assert state["general_object_reconstruction"]["evaluation_comparison_enabled"] is True
+    assert state["general_object_reconstruction"]["evaluation_surface_points_object_m"]
+    assert "rgb_perfect_contact_oracle" in state["general_object_reconstruction"]["methods"]
     assert state["sphere_reconstruction"] == reconstruction_before
     engine.handle_command(message("show_ground_truth", enabled=False))
-    assert engine.state()["evaluation"] == {"enabled": False}
+    state = engine.state()
+    assert state["evaluation"] == {"enabled": False}
+    assert "evaluation_surface_points_object_m" not in state["general_object_reconstruction"]
+    assert "rgb_perfect_contact_oracle" not in state["general_object_reconstruction"]["methods"]
 
 
 def test_sensor_selection_and_time_series_scope_are_explicit(engine):
